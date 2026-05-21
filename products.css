@@ -1,0 +1,13 @@
+﻿/* Products CSS compatibility manifest.
+   Edit the split files directly:
+   - product-layout.css
+   - product-components.css
+   - product-mobile.css
+   - buddy.css
+   - recommendation.css
+*/
+@import url('product-layout.css');
+@import url('buddy.css');
+@import url('product-components.css');
+@import url('recommendation.css');
+@import url('product-mobile.css');

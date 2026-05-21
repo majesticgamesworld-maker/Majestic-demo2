@@ -1,0 +1,271 @@
+﻿/* Responsive core: small shared viewport fixes, image zoom, and early home category overrides. */
+
+/* Responsive: media queries and viewport-specific overrides */
+
+@media (max-width: 640px) {
+  .product-info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Product zoom gallery controls */
+.image-zoom-shell {
+  grid-template-rows: auto minmax(0, 1fr) auto;
+}
+
+.image-zoom-stage {
+  position: relative;
+}
+
+.image-zoom-nav {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(17,17,17,0.14);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.94);
+  color: #0A1515;
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+  transform: translateY(-50%);
+  box-shadow: 0 14px 34px rgba(0,0,0,0.18);
+}
+
+.image-zoom-nav:hover {
+  border-color: rgba(255,77,46,0.36);
+  background: #fff5f3;
+}
+
+.image-zoom-prev {
+  left: 16px;
+}
+
+.image-zoom-next {
+  right: 16px;
+}
+
+.image-zoom-thumbs {
+  display: none;
+  gap: 8px;
+  align-items: center;
+  overflow-x: auto;
+  padding: 10px 14px 14px;
+  border-top: 1px solid rgba(15,23,42,0.08);
+  background: rgba(255,255,255,0.96);
+}
+
+.image-zoom-thumb {
+  flex: 0 0 auto;
+  width: 68px;
+  height: 54px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  background: #ffffff;
+  padding: 2px;
+}
+
+.image-zoom-thumb.active {
+  border-color: #ff4d2e;
+}
+
+.image-zoom-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 7px;
+}
+
+@media (max-width: 640px) {
+  .image-zoom-nav {
+    width: 38px;
+    height: 38px;
+    font-size: 1.55rem;
+  }
+
+  .image-zoom-prev {
+    left: 8px;
+  }
+
+  .image-zoom-next {
+    right: 8px;
+  }
+
+  .image-zoom-thumbs {
+    padding: 8px;
+  }
+
+  .image-zoom-thumb {
+    width: 58px;
+    height: 46px;
+  }
+}
+
+/* Reference-style category artwork cards */
+body[data-page="home"] .categories-section {
+  background:
+    radial-gradient(circle at 0 30%, rgba(255, 112, 67, 0.08), transparent 150px),
+    radial-gradient(circle at 100% 82%, rgba(255, 112, 67, 0.08), transparent 170px),
+    #ffffff !important;
+  padding-top: 24px !important;
+  padding-bottom: 24px !important;
+}
+
+body[data-page="home"] .categories-section .section-header {
+  align-items: flex-end;
+  margin-bottom: 12px !important;
+}
+
+body[data-page="home"] .categories-section .section-header h2 {
+  color: #10243d !important;
+  font-family: 'Fredoka', 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: clamp(2rem, 3.2vw, 2.75rem) !important;
+  font-weight: 800 !important;
+  line-height: 0.98 !important;
+  letter-spacing: 0 !important;
+}
+
+body[data-page="home"] .categories-section .section-accent-line {
+  width: 58px !important;
+  max-width: 58px !important;
+  height: 5px !important;
+  flex: 0 0 58px !important;
+  margin-bottom: 4px;
+  background: #ff5a1f !important;
+}
+
+body[data-page="home"] .categories-grid {
+  gap: clamp(8px, 0.9vw, 12px) !important;
+}
+
+body[data-page="home"] .categories-section .cat-card-link {
+  min-height: 168px !important;
+  justify-content: flex-end !important;
+  align-items: flex-start !important;
+  gap: 8px !important;
+  padding: 108px 12px 12px !important;
+  border: 1px solid rgba(16, 36, 61, 0.08) !important;
+  border-radius: 18px !important;
+  background-color: #ffffff !important;
+  background-image: var(--cat-bg-image) !important;
+  background-repeat: no-repeat !important;
+  background-size: calc(100% - 28px) 88px !important;
+  background-position: center 14px !important;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.95) inset,
+    0 12px 34px rgba(16, 36, 61, 0.10) !important;
+  filter: none !important;
+}
+
+body[data-page="home"] .categories-section .cat-card-link::before,
+body[data-page="home"] .categories-section .cat-card-link::after {
+  display: none !important;
+}
+
+body[data-page="home"] .categories-section .cat-card-link:hover {
+  transform: translateY(-4px) !important;
+  border-color: rgba(0, 255, 239, 0.72) !important;
+  background-position: center 16px !important;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.95) inset,
+    inset 0 0 18px rgba(0, 255, 239, 0.12),
+    0 0 0 1px rgba(0, 255, 239, 0.55),
+    0 0 16px rgba(0, 255, 239, 0.72),
+    0 0 34px rgba(0, 255, 239, 0.42),
+    0 0 48px rgba(255, 47, 145, 0.36),
+    0 0 70px rgba(255, 90, 31, 0.26),
+    0 20px 42px rgba(16, 36, 61, 0.16) !important;
+}
+
+body[data-page="home"] .categories-section .cat-icon {
+  display: none !important;
+}
+
+body[data-page="home"] .categories-section .cat-label {
+  color: #10243d !important;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: clamp(0.82rem, 1.1vw, 0.98rem) !important;
+  font-weight: 800 !important;
+  line-height: 1.18 !important;
+  text-align: left !important;
+  text-shadow: none !important;
+}
+
+body[data-page="home"] .categories-section .cat-count-label {
+  display: inline-flex !important;
+  align-items: center !important;
+  min-height: 28px !important;
+  padding: 5px 11px !important;
+  border: 1px solid currentColor !important;
+  border-radius: 999px !important;
+  background: rgba(255,255,255,0.78) !important;
+  color: #ff5a1f !important;
+  font-size: 0.72rem !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  text-transform: none !important;
+  text-shadow: none !important;
+}
+
+body[data-page="home"] .categories-section .cat-card-link[href*="card-games"] .cat-count-label,
+body[data-page="home"] .categories-section .cat-card-link[href*="stem-toys"] .cat-count-label {
+  color: #0aa69f !important;
+}
+
+body[data-page="home"] .categories-section .cat-card-link[href*="kids-games"] .cat-count-label {
+  color: #5fb336 !important;
+}
+
+body[data-page="home"] .categories-section .cat-card-link[href*="puzzles"] .cat-count-label,
+body[data-page="home"] .categories-section .cat-card-link[href*="christian-games"] .cat-count-label,
+body[data-page="home"] .categories-section .cat-card-link[href*="musical-toys"] .cat-count-label {
+  color: #9358ce !important;
+}
+
+body[data-page="home"] .categories-section .cat-card-link[href*="trivia-games"] .cat-count-label {
+  color: #1687d9 !important;
+}
+
+body[data-page="home"] .categories-section .cat-card-link[href*="infant-toys"] .cat-count-label,
+body[data-page="home"] .categories-section .cat-card-link[href*="dolls"] .cat-count-label,
+body[data-page="home"] .categories-section .cat-card-link[href*="party-games"] .cat-count-label {
+  color: #ec3f94 !important;
+}
+
+body[data-page="home"] .categories-section .cat-card-link[href*="couples-games"] .cat-count-label {
+  color: #ff3838 !important;
+}
+
+body[data-page="home"] .categories-section .cat-card-group {
+  cursor: pointer !important;
+}
+
+body[data-page="home"] .categories-section .cat-card-group .cat-icon,
+body[data-page="home"] .categories-section .cat-card-group .cat-label,
+body[data-page="home"] .categories-section .cat-card-group .cat-count-label {
+  position: relative;
+  z-index: 2;
+}
+
+body[data-page="home"] .categories-section .cat-card-group .cat-count-label {
+  color: #0aa69f !important;
+}
+
+@media (max-width: 767px) {
+  body[data-page="home"] .categories-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  body[data-page="home"] .categories-section .cat-card-link {
+    min-height: 156px !important;
+    padding: 100px 10px 10px !important;
+    background-size: calc(100% - 20px) 78px !important;
+    background-position: center 12px !important;
+  }
+}
+

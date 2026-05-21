@@ -1,0 +1,21 @@
+﻿/* Responsive CSS compatibility manifest.
+   Edit the split files directly:
+   - responsive-core.css
+   - responsive-navigation-shell.css
+   - responsive-catalog.css
+   - responsive-mobile-pages.css
+   - responsive-product.css
+   - responsive-home-contact.css
+   - responsive-buddy.css
+   - responsive-cross-page.css
+   - responsive-mobile-audit.css
+*/
+@import url('responsive-core.css');
+@import url('responsive-navigation-shell.css');
+@import url('responsive-catalog.css');
+@import url('responsive-mobile-pages.css');
+@import url('responsive-product.css');
+@import url('responsive-home-contact.css');
+@import url('responsive-buddy.css');
+@import url('responsive-cross-page.css');
+@import url('responsive-mobile-audit.css');

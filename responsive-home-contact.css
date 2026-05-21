@@ -1,0 +1,407 @@
+﻿/* Responsive home/contact/category: generated collection art, home hero, contact hero, and category cards. */
+
+/* Keep generated collection hero artwork active after responsive overrides. */
+body[data-page="bestsellers"] .page-header.collection-hero,
+body[data-page="bestsellers"] .page-header.collection-hero.collection-hero-bestsellers {
+  --page-hero-bg: url("images/background images/hero-bestsellers-v2.webp");
+  background:
+    linear-gradient(90deg, rgba(3, 4, 10, 0.68) 0%, rgba(3, 4, 10, 0.42) 40%, rgba(3, 4, 10, 0.08) 72%, rgba(3, 4, 10, 0.02) 100%),
+    var(--page-hero-bg) center / cover no-repeat !important;
+}
+
+body[data-page="new-arrivals"] .page-header.collection-hero {
+  --page-hero-bg: url("images/background images/hero-new-arrivals-v2.webp");
+  background:
+    linear-gradient(90deg, rgba(3, 8, 14, 0.82) 0%, rgba(3, 8, 14, 0.58) 42%, rgba(3, 8, 14, 0.16) 74%, rgba(3, 8, 14, 0.04) 100%),
+    var(--page-hero-bg) center / cover no-repeat !important;
+}
+
+body[data-page="gift-picks"] .page-header.collection-hero {
+  --page-hero-bg: url("images/background images/hero-gift-picks-v2.webp");
+  background:
+    linear-gradient(90deg, rgba(5, 3, 8, 0.8) 0%, rgba(5, 3, 8, 0.58) 42%, rgba(5, 3, 8, 0.18) 74%, rgba(5, 3, 8, 0.04) 100%),
+    var(--page-hero-bg) center / cover no-repeat !important;
+}
+
+body[data-page="bestsellers"] .page-header.collection-hero::before,
+body[data-page="new-arrivals"] .page-header.collection-hero::before,
+body[data-page="gift-picks"] .page-header.collection-hero::before {
+  display: none !important;
+}
+
+.collection-hero,
+.collection-hero .breadcrumb,
+.collection-hero .hero-kicker,
+.collection-hero .page-header-title,
+.collection-hero .page-header-title span,
+.collection-hero .page-header-sub,
+.collection-hero .hero-actions a,
+.collection-hero .hero-points span,
+.collection-hero .hero-points b,
+.collection-hero .hero-points small,
+.bestsellers-metric-bar,
+.bestsellers-metric-bar strong,
+.bestsellers-metric-bar span {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
+}
+
+body[data-page="bestsellers"] .collection-hero .page-header-title,
+body[data-page="bestsellers"] .collection-hero .page-header-title span,
+body[data-page="new-arrivals"] .collection-hero .page-header-title,
+body[data-page="new-arrivals"] .collection-hero .page-header-title span,
+body[data-page="gift-picks"] .collection-hero .page-header-title,
+body[data-page="gift-picks"] .collection-hero .page-header-title span {
+  font-family: 'Fredoka', 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: 0;
+}
+
+body[data-page="contact"] #page-contact .collection-hero .page-header-title,
+body[data-page="contact"] #page-contact .collection-hero .page-header-title span {
+  font-family: 'Fredoka', 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: 0;
+}
+
+/* Home hero final height trim. */
+body[data-page="home"] .hero-section {
+  min-height: 540px !important;
+  height: min(68svh, 620px) !important;
+}
+
+body[data-page="home"] .hero-content {
+  padding: clamp(116px, 12vh, 148px) 0 56px !important;
+}
+
+@media (max-width: 767px) {
+  body[data-page="home"] .hero-section {
+    min-height: 520px !important;
+    height: min(70svh, 580px) !important;
+  }
+
+  body[data-page="home"] .hero-content {
+    padding: 114px 0 50px !important;
+  }
+}
+
+/* Home hero alignment: keep copy clear of the logo/nav and lower controls. */
+body[data-page="home"] .hero-stage {
+  align-items: end !important;
+  min-height: 0 !important;
+}
+
+body[data-page="home"] .hero-text {
+  max-width: 640px !important;
+  padding-top: 38px !important;
+}
+
+body[data-page="home"] .hero-badge {
+  margin-bottom: 12px !important;
+}
+
+body[data-page="home"] .hero-title {
+  max-width: 650px !important;
+  margin-bottom: 14px !important;
+  font-size: clamp(3rem, 6.2vw, 5.55rem) !important;
+  line-height: 0.92 !important;
+}
+
+body[data-page="home"] .hero-desc {
+  margin-bottom: 16px !important;
+}
+
+body[data-page="home"] .hero-ctas {
+  gap: 12px !important;
+  margin-bottom: 8px !important;
+}
+
+body[data-page="home"] .hero-dots {
+  bottom: 28px !important;
+}
+
+@media (max-width: 767px) {
+  body[data-page="home"] .hero-stage {
+    align-items: end !important;
+  }
+
+  body[data-page="home"] .hero-text {
+    padding-top: 26px !important;
+  }
+
+  body[data-page="home"] .hero-title {
+    font-size: clamp(2.55rem, 13vw, 3.75rem) !important;
+    line-height: 0.94 !important;
+  }
+
+  body[data-page="home"] .hero-dots {
+    bottom: 20px !important;
+  }
+}
+
+/* Contact hero revamp: support-focused image with clearer contact actions. */
+body[data-page="contact"] #page-contact .collection-hero {
+  min-height: clamp(430px, 50vh, 540px) !important;
+  padding: clamp(126px, 11vw, 150px) 0 clamp(42px, 5vw, 58px) !important;
+  background:
+    linear-gradient(90deg, rgba(0, 4, 9, 0.94) 0%, rgba(0, 6, 12, 0.78) 38%, rgba(0, 6, 12, 0.22) 72%, rgba(0, 6, 12, 0.04) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.38) 100%),
+    url("images/background images/contact-hero-support-generated.webp") center / cover no-repeat !important;
+  border-bottom: 0 !important;
+  overflow: hidden !important;
+}
+
+body[data-page="contact"] #page-contact .collection-hero::before,
+body[data-page="contact"] #page-contact .collection-hero::after {
+  display: none !important;
+}
+
+body[data-page="contact"] #page-contact .collection-hero > .container {
+  width: min(calc(100% - 104px), 1180px) !important;
+  max-width: 1180px !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+body[data-page="contact"] #page-contact .hero-kicker {
+  display: inline-flex !important;
+  align-items: center !important;
+  min-height: 34px !important;
+  margin-bottom: 18px !important;
+  padding: 8px 14px !important;
+  border: 1px solid rgba(252, 57, 3, 0.45) !important;
+  border-radius: 999px !important;
+  background: rgba(252, 57, 3, 0.92) !important;
+  color: #ffffff !important;
+  font-size: 0.72rem !important;
+  letter-spacing: 0.08em !important;
+}
+
+body[data-page="contact"] #page-contact .page-header-title {
+  max-width: 560px !important;
+  margin-bottom: 18px !important;
+  font-size: clamp(3.6rem, 7.4vw, 6.6rem) !important;
+  line-height: 0.9 !important;
+  color: #ffffff !important;
+}
+
+body[data-page="contact"] #page-contact .page-header-sub {
+  max-width: 760px !important;
+  margin-bottom: 22px !important;
+  color: rgba(255, 255, 255, 0.92) !important;
+  font-size: clamp(1.05rem, 1.7vw, 1.35rem) !important;
+  line-height: 1.55 !important;
+}
+
+body[data-page="contact"] #page-contact .hero-points {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 10px !important;
+  margin-top: 0 !important;
+}
+
+body[data-page="contact"] #page-contact .hero-points span {
+  display: inline-flex !important;
+  align-items: center !important;
+  min-height: 38px !important;
+  padding: 9px 14px !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+  backdrop-filter: blur(10px) !important;
+  font-size: 0.88rem !important;
+  font-weight: 900 !important;
+}
+
+@media (max-width: 767px) {
+  body[data-page="contact"] #page-contact .collection-hero {
+    min-height: 450px !important;
+    padding: 108px 0 34px !important;
+    background:
+      linear-gradient(90deg, rgba(0, 4, 9, 0.96) 0%, rgba(0, 5, 10, 0.86) 52%, rgba(0, 5, 10, 0.38) 100%),
+      url("images/background images/contact-hero-support-generated.webp") 63% center / cover no-repeat !important;
+  }
+
+  body[data-page="contact"] #page-contact .collection-hero > .container {
+    width: min(calc(100% - 32px), 430px) !important;
+    max-width: 430px !important;
+  }
+
+  body[data-page="contact"] #page-contact .page-header-title {
+    max-width: 330px !important;
+    font-size: clamp(2.8rem, 14vw, 4rem) !important;
+  }
+
+  body[data-page="contact"] #page-contact .page-header-sub {
+    max-width: 100% !important;
+    font-size: 0.95rem !important;
+    line-height: 1.5 !important;
+  }
+
+  body[data-page="contact"] #page-contact .hero-points {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+
+  body[data-page="contact"] #page-contact .hero-points span {
+    width: 100% !important;
+    border-radius: 14px !important;
+    font-size: 0.78rem !important;
+  }
+}
+
+/* Final reference-style category artwork cards */
+body[data-page="home"] .categories-section {
+  background:
+    radial-gradient(circle at 0 30%, rgba(255, 112, 67, 0.08), transparent 150px),
+    radial-gradient(circle at 100% 82%, rgba(255, 112, 67, 0.08), transparent 170px),
+    #ffffff !important;
+  padding-top: 34px !important;
+  padding-bottom: 34px !important;
+}
+
+body[data-page="home"] .categories-section .section-header {
+  align-items: flex-end;
+  margin-bottom: 18px !important;
+}
+
+body[data-page="home"] .categories-section .section-header h2 {
+  color: #10243d !important;
+  font-family: 'Fredoka', 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: clamp(2rem, 3.2vw, 2.75rem) !important;
+  font-weight: 800 !important;
+  line-height: 0.98 !important;
+  letter-spacing: 0 !important;
+}
+
+body[data-page="home"] .categories-section .section-accent-line {
+  width: 58px !important;
+  max-width: 58px !important;
+  height: 5px !important;
+  flex: 0 0 58px !important;
+  margin-bottom: 4px;
+  background: #ff5a1f !important;
+}
+
+body[data-page="home"] .categories-grid {
+  gap: clamp(10px, 1.1vw, 14px) !important;
+}
+
+body[data-page="home"] .categories-section .cat-card-link {
+  min-height: 196px !important;
+  justify-content: flex-end !important;
+  align-items: flex-start !important;
+  gap: 8px !important;
+  padding: 132px 14px 14px !important;
+  border: 1px solid rgba(16, 36, 61, 0.08) !important;
+  border-radius: 18px !important;
+  background-color: #ffffff !important;
+  background-image: var(--cat-bg-image) !important;
+  background-repeat: no-repeat !important;
+  background-size: calc(100% - 28px) 108px !important;
+  background-position: center 16px !important;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.95) inset,
+    0 12px 34px rgba(16, 36, 61, 0.10) !important;
+  filter: none !important;
+}
+
+body[data-page="home"] .categories-section .cat-card-link::before,
+body[data-page="home"] .categories-section .cat-card-link::after {
+  display: none !important;
+}
+
+body[data-page="home"] .categories-section .cat-card-link:hover {
+  transform: translateY(-4px) !important;
+  border-color: rgba(0, 255, 239, 0.72) !important;
+  background-position: center 16px !important;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.95) inset,
+    inset 0 0 18px rgba(0, 255, 239, 0.12),
+    0 0 0 1px rgba(0, 255, 239, 0.55),
+    0 0 16px rgba(0, 255, 239, 0.72),
+    0 0 34px rgba(0, 255, 239, 0.42),
+    0 0 48px rgba(255, 47, 145, 0.36),
+    0 0 70px rgba(255, 90, 31, 0.26),
+    0 20px 42px rgba(16, 36, 61, 0.16) !important;
+}
+
+body[data-page="home"] .categories-section .cat-icon {
+  display: none !important;
+}
+
+body[data-page="home"] .categories-section .cat-label {
+  color: #10243d !important;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-size: clamp(0.82rem, 1.1vw, 0.98rem) !important;
+  font-weight: 800 !important;
+  line-height: 1.18 !important;
+  text-align: left !important;
+  text-shadow: none !important;
+}
+
+body[data-page="home"] .categories-section .cat-count-label {
+  display: inline-flex !important;
+  align-items: center !important;
+  min-height: 28px !important;
+  padding: 5px 11px !important;
+  border: 1px solid currentColor !important;
+  border-radius: 999px !important;
+  background: rgba(255,255,255,0.78) !important;
+  color: #ff5a1f !important;
+  font-size: 0.72rem !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  text-transform: none !important;
+  text-shadow: none !important;
+}
+
+body[data-page="home"] .categories-section .cat-card-link[href*="card-games"] .cat-count-label,
+body[data-page="home"] .categories-section .cat-card-link[href*="stem-toys"] .cat-count-label {
+  color: #0aa69f !important;
+}
+
+body[data-page="home"] .categories-section .cat-card-link[href*="kids-games"] .cat-count-label {
+  color: #5fb336 !important;
+}
+
+body[data-page="home"] .categories-section .cat-card-link[href*="puzzles"] .cat-count-label,
+body[data-page="home"] .categories-section .cat-card-link[href*="christian-games"] .cat-count-label,
+body[data-page="home"] .categories-section .cat-card-link[href*="musical-toys"] .cat-count-label {
+  color: #9358ce !important;
+}
+
+body[data-page="home"] .categories-section .cat-card-link[href*="trivia-games"] .cat-count-label {
+  color: #1687d9 !important;
+}
+
+body[data-page="home"] .categories-section .cat-card-link[href*="infant-toys"] .cat-count-label,
+body[data-page="home"] .categories-section .cat-card-link[href*="dolls"] .cat-count-label,
+body[data-page="home"] .categories-section .cat-card-link[href*="party-games"] .cat-count-label {
+  color: #ec3f94 !important;
+}
+
+body[data-page="home"] .categories-section .cat-card-link[href*="couples-games"] .cat-count-label {
+  color: #ff3838 !important;
+}
+
+@media (max-width: 767px) {
+  body[data-page="home"] .categories-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  body[data-page="home"] .categories-section .cat-card-link {
+    min-height: 178px !important;
+    padding: 120px 12px 12px !important;
+    background-size: calc(100% - 20px) 96px !important;
+    background-position: center 14px !important;
+  }
+
+  body[data-page="home"] .categories-section .cat-card-group {
+    min-height: 156px !important;
+  }
+}
+

@@ -1,0 +1,293 @@
+Mobile Layout Review
+Mobile Strengths
+1. Viewport Meta Tag Exists
+The main page includes the correct responsive viewport tag:
+width=device-width, initial-scale=1.0
+This is good and necessary for mobile rendering.
+2. Mobile Navigation Exists
+The project has:
+mobile overlay
+mobile drawer
+hamburger button
+close button
+mobile category container
+mobile footer CTA
+This is a strong mobile foundation.
+• 
+• 
+• 
+• 
+• 
+• 
+22
+
+--- PAGE 23 ---
+3. Product Grid Has Mobile Breakpoints
+The product grid changes across widths:
+small screens: fewer columns
+tablet/desktop: more columns
+large desktop: up to 5 columns
+This is good.
+4. Quick View Modal Has Mobile Rules
+The quick-view modal has mobile-specific styles:
+bottom-sheet style layout
+reduced padding
+reduced media height
+single-column trust list
+This is a good UX choice for mobile shopping.
+5. Cart Drawer Is Mobile-Friendly
+The cart drawer uses:
+width: min(400px, 100vw)
+This prevents the drawer from exceeding the screen width.
+Good implementation.
+Mobile Bugs / Risks Found
+1. Too Many Conflicting Responsive Rules
+There are many repeated breakpoint rules across different files.
+Examples:
+@media (max-width: 640px) appears many times
+@media (max-width: 767px) appears many times
+@media (max-width: 1023px) appears many times
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+23
+
+--- PAGE 24 ---
+@media (max-width: 1080px) appears many times
+Problem: The same components may be styled by multiple files at the same screen width.
+Impact:
+unexpected layout shifts
+components changing differently on different pages
+difficult debugging
+one fix may break another page
+Recommendation: Create one clean responsive system:
+mobile.css
+tablet.css
+desktop.css
+Or keep one responsive.css, but remove duplicate rules from other files.
+2. Mobile Nav Uses height: 100vh
+The mobile nav and cart drawer use:
+height: 100vh
+Problem: On mobile browsers, especially Safari and Chrome mobile, 100vh can behave badly because the
+browser address bar expands/collapses.
+Impact:
+drawer may be too tall
+footer CTA may be hidden
+content may be cut off
+scrolling may feel trapped
+Recommended fix: Use:
+height: 100dvh;
+with fallback:
+height: 100vh;
+Better:
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+24
+
+--- PAGE 25 ---
+.mobile-nav,
+.cart-drawer{
+height: 100vh;
+height: 100dvh;
+}
+3. Horizontal Overflow Is Being Hidden Instead of Fixed
+The project uses several overflow-x: hidden and overflow-x: clip rules.
+This usually means some elements are wider than the screen.
+Problem: Hiding overflow can cover the symptom, but the actual oversized element remains.
+Possible causes:
+large fixed grid values
+wide hero content
+oversized category grids
+absolute-positioned decorative elements
+fixed-width cards
+Impact:
+content may be clipped
+shadows/glows cut off
+hidden buttons on smaller screens
+difficult swiping/scrolling bugs
+Recommendation: Audit elements that use:
+100vw
+fixed pixel widths
+large min-width
+large grid columns
+4. Category Grid May Feel Too Tight on Phones
+Home category cards are forced into 2 columns at mobile widths:
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+25
+
+--- PAGE 26 ---
+body[data-page="home"] .categories-grid{
+grid-template-columns: repeat(2, minmax(0, 1fr))!important;
+}
+This can work, but on 320px–360px phones the cards may feel cramped, especially with long category
+names.
+Risk:
+labels wrapping awkwardly
+cards feeling small
+images competing with text
+Recommendation: For very small phones:
+@media(max-width: 380px) {
+body[data-page="home"] .categories-grid{
+grid-template-columns: 1fr!important;
+}
+}
+Alternative: Use horizontal swipe cards for categories on mobile.
+5. Header May Be Too Heavy on Small Devices
+The header has many advanced desktop rules and several page-specific overrides.
+Risk areas:
+logo sizing
+hamburger visibility
+search button placement
+cart button placement
+header height
+sticky behavior
+The product page header in particular has large desktop-style sizing rules, including large logo heights,
+then later mobile overrides try to fix it.
+Problem: This can create inconsistent header height between:
+home page
+product page
+category page
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+26
+
+--- PAGE 27 ---
+collection pages
+Recommendation: Mobile header should be rebuilt as one consistent component:
+Mobile header structure:
+left: hamburger
+center: logo
+right: search + cart
+height: 64px to 76px max
+Avoid page-specific mobile header variations unless necessary.
+6. Touch Target Risk
+Some buttons/icons may be visually small on mobile.
+Minimum recommended touch size:
+44px × 44px
+Risk areas:
+hero arrows
+category chips
+product quick buttons
+thumbnail buttons
+close icons
+carousel controls
+search/filter pills
+Recommendation: Every tappable item should have:
+min-width: 44px;
+min-height: 44px;
+7. Modal Height May Still Trap Content
+The modal uses:
+max-height: calc(100vh - 24px)
+This is better than nothing, but on mobile browsers it can still cause issues.
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+27
+
+--- PAGE 28 ---
+Recommended improvement:
+.modal-content,
+.modal-body{
+max-height: calc(100dvh- 24px);
+}
+Also ensure:
+.modal-body{
+overflow-y: auto;
+-webkit-overflow-scrolling: touch;
+}
+8. Product Page Responsive Risk
+Product page CSS contains many complex grid systems and page-specific layout rules.
+Risk areas:
+product image gallery
+thumbnails
+sticky purchase panel
+product information columns
+related products
+recommendation sections
+Potential mobile bugs:
+thumbnails may overflow
+product info may appear too low
+sticky panels may cover CTA buttons
+image zoom controls may overlap product images
+Recommended mobile product layout: 1. Product image gallery 2. Product title + price 3. Main CTA buttons
+4. Trust badges 5. Short description 6. Delivery info 7. Full details 8. Related products
+CTA should appear early, not after too much content.
+9. Tablet Layout Needs More Attention
+The project has many mobile and desktop rules, but tablet is less clearly controlled.
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+28
+
+--- PAGE 29 ---
+Important tablet widths:
+768px
+820px
+912px
+1024px
+Risk: At tablet widths, desktop layouts may activate too early or mobile layouts may remain too long.
+Recommendation: Define tablet-specific layouts:
+@media(min-width: 768px) and(max-width: 1023px) {
+/* tablet layout */
+}
+Tablet should usually use:
+2-column product grids
+2-column feature sections
+compact header
+reduced hero height
