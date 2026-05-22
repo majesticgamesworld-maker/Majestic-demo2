@@ -368,7 +368,7 @@ body[data-page="home"] .categories-section .cat-count-label {
   body[data-page="home"] > .top-banner {
     height: 48px;
     padding: 0;
-    overflow: visible;
+    overflow: hidden;
     background: linear-gradient(90deg, #4a070b, #74100f 48%, #4a070b);
     color: #fff5d5;
     letter-spacing: 0;
@@ -376,15 +376,15 @@ body[data-page="home"] .categories-section .cat-count-label {
   }
 
   body[data-page="home"] .marquee-track {
-    display: grid;
-    grid-template-columns: repeat(4, auto);
-    justify-content: space-between;
+    display: inline-flex;
     align-items: center;
-    width: min(calc(100% - 96px), 1280px);
+    justify-content: flex-start;
+    min-width: max-content;
     height: 48px;
-    margin: 0 auto;
-    gap: 32px;
-    animation: none;
+    margin: 0;
+    gap: 72px;
+    padding-inline: 72px;
+    animation: marquee 25s linear infinite;
   }
 
   body[data-page="home"] .marquee-track span {
@@ -415,10 +415,10 @@ body[data-page="home"] .categories-section .cat-count-label {
     inset: 0 0 auto !important;
     min-height: 88px !important;
     padding: 0 !important;
-    background: rgba(255,255,255,0.985) !important;
-    border-bottom: 1px solid #e9e4d8 !important;
-    box-shadow: 0 10px 28px rgba(5, 10, 18, 0.08) !important;
-    color: #091120 !important;
+    background: transparent !important;
+    border-bottom: 0 !important;
+    box-shadow: none !important;
+    color: #ffffff !important;
   }
 
   body[data-page="home"] .site-header.navbar .navbar-container,
@@ -454,10 +454,10 @@ body[data-page="home"] .categories-section .cat-count-label {
     min-height: 42px !important;
     padding-inline: 0 !important;
     border-radius: 0 !important;
-    color: #0a1220 !important;
+    color: #ffffff !important;
     font-size: 0.9rem !important;
     font-weight: 800 !important;
-    text-shadow: none !important;
+    text-shadow: 0 2px 14px rgba(0,0,0,0.72) !important;
   }
 
   body[data-page="home"] .site-header.navbar .nav-link[data-page="home"] {
@@ -478,7 +478,7 @@ body[data-page="home"] .categories-section .cat-count-label {
     border-radius: 50% !important;
     background: transparent !important;
     box-shadow: none !important;
-    color: #071120 !important;
+    color: #ffffff !important;
   }
 
   body[data-page="home"] .site-header.navbar .search-box > input {
@@ -488,7 +488,7 @@ body[data-page="home"] .categories-section .cat-count-label {
   body[data-page="home"] .site-header.navbar .search-box > button {
     width: 42px !important;
     height: 42px !important;
-    color: #071120 !important;
+    color: #ffffff !important;
   }
 
   body[data-page="home"] .header-order-link {

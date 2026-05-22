@@ -735,10 +735,10 @@ body[data-page="product"] #page-product .breadcrumb span:last-child {
   body[data-page="home"] .site-header.navbar,
   body[data-page="home"] .site-header.navbar.scrolled {
     min-height: 88px !important;
-    background: rgba(255,255,255,0.985) !important;
+    background: transparent !important;
     border: 0 !important;
-    border-bottom: 1px solid #e9e4d8 !important;
-    box-shadow: 0 10px 28px rgba(5, 10, 18, 0.08) !important;
+    border-bottom: 0 !important;
+    box-shadow: none !important;
     backdrop-filter: none !important;
   }
 
@@ -756,8 +756,8 @@ body[data-page="product"] #page-product .breadcrumb span:last-child {
   body[data-page="home"] .site-header.navbar .shop-dropdown-btn,
   body[data-page="home"] .hero-section > .site-header.navbar .nav-link,
   body[data-page="home"] .hero-section > .site-header.navbar .shop-dropdown-btn {
-    color: #081123 !important;
-    text-shadow: none !important;
+    color: #ffffff !important;
+    text-shadow: 0 2px 14px rgba(0,0,0,0.72) !important;
   }
 
   body[data-page="home"] .hero-section > .site-header.navbar .logo-img,
@@ -769,7 +769,7 @@ body[data-page="product"] #page-product .breadcrumb span:last-child {
   body[data-page="home"] .site-header.navbar .icon-btn {
     border: 0 !important;
     background: transparent !important;
-    color: #081123 !important;
+    color: #ffffff !important;
     box-shadow: none !important;
   }
 
