@@ -932,27 +932,29 @@ function renderAttachedShopDropdown(menu, dropdown, btn) {
     return '<button type="button" role="menuitem" onclick="runSmartShopAction(' + payload + ')">' + escHtml(item.label) + '</button>';
   }).join('');
   var products = [
-    { product: findMegaMenuProduct(/Catan/i), title: 'Catan Base Game', price: 5500, image: 'images/thumbs/catan-board-game-nairobi.webp' },
-    { product: findMegaMenuProduct(/Azul/i), title: 'Azul Board Game', price: 3200, image: 'images/thumbs/azul-board-game-nairobi.webp' },
-    { product: findMegaMenuProduct(/30 Seconds/i), title: '30 Seconds Board Game', price: 4800, image: 'images/thumbs/30-seconds-board-game-nairobi.webp' },
-    { product: findMegaMenuProduct(/Monopoly Original|Monopoly Classic/i), title: 'Monopoly Original', price: 3999, image: 'images/thumbs/monopoly-original-board-game-nairobi.webp' },
-    { product: findMegaMenuProduct(/Scrabble Original|Scrabble Large/i), title: 'Scrabble Original', price: 1999, image: 'images/thumbs/scrabble-large-board-game-nairobi.webp' }
+    { product: findMegaMenuProduct(/Catan/i), title: 'Catan Base Game', image: 'images/thumbs/catan-board-game-nairobi.webp', fallbackPrice: 5500 },
+    { product: findMegaMenuProduct(/Azul/i), title: 'Azul Board Game', image: 'images/thumbs/azul-board-game-nairobi.webp', fallbackPrice: 3200 },
+    { product: findMegaMenuProduct(/30 Seconds/i), title: '30 Seconds Board Game', image: 'images/thumbs/30-seconds-board-game-nairobi.webp', fallbackPrice: 4800 },
+    { product: findMegaMenuProduct(/Monopoly Original|Monopoly Classic/i), title: 'Monopoly Original', image: 'images/thumbs/monopoly-original-board-game-nairobi.webp', fallbackPrice: 3999 },
+    { product: findMegaMenuProduct(/Scrabble Original|Scrabble Large/i), title: 'Scrabble Original', image: 'images/thumbs/scrabble-large-board-game-nairobi.webp', fallbackPrice: 1999 }
   ];
   var productHtml = products.map(function(item) {
     var product = item.product;
     var image = product ? getProductThumbSrc(getProductImg(product)) : item.image;
+    var title = product && product.name ? product.name : item.title;
+    var price = product && typeof product.price === 'number' ? product.price : item.fallbackPrice;
     var action = product ? "navigate('product','" + product.id + "');closeShopDropdown()" : "runSmartShopAction({page:'bestsellers'})";
     return '<button type="button" class="reference-mega-pick" role="menuitem" onclick="' + action + '">' +
       '<img src="' + escHtml(image) + '" alt="" loading="lazy" decoding="async" />' +
-      '<span><b>' + escHtml(item.title) + '</b><small>KES ' + Number(item.price).toLocaleString() + '</small></span>' +
+      '<span><b>' + escHtml(title) + '</b><small>KES ' + Number(price).toLocaleString() + '</small></span>' +
     '</button>';
   }).join('');
 
   menu.innerHTML =
     '<div class="reference-mega-menu" role="presentation">' +
-      '<section class="reference-mega-column reference-mega-categories"><h4>Shop by Category</h4><div>' + categoryHtml + '</div></section>' +
-      '<section class="reference-mega-column reference-mega-picks"><h4>Popular Picks</h4><div>' + productHtml + '</div><button type="button" class="reference-mega-view" onclick="runSmartShopAction({page:\'shop\'})">View All Products <span aria-hidden="true">&#8594;</span></button></section>' +
-      '<section class="reference-mega-column reference-mega-guides"><div><h4>Shop by Age</h4>' + ageHtml + '</div><div class="reference-mega-occasions"><h4>Shop by Occasion</h4><div>' + occasionHtml + '</div></div></section>' +
+      '<section class="reference-mega-column reference-mega-categories" aria-label="Shop by category"><h4>Shop by Category</h4><div>' + categoryHtml + '</div></section>' +
+      '<section class="reference-mega-column reference-mega-picks" aria-label="Popular picks"><h4>Popular Picks</h4><div>' + productHtml + '</div><button type="button" class="reference-mega-view" onclick="runSmartShopAction({page:\'shop\'})">View All Products <span aria-hidden="true">&#8594;</span></button></section>' +
+      '<section class="reference-mega-column reference-mega-guides" aria-label="Shopping guides"><div><h4>Shop by Age</h4>' + ageHtml + '</div><div class="reference-mega-occasions"><h4>Shop by Occasion</h4><div>' + occasionHtml + '</div></div></section>' +
       '<aside class="reference-mega-buddy"><strong><span aria-hidden="true">&#10024;</span> Majestic Buddy</strong><b>Not sure what to pick?</b><p>Get personalized game recommendations in seconds!</p><img src="images/branding/majestic-buddy-royal.png" alt="" loading="lazy" decoding="async" /><a href="#game-finder" onclick="closeShopDropdown()">Try Majestic Buddy <span aria-hidden="true">&#8594;</span></a></aside>' +
     '</div>';
 

@@ -374,6 +374,7 @@ body[data-page] .site-header.navbar .shop-dropdown-menu.open {
   .reference-mega-menu {
     display: grid;
     grid-template-columns: 254px 286px 264px minmax(252px, 1fr);
+    align-items: stretch;
     min-height: 612px;
     padding: 20px 14px 18px 20px;
     background: #ffffff;
@@ -460,6 +461,12 @@ body[data-page] .site-header.navbar .shop-dropdown-menu.open {
     line-height: 1.16;
   }
 
+  .reference-mega-category span,
+  .reference-mega-pick span,
+  .reference-mega-age span {
+    min-width: 0;
+  }
+
   .reference-mega-category small,
   .reference-mega-pick small,
   .reference-mega-age small {
@@ -491,6 +498,13 @@ body[data-page] .site-header.navbar .shop-dropdown-menu.open {
     padding: 7px 0;
     text-align: left;
     border-radius: 10px;
+  }
+
+  .reference-mega-pick b {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
   }
 
   .reference-mega-pick img {
@@ -633,6 +647,7 @@ body[data-page] .site-header.navbar .shop-dropdown-menu.open {
   .reference-mega-buddy img {
     align-self: end;
     width: min(100%, 218px);
+    min-height: 214px;
     max-height: 280px;
     margin-top: 10px;
     object-fit: contain;
