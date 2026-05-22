@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Redirecting | Majestic Games & Toys World</title>
+  <script>
+    (function() {
+      var parts = window.location.pathname.split('/').filter(Boolean);
+      var repo = parts[0] || '';
+      var base = repo ? '/' + repo + '/' : '/';
+      var page = parts[1] || 'home';
+      var param = parts[2] || '';
+      var target = base;
+
+      if (page === 'products' && param) {
+        target += '?product=' + encodeURIComponent(decodeURIComponent(param));
+      } else if (page === 'category' && param) {
+        target += '?category=' + encodeURIComponent(decodeURIComponent(param));
+      } else if (page && page !== 'home') {
+        target += '?page=' + encodeURIComponent(decodeURIComponent(page));
+      }
+
+      window.location.replace(target + window.location.hash);
+    })();
+  </script>
+</head>
+<body>
+  <p>Redirecting...</p>
+</body>
+</html>

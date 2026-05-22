@@ -303,13 +303,13 @@
     </button>
   </div>
     <div class="mobile-nav-body">
-      <a href="/" class="mobile-nav-link" onclick="if(handleRouteClick(event,'home') === false){closeMobileNav();return false;} return true;">Home</a>
-      <a href="/bestsellers/" class="mobile-nav-link" onclick="if(handleRouteClick(event,'bestsellers') === false){closeMobileNav();return false;} return true;">Bestsellers</a>
-      <a href="/new-arrivals/" class="mobile-nav-link" onclick="if(handleRouteClick(event,'new-arrivals') === false){closeMobileNav();return false;} return true;">New Arrivals</a>
-      <a href="/gift-picks/" class="mobile-nav-link" onclick="if(handleRouteClick(event,'gift-picks') === false){closeMobileNav();return false;} return true;">Gift Picks</a>
+      <a href="./" class="mobile-nav-link" onclick="if(handleRouteClick(event,'home') === false){closeMobileNav();return false;} return true;">Home</a>
+      <a href="?page=bestsellers" class="mobile-nav-link" onclick="if(handleRouteClick(event,'bestsellers') === false){closeMobileNav();return false;} return true;">Bestsellers</a>
+      <a href="?page=new-arrivals" class="mobile-nav-link" onclick="if(handleRouteClick(event,'new-arrivals') === false){closeMobileNav();return false;} return true;">New Arrivals</a>
+      <a href="?page=gift-picks" class="mobile-nav-link" onclick="if(handleRouteClick(event,'gift-picks') === false){closeMobileNav();return false;} return true;">Gift Picks</a>
       <div class="mobile-nav-section-title">Shop By Category</div>
       <div id="mobile-nav-cats"></div>
-      <a href="/contact/" class="mobile-nav-link" onclick="if(handleRouteClick(event,'contact') === false){closeMobileNav();return false;} return true;">Contact</a>
+      <a href="?page=contact" class="mobile-nav-link" onclick="if(handleRouteClick(event,'contact') === false){closeMobileNav();return false;} return true;">Contact</a>
     </div>
   <div class="mobile-nav-footer">
     <a href="https://wa.me/254710707973" target="_blank" rel="noopener noreferrer" class="btn-wa">
@@ -334,15 +334,15 @@
       <!-- Site Header -->
       <header class="site-header navbar" id="site-header">
         <div class="header-inner navbar-container">
-          <a href="/" class="logo-link logo" onclick="return handleRouteClick(event,'home')">
+          <a href="./" class="logo-link logo" onclick="return handleRouteClick(event,'home')">
             <img src="images/branding/LOGOF2-transparent.png" alt="Majestic Games & Toys World" class="logo-img" loading="eager" fetchpriority="high" decoding="sync" width="270" height="76" />
           </a>
 
           <nav class="desktop-nav nav-menu" id="navMenu">
-            <a href="/" class="nav-link" data-page="home" onclick="return handleRouteClick(event,'home')">Home</a>
-            <a href="/bestsellers/" class="nav-link" data-page="bestsellers" onclick="return handleRouteClick(event,'bestsellers')">Bestsellers</a>
-            <a href="/new-arrivals/" class="nav-link" data-page="new-arrivals" onclick="return handleRouteClick(event,'new-arrivals')">New Arrivals</a>
-            <a href="/gift-picks/" class="nav-link" data-page="gift-picks" onclick="return handleRouteClick(event,'gift-picks')">Gift Picks</a>
+            <a href="./" class="nav-link" data-page="home" onclick="return handleRouteClick(event,'home')">Home</a>
+            <a href="?page=bestsellers" class="nav-link" data-page="bestsellers" onclick="return handleRouteClick(event,'bestsellers')">Bestsellers</a>
+            <a href="?page=new-arrivals" class="nav-link" data-page="new-arrivals" onclick="return handleRouteClick(event,'new-arrivals')">New Arrivals</a>
+            <a href="?page=gift-picks" class="nav-link" data-page="gift-picks" onclick="return handleRouteClick(event,'gift-picks')">Gift Picks</a>
 
             <div class="shop-dropdown nav-item" id="shop-dropdown">
               <button class="shop-dropdown-btn" id="shop-dropdown-btn" onclick="toggleShopDropdown()" aria-haspopup="menu" aria-expanded="false" aria-controls="shop-dropdown-menu">
@@ -354,7 +354,7 @@
               </div>
             </div>
 
-            <a href="/contact/" class="nav-link" data-page="contact" onclick="return handleRouteClick(event,'contact')">Contact</a>
+            <a href="?page=contact" class="nav-link" data-page="contact" onclick="return handleRouteClick(event,'contact')">Contact</a>
           </nav>
 
           <div class="header-actions nav-icons">
@@ -955,79 +955,79 @@
                 <span>Featured blog posts</span>
                 <h2>Popular game searches in Kenya</h2>
               </div>
-              <a href="/blog/">Open blog index</a>
+              <a href="?page=blog" onclick="return handleRouteClick(event,'blog')">Open blog index</a>
             </div>
 
             <div class="blog-grid blog-post-directory">
               <article class="blog-card blog-article-card">
-                <a class="blog-card-image" href="/blog/best-party-games-for-christian-youth-groups/">
+                <a class="blog-card-image" href="?page=blog" onclick="return handleRouteClick(event,'blog')">
                   <img src="images/bible-sequence-game-nairobi.webp" alt="Bible Sequence game for Christian youth groups" loading="lazy" />
                 </a>
                 <div class="blog-card-content">
                   <div class="blog-card-meta"><span>Christian Youth</span><span>Party games</span></div>
                   <h2>Best Party Games for Christian Youth Groups</h2>
                   <p>Faith-friendly, energetic games for youth nights, church socials and fellowship groups.</p>
-                  <a class="blog-read-link" href="/blog/best-party-games-for-christian-youth-groups/">Read blog post</a>
+                  <a class="blog-read-link" href="?page=blog" onclick="return handleRouteClick(event,'blog')">Read blog post</a>
                 </div>
               </article>
 
               <article class="blog-card blog-article-card">
-                <a class="blog-card-image" href="/blog/family-friendly-party-games-everyone-can-play/">
+                <a class="blog-card-image" href="?page=blog" onclick="return handleRouteClick(event,'blog')">
                   <img src="images/cards-against-humanity-family-edition-card-game-nairobi.webp" alt="Family-friendly card game for parties" loading="lazy" />
                 </a>
                 <div class="blog-card-content">
                   <div class="blog-card-meta"><span>Family Fun</span><span>All ages</span></div>
                   <h2>Family-Friendly Party Games Everyone Can Play</h2>
                   <p>Easy, inclusive games for mixed-age family parties and casual home gatherings.</p>
-                  <a class="blog-read-link" href="/blog/family-friendly-party-games-everyone-can-play/">Read blog post</a>
+                  <a class="blog-read-link" href="?page=blog" onclick="return handleRouteClick(event,'blog')">Read blog post</a>
                 </div>
               </article>
 
               <article class="blog-card blog-article-card">
-                <a class="blog-card-image" href="/blog/clean-party-games-for-church-events/">
+                <a class="blog-card-image" href="?page=blog" onclick="return handleRouteClick(event,'blog')">
                   <img src="images/taboo-bible-edition-game-nairobi.webp" alt="Taboo Bible Edition for church events" loading="lazy" />
                 </a>
                 <div class="blog-card-content">
                   <div class="blog-card-meta"><span>Church Events</span><span>Clean games</span></div>
                   <h2>Clean Party Games for Church Events</h2>
                   <p>Group games that keep church events lively, respectful and easy to facilitate.</p>
-                  <a class="blog-read-link" href="/blog/clean-party-games-for-church-events/">Read blog post</a>
+                  <a class="blog-read-link" href="?page=blog" onclick="return handleRouteClick(event,'blog')">Read blog post</a>
                 </div>
               </article>
 
               <article class="blog-card blog-article-card">
-                <a class="blog-card-image" href="/blog/adult-party-games-vs-family-party-games/">
+                <a class="blog-card-image" href="?page=blog" onclick="return handleRouteClick(event,'blog')">
                   <img src="images/cards-against-humanity-card-game-party-game-nairobi.webp" alt="Adult party card game" loading="lazy" />
                 </a>
                 <div class="blog-card-content">
                   <div class="blog-card-meta"><span>Buying Guide</span><span>Adult vs family</span></div>
                   <h2>Adult Party Games vs Family Party Games</h2>
                   <p>How to choose the right party game when the guest list changes the tone.</p>
-                  <a class="blog-read-link" href="/blog/adult-party-games-vs-family-party-games/">Read blog post</a>
+                  <a class="blog-read-link" href="?page=blog" onclick="return handleRouteClick(event,'blog')">Read blog post</a>
                 </div>
               </article>
 
               <article class="blog-card blog-article-card">
-                <a class="blog-card-image" href="/blog/best-christian-games-for-family-gatherings/">
+                <a class="blog-card-image" href="?page=blog" onclick="return handleRouteClick(event,'blog')">
                   <img src="images/christian-culture-card-game-nairobi.webp" alt="Christian Culture game for family gatherings" loading="lazy" />
                 </a>
                 <div class="blog-card-content">
                   <div class="blog-card-meta"><span>Christian Games</span><span>Family gatherings</span></div>
                   <h2>Best Christian Games for Family Gatherings</h2>
                   <p>Faith-friendly games for homes, relatives, fellowship nights and family celebrations.</p>
-                  <a class="blog-read-link" href="/blog/best-christian-games-for-family-gatherings/">Read blog post</a>
+                  <a class="blog-read-link" href="?page=blog" onclick="return handleRouteClick(event,'blog')">Read blog post</a>
                 </div>
               </article>
 
               <article class="blog-card blog-article-card">
-                <a class="blog-card-image" href="/blog/card-games-perfect-for-parties-and-family-nights/">
+                <a class="blog-card-image" href="?page=blog" onclick="return handleRouteClick(event,'blog')">
                   <img src="images/uno-classic-card-game-nairobi.webp" alt="UNO Classic card game for family nights" loading="lazy" />
                 </a>
                 <div class="blog-card-content">
                   <div class="blog-card-meta"><span>Card Games</span><span>Parties</span></div>
                   <h2>Card Games Perfect for Parties and Family Nights</h2>
                   <p>Portable, fast-to-teach card games for family shelves, parties and travel.</p>
-                  <a class="blog-read-link" href="/blog/card-games-perfect-for-parties-and-family-nights/">Read blog post</a>
+                  <a class="blog-read-link" href="?page=blog" onclick="return handleRouteClick(event,'blog')">Read blog post</a>
                 </div>
               </article>
             </div>
@@ -1455,7 +1455,7 @@
 <script src="buddy.js" defer></script>
 <script src="search.js" defer></script>
 <script src="analytics.js" defer></script>
-<script src="script.js?v=github-logo-path-20260522" defer></script>
+<script src="script.js?v=github-new-tab-routes-20260522" defer></script>
 </body>
 </html>
 

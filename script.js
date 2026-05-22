@@ -308,6 +308,14 @@ function getRouteUrl(page, param) {
   }
 
   var base = getAppBasePath();
+  var needsStaticEntryRoute = window.location.hostname.slice(-10) === '.github.io';
+  if (needsStaticEntryRoute) {
+    if (page === 'home') return base;
+    if (page === 'product' && param) return base + '?product=' + encodeURIComponent(param);
+    if (page === 'category' && param) return base + '?category=' + encodeURIComponent(param);
+    return base + '?page=' + encodeURIComponent(page);
+  }
+
   if (page === 'home') return base;
   if (page === 'product' && param) {
     var product = getProductById(param);
