@@ -796,7 +796,22 @@ body[data-page="product"] #page-product .breadcrumb span:last-child {
 
   body[data-page="home"] .categories-grid {
     grid-template-columns: repeat(8, minmax(0, 1fr)) !important;
-    gap: 14px !important;
+    gap: 12px !important;
+  }
+
+  body[data-page="home"] .categories-section .section-header {
+    position: relative !important;
+    justify-content: center !important;
+    margin-bottom: 14px !important;
+  }
+
+  body[data-page="home"] .categories-section .section-header h2 {
+    text-transform: none !important;
+  }
+
+  body[data-page="home"] .categories-section .section-view-all {
+    position: absolute !important;
+    right: 0 !important;
   }
 
   body[data-page="home"] .categories-section .cat-card-link,
@@ -807,17 +822,29 @@ body[data-page="product"] #page-product .breadcrumb span:last-child {
     align-items: center !important;
     justify-content: flex-end !important;
     gap: 4px !important;
-    min-height: 142px !important;
-    padding: 82px 12px 13px !important;
+    min-height: 138px !important;
+    padding: 84px 10px 12px !important;
     overflow: hidden !important;
     border: 1px solid rgba(16,36,61,0.1) !important;
-    border-radius: 14px !important;
+    border-radius: 13px !important;
     background-color: #fff !important;
     background-image: var(--cat-bg-image) !important;
     background-repeat: no-repeat !important;
     background-size: calc(100% - 34px) 68px !important;
     background-position: center 12px !important;
-    box-shadow: 0 8px 28px rgba(17,24,39,0.06) !important;
+    box-shadow: 0 8px 24px rgba(17,24,39,0.06) !important;
+    transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease, background-color 180ms ease !important;
+  }
+
+  body[data-page="home"] .categories-section .home-category-card:hover,
+  body[data-page="home"] .categories-section .home-category-card:focus-visible {
+    border-color: rgba(255, 195, 42, 0.9) !important;
+    background-color: #fffdf6 !important;
+    box-shadow:
+      0 0 0 2px rgba(255, 196, 42, 0.38),
+      0 0 24px rgba(255, 196, 42, 0.7),
+      0 14px 34px rgba(3, 196, 255, 0.28) !important;
+    transform: translateY(-4px) !important;
   }
 
   body[data-page="home"] .categories-section .home-category-card::before,
@@ -872,6 +899,7 @@ body[data-page="product"] #page-product .breadcrumb span:last-child {
     position: relative !important;
     width: min(calc(100% - 96px), 1280px) !important;
     max-width: none !important;
+    min-height: 0 !important;
   }
 
   body[data-page="home"] .game-finder-section .buddy-reference-hero {
@@ -895,8 +923,8 @@ body[data-page="product"] #page-product .breadcrumb span:last-child {
   }
 
   body[data-page="home"] .game-finder-section .buddy-reference-title {
-    width: 260px !important;
-    margin-left: 190px !important;
+    width: 340px !important;
+    margin-left: 220px !important;
     padding-top: 18px !important;
     text-align: left !important;
   }
@@ -909,14 +937,18 @@ body[data-page="product"] #page-product .breadcrumb span:last-child {
   }
 
   body[data-page="home"] .game-finder-section .buddy-reference-title .finder-title {
+    width: 100% !important;
+    max-width: 340px !important;
     color: #fff !important;
     font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
     font-size: 1.84rem !important;
     line-height: 1.1 !important;
     text-align: left !important;
+    white-space: normal !important;
   }
 
   body[data-page="home"] .game-finder-section .buddy-reference-title .finder-subtitle {
+    max-width: 320px !important;
     margin: 0 !important;
     color: rgba(255,255,255,0.78) !important;
     font-size: 0.8rem !important;
@@ -924,8 +956,9 @@ body[data-page="product"] #page-product .breadcrumb span:last-child {
   }
 
   body[data-page="home"] .game-finder-section #finder-container {
-    min-height: 292px !important;
-    padding: 38px 28px 26px 594px !important;
+    position: relative !important;
+    min-height: 206px !important;
+    padding: 38px 28px 66px 594px !important;
     border: 1px solid rgba(250, 195, 46, 0.34) !important;
     border-radius: 24px !important;
     background:
@@ -944,6 +977,10 @@ body[data-page="product"] #page-product .breadcrumb span:last-child {
     box-shadow: none !important;
   }
 
+  body[data-page="home"] .game-finder-section .finder-audience-stage.buddy-start-shell {
+    min-height: 0 !important;
+  }
+
   body[data-page="home"] .game-finder-section .buddy-reference-stepper,
   body[data-page="home"] .game-finder-section .buddy-reference-side,
   body[data-page="home"] .game-finder-section .buddy-picks-panel,
@@ -959,21 +996,73 @@ body[data-page="product"] #page-product .breadcrumb span:last-child {
   body[data-page="home"] .game-finder-section .buddy-filter-row {
     display: grid !important;
     grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    gap: 14px !important;
-    margin: 12px 0 16px !important;
+    gap: 12px !important;
+    margin: 0 !important;
+  }
+
+  body[data-page="home"] .game-finder-section .buddy-filter-row label {
+    display: grid !important;
+    align-content: center !important;
+    gap: 5px !important;
+    min-height: 72px !important;
+    padding: 11px 14px !important;
+    border: 1px solid rgba(255,196,50,0.42) !important;
+    border-radius: 10px !important;
+    background: rgba(255,255,255,0.025) !important;
+    color: #fff !important;
+    font-size: 0.69rem !important;
+    font-weight: 900 !important;
+    line-height: 1.1 !important;
+  }
+
+  body[data-page="home"] .game-finder-section .buddy-filter-row select {
+    width: 100% !important;
+    min-height: 18px !important;
+    padding: 0 17px 0 0 !important;
+    border: 0 !important;
+    background-color: transparent !important;
+    color: rgba(255,255,255,0.72) !important;
+    font: inherit !important;
+    font-size: 0.71rem !important;
+    font-weight: 650 !important;
   }
 
   body[data-page="home"] .game-finder-section .buddy-find-btn {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    width: fit-content !important;
-    min-height: 58px !important;
-    margin: 4px 0 0 auto !important;
-    padding-inline: 28px !important;
+    width: 100% !important;
+    min-height: 72px !important;
+    margin: 0 !important;
+    padding-inline: 18px !important;
     border-radius: 10px !important;
     background: #ffc329 !important;
     color: #13110b !important;
+  }
+
+  body[data-page="home"] .game-finder-section .buddy-benefit-rail {
+    position: absolute !important;
+    inset: auto 0 0 !important;
+    z-index: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 30px !important;
+    min-height: 40px !important;
+    padding: 0 34px !important;
+    border-top: 1px solid rgba(255,196,50,0.32) !important;
+    background: rgba(0,0,0,0.14) !important;
+    color: rgba(255,255,255,0.7) !important;
+    font-size: 0.67rem !important;
+    font-weight: 750 !important;
+    white-space: nowrap !important;
+  }
+
+  body[data-page="home"] .game-finder-section .buddy-benefit-rail span::before {
+    content: "+" !important;
+    margin-right: 7px !important;
+    color: #f6bc2d !important;
+    font-weight: 950 !important;
   }
 
   body[data-page="home"] .home-products-band .product-card-desc,
@@ -1028,25 +1117,31 @@ body[data-page="product"] #page-product .breadcrumb span:last-child {
   body[data-page="home"] .categories-section .home-category-card,
   body[data-page="home"] .categories-section .home-category-card.cat-card-group {
     justify-content: flex-end !important;
-    padding-top: 78px !important;
+    padding-top: 82px !important;
     background-image: none !important;
   }
 
   body[data-page="home"] .categories-section .cat-icon,
   body[data-page="home"] .categories-section .home-category-card .cat-icon {
     position: absolute !important;
-    top: 10px !important;
+    top: 7px !important;
     left: 50% !important;
     display: block !important;
-    width: calc(100% - 26px) !important;
-    height: 68px !important;
+    width: calc(100% - 18px) !important;
+    height: 76px !important;
     border: 0 !important;
     border-radius: 0 !important;
     background: transparent url("images/category-art/generated/home-category-icon-sheet.png") no-repeat !important;
     background-size: 400% 200% !important;
     box-shadow: none !important;
+    filter: contrast(1.12) saturate(1.18) drop-shadow(0 3px 2px rgba(6, 10, 18, 0.3)) !important;
     text-shadow: none !important;
     transform: translateX(-50%) !important;
+  }
+
+  body[data-page="home"] .categories-section .home-category-card:hover .cat-icon,
+  body[data-page="home"] .categories-section .home-category-card:focus-visible .cat-icon {
+    filter: contrast(1.18) saturate(1.28) drop-shadow(0 0 7px rgba(255, 198, 42, 0.72)) drop-shadow(0 4px 3px rgba(6, 10, 18, 0.38)) !important;
   }
 
   body[data-page="home"] .categories-section .cat-icon svg {

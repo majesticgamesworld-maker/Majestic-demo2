@@ -553,8 +553,14 @@ function renderFinderStep() {
                 '</button>';
               }).join('') +
             '</div>' +
-            '<div class="buddy-filter-row"><label>Group size<select><option>4 - 6 people</option><option>2 people</option><option>7+ people</option></select></label><label>Play time<select><option>60 - 120 mins</option><option>Under 30 mins</option><option>30 - 60 mins</option></select></label><label>Budget<select><option>KES 1,000 - 2,000</option><option>Under KES 1,000</option><option>KES 2,000+</option></select></label></div>' +
-            '<button type="button" class="buddy-find-btn" data-finder-answer="family">Find My Perfect Games</button>' +
+            '<div class="buddy-filter-row">' +
+              '<label>Who is playing?<select><option>Select players</option><option>Family</option><option>Kids</option><option>Couples</option><option>Party group</option></select></label>' +
+              '<label>Age group<select><option>Select age</option><option>All ages</option><option>Ages 3 - 12</option><option>Teens</option><option>Adults 18+</option></select></label>' +
+              '<label>Occasion<select><option>Select occasion</option><option>Game night</option><option>Birthday</option><option>Gift</option><option>Date night</option></select></label>' +
+              '<label>Budget<select><option>Select budget</option><option>Under KES 1,000</option><option>KES 1,000 - 2,000</option><option>KES 2,000+</option></select></label>' +
+              '<label>Game type<select><option>Any type</option><option>Board games</option><option>Card games</option><option>Puzzles</option><option>STEM toys</option></select></label>' +
+              '<button type="button" class="buddy-find-btn" data-finder-answer="family">Find My Game</button>' +
+            '</div>' +
           '</div>' +
         '</div>' +
         '<aside class="buddy-picks-panel" aria-label="Buddy top picks">' +
