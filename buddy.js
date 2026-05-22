@@ -814,13 +814,14 @@ function renderFinderResults() {
   
   var resultsHtml = results.length ? results.map(function(r, index) {
     var p = r.product;
+    var imgSrc = getProductImg(p);
     var reasonText = getFinderReason(p, answers, r.meta, r.reasons);
     var whyText = r.reasons && r.reasons.length ? r.reasons[0] : (r.meta.players ? r.meta.players.label : 'Closest overlap');
     var safetyText = r.meta.isAdultOnly ? '18+ only' : (r.meta.isFamilySafe ? 'Family-safe' : 'Check suitability');
     return '<article class="finder-result-card' + (index === 0 ? ' finder-result-card-best' : '') + '">' +
       '<span class="finder-match-badge">' + (index === 0 ? 'Strongest match' : 'Good match') + '</span>' +
       '<span class="finder-why-badge">Why: ' + escHtml(whyText) + '</span>' +
-      '<img src="' + getProductImg(p) + '" alt="' + escHtml(p.name) + '" loading="lazy" class="finder-result-img" />' +
+      '<img src="' + getProductThumbSrc(imgSrc) + '" data-full-src="' + imgSrc + '" alt="' + escHtml(p.name) + '" loading="lazy" decoding="async" class="finder-result-img" />' +
       '<div class="finder-result-info"><span class="finder-result-name">' + escHtml(p.name) + '</span><span class="finder-result-reason">' + escHtml(reasonText) + '</span><span class="finder-result-meta"><span>KES ' + p.price.toLocaleString() + '</span><span>' + escHtml(safetyText) + '</span><span>' + escHtml(r.meta.players.label) + '</span></span><div class="finder-result-actions"><button type="button" class="finder-result-action" onclick="navigate(\'product\',\'' + p.id + '\')">View match</button><button type="button" class="finder-result-add" onclick="finderQuickAdd(\'' + p.id + '\', event, this)">Quick Add</button></div></div>' +
     '</article>';
   }).join('') : '<div class="finder-empty"><strong>No safe close matches yet.</strong><span>Try broadening your answers or ask our WhatsApp team for a human recommendation.</span><div><button type="button" onclick="initGameFinder()">Broaden filters</button><a href="https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent('Hi Majestic Games World, I used the Game Finder but need help choosing a safe match.') + '" target="_blank" rel="noopener noreferrer">Ask WhatsApp Support</a></div></div>';
@@ -875,7 +876,7 @@ function renderMegaProductCard(config) {
   var action = product ? "navigate('product','" + product.id + "');closeShopDropdown()" : "runSmartShopAction({page:'bestsellers'})";
   return '<article class="attached-mega-product" role="menuitem" tabindex="0" onclick="' + action + '" onkeydown="if(event.key===\'Enter\'){this.click()}">' +
     '<span class="attached-mega-badge ' + escHtml(config.badgeClass || '') + '">' + escHtml(config.badge) + '</span>' +
-    '<div class="attached-mega-product-img"><img src="' + escHtml(image) + '" alt="' + escHtml(title) + '" loading="lazy" /></div>' +
+    '<div class="attached-mega-product-img"><img src="' + escHtml(getProductThumbSrc(image)) + '" data-full-src="' + escHtml(image) + '" alt="' + escHtml(title) + '" loading="lazy" decoding="async" /></div>' +
     '<h5>' + escHtml(title) + '</h5>' +
     '<div class="attached-mega-rating"><span>â˜…â˜…â˜…â˜…â˜…</span><small>' + escHtml(config.reviews) + '</small></div>' +
     '<strong>KES ' + Number(price || 0).toLocaleString() + '</strong>' +

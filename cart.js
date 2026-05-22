@@ -48,7 +48,7 @@ function addToCart(product) {
   if (existing) {
     existing.qty += 1;
   } else {
-    cart.push({ id: product.id, name: product.name, price: product.price, qty: 1, img: getProductImg(product) });
+    cart.push({ id: product.id, name: product.name, price: product.price, qty: 1, img: getProductThumbSrc(getProductImg(product)) });
   }
   saveCart();
   updateCartUI();

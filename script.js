@@ -789,8 +789,25 @@ function getProductBadgeMarkup(product, inlineStyle) {
   return badges;
 }
 
-function renderProductCard(product) {
+function getProductThumbSrc(imgSrc) {
+  if (!imgSrc) return imgSrc;
+  var cleanSrc = String(imgSrc).split('?')[0].split('#')[0];
+  var slashIndex = cleanSrc.lastIndexOf('/');
+  var base = slashIndex >= 0 ? cleanSrc.slice(0, slashIndex + 1) : '';
+  var file = slashIndex >= 0 ? cleanSrc.slice(slashIndex + 1) : cleanSrc;
+  if (!file || base.indexOf('/thumbs/') !== -1 || base.slice(-7) === 'thumbs/') return imgSrc;
+  if (base.indexOf('/branding/') !== -1 || base.indexOf('/background%20images/') !== -1 || base.indexOf('/background images/') !== -1) return imgSrc;
+  if (!/\.(webp|png|jpe?g)$/i.test(file)) return imgSrc;
+  var dotIndex = file.lastIndexOf('.');
+  var stem = dotIndex >= 0 ? file.slice(0, dotIndex) : file;
+  return base + 'thumbs/' + stem + '.webp';
+}
+
+function renderProductCard(product, index) {
   var imgSrc = getProductImg(product);
+  var thumbSrc = getProductThumbSrc(imgSrc);
+  var loading = index < 2 ? 'eager' : 'lazy';
+  var fetchPriority = index < 2 ? 'high' : 'low';
   var badge = getProductBadgeMarkup(product);
   var facts = inferProductFacts(product);
   var availability = product.availability !== undefined ? product.availability : 'In Stock';
@@ -805,7 +822,7 @@ function renderProductCard(product) {
   return '<article class="product-card">' +
     '<div class="product-img-wrap">' +
       '<a href="' + productUrl + '" class="product-card-media-link" onclick="return handleRouteClick(event,\'product\',\'' + product.id + '\')" aria-label="View ' + escHtml(product.name) + '">' +
-        '<img class="product-img" src="' + imgSrc + '" alt="' + escHtml(product.name) + '" loading="lazy" />' +
+        '<img class="product-img" src="' + thumbSrc + '" data-full-src="' + imgSrc + '" alt="' + escHtml(product.name) + '" loading="' + loading + '" decoding="async" fetchpriority="' + fetchPriority + '" width="520" height="520" />' +
         '<div class="product-img-gradient"></div>' +
       '</a>' +
       '<div class="product-badges">' + badge + '</div>' +

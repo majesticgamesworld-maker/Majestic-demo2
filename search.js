@@ -63,8 +63,9 @@ function initSearch() {
     panel.innerHTML =
       '<div class="search-results">' +
         results.map(function(p) {
+          var imgSrc = getProductImg(p);
           return '<a href="' + getRouteUrl('product', p.id) + '" class="search-result-item" data-search-product="' + escHtml(p.id) + '">' +
-            '<img class="search-result-img" src="' + getProductImg(p) + '" alt="' + escHtml(p.name) + '" loading="lazy" />' +
+            '<img class="search-result-img" src="' + getProductThumbSrc(imgSrc) + '" data-full-src="' + imgSrc + '" alt="' + escHtml(p.name) + '" loading="lazy" decoding="async" />' +
             '<div>' +
               '<div class="search-result-name">' + escHtml(p.name) + '</div>' +
               '<div class="search-result-price">KES ' + p.price.toLocaleString() + '</div>' +

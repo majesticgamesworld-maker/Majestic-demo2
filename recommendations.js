@@ -240,6 +240,8 @@ function getPdpRecommendationReason(item, source, profile) {
 function renderPdpLikeCard(item, source, profile, index) {
   var cat = CATEGORIES.find(function(c) { return c.id === item.cat; });
   var reason = getPdpRecommendationReason(item, source, profile);
+  var imgSrc = getProductImg(item);
+  var thumbSrc = getProductThumbSrc(imgSrc);
   var badgeOptions = [
     { icon: '&#9734;', label: 'Family Favourite' },
     { icon: '&#128101;', label: 'Great for Groups' },
@@ -250,7 +252,7 @@ function renderPdpLikeCard(item, source, profile, index) {
   return '<article class="pdp-like-card' + (index === 2 ? ' pdp-like-featured' : '') + '">' +
     '<a href="' + getRouteUrl('product', item.id) + '" onclick="return handleRouteClick(event,\'product\',\'' + item.id + '\')" aria-label="View ' + escHtml(item.name) + '">' +
       '<span class="pdp-like-match"><i>' + badge.icon + '</i>' + escHtml(badge.label) + '</span>' +
-      '<span class="pdp-like-image"><img src="' + getProductImg(item) + '" alt="' + escHtml(item.name) + '" loading="lazy" /></span>' +
+      '<span class="pdp-like-image"><img src="' + thumbSrc + '" data-full-src="' + imgSrc + '" alt="' + escHtml(item.name) + '" loading="lazy" decoding="async" /></span>' +
       '<span class="pdp-like-copy">' +
         '<small>' + escHtml(cat ? cat.label : 'Recommended') + '</small>' +
         '<b>' + escHtml(item.name) + '</b>' +
@@ -510,6 +512,7 @@ function renderProductPage(productId) {
   var metadataStatus = getProductMetadataStatus(product);
   var images = getProductImgAll(product);
   var mainImg = images[0];
+  var mainThumb = getProductThumbSrc(mainImg);
   var preloadImg = document.getElementById('product-image-preload');
   if (!preloadImg) {
     preloadImg = document.createElement('link');
@@ -518,7 +521,7 @@ function renderProductPage(productId) {
     preloadImg.as = 'image';
     document.head.appendChild(preloadImg);
   }
-  preloadImg.href = mainImg;
+  preloadImg.href = mainThumb;
   var pairs = getPdpPairingProducts(product, 4);
   if (pairs.length < 3) pairs = getAlsoBoughtProducts(product, 8).filter(function(p) {
     return p.cat !== product.cat && productAudienceAllowed(p, product) && !isNearDuplicateProduct(p, product);
@@ -550,14 +553,16 @@ function renderProductPage(productId) {
   if (nameEl) nameEl.textContent = product.name;
 
   var thumbnails = images.map(function(src, i) {
+    var thumbSrc = getProductThumbSrc(src);
     return '<button type="button" class="product-thumb' + (i === 0 ? ' active' : '') + '" onclick="switchProductImg(this,\'' + src + '\')" aria-label="Show ' + escHtml(product.name) + ' image ' + (i + 1) + '">' +
-      '<img src="' + src + '" alt="' + escHtml(product.name) + ' view ' + (i + 1) + '" loading="' + (i === 0 ? 'eager' : 'lazy') + '" />' +
+      '<img src="' + thumbSrc + '" data-full-src="' + src + '" alt="' + escHtml(product.name) + ' view ' + (i + 1) + '" loading="' + (i === 0 ? 'eager' : 'lazy') + '" decoding="async" />' +
     '</button>';
   }).join('');
 
   var refThumbs = images.slice(0, 4).map(function(src, i) {
+    var thumbSrc = getProductThumbSrc(src);
     return '<button type="button" class="product-thumb' + (i === 0 ? ' active' : '') + '" onclick="switchProductImg(this,\'' + src + '\')" aria-label="Show ' + escHtml(product.name) + ' image ' + (i + 1) + '">' +
-      '<img src="' + src + '" alt="' + escHtml(product.name) + ' view ' + (i + 1) + '" loading="' + (i === 0 ? 'eager' : 'lazy') + '" />' +
+      '<img src="' + thumbSrc + '" data-full-src="' + src + '" alt="' + escHtml(product.name) + ' view ' + (i + 1) + '" loading="' + (i === 0 ? 'eager' : 'lazy') + '" decoding="async" />' +
     '</button>';
   }).join('') + (images.length > 4 ? '<button type="button" class="product-thumb pdp-ref-more-thumb" onclick="openImageZoomFromMain()"><strong>+' + (images.length - 4) + '</strong><span>More</span></button>' : '');
 
@@ -604,8 +609,9 @@ function renderProductPage(productId) {
   }).join('');
 
   var matchCards = bundleProducts.slice(0, 3).map(function(item) {
+    var imgSrc = getProductImg(item);
     return '<article class="pdp-ref-match-card">' +
-      '<img src="' + getProductImg(item) + '" alt="' + escHtml(item.name) + '" loading="lazy" />' +
+      '<img src="' + getProductThumbSrc(imgSrc) + '" data-full-src="' + imgSrc + '" alt="' + escHtml(item.name) + '" loading="lazy" decoding="async" />' +
       '<span>' + escHtml(item.name) + '</span>' +
     '</article>';
   }).join('<b class="pdp-ref-plus">+</b>');
@@ -658,7 +664,7 @@ function renderProductPage(productId) {
           '<div class="product-thumbnails pdp-ref-thumbs" role="list" aria-label="Product image thumbnails">' + refThumbs + '</div>' +
           '<div class="pdp-ref-image-card product-main-img-wrap product-main-img-zoomable" data-gallery-swipe="true">' +
             '<button type="button" class="pdp-image-button" onclick="openImageZoomFromMain()" aria-label="Open larger image of ' + escHtml(product.name) + '">' +
-              '<img id="product-main-img" class="product-main-img" src="' + mainImg + '" alt="' + escHtml(product.name) + ' product image" loading="eager" decoding="async" />' +
+              '<img id="product-main-img" class="product-main-img" src="' + mainThumb + '" data-full-src="' + mainImg + '" alt="' + escHtml(product.name) + ' product image" loading="eager" decoding="async" fetchpriority="high" />' +
               '<span class="pdp-ref-zoom">' + getPdpIcon('search') + '</span>' +
             '</button>' +
           '</div>' +
@@ -698,9 +704,9 @@ function renderProductPage(productId) {
           '</div>' +
           '<div class="pdp-info-panel active" data-pdp-panel="description">' +
             '<div class="pdp-about-copy"><h2>About the Game</h2><p>' + escHtml(aboutGameText) + '</p><p>Gather around the table and enjoy a quick, memorable session built for shared laughs and easy gifting.</p><aside><b>&#10024;</b><span>Perfect for ' + escHtml(profile.category.toLowerCase()) + ', built for connection.</span></aside></div>' +
-            '<div class="pdp-love-illustrated"><i class="pdp-love-spark s1">&#10024;</i><i class="pdp-love-spark s2">&#10024;</i><i class="pdp-love-spark s3">&#10022;</i><div><h2>Why you\'ll love it</h2><ul>' + whyLoveItems + '</ul></div><img src="/images/background images/pdp-family-table-illustration.webp" alt="Friends playing games together" loading="lazy" /></div>' +
+            '<div class="pdp-love-illustrated"><i class="pdp-love-spark s1">&#10024;</i><i class="pdp-love-spark s2">&#10024;</i><i class="pdp-love-spark s3">&#10022;</i><div><h2>Why you\'ll love it</h2><ul>' + whyLoveItems + '</ul></div><img src="' + new URL('background images/pdp-family-table-illustration.webp', CDN_BASE).href + '" alt="Friends playing games together" loading="lazy" /></div>' +
           '</div>' +
-          '<div class="pdp-info-panel" data-pdp-panel="how"><div class="pdp-tab-how"><h2>How It Plays</h2><ol>' + howTabItems + '</ol><img src="' + howItPlaysImg + '" alt="" loading="lazy" /></div></div>' +
+          '<div class="pdp-info-panel" data-pdp-panel="how"><div class="pdp-tab-how"><h2>How It Plays</h2><ol>' + howTabItems + '</ol><img src="' + getProductThumbSrc(howItPlaysImg) + '" data-full-src="' + howItPlaysImg + '" alt="" loading="lazy" decoding="async" /></div></div>' +
           '<div class="pdp-info-panel" data-pdp-panel="box"><h2>What\'s in the Box</h2><p>Package contents may vary by edition. Confirm exact contents on WhatsApp before ordering.</p></div>' +
           '<div class="pdp-info-panel" data-pdp-panel="details"><div class="pdp-detail-head"><span>Quick facts</span><h2>Details that help you pick the right table</h2></div><ul class="pdp-detail-list">' + detailsItems + '</ul></div>' +
           '<div class="pdp-info-panel" data-pdp-panel="delivery"><h2>Delivery & Returns</h2><ul><li>Same-day Nairobi delivery can be arranged after stock confirmation.</li><li>Kenya-wide delivery is available where courier coverage allows.</li><li>Confirm delivery fee, payment steps and exact edition on WhatsApp.</li></ul></div>' +
@@ -750,7 +756,10 @@ function switchProductImg(thumb, src) {
   document.querySelectorAll('.product-thumb').forEach(function(t) { t.classList.remove('active'); });
   if (thumb) thumb.classList.add('active');
   var mainImg = document.getElementById('product-main-img');
-  if (mainImg) mainImg.src = src;
+  if (mainImg) {
+    mainImg.src = getProductThumbSrc(src);
+    mainImg.dataset.fullSrc = src;
+  }
 }
 
 function initProductGallerySwipe(images) {
@@ -769,7 +778,7 @@ function initProductGallerySwipe(images) {
     var dy = e.changedTouches[0].clientY - startY;
     if (Math.abs(dx) < 42 || Math.abs(dx) < Math.abs(dy)) return;
     var mainImg = document.getElementById('product-main-img');
-    var currentSrc = mainImg ? mainImg.getAttribute('src') : images[0];
+    var currentSrc = mainImg ? (mainImg.dataset.fullSrc || mainImg.getAttribute('src')) : images[0];
     var currentIndex = Math.max(0, images.indexOf(currentSrc));
     var nextIndex = dx < 0 ? currentIndex + 1 : currentIndex - 1;
     if (nextIndex < 0) nextIndex = images.length - 1;
@@ -817,7 +826,7 @@ function renderImageZoomThumbs() {
   }
   thumbs.innerHTML = imageZoomGallery.map(function(src, index) {
     return '<button type="button" class="image-zoom-thumb' + (index === imageZoomIndex ? ' active' : '') + '" onclick="setImageZoomImage(' + index + ')" aria-label="View product image ' + (index + 1) + '">' +
-      '<img src="' + escHtml(src) + '" alt="" loading="lazy" />' +
+      '<img src="' + escHtml(getProductThumbSrc(src)) + '" data-full-src="' + escHtml(src) + '" alt="" loading="lazy" decoding="async" />' +
     '</button>';
   }).join('');
 }
@@ -872,7 +881,8 @@ function openImageZoomFromMain() {
   if (!img) return;
   var product = getProductById(currentProduct);
   var gallery = product ? getProductImgAll(product) : [img.currentSrc || img.src];
-  openImageZoom(img.currentSrc || img.src, img.alt, gallery, findImageZoomIndex(img.currentSrc || img.src, gallery));
+  var fullSrc = img.dataset.fullSrc || img.currentSrc || img.src;
+  openImageZoom(fullSrc, img.alt, gallery, findImageZoomIndex(fullSrc, gallery));
 }
 
 function closeImageZoom(event) {
@@ -1014,7 +1024,7 @@ function openQuickView(productId) {
   var cat = CATEGORIES.find(function(c) { return c.id === product.cat; });
 
   document.getElementById('qv-title').textContent = product.name;
-  document.getElementById('qv-img').src = getProductImg(product);
+  document.getElementById('qv-img').src = getProductThumbSrc(getProductImg(product));
   document.getElementById('qv-img').alt = product.name;
   document.getElementById('qv-price').textContent = 'KES ' + product.price.toLocaleString();
   document.getElementById('qv-desc').textContent = product.shortDescription || 'A great game for everyone!';
