@@ -352,6 +352,7 @@ function getRouteFromLocation() {
 
   var hash = window.location.hash.replace('#', '');
   if (hash) {
+    if (hash === 'game-finder') return { page: 'home', param: null };
     var parts = hash.split('/');
     return { page: parts[0] || 'home', param: parts[1] || null };
   }
@@ -457,6 +458,7 @@ function navigate(page, param, skipHistory) {
   if (currentPage === page && (page !== 'product' && page !== 'category' || (currentProduct === param || currentCategory === param))) {
     placeSiteHeader(page);
     updateSeoMeta(page, param);
+    scrollToHomeAnchor();
     return;
   }
 
@@ -539,6 +541,18 @@ function navigate(page, param, skipHistory) {
   // only after rendering to avoid destroying the header during innerHTML updates.
   placeSiteHeader(page);
   updateSeoMeta(page, param);
+  scrollToHomeAnchor();
+}
+
+function scrollToHomeAnchor() {
+  if (currentPage !== 'home' || window.location.hash !== '#game-finder') return;
+
+  var finder = document.getElementById('game-finder');
+  if (!finder) return;
+
+  window.requestAnimationFrame(function() {
+    finder.scrollIntoView({ block: 'start' });
+  });
 }
 
 function showPage(name) {
