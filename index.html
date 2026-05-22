@@ -131,7 +131,7 @@
   }
   </script>
   <script>
-    window.MGW_CDN_BASE = window.MGW_CDN_BASE || (window.location.protocol === 'file:' ? 'images/' : '/images/');
+    window.MGW_CDN_BASE = window.MGW_CDN_BASE || new URL('images/', document.baseURI).href;
   </script>
 </head>
 <body data-page="home">
@@ -1447,7 +1447,7 @@
 <footer class="site-footer"></footer>
 
 <!-- Scripts -->
-<script src="products.min.js" defer></script>
+<script src="products.min.js?v=github-image-path-20260522" defer></script>
 <script src="security.js" defer></script>
 <script src="cart.js" defer></script>
 <script src="filters.js" defer></script>
