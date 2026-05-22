@@ -993,4 +993,95 @@ body[data-page="product"] #page-product .breadcrumb span:last-child {
   body[data-page="home"] .home-products-band .product-footer {
     margin-top: 0 !important;
   }
+
+  body[data-page="home"] .trust-icon {
+    border-radius: 0 !important;
+    background-color: transparent !important;
+    background-image: url("images/branding/home-trust-icon-sheet.png") !important;
+    background-repeat: no-repeat !important;
+    background-size: 400% 100% !important;
+    box-shadow: none !important;
+  }
+
+  body[data-page="home"] .trust-icon svg {
+    display: none !important;
+  }
+
+  body[data-page="home"] .trust-icon-delivery {
+    background-position: 0 50% !important;
+  }
+
+  body[data-page="home"] .trust-icon-authentic {
+    background-position: 33.333% 50% !important;
+  }
+
+  body[data-page="home"] .trust-icon-whatsapp {
+    background-position: 66.666% 50% !important;
+  }
+
+  body[data-page="home"] .trust-icon-gift {
+    background-position: 100% 50% !important;
+  }
+
+  body[data-page="home"] .categories-section .cat-card-link,
+  body[data-page="home"] .categories-section .cat-card-group,
+  body[data-page="home"] .categories-section .home-category-card,
+  body[data-page="home"] .categories-section .home-category-card.cat-card-group {
+    justify-content: flex-end !important;
+    padding-top: 78px !important;
+    background-image: none !important;
+  }
+
+  body[data-page="home"] .categories-section .cat-icon,
+  body[data-page="home"] .categories-section .home-category-card .cat-icon {
+    position: absolute !important;
+    top: 10px !important;
+    left: 50% !important;
+    display: block !important;
+    width: calc(100% - 26px) !important;
+    height: 68px !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent url("images/category-art/generated/home-category-icon-sheet.png") no-repeat !important;
+    background-size: 400% 200% !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    transform: translateX(-50%) !important;
+  }
+
+  body[data-page="home"] .categories-section .cat-icon svg {
+    display: none !important;
+  }
+
+  body[data-page="home"] .categories-section .home-category-card.home-category-icon-dice .cat-icon {
+    background-position: 0 0 !important;
+  }
+
+  body[data-page="home"] .categories-section .home-category-card.home-category-icon-cards .cat-icon {
+    background-position: 33.333% 0 !important;
+  }
+
+  body[data-page="home"] .categories-section .home-category-card.home-category-icon-bear .cat-icon {
+    background-position: 66.666% 0 !important;
+  }
+
+  body[data-page="home"] .categories-section .home-category-card.home-category-icon-robot .cat-icon {
+    background-position: 100% 0 !important;
+  }
+
+  body[data-page="home"] .categories-section .home-category-card.home-category-icon-puzzle .cat-icon {
+    background-position: 0 100% !important;
+  }
+
+  body[data-page="home"] .categories-section .home-category-card.home-category-icon-party .cat-icon {
+    background-position: 33.333% 100% !important;
+  }
+
+  body[data-page="home"] .categories-section .home-category-card.home-category-icon-heart .cat-icon {
+    background-position: 66.666% 100% !important;
+  }
+
+  body[data-page="home"] .categories-section .home-category-card.home-category-icon-grid .cat-icon {
+    background-position: 100% 100% !important;
+  }
 }

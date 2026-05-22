@@ -185,9 +185,9 @@ var HOME_CATEGORY_MENU = [
     subcategories: ['stem-toys', 'lego-collectible', 'infant-toys', 'musical-toys', 'dolls']
   },
   { id: 'puzzles', type: 'category', art: 'images/category-art/generated/home-puzzles.png', countLabel: '11+ Puzzles', iconKey: 'puzzle' },
-  { id: 'couples-games', type: 'category', art: 'images/category-art/generated/home-couples-games.png', countLabel: '38+ Games', iconKey: 'heart' },
   { id: 'party-games', type: 'category', art: 'images/category-art/generated/home-party-games.png', countLabel: '27+ Games', iconKey: 'party' },
-  { id: 'drinking-games', type: 'category', art: 'images/category-art/generated/home-drinking-games.png', countLabel: '29+ Games', iconKey: 'cup' }
+  { id: 'couples-games', type: 'category', art: 'images/category-art/generated/home-couples-games.png', countLabel: '38+ Games', iconKey: 'heart' },
+  { id: 'shop', label: 'More Categories', type: 'page', routePage: 'shop', countLabel: 'View all', iconKey: 'grid' }
 ];
 
 var CATEGORY_GROUP_PAGES = {
@@ -239,7 +239,8 @@ function getHomeCategoryIcon(iconKey) {
     puzzle: '<svg ' + sharedAttrs + '><path d="M22 12h15v11h5c5 0 5 9 0 9h-5v9H26v5c0 5-9 5-9 0v-5H10V29h8v-4c-5 0-5-9 0-9h4v-4z"/></svg>',
     heart: '<svg ' + sharedAttrs + '><path d="M55 22c-4.6-8.2-15.4-8.6-21.1-1.7L32 22.6l-1.9-2.3C24.4 13.4 13.6 13.8 9 22c-4.8 8.5 1.4 17 7.2 22.2L32 56l15.8-11.8C53.6 39 59.8 30.5 55 22z"/></svg>',
     party: '<svg ' + sharedAttrs + '><path d="M12 52 25 14l25 25-38 13z"/><path d="m22 24 18 18"/><path d="M41 10c5 0 8 3 8 8"/><path d="M51 27c3-1 7 0 9 3"/><path d="M29 7c-1 4-4 7-8 8"/><path d="M52 9v.1"/><path d="M57 19v.1"/><path d="M43 27v.1"/></svg>',
-    cup: '<svg ' + sharedAttrs + '><path d="M18 22h27l-2 20c-.6 6.2-5.3 10-11.2 10h-1.6C24.3 52 19.6 48.2 19 42l-1-20z"/><path d="M45 27h5c9 0 9 15 0 15h-6"/><path d="M23 14h16"/><path d="M27 14v8"/><path d="M35 14v8"/><path d="M24 32h15"/></svg>'
+    cup: '<svg ' + sharedAttrs + '><path d="M18 22h27l-2 20c-.6 6.2-5.3 10-11.2 10h-1.6C24.3 52 19.6 48.2 19 42l-1-20z"/><path d="M45 27h5c9 0 9 15 0 15h-6"/><path d="M23 14h16"/><path d="M27 14v8"/><path d="M35 14v8"/><path d="M24 32h15"/></svg>',
+    grid: '<svg ' + sharedAttrs + '><rect x="10" y="10" width="16" height="16" rx="3"/><rect x="38" y="10" width="16" height="16" rx="3"/><rect x="10" y="38" width="16" height="16" rx="3"/><rect x="38" y="38" width="16" height="16" rx="3"/></svg>'
   };
   return icons[iconKey] || icons.dice;
 }
@@ -249,8 +250,10 @@ function renderHomeCategoryCard(config) {
   var label = config.label || (cat && cat.label) || config.id;
   var countLabel = config.countLabel || ((cat && cat.count) || getHomeCategoryMenuCount(config)) + '+ Games';
   var bgImage = encodeURI(config.art || CATEGORY_CARD_ART_MAP[config.id] || CATEGORY_BG_MAP[config.id] || '');
+  var routePage = config.routePage || 'category';
+  var routeId = routePage === 'category' ? config.id : '';
 
-  return '<a href="' + getRouteUrl('category', config.id) + '" class="cat-card-link home-category-card' + (config.type === 'group' ? ' cat-card-group' : '') + '" style="--cat-bg-image:url(\'' + bgImage + '\');" onclick="return handleRouteClick(event,\'category\',\'' + config.id + '\')">' +
+  return '<a href="' + getRouteUrl(routePage, routeId) + '" class="cat-card-link home-category-card home-category-icon-' + escHtml(config.iconKey || 'dice') + (config.type === 'group' ? ' cat-card-group' : '') + '" style="--cat-bg-image:url(\'' + bgImage + '\');" onclick="return handleRouteClick(event,\'' + routePage + '\',\'' + routeId + '\')">' +
     '<span class="cat-icon" aria-hidden="true">' + getHomeCategoryIcon(config.iconKey) + '</span>' +
     '<span class="cat-label">' + escHtml(label) + '</span>' +
     '<span class="cat-count-label">' + escHtml(countLabel) + '</span>' +
