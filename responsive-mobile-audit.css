@@ -380,6 +380,250 @@
   }
 }
 
+/* Mobile home revamp: give the hero and first sections breathing room. */
+@media (max-width: 767px) {
+  body[data-page="home"] .hero-section {
+    min-height: 680px !important;
+    height: auto !important;
+    overflow: hidden !important;
+  }
+
+  body[data-page="home"] .hero-bg {
+    background-position: center top !important;
+  }
+
+  body[data-page="home"] .hero-overlay {
+    background:
+      linear-gradient(180deg, rgba(0,0,0,0.32) 0%, rgba(0,0,0,0.28) 26%, rgba(0,0,0,0.76) 68%, rgba(0,0,0,0.94) 100%) !important;
+  }
+
+  body[data-page="home"] .hero-content {
+    min-height: 680px !important;
+    align-items: flex-end !important;
+    padding: 152px 18px 116px !important;
+  }
+
+  body[data-page="home"] .hero-stage {
+    align-items: end !important;
+    gap: 0 !important;
+  }
+
+  body[data-page="home"] .hero-text {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    padding-top: 0 !important;
+  }
+
+  body[data-page="home"] .hero-badge {
+    max-width: min(100%, 360px) !important;
+    margin: 0 !important;
+    padding: 10px 14px !important;
+    font-size: 0.78rem !important;
+    line-height: 1.1 !important;
+    white-space: normal !important;
+    text-align: left !important;
+  }
+
+  body[data-page="home"] .hero-title {
+    margin: 0 !important;
+    max-width: 11ch !important;
+    font-size: clamp(2.5rem, 12vw, 3.35rem) !important;
+    line-height: 0.96 !important;
+    text-wrap: balance !important;
+    overflow-wrap: normal !important;
+  }
+
+  body[data-page="home"] .hero-desc {
+    max-width: 33ch !important;
+    margin: 0 !important;
+    font-size: 1rem !important;
+    line-height: 1.45 !important;
+    color: rgba(255,255,255,0.9) !important;
+  }
+
+  body[data-page="home"] .hero-ctas {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    width: 100% !important;
+    margin: 4px 0 0 !important;
+  }
+
+  body[data-page="home"] .hero-cta-btn {
+    width: 100% !important;
+    min-height: 54px !important;
+    justify-content: center !important;
+    padding: 0 18px !important;
+    border-radius: 999px !important;
+    font-size: 1rem !important;
+    box-shadow: 0 14px 30px rgba(0,0,0,0.24) !important;
+  }
+
+  body[data-page="home"] .hero-dots {
+    bottom: 28px !important;
+    gap: 10px !important;
+    padding: 10px 14px !important;
+    border-radius: 999px !important;
+    background: rgba(17, 6, 10, 0.78) !important;
+    backdrop-filter: blur(14px) !important;
+  }
+
+  body[data-page="home"] .hero-dot {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  body[data-page="home"] .hero-dot.active {
+    width: 16px !important;
+  }
+
+  body[data-page="home"] .hero-arrow {
+    top: 78px !important;
+    width: 44px !important;
+    height: 44px !important;
+    background: rgba(8, 12, 22, 0.62) !important;
+    backdrop-filter: blur(10px) !important;
+  }
+
+  body[data-page="home"] .hero-arrow-prev {
+    left: 18px !important;
+  }
+
+  body[data-page="home"] .hero-arrow-next {
+    display: none !important;
+  }
+
+  body[data-page="home"] .trust-strip {
+    padding: 18px 0 20px !important;
+    background: #fbfaf7 !important;
+  }
+
+  body[data-page="home"] .trust-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+
+  body[data-page="home"] .trust-item {
+    min-height: 76px !important;
+    align-items: center !important;
+    gap: 10px !important;
+    padding: 12px !important;
+    border-radius: 12px !important;
+    background: #ffffff !important;
+    box-shadow: 0 10px 24px rgba(17, 24, 39, 0.06) !important;
+  }
+
+  body[data-page="home"] .trust-icon {
+    width: 34px !important;
+    height: 34px !important;
+    border-radius: 10px !important;
+  }
+
+  body[data-page="home"] .trust-title {
+    font-size: 0.76rem !important;
+    line-height: 1.15 !important;
+  }
+
+  body[data-page="home"] .trust-sub {
+    margin-top: 2px !important;
+    font-size: 0.7rem !important;
+    line-height: 1.2 !important;
+  }
+
+  body[data-page="home"] .categories-section {
+    padding: 44px 0 30px !important;
+  }
+
+  body[data-page="home"] .categories-section .section-header {
+    display: grid !important;
+    grid-template-columns: 1fr auto !important;
+    gap: 8px 12px !important;
+    align-items: end !important;
+    margin-bottom: 18px !important;
+  }
+
+  body[data-page="home"] .categories-section .section-header h2 {
+    font-size: clamp(1.75rem, 8vw, 2.25rem) !important;
+    line-height: 1 !important;
+  }
+
+  body[data-page="home"] .categories-section .section-accent-line {
+    grid-column: 1 / -1 !important;
+    width: 58px !important;
+    height: 4px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  body[data-page="home"] .hero-section,
+  body[data-page="home"] .hero-content {
+    min-height: 640px !important;
+  }
+
+  body[data-page="home"] .hero-content {
+    padding: 142px 14px 104px !important;
+  }
+
+  body[data-page="home"] .hero-title {
+    font-size: clamp(2.2rem, 11vw, 2.75rem) !important;
+  }
+
+  body[data-page="home"] .hero-desc {
+    font-size: 0.94rem !important;
+  }
+}
+
+/* Final small-screen simplification: one clear action, no crowded controls. */
+@media (max-width: 767px) {
+  body[data-page="home"] .hero-content {
+    padding-bottom: 44px !important;
+  }
+
+  body[data-page="home"] .hero-desc {
+    width: min(100%, 335px) !important;
+    max-width: calc(100vw - 36px) !important;
+    overflow-wrap: normal !important;
+  }
+
+  body[data-page="home"] .hero-ctas {
+    width: min(100%, 335px) !important;
+    max-width: calc(100vw - 36px) !important;
+  }
+
+  body[data-page="home"] .hero-ctas .hero-cta-btn:nth-child(n+2) {
+    display: none !important;
+  }
+
+  body[data-page="home"] .hero-dots,
+  body[data-page="home"] .hero-arrow {
+    display: none !important;
+  }
+
+  body[data-page="home"] .trust-grid {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+
+  body[data-page="home"] .trust-item {
+    min-height: 58px !important;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  body[data-page="home"] .trust-item > div:last-child {
+    min-width: 0 !important;
+  }
+
+  body[data-page="home"] .trust-title,
+  body[data-page="home"] .trust-sub {
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+  }
+}
+
 @media (min-width: 768px) and (max-width: 1023px) {
   :root {
     --mobile-header-height: 84px;
