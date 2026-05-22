@@ -1,8 +1,10 @@
 // MAJESTIC GAMES & TOYS WORLD - Product Database
 // 270 products, local image catalogue
 
-const CDN_BASE = (window.MGW_CDN_BASE || (window.location.protocol === "file:" ? "images/" : "/images/")).replace(/\/?$/, "/");
-const LOGO_URL = window.location.protocol === "file:" ? "images/branding/LOGOF2.png" : "/images/branding/LOGOF2.png";
+const MGW_PRODUCT_SCRIPT = document.currentScript || document.querySelector('script[src*="products"]');
+const MGW_PRODUCT_BASE_URL = new URL(".", MGW_PRODUCT_SCRIPT && MGW_PRODUCT_SCRIPT.src ? MGW_PRODUCT_SCRIPT.src : document.baseURI).href;
+const CDN_BASE = (window.MGW_CDN_BASE || new URL("images/", MGW_PRODUCT_BASE_URL).href).replace(/\/?$/, "/");
+const LOGO_URL = new URL("branding/LOGOF2.png", CDN_BASE).href;
 const LOGO_DARK_URL = LOGO_URL;
 const WHATSAPP_NUMBER = "254710707973";
 const FREE_DELIVERY_THRESHOLD = 8000;
