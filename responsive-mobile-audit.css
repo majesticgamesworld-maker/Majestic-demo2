@@ -689,3 +689,41 @@
     max-width: 390px;
   }
 }
+
+/* Product detail polish: remove the dead band below the navbar and match the header to the page surface. */
+body[data-page="product"] {
+  background: #f2e7d5 !important;
+}
+
+body[data-page="product"] .site-header.navbar,
+body[data-page="product"] .site-header.navbar.scrolled {
+  background: #f2e7d5 !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+body[data-page="product"] .product-page-section {
+  padding-top: 0 !important;
+  background: #f2e7d5 !important;
+}
+
+body[data-page="product"] .product-page-section > .container {
+  padding-top: clamp(14px, 1.8vw, 24px) !important;
+}
+
+body[data-page="product"] #page-product .breadcrumb {
+  margin: 0 0 22px !important;
+  padding: 0 !important;
+  color: #111827 !important;
+  text-shadow: none !important;
+}
+
+body[data-page="product"] #page-product .breadcrumb a,
+body[data-page="product"] #page-product .breadcrumb span {
+  color: #111827 !important;
+}
+
+body[data-page="product"] #page-product .breadcrumb span:last-child {
+  color: #c26800 !important;
+}
