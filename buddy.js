@@ -3,11 +3,11 @@
 Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
 var heroSlides = [
   {
-    bg: 'images/branding/game-night-banner-generated.webp',
-    badge: 'Tabletop nights made easy',
-    titleMain: 'Game Night',
-    titleSub: 'Starts Here',
-    desc: 'Board games, card games, dice, and puzzles for evenings full of laughter, friendly rivalry, and one more round.',
+    bg: 'images/branding/hero-banner.jpg',
+    badge: 'Kenya\'s #1 board games store',
+    titleMain: 'More than games.',
+    titleSub: 'Moments that bring us together.',
+    desc: 'Discover board games, puzzles, toys, and gifts for every age and every occasion.',
     feature: {
       id: 'catan',
       image: 'images/catan-board-game-nairobi.webp',
@@ -17,8 +17,8 @@ var heroSlides = [
       price: 'KES 2,699'
     },
     ctas: [
-      { label: 'Shop Bestsellers', color: '#ff4d2e', page: 'bestsellers' },
-      { label: 'Browse All Games', color: 'rgba(255,255,255,0.14)', page: 'shop' }
+      { label: 'Shop on WhatsApp', color: '#ffbf22', page: 'contact' },
+      { label: 'Find the Perfect Game', color: 'rgba(9,12,18,0.42)', page: 'shop' }
     ]
   },
   {
