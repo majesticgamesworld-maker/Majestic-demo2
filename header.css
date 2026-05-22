@@ -350,6 +350,347 @@ body[data-page] .site-header.navbar .shop-dropdown-menu.open {
   padding: 8px 12px !important;
 }
 
+/* Desktop Shop menu reference revamp. */
+@media (min-width: 980px) {
+  .site-header.navbar .shop-dropdown-menu,
+  body[data-page] .site-header.navbar .shop-dropdown-menu {
+    width: min(1144px, calc(100vw - 96px)) !important;
+    max-width: calc(100vw - 96px) !important;
+    max-height: min(614px, calc(100vh - 128px)) !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 18px !important;
+    background: #ffffff !important;
+    box-shadow: 0 28px 70px rgba(0, 0, 0, 0.34) !important;
+    color: #090d1b !important;
+    overflow: hidden auto !important;
+  }
+
+  .reference-mega-menu,
+  .reference-mega-menu * {
+    box-sizing: border-box;
+  }
+
+  .reference-mega-menu {
+    display: grid;
+    grid-template-columns: 254px 286px 264px minmax(252px, 1fr);
+    min-height: 612px;
+    padding: 20px 14px 18px 20px;
+    background: #ffffff;
+    color: #090d1b;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+
+  .reference-mega-column {
+    min-width: 0;
+    padding: 6px 28px 0 14px;
+    border-right: 1px solid #e6eaf0;
+  }
+
+  .reference-mega-column h4 {
+    position: relative;
+    margin: 0 0 18px;
+    color: #080b18;
+    font-size: 1.03rem;
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  .reference-mega-column h4::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -12px;
+    width: 34px;
+    height: 3px;
+    border-radius: 999px;
+    background: #ffb400;
+  }
+
+  .reference-mega-category,
+  .reference-mega-pick,
+  .reference-mega-age,
+  .reference-mega-occasions button,
+  .reference-mega-view {
+    border: 0;
+    color: inherit;
+    background: transparent;
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .reference-mega-categories > div,
+  .reference-mega-picks > div,
+  .reference-mega-guides > div:first-child {
+    display: grid;
+  }
+
+  .reference-mega-category {
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr) 12px;
+    align-items: center;
+    gap: 12px;
+    min-height: 61px;
+    padding: 4px 0;
+    text-align: left;
+    border-radius: 10px;
+  }
+
+  .reference-mega-category:hover,
+  .reference-mega-pick:hover,
+  .reference-mega-age:hover {
+    background: #fff9ed;
+  }
+
+  .reference-mega-category img {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+  }
+
+  .reference-mega-category b,
+  .reference-mega-pick b,
+  .reference-mega-age b {
+    display: block;
+    color: #080b18;
+    font-size: 0.88rem;
+    font-weight: 900;
+    line-height: 1.16;
+  }
+
+  .reference-mega-category small,
+  .reference-mega-pick small,
+  .reference-mega-age small {
+    display: block;
+    margin-top: 4px;
+    color: #233d73;
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1.18;
+  }
+
+  .reference-mega-category i {
+    color: #7f8ba4;
+    font-size: 1.6rem;
+    font-style: normal;
+    line-height: 1;
+  }
+
+  .reference-mega-category:nth-child(-n+2) i {
+    color: #f4a900;
+  }
+
+  .reference-mega-pick {
+    display: grid;
+    grid-template-columns: 64px minmax(0, 1fr);
+    align-items: center;
+    gap: 16px;
+    min-height: 86px;
+    padding: 7px 0;
+    text-align: left;
+    border-radius: 10px;
+  }
+
+  .reference-mega-pick img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+  }
+
+  .reference-mega-pick small {
+    color: #17366a;
+    font-size: 0.8rem;
+  }
+
+  .reference-mega-view {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    min-height: 48px;
+    margin-top: 18px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #fff1c7, #ffd77a);
+    color: #070913;
+    font-size: 0.86rem;
+    font-weight: 950;
+  }
+
+  .reference-mega-view span,
+  .reference-mega-buddy a span {
+    font-size: 1.24rem;
+    line-height: 1;
+  }
+
+  .reference-mega-guides {
+    display: grid;
+    align-content: start;
+    gap: 22px;
+    padding-right: 26px;
+  }
+
+  .reference-mega-age {
+    display: grid;
+    grid-template-columns: 54px minmax(0, 1fr);
+    align-items: center;
+    gap: 12px;
+    min-height: 64px;
+    padding: 4px 0;
+    text-align: left;
+    border-radius: 12px;
+  }
+
+  .reference-mega-age img {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+  }
+
+  .reference-mega-age b {
+    font-size: 0.86rem;
+  }
+
+  .reference-mega-age small {
+    margin-top: 3px;
+    font-size: 0.73rem;
+  }
+
+  .reference-mega-occasions {
+    margin-top: 6px;
+  }
+
+  .reference-mega-occasions > div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 8px;
+  }
+
+  .reference-mega-occasions button {
+    min-height: 36px;
+    padding: 0 14px;
+    border: 1px solid #dfe5ee;
+    border-radius: 999px;
+    background: #ffffff;
+    color: #203762;
+    font-size: 0.73rem;
+    font-weight: 850;
+    white-space: nowrap;
+  }
+
+  .reference-mega-occasions button:hover {
+    border-color: #ffbf22;
+    background: #fff8e7;
+  }
+
+  .reference-mega-buddy {
+    display: grid;
+    grid-template-rows: auto auto auto minmax(0, 1fr) auto;
+    justify-items: center;
+    min-width: 0;
+    margin: 0;
+    padding: 40px 22px 22px;
+    border-radius: 14px;
+    background:
+      radial-gradient(circle at 50% 18%, rgba(255,255,255,0.94), transparent 30%),
+      linear-gradient(180deg, #fff6e6 0%, #fff9ef 100%);
+    text-align: center;
+  }
+
+  .reference-mega-buddy strong {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #070913;
+    font-size: 1.14rem;
+    font-weight: 950;
+    line-height: 1.2;
+  }
+
+  .reference-mega-buddy strong span {
+    color: #f5a800;
+    font-size: 1.1rem;
+  }
+
+  .reference-mega-buddy b {
+    margin-top: 18px;
+    color: #070913;
+    font-size: 0.96rem;
+    font-weight: 950;
+  }
+
+  .reference-mega-buddy p {
+    max-width: 18ch;
+    margin: 14px 0 0;
+    color: #070913;
+    font-size: 0.91rem;
+    font-weight: 700;
+    line-height: 1.45;
+  }
+
+  .reference-mega-buddy img {
+    align-self: end;
+    width: min(100%, 218px);
+    max-height: 280px;
+    margin-top: 10px;
+    object-fit: contain;
+    object-position: center bottom;
+  }
+
+  .reference-mega-buddy a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    min-height: 52px;
+    border-radius: 12px;
+    background: linear-gradient(180deg, #ffc329, #ffae00);
+    box-shadow: 0 10px 22px rgba(255, 176, 0, 0.2);
+    color: #070913;
+    font-size: 0.88rem;
+    font-weight: 950;
+    text-decoration: none;
+  }
+
+  .reference-mega-category:focus-visible,
+  .reference-mega-pick:focus-visible,
+  .reference-mega-age:focus-visible,
+  .reference-mega-occasions button:focus-visible,
+  .reference-mega-view:focus-visible,
+  .reference-mega-buddy a:focus-visible {
+    outline: 3px solid rgba(255, 180, 0, 0.45);
+    outline-offset: 2px;
+  }
+}
+
+@media (min-width: 980px) and (max-width: 1180px) {
+  .reference-mega-menu {
+    grid-template-columns: 230px 252px 240px minmax(224px, 1fr);
+    padding-inline: 14px;
+  }
+
+  .reference-mega-column {
+    padding-inline: 12px 18px;
+  }
+
+  .reference-mega-category {
+    grid-template-columns: 42px minmax(0, 1fr) 10px;
+    gap: 8px;
+  }
+
+  .reference-mega-category img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .reference-mega-buddy {
+    padding-inline: 16px;
+  }
+}
+
 .site-header.navbar .shop-dropdown-menu.open {
   opacity: 1;
   visibility: visible;
@@ -4844,17 +5185,17 @@ body[data-page="gift-picks"] .page-header.collection-hero {
   padding-top: max(150px, var(--collection-hero-top, 150px)) !important;
 }
 
-/* Final compact shop dropdown. */
+/* Final desktop Shop menu size guard. */
 .site-header.navbar .shop-dropdown-menu,
 body[data-page] .site-header.navbar .shop-dropdown-menu {
-  width: min(1080px, calc(100vw - 96px)) !important;
+  width: min(1144px, calc(100vw - 96px)) !important;
   max-width: calc(100vw - 96px) !important;
-  border-radius: 14px !important;
+  border-radius: 18px !important;
 }
 
 .site-header.navbar .shop-dropdown-menu.open,
 body[data-page] .site-header.navbar .shop-dropdown-menu.open {
-  max-height: min(540px, calc(100vh - 128px)) !important;
+  max-height: min(614px, calc(100vh - 128px)) !important;
 }
 
 .attached-mega-menu {

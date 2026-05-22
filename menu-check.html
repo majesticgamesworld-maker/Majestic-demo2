@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Menu check</title>
+  <style>
+    html, body, iframe {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+  <iframe id="site" src="./"></iframe>
+  <script>
+    document.getElementById('site').addEventListener('load', function(event) {
+      setTimeout(function() {
+        var button = event.target.contentDocument.getElementById('shop-dropdown-btn');
+        if (button) button.click();
+      }, 1200);
+    });
+  </script>
+</body>
+</html>

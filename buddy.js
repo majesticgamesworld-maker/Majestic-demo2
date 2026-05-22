@@ -890,104 +890,70 @@ function renderMegaProductCard(config) {
 }
 
 function renderAttachedShopDropdown(menu, dropdown, btn) {
-  var leftCats = [
-    { id: 'board-games', icon: 'BG', text: 'Strategy, family & classic games' },
-    { id: 'family-games', icon: 'FG', text: 'Card games for family table time' },
-    { id: 'kids-games', icon: 'KG', text: 'Safe, fun & educational' },
-    { id: 'puzzles', icon: 'PZ', text: 'All shapes, sizes & themes' },
-    { id: 'party-games', icon: 'PG', text: 'Perfect for parties & gatherings' },
-    { id: 'drinking-games', icon: 'DG', label: 'Adult Party Picks', text: 'Playful adult party picks' },
-    { id: 'dolls', icon: 'DL', label: 'Toys & Figures', text: 'Action figures, dolls & more' },
-    { id: 'stem-toys', icon: 'ST', label: 'Learning & STEM', text: 'Smart toys for curious minds' },
-    { id: 'gift-picks', icon: 'Gift', label: 'Gifts & Occasions', text: 'Birthday, holiday & more', page: 'gift-picks' }
+  var categories = [
+    { id: 'board-games', icon: 'board-games.webp', label: 'Board Games', count: '72+ games' },
+    { id: 'family-games', icon: 'card-games.webp', label: 'Card Games', count: '38+ games' },
+    { id: 'kids-games', icon: 'kids-games.webp', label: 'Kids Games', count: '25+ games' },
+    { id: 'stem-toys', icon: 'stem-toys.webp', label: 'STEM Toys', count: '30+ toys' },
+    { id: 'puzzles', icon: 'puzzles.webp', label: 'Puzzles', count: '11+ puzzles' },
+    { id: 'party-games', icon: 'party-games.webp', label: 'Party Games', count: '27+ games' },
+    { id: 'drinking-games', icon: 'drinking-games.webp', label: 'Drinking Games', count: '29+ games' },
+    { id: 'couples-games', icon: 'couples-games.webp', label: "Couple's Games", count: '38+ games' }
   ];
-  var categoryDescriptions = {
-    'board-games': 'Strategy, family & classic games',
-    'family-games': 'Card games for family table time',
-    'kids-games': 'Safe, fun & educational',
-    'puzzles': 'All shapes, sizes & themes',
-    'trivia-games': 'Quiz nights, facts & challenges',
-    'christian-games': 'Faith-based fun and fellowship',
-    'stem-toys': 'Smart toys for curious minds',
-    'lego-collectible': 'Build, collect and imagine',
-    'infant-toys': 'Early learning and baby play',
-    'musical-toys': 'Rhythm, sound and creativity',
-    'dolls': 'Dolls, pretend play and figures',
-    'couples-games': 'Date nights and connection',
-    'party-games': 'Perfect for parties & gatherings',
-    'drinking-games': 'Playful adult party picks'
-  };
-  var toyCategoryIds = ['stem-toys', 'lego-collectible', 'infant-toys', 'musical-toys', 'dolls'];
-  leftCats = CATEGORIES.filter(function(cat) {
-    return toyCategoryIds.indexOf(cat.id) === -1;
-  }).map(function(cat) {
-    return {
-      id: cat.id,
-      icon: cat.icon,
-      label: cat.label,
-      text: categoryDescriptions[cat.id] || ((cat.count || 0) + ' products')
-    };
-  });
-  var toyCategories = toyCategoryIds.map(function(id) {
-    return CATEGORIES.find(function(cat) { return cat.id === id; });
-  }).filter(Boolean);
-  var trendChips = [
-    { icon: 'Hot', label: 'UNO', query: 'uno' },
-    { icon: 'PZ', label: 'Puzzles', cat: 'puzzles' },
-    { icon: 'Game', label: 'Monopoly', query: 'monopoly' },
-    { icon: 'PG', label: 'Party Games', cat: 'party-games' }
+  var ages = [
+    { icon: 'age-kids.webp', label: '3 - 6 years', text: 'Fun & learning', payload: "{cat:'kids-games'}" },
+    { icon: 'age-tweens.webp', label: '7 - 12 years', text: 'Kids favorites', payload: "{cat:'stem-toys'}" },
+    { icon: 'age-teens.webp', label: '13 - 19 years', text: 'Teens & youth', payload: "{cat:'party-games'}" },
+    { icon: 'age-adults.webp', label: 'Adults (18+)', text: 'For grown-ups', payload: "{cat:'drinking-games'}" },
+    { icon: 'age-family.webp', label: 'Family (All ages)', text: 'Everyone together', payload: "{cat:'family-games'}" }
   ];
   var occasions = [
-    { icon: 'BD', label: 'Birthday Gifts', page: 'gift-picks' },
-    { icon: 'KP', label: 'Kids Party', cat: 'kids-games' },
-    { icon: 'Xmas', label: 'Christmas Gifts', page: 'gift-picks' },
-    { icon: 'School', label: 'Back to School', cat: 'stem-toys' },
-    { icon: 'FG', label: 'Family Game Night', cat: 'family-games' }
+    { label: 'Family Game Night', cat: 'family-games' },
+    { label: 'Parties', cat: 'party-games' },
+    { label: 'Gifts', page: 'gift-picks' },
+    { label: 'Birthdays', page: 'gift-picks' },
+    { label: 'Travel & Fun', query: 'travel game' },
+    { label: 'School & Learning', cat: 'stem-toys' }
   ];
-  var categoryHtml = leftCats.map(function(item) {
-    var cat = CATEGORIES.find(function(c) { return c.id === item.id; });
-    var label = item.label || (cat && cat.label) || item.id;
-    var action = item.page ? "runSmartShopAction({page:'" + item.page + "'})" : "runSmartShopAction({cat:'" + item.id + "'})";
-    return '<button type="button" class="attached-mega-cat" role="menuitem" onclick="' + action + '">' +
-      '<span class="attached-mega-cat-icon">' + item.icon + '</span><span><b>' + escHtml(label) + '</b><small>' + escHtml(item.text) + '</small></span><i>â€º</i>' +
+  var categoryHtml = categories.map(function(item) {
+    return '<button type="button" class="reference-mega-category" role="menuitem" onclick="runSmartShopAction({cat:\'' + item.id + '\'})">' +
+      '<img src="images/mega-menu-icons/' + item.icon + '" alt="" loading="lazy" decoding="async" />' +
+      '<span><b>' + escHtml(item.label) + '</b><small>' + escHtml(item.count) + '</small></span><i aria-hidden="true">&#8250;</i>' +
     '</button>';
-  }).join('') +
-    '<div class="attached-mega-cat-group">' +
-      '<button type="button" class="attached-mega-cat attached-mega-cat-toggle" role="menuitem" aria-expanded="false" onclick="toggleMegaCategoryGroup(this)">' +
-        '<span class="attached-mega-cat-icon">T</span><span><b>TOYS</b><small>STEM, LEGO, infants, music & dolls</small></span><i>+</i>' +
-      '</button>' +
-      '<div class="attached-mega-subcats">' +
-        toyCategories.map(function(cat) {
-          return '<button type="button" class="attached-mega-subcat" role="menuitem" onclick="runSmartShopAction({cat:\'' + cat.id + '\'})">' +
-            '<span>' + cat.icon + '</span><b>' + escHtml(cat.label) + '</b><small>' + (cat.count || 0) + ' items</small>' +
-          '</button>';
-        }).join('') +
-      '</div>' +
-    '</div>';
-  var chipHtml = trendChips.map(function(item) {
-    var payload = item.cat ? "{cat:'" + item.cat + "'}" : "{query:'" + item.query + "'}";
-    return '<button type="button" class="attached-mega-chip" role="menuitem" onclick="runSmartShopAction(' + payload + ')"><span>' + item.icon + '</span>' + escHtml(item.label) + '</button>';
+  }).join('');
+  var ageHtml = ages.map(function(item) {
+    return '<button type="button" class="reference-mega-age" role="menuitem" onclick="runSmartShopAction(' + item.payload + ')">' +
+      '<img src="images/mega-menu-icons/' + item.icon + '" alt="" loading="lazy" decoding="async" />' +
+      '<span><b>' + escHtml(item.label) + '</b><small>' + escHtml(item.text) + '</small></span>' +
+    '</button>';
+  }).join('');
+  var occasionHtml = occasions.map(function(item) {
+    var payload = item.cat ? "{cat:'" + item.cat + "'}" : item.query ? "{query:'" + item.query + "'}" : "{page:'" + item.page + "'}";
+    return '<button type="button" role="menuitem" onclick="runSmartShopAction(' + payload + ')">' + escHtml(item.label) + '</button>';
   }).join('');
   var products = [
-    { product: findMegaMenuProduct(/Catan/i), badge: 'Best Seller', reviews: '(1.2k)', badgeClass: 'warm', title: 'Catan Board Game', price: 4999 },
-    { product: findMegaMenuProduct(/Exploding Kittens/i), badge: 'New', reviews: '(890)', badgeClass: 'fresh', title: 'Exploding Kittens', price: 2500 },
-    { product: findMegaMenuProduct(/Monopoly Classic|Monopoly Original/i), badge: 'Hot Pick', reviews: '(1.1k)', badgeClass: 'warm', title: 'Monopoly Classic', price: 4200 },
-    { product: findMegaMenuProduct(/Uno Classic/i), badge: 'Popular', reviews: '(2.5k)', badgeClass: 'warm', title: 'UNO Card Game', price: 700 }
+    { product: findMegaMenuProduct(/Catan/i), title: 'Catan Base Game', price: 5500, image: 'images/thumbs/catan-board-game-nairobi.webp' },
+    { product: findMegaMenuProduct(/Azul/i), title: 'Azul Board Game', price: 3200, image: 'images/thumbs/azul-board-game-nairobi.webp' },
+    { product: findMegaMenuProduct(/30 Seconds/i), title: '30 Seconds Board Game', price: 4800, image: 'images/thumbs/30-seconds-board-game-nairobi.webp' },
+    { product: findMegaMenuProduct(/Monopoly Original|Monopoly Classic/i), title: 'Monopoly Original', price: 3999, image: 'images/thumbs/monopoly-original-board-game-nairobi.webp' },
+    { product: findMegaMenuProduct(/Scrabble Original|Scrabble Large/i), title: 'Scrabble Original', price: 1999, image: 'images/thumbs/scrabble-large-board-game-nairobi.webp' }
   ];
-  var productHtml = products.map(renderMegaProductCard).join('');
-  var occasionHtml = occasions.map(function(item) {
-    var payload = item.cat ? "{cat:'" + item.cat + "'}" : "{page:'" + item.page + "'}";
-    return '<button type="button" role="menuitem" onclick="runSmartShopAction(' + payload + ')"><span>' + item.icon + '</span>' + escHtml(item.label) + '</button>';
+  var productHtml = products.map(function(item) {
+    var product = item.product;
+    var image = product ? getProductThumbSrc(getProductImg(product)) : item.image;
+    var action = product ? "navigate('product','" + product.id + "');closeShopDropdown()" : "runSmartShopAction({page:'bestsellers'})";
+    return '<button type="button" class="reference-mega-pick" role="menuitem" onclick="' + action + '">' +
+      '<img src="' + escHtml(image) + '" alt="" loading="lazy" decoding="async" />' +
+      '<span><b>' + escHtml(item.title) + '</b><small>KES ' + Number(item.price).toLocaleString() + '</small></span>' +
+    '</button>';
   }).join('');
-  var waUrl = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent('Hi Majestic Games World, I need help choosing a game or gift.');
 
   menu.innerHTML =
-    '<div class="attached-mega-menu" role="presentation">' +
-      '<div class="attached-mega-pointer" aria-hidden="true"></div>' +
-      '<aside class="attached-mega-left"><h4><span>#</span> Browse Categories</h4><div class="attached-mega-cat-list">' + categoryHtml + '</div><button type="button" class="attached-mega-view" onclick="runSmartShopAction({page:\'shop\'})">View all categories <span>â†’</span></button></aside>' +
-      '<main class="attached-mega-center"><section><h4><span>Top</span> Trending</h4><div class="attached-mega-chips">' + chipHtml + '</div></section><section class="attached-mega-picks"><h4><span>Hot</span> Popular Picks</h4><div class="attached-mega-products">' + productHtml + '</div></section><div class="attached-mega-reco"><div><b>Not sure what to pick?</b><span>Pick</span><p>Get smart recommendations based on age, budget & occasion.</p></div><button type="button" onclick="navigate(\'gift-picks\');closeShopDropdown()">Get Recommendation</button></div></main>' +
-      '<aside class="attached-mega-right"><section class="attached-mega-panel gift"><h4><span>*</span> AI Gift Finder <em>BETA</em></h4><p>Tell us who it is for and we will find the perfect gift.</p><button type="button" onclick="navigate(\'gift-picks\');closeShopDropdown()">Find My Gift</button></section><section class="attached-mega-panel occasions"><h4><span>Gift</span> Shop By Occasion</h4><div>' + occasionHtml + '</div><button type="button" onclick="navigate(\'gift-picks\');closeShopDropdown()">View all occasions <span>â†’</span></button></section><section class="attached-mega-help"><span>Help</span><div><small>Need help fast?</small><b>Chat on WhatsApp</b><p>We reply in 2-5 mins</p></div><a href="' + waUrl + '" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">â€º</a></section></aside>' +
-      '<footer class="attached-mega-trust"><span><i>Safe</i><b>100% Original Products</b><small>Trusted brands only</small></span><span><i>Fast</i><b>Fast & Reliable Delivery</b><small>Nairobi same-day delivery</small></span><span><i>Pay</i><b>Secure Payments</b><small>Safe, simple & secure</small></span><span><i>Easy</i><b>Easy Returns</b><small>Hassle-free returns</small></span></footer>' +
+    '<div class="reference-mega-menu" role="presentation">' +
+      '<section class="reference-mega-column reference-mega-categories"><h4>Shop by Category</h4><div>' + categoryHtml + '</div></section>' +
+      '<section class="reference-mega-column reference-mega-picks"><h4>Popular Picks</h4><div>' + productHtml + '</div><button type="button" class="reference-mega-view" onclick="runSmartShopAction({page:\'shop\'})">View All Products <span aria-hidden="true">&#8594;</span></button></section>' +
+      '<section class="reference-mega-column reference-mega-guides"><div><h4>Shop by Age</h4>' + ageHtml + '</div><div class="reference-mega-occasions"><h4>Shop by Occasion</h4><div>' + occasionHtml + '</div></div></section>' +
+      '<aside class="reference-mega-buddy"><strong><span aria-hidden="true">&#10024;</span> Majestic Buddy</strong><b>Not sure what to pick?</b><p>Get personalized game recommendations in seconds!</p><img src="images/branding/majestic-buddy-royal.png" alt="" loading="lazy" decoding="async" /><a href="#game-finder" onclick="closeShopDropdown()">Try Majestic Buddy <span aria-hidden="true">&#8594;</span></a></aside>' +
     '</div>';
 
   if (btn) {
@@ -1112,7 +1078,7 @@ function positionSmartShopMenu() {
   var dropdown = document.getElementById('shop-dropdown');
   var menu = document.getElementById('shop-dropdown-menu');
   if (!dropdown || !menu) return;
-  var panelWidth = Math.min(1080, Math.max(320, window.innerWidth - 96));
+  var panelWidth = Math.min(1144, Math.max(320, window.innerWidth - 96));
   var dropdownRect = dropdown.getBoundingClientRect();
   var dropdownLeft = dropdownRect.left;
   var left = Math.max(28, (window.innerWidth - panelWidth) / 2) - dropdownLeft;
