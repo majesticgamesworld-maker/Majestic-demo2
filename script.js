@@ -230,17 +230,32 @@ function getHomeCategoryMenuCount(item) {
 }
 
 function getHomeCategoryIcon(iconKey) {
-  var sharedAttrs = 'viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"';
+  var iconMap = {
+    dice: 'board-games',
+    cards: 'card-games',
+    bear: 'kids-games',
+    robot: 'stem-toys',
+    puzzle: 'puzzles',
+    party: 'party-games',
+    heart: 'couples-games',
+    cup: 'couples-games',
+    grid: 'more-categories'
+  };
+  var slug = iconMap[iconKey] || iconMap.dice;
+  return '<img src="images/category-icons/' + slug + '-icon.webp" alt="" loading="lazy" decoding="async" />';
+}
+
+function getHomeCategoryIconSvg(iconKey) {
   var icons = {
-    dice: '<svg ' + sharedAttrs + '><path d="M32 7 51 17.5v22.8L32 57 13 40.3V17.5L32 7z"/><path d="M13 17.5 32 28l19-10.5"/><path d="M32 28v29"/><path d="M21.5 23.8v.1"/><path d="M28 20v.1"/><path d="M42.5 23.8v.1"/><path d="M41.5 36v.1"/><path d="M41.5 44v.1"/><path d="M22.5 36v.1"/><path d="M22.5 44v.1"/></svg>',
-    cards: '<svg ' + sharedAttrs + '><path d="M18 18.5 35.7 11l14 33.4L32 52 18 18.5z"/><path d="M13.5 23.3 31 15.8 43.8 46"/><path d="M28.7 25.6c2-5.4 9.9-3.1 8.2 2.7-1 3.4-4.1 5.5-7.1 7.8-4-1.2-7.7-2.6-9.1-5.8-2.3-5.4 5.4-8.7 8-4.7z"/></svg>',
-    bear: '<svg ' + sharedAttrs + '><circle cx="20.5" cy="19.3" r="8"/><circle cx="43.5" cy="19.3" r="8"/><path d="M16 36c0-11 7-18 16-18s16 7 16 18-7 18-16 18-16-7-16-18z"/><path d="M26 34v.1"/><path d="M38 34v.1"/><path d="M29 41h6"/><path d="M27 45c3 2.5 7 2.5 10 0"/></svg>',
-    robot: '<svg ' + sharedAttrs + '><path d="M32 15V8"/><path d="M32 8v.1"/><rect x="18" y="18" width="28" height="26" rx="5"/><path d="M23 44v6"/><path d="M41 44v6"/><path d="M18 30h-6"/><path d="M52 30h-6"/><path d="M26 30v.1"/><path d="M38 30v.1"/><path d="M26 38h12"/><path d="M22 23h20"/></svg>',
-    puzzle: '<svg ' + sharedAttrs + '><path d="M22 12h15v11h5c5 0 5 9 0 9h-5v9H26v5c0 5-9 5-9 0v-5H10V29h8v-4c-5 0-5-9 0-9h4v-4z"/></svg>',
-    heart: '<svg ' + sharedAttrs + '><path d="M55 22c-4.6-8.2-15.4-8.6-21.1-1.7L32 22.6l-1.9-2.3C24.4 13.4 13.6 13.8 9 22c-4.8 8.5 1.4 17 7.2 22.2L32 56l15.8-11.8C53.6 39 59.8 30.5 55 22z"/></svg>',
-    party: '<svg ' + sharedAttrs + '><path d="M12 52 25 14l25 25-38 13z"/><path d="m22 24 18 18"/><path d="M41 10c5 0 8 3 8 8"/><path d="M51 27c3-1 7 0 9 3"/><path d="M29 7c-1 4-4 7-8 8"/><path d="M52 9v.1"/><path d="M57 19v.1"/><path d="M43 27v.1"/></svg>',
-    cup: '<svg ' + sharedAttrs + '><path d="M18 22h27l-2 20c-.6 6.2-5.3 10-11.2 10h-1.6C24.3 52 19.6 48.2 19 42l-1-20z"/><path d="M45 27h5c9 0 9 15 0 15h-6"/><path d="M23 14h16"/><path d="M27 14v8"/><path d="M35 14v8"/><path d="M24 32h15"/></svg>',
-    grid: '<svg ' + sharedAttrs + '><rect x="10" y="10" width="16" height="16" rx="3"/><rect x="38" y="10" width="16" height="16" rx="3"/><rect x="10" y="38" width="16" height="16" rx="3"/><rect x="38" y="38" width="16" height="16" rx="3"/></svg>'
+    dice: '<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6 53 17.7v24.1L32 58 11 41.8V17.7L32 6z" fill="#2ea8ff" stroke="#06121f" stroke-width="3.2" stroke-linejoin="round"/><path d="M11 17.7 32 29.3l21-11.6M32 29.3V58" fill="none" stroke="#06121f" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M20.5 23.5h.1M28.5 19.4h.1M43.5 23.5h.1M42 36.8h.1M42 45h.1M22 36.8h.1M22 45h.1" fill="none" stroke="#fff" stroke-width="5.5" stroke-linecap="round"/></svg>',
+    cards: '<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M15 17.7 36.2 9 50 43.5 28.8 52.2 15 17.7z" fill="#ffffff" stroke="#06121f" stroke-width="3" stroke-linejoin="round"/><path d="M11 23.5 31.2 15l12.4 30.4" fill="#f7fafc" stroke="#06121f" stroke-width="3" stroke-linejoin="round"/><path d="M29.2 25.8c2.4-5.5 10.6-2.6 8.7 3.4-1.1 3.5-4.4 5.8-7.8 8.2-4.4-1.1-8.3-2.8-9.7-6.2-2.4-5.8 6-9.2 8.8-5.4z" fill="#ff315b" stroke="#06121f" stroke-width="2.3" stroke-linejoin="round"/></svg>',
+    bear: '<svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="20.4" cy="19.2" r="8.2" fill="#ffb347" stroke="#06121f" stroke-width="3"/><circle cx="43.6" cy="19.2" r="8.2" fill="#ffb347" stroke="#06121f" stroke-width="3"/><path d="M15.5 36.5c0-11.8 7.2-19.2 16.5-19.2s16.5 7.4 16.5 19.2S41.3 55.7 32 55.7 15.5 48.3 15.5 36.5z" fill="#f59e0b" stroke="#06121f" stroke-width="3"/><path d="M26 34h.1M38 34h.1" fill="none" stroke="#06121f" stroke-width="5" stroke-linecap="round"/><path d="M29 41.5h6M27 45.5c3.2 2.6 6.8 2.6 10 0" fill="none" stroke="#06121f" stroke-width="2.8" stroke-linecap="round"/></svg>',
+    robot: '<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 15V8" fill="none" stroke="#06121f" stroke-width="3" stroke-linecap="round"/><circle cx="32" cy="8" r="3" fill="#ffc329" stroke="#06121f" stroke-width="2.4"/><rect x="17" y="18" width="30" height="28" rx="6" fill="#35c5ff" stroke="#06121f" stroke-width="3"/><path d="M24 46v6M40 46v6M17 30h-6M53 30h-6" fill="none" stroke="#06121f" stroke-width="3" stroke-linecap="round"/><circle cx="26" cy="31" r="3" fill="#fff"/><circle cx="38" cy="31" r="3" fill="#fff"/><path d="M25.5 39h13" fill="none" stroke="#06121f" stroke-width="3" stroke-linecap="round"/></svg>',
+    puzzle: '<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M22 11h16v11h4.5c5.6 0 5.6 9.5 0 9.5H38V42H27.5v5c0 5.5-9.5 5.5-9.5 0v-5H9.5V29.5H18v-4.8c-5.4 0-5.4-9.5 0-9.5h4V11z" fill="#8b5cf6" stroke="#06121f" stroke-width="3" stroke-linejoin="round"/></svg>',
+    heart: '<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M55 22.3c-4.7-8.6-15.9-9-21.9-1.9L32 21.8l-1.1-1.4C24.9 13.3 13.7 13.7 9 22.3 4.1 31.2 10.6 40 16.5 45.2L32 57l15.5-11.8C53.4 40 59.9 31.2 55 22.3z" fill="#ff315b" stroke="#06121f" stroke-width="3" stroke-linejoin="round"/><path d="M20 22.5c2.9-3.5 7-3.5 10.2.1" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".9"/></svg>',
+    party: '<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M11 53 25 13l26 26-40 14z" fill="#ffc329" stroke="#06121f" stroke-width="3" stroke-linejoin="round"/><path d="m21.5 24 18 18" fill="none" stroke="#ff315b" stroke-width="4" stroke-linecap="round"/><path d="M41 10c5.2 0 8.5 3.3 8.5 8.5M51 27c3.2-1.2 7.2 0 9.2 3.2M29 7.5c-.8 4-3.7 6.8-8 8" fill="none" stroke="#2ea8ff" stroke-width="3" stroke-linecap="round"/><circle cx="53" cy="10" r="2.5" fill="#ff315b"/><circle cx="57" cy="20" r="2.3" fill="#ffc329"/><circle cx="43" cy="27" r="2.4" fill="#8b5cf6"/></svg>',
+    cup: '<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M18 22h27l-2 20c-.7 6.2-5.4 10-11.2 10h-1.6C24.4 52 19.7 48.2 19 42l-1-20z" fill="#22c55e" stroke="#06121f" stroke-width="3" stroke-linejoin="round"/><path d="M45 27h5c9 0 9 15 0 15h-6" fill="none" stroke="#06121f" stroke-width="3" stroke-linejoin="round"/><path d="M23 14h16M27 14v8M35 14v8M24 32h15" fill="none" stroke="#06121f" stroke-width="3" stroke-linecap="round"/></svg>',
+    grid: '<svg viewBox="0 0 64 64" aria-hidden="true"><rect x="9" y="10" width="17" height="17" rx="4" fill="#ffffff" stroke="#06121f" stroke-width="3"/><rect x="38" y="10" width="17" height="17" rx="4" fill="#ffffff" stroke="#06121f" stroke-width="3"/><rect x="9" y="38" width="17" height="17" rx="4" fill="#ffffff" stroke="#06121f" stroke-width="3"/><rect x="38" y="38" width="17" height="17" rx="4" fill="#ffffff" stroke="#06121f" stroke-width="3"/></svg>'
   };
   return icons[iconKey] || icons.dice;
 }
