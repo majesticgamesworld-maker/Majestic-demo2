@@ -5537,15 +5537,24 @@ body[data-page]:not([data-page="home"]) .site-header .logo-link {
   html body[data-page="category"] #category-hero-section > #site-header.site-header.navbar .logo-link,
   html body[data-page="product"] #site-header-anchor > #site-header.site-header.navbar .logo-link {
     position: fixed !important;
-    left: 62px !important;
-    top: 46px !important;
-    width: min(166px, 46vw) !important;
-    max-width: min(166px, 46vw) !important;
+    left: 50% !important;
+    top: 45px !important;
+    width: min(158px, 44vw) !important;
+    max-width: min(158px, 44vw) !important;
     height: 58px !important;
     min-height: 58px !important;
     display: flex !important;
-    transform: none !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transform: translateX(-50%) !important;
     z-index: 10079 !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .logo-img,
+  html body[data-page="home"] #hero-section > #site-header.site-header.navbar .logo-img,
+  html body[data-page="category"] #category-hero-section > #site-header.site-header.navbar .logo-img,
+  html body[data-page="product"] #site-header-anchor > #site-header.site-header.navbar .logo-img {
+    object-position: center center !important;
   }
 
   html body[data-page] #site-header.site-header.navbar .search-box,
