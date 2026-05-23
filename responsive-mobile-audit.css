@@ -5591,3 +5591,32 @@ body[data-page]:not([data-page="home"]) .site-header .logo-link {
     padding-top: 88px !important;
   }
 }
+
+/* Last mobile marquee pass: keep the announcement bar in scrolling mode. */
+@media (max-width: 767px) {
+  html body[data-page] > .top-banner,
+  html body[data-page] .top-banner {
+    display: block !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+  }
+
+  html body[data-page] .top-banner .marquee-track {
+    display: inline-flex !important;
+    width: max-content !important;
+    min-width: max-content !important;
+    gap: 42px !important;
+    justify-content: flex-start !important;
+    animation: marquee 24s linear infinite !important;
+    transform: translateX(0) !important;
+    will-change: transform !important;
+  }
+
+  html body[data-page] .top-banner .marquee-track span,
+  html body[data-page] .top-banner .marquee-track span:first-child {
+    display: inline-flex !important;
+    align-items: center !important;
+    flex: 0 0 auto !important;
+    white-space: nowrap !important;
+  }
+}
