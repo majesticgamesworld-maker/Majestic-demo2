@@ -661,13 +661,13 @@ function renderProductPage(productId) {
     content.innerHTML =
       '<section class="pdp-ref-hero pdp-full-span">' +
         '<div class="pdp-ref-gallery" aria-label="Product images">' +
-          '<div class="product-thumbnails pdp-ref-thumbs" role="list" aria-label="Product image thumbnails">' + refThumbs + '</div>' +
           '<div class="pdp-ref-image-card product-main-img-wrap product-main-img-zoomable" data-gallery-swipe="true">' +
             '<button type="button" class="pdp-image-button" onclick="openImageZoomFromMain()" aria-label="Open larger image of ' + escHtml(product.name) + '">' +
               '<img id="product-main-img" class="product-main-img" src="' + mainThumb + '" data-full-src="' + mainImg + '" alt="' + escHtml(product.name) + ' product image" loading="eager" decoding="async" fetchpriority="high" />' +
               '<span class="pdp-ref-zoom">' + getPdpIcon('search') + '</span>' +
             '</button>' +
           '</div>' +
+          '<div class="product-thumbnails pdp-ref-thumbs" role="list" aria-label="Product image thumbnails">' + refThumbs + '</div>' +
         '</div>' +
         '<aside class="pdp-ref-buy product-detail-panel" aria-label="Product purchase options">' +
           '<div class="pdp-ref-badges"><span class="product-detail-cat">' + escHtml(cat ? cat.label : product.cat) + '</span><span class="stock-count">In Stock</span></div>' +
