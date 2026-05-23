@@ -6392,6 +6392,29 @@ body[data-page]:not([data-page="home"]) .site-header .logo-link {
     color: #0a1515 !important;
     stroke: currentColor !important;
   }
+
+  body[data-page="home"] .home-products-band .product-price {
+    color: var(--coral) !important;
+  }
+
+  body[data-page="home"] .home-products-band .add-to-cart-btn {
+    border: 0 !important;
+    background: var(--coral) !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+  }
+
+  body[data-page="home"] .home-products-band .add-to-cart-btn:hover,
+  body[data-page="home"] .home-products-band .add-to-cart-btn:focus-visible {
+    background: var(--coral-dark) !important;
+  }
+
+  html body[data-page="home"] #hero-section > #site-header.site-header.navbar .header-actions .cart-btn,
+  html body[data-page="home"] #hero-section > #site-header.site-header.navbar .nav-icons .cart-btn,
+  html body[data-page="home"] #hero-section > #site-header.site-header.navbar .header-actions .search-box > button,
+  html body[data-page="home"] #hero-section > #site-header.site-header.navbar .nav-icons .search-box > button {
+    display: none !important;
+  }
 }
 
 @media (min-width: 768px) {
