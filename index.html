@@ -24,10 +24,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://d2xsxph8kpxj0f.cloudfront.net" crossorigin />
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" /></noscript>
-  <link rel="preload" as="image" href="images/branding/LOGOF2-header-transparent.png" />
   <script>
     (function() {
       try {
@@ -68,7 +66,7 @@
   <link rel="stylesheet" href="responsive-home-contact.css?v=whatsapp-button-20260522" />
   <link rel="stylesheet" href="responsive-buddy.css" />
   <link rel="stylesheet" href="responsive-cross-page.css" />
-  <link rel="stylesheet" href="responsive-mobile-audit.css?v=mobile-marquee-scroll-20260523" />
+  <link rel="stylesheet" href="responsive-mobile-audit.css?v=mobile-controls-polish-20260523" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -337,6 +335,18 @@
           <a href="./" class="logo-link logo" onclick="return handleRouteClick(event,'home')">
             <img src="images/branding/LOGOF2-header-transparent.png" alt="Majestic Games & Toys World" class="logo-img" loading="eager" fetchpriority="high" decoding="sync" width="270" height="76" />
           </a>
+
+          <div class="mobile-header-controls" aria-label="Mobile navigation controls">
+            <button type="button" class="mobile-header-control mobile-header-menu" onclick="toggleMobileNav()" aria-label="Menu">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+            </button>
+            <button type="button" class="mobile-header-control mobile-header-search" onclick="toggleSearch()" aria-label="Search">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
+            </button>
+            <button type="button" class="mobile-header-control mobile-header-cart" onclick="openCart()" aria-label="Cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M3 4h2l2.2 10.5a2 2 0 0 0 2 1.5h7.8a2 2 0 0 0 2-1.5L21 7H6"/></svg>
+            </button>
+          </div>
 
           <nav class="desktop-nav nav-menu" id="navMenu">
             <a href="./" class="nav-link" data-page="home" onclick="return handleRouteClick(event,'home')">Home</a>
@@ -1457,7 +1467,7 @@
 <!-- Scripts -->
 <script src="products.min.js?v=github-image-path-20260522" defer></script>
 <script src="security.js" defer></script>
-<script src="cart.js?v=mobile-marquee-scroll-20260523" defer></script>
+<script src="cart.js?v=mobile-marquee-force-scroll-20260523" defer></script>
 <script src="filters.js" defer></script>
 <script src="recommendations.js?v=mobile-product-thumbs-20260522" defer></script>
 <script src="buddy.js?v=mobile-product-thumbs-20260522" defer></script>

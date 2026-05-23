@@ -152,9 +152,9 @@ function initMobileTopBannerScroll(tracks) {
   var speed = 34;
 
   function resetTrack(track) {
-    track.style.animation = '';
-    track.style.transform = '';
-    track.style.willChange = '';
+    track.style.removeProperty('animation');
+    track.style.removeProperty('transform');
+    track.style.removeProperty('will-change');
   }
 
   function stop() {
@@ -176,9 +176,9 @@ function initMobileTopBannerScroll(tracks) {
     activeTracks.forEach(function(track) {
       var loopWidth = track.scrollWidth / 2;
       if (loopWidth > 0 && offset >= loopWidth) offset -= loopWidth;
-      track.style.animation = 'none';
-      track.style.willChange = 'transform';
-      track.style.transform = 'translate3d(-' + offset.toFixed(2) + 'px, 0, 0)';
+      track.style.setProperty('animation', 'none', 'important');
+      track.style.setProperty('will-change', 'transform', 'important');
+      track.style.setProperty('transform', 'translate3d(-' + offset.toFixed(2) + 'px, 0, 0)', 'important');
     });
 
     rafId = window.requestAnimationFrame(tick);

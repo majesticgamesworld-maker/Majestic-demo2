@@ -828,7 +828,6 @@ body[data-page="home"] .buddy-start-shell {
     gap: 42px !important;
     justify-content: flex-start !important;
     animation: marquee 24s linear infinite !important;
-    transform: translateX(0) !important;
     will-change: transform !important;
   }
 
