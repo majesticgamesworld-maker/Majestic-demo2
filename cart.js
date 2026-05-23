@@ -140,6 +140,67 @@ function initTopBanner() {
   tracks.forEach(function(track) {
     track.innerHTML = markup;
   });
+  initMobileTopBannerScroll(tracks);
+}
+
+function initMobileTopBannerScroll(tracks) {
+  var mobileQuery = window.matchMedia ? window.matchMedia('(max-width: 767px)') : null;
+  var activeTracks = Array.prototype.slice.call(tracks);
+  var rafId = 0;
+  var lastTime = 0;
+  var offset = 0;
+  var speed = 34;
+
+  function resetTrack(track) {
+    track.style.animation = '';
+    track.style.transform = '';
+    track.style.willChange = '';
+  }
+
+  function stop() {
+    if (rafId) {
+      window.cancelAnimationFrame(rafId);
+      rafId = 0;
+    }
+    lastTime = 0;
+    offset = 0;
+    activeTracks.forEach(resetTrack);
+  }
+
+  function tick(time) {
+    if (!lastTime) lastTime = time;
+    var delta = Math.min(time - lastTime, 64) / 1000;
+    lastTime = time;
+    offset += speed * delta;
+
+    activeTracks.forEach(function(track) {
+      var loopWidth = track.scrollWidth / 2;
+      if (loopWidth > 0 && offset >= loopWidth) offset -= loopWidth;
+      track.style.animation = 'none';
+      track.style.willChange = 'transform';
+      track.style.transform = 'translate3d(-' + offset.toFixed(2) + 'px, 0, 0)';
+    });
+
+    rafId = window.requestAnimationFrame(tick);
+  }
+
+  function start() {
+    stop();
+    if (mobileQuery && !mobileQuery.matches) return;
+    rafId = window.requestAnimationFrame(tick);
+  }
+
+  start();
+
+  if (mobileQuery) {
+    if (mobileQuery.addEventListener) {
+      mobileQuery.addEventListener('change', start);
+    } else if (mobileQuery.addListener) {
+      mobileQuery.addListener(start);
+    }
+  }
+
+  window.addEventListener('resize', start);
 }
 
 /* Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
