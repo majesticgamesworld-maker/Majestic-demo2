@@ -807,3 +807,14 @@ body[data-page="home"] .buddy-start-shell {
     --type-hero: clamp(2rem, 10vw, 3.15rem);
   }
 }
+/* Final mobile drawer surface override: keep the reference dark drawer above later shared background rules. */
+@media (max-width: 767px) {
+  body[data-page] .mobile-nav,
+  body[data-page] .mobile-nav.open {
+    background:
+      radial-gradient(circle at 18% 10%, rgba(52, 70, 135, 0.34), transparent 28%),
+      radial-gradient(circle at 86% 0%, rgba(255, 173, 48, 0.12), transparent 28%),
+      linear-gradient(150deg, #090d20 0%, #111225 50%, #2b211f 100%) !important;
+    color: #ffffff !important;
+  }
+}

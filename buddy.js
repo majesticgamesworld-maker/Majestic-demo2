@@ -1256,6 +1256,30 @@ function updateSmartShopAssistant() {
    MOBILE NAV
 Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
 function initMobileNav() {
+  var nav = document.getElementById('mobile-nav');
+  if (!nav) return;
+  nav.innerHTML =
+    '<div class="mobile-nav-art" aria-hidden="true"></div>' +
+    '<button class="mobile-nav-close" onclick="closeMobileNav(true)" aria-label="Close navigation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>' +
+    '<div class="mobile-nav-header"><img src="images/branding/LOGOF2-transparent.png" alt="Majestic Games & Toys World" class="mobile-nav-logo" loading="eager" /></div>' +
+    '<div class="mobile-nav-body">' +
+      '<section class="mobile-nav-welcome" aria-label="Majestic Buddy welcome"><img src="images/branding/majestic-buddy-royal.png" alt="" loading="lazy" /><div><span>Welcome to</span><strong>Majestic Games World!</strong><small>Play better, shop smarter.</small></div></section>' +
+      '<nav class="mobile-nav-list" aria-label="Mobile menu">' +
+        '<a href="./" class="mobile-nav-link active" onclick="if(handleRouteClick(event,\'home\') === false){closeMobileNav();return false;} return true;"><span class="mobile-nav-icon"><img src="images/mobile-menu-icons/home.png" alt="" loading="lazy" /></span><span>Home</span><i aria-hidden="true">&#8250;</i></a>' +
+        '<a href="?page=shop" class="mobile-nav-link" onclick="if(handleRouteClick(event,\'shop\') === false){closeMobileNav();return false;} return true;"><span class="mobile-nav-icon"><img src="images/mobile-menu-icons/shop.png" alt="" loading="lazy" /></span><span>Shop</span><i aria-hidden="true">&#8250;</i></a>' +
+        '<button type="button" class="mobile-nav-link mobile-nav-toggle" aria-expanded="false" onclick="toggleMobileCategoryPreview(this)"><span class="mobile-nav-icon"><img src="images/mobile-menu-icons/categories.png" alt="" loading="lazy" /></span><span>Categories</span><i aria-hidden="true">&#8964;</i></button>' +
+        '<div id="mobile-nav-cats" class="mobile-nav-cats"></div>' +
+        '<a href="?page=gift-picks" class="mobile-nav-link" onclick="if(handleRouteClick(event,\'gift-picks\') === false){closeMobileNav();return false;} return true;"><span class="mobile-nav-icon"><img src="images/mobile-menu-icons/gift.png" alt="" loading="lazy" /></span><span>Gift Guide</span><i aria-hidden="true">&#8250;</i></a>' +
+        '<a href="?page=bestsellers" class="mobile-nav-link" onclick="if(handleRouteClick(event,\'bestsellers\') === false){closeMobileNav();return false;} return true;"><span class="mobile-nav-icon mobile-nav-icon-calendar" aria-hidden="true"></span><span>Game Night</span><i aria-hidden="true">&#8250;</i></a>' +
+        '<a href="#game-finder" class="mobile-nav-link" onclick="closeMobileNav()"><span class="mobile-nav-icon mobile-nav-icon-bot" aria-hidden="true"></span><span>Majestic Buddy</span><b>NEW</b><i aria-hidden="true">&#8250;</i></a>' +
+        '<a href="?page=faqs" class="mobile-nav-link" onclick="if(handleRouteClick(event,\'faqs\') === false){closeMobileNav();return false;} return true;"><span class="mobile-nav-icon mobile-nav-icon-info" aria-hidden="true"></span><span>About Us</span><i aria-hidden="true">&#8250;</i></a>' +
+        '<a href="?page=contact" class="mobile-nav-link" onclick="if(handleRouteClick(event,\'contact\') === false){closeMobileNav();return false;} return true;"><span class="mobile-nav-icon mobile-nav-icon-phone" aria-hidden="true"></span><span>Contact Us</span><i aria-hidden="true">&#8250;</i></a>' +
+      '</nav>' +
+      '<a href="https://wa.me/254710707973" target="_blank" rel="noopener noreferrer" class="mobile-delivery-card"><span><strong>FREE delivery in Nairobi</strong><small>On orders 2,500+ KES</small></span><i aria-hidden="true">&#8250;</i><img src="images/mobile-menu-icons/delivery.png" alt="" loading="lazy" /></a>' +
+      '<section class="mobile-nav-trust" aria-label="Why shop with us"><h3>Why shop with us?</h3><div><span class="trust-shield" aria-hidden="true"></span><strong>Authentic Products</strong><small>100% quality checked</small></div><div><span class="trust-family" aria-hidden="true"></span><strong>Trusted by 1000+ Families</strong><small>Across Kenya</small></div><div><span class="trust-whatsapp" aria-hidden="true"></span><strong>WhatsApp Support</strong><small>Fast & friendly help</small></div></section>' +
+      '<a href="https://wa.me/254710707973" target="_blank" rel="noopener noreferrer" class="mobile-nav-whatsapp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.940 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span>Order on WhatsApp</span><i aria-hidden="true">&#8594;</i></a>' +
+      '<div class="mobile-nav-socials"><strong>Follow us</strong><a href="#" aria-label="Instagram"><img src="images/branding/instagram.png" alt="" loading="lazy" /></a><a href="#" aria-label="TikTok"><img src="images/branding/tiktok.png" alt="" loading="lazy" /></a><a href="#" aria-label="Facebook"><img src="images/branding/facebook.png" alt="" loading="lazy" /></a><a href="https://wa.me/254710707973" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><img src="images/branding/whatsapp.png" alt="" loading="lazy" /></a></div>' +
+    '</div>';
   var catsEl = document.getElementById('mobile-nav-cats');
   if (!catsEl) return;
   var featuredCatIds = ['board-games', 'family-games', 'kids-games', 'puzzles', 'party-games', 'trivia-games'];
@@ -1288,6 +1312,13 @@ function initMobileNav() {
       '<button onclick="runMobileSmartGiftFinder()">Show gift ideas</button>' +
     '</div></details>' +
     '<details class="mobile-smart-accordion mobile-smart-whatsapp"><summary>Ask on WhatsApp</summary><div><p>Not sure what to pick? Majestic Buddy can help.</p><a href="' + conciergeUrl + '" target="_blank" rel="noopener noreferrer" class="btn-wa">Ask Majestic Buddy on WhatsApp</a></div></details>';
+}
+
+function toggleMobileCategoryPreview(trigger) {
+  var catsEl = document.getElementById('mobile-nav-cats');
+  if (!catsEl || !trigger) return;
+  var isOpen = catsEl.classList.toggle('open');
+  trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
 }
 
 function updateMobileSmartSearch(query) {
