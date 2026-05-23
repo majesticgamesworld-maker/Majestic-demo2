@@ -497,6 +497,7 @@ function navigate(page, param, skipHistory) {
 
   currentPage = page;
   document.body.setAttribute('data-page', page);
+  if (typeof updateMobileNavActiveState === 'function') updateMobileNavActiveState(page);
   window.scrollTo({ top: 0, behavior: 'smooth' });
 
   // Show the right page

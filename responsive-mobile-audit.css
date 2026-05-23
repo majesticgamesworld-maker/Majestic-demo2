@@ -647,6 +647,99 @@
   }
 }
 
+/* Final drawer polish: compact phones, active state, and icon/text fit. */
+@media (max-width: 767px) {
+  .mobile-nav .mobile-nav-link {
+    min-width: 0 !important;
+  }
+
+  .mobile-nav .mobile-nav-link > span:not(.mobile-nav-icon) {
+    min-width: 0 !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  .mobile-nav .mobile-nav-toggle.active {
+    margin-bottom: 0 !important;
+    border-radius: 0 !important;
+  }
+
+  .mobile-nav .mobile-nav-toggle.active + .mobile-nav-cats {
+    border-right: 1px solid rgba(255, 172, 19, 0.34) !important;
+    border-left: 1px solid rgba(255, 172, 19, 0.34) !important;
+  }
+
+  .mobile-nav .mobile-nav-cat-link span:first-child {
+    display: grid !important;
+    place-items: center !important;
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    border-radius: 10px !important;
+    background: rgba(255, 181, 31, 0.12) !important;
+    color: #ffbd2a !important;
+    font-size: 0.72rem !important;
+    font-weight: 950 !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .mobile-nav {
+    width: min(94vw, 360px) !important;
+    max-width: min(94vw, 360px) !important;
+    padding-right: 12px !important;
+    padding-left: 12px !important;
+  }
+
+  .mobile-nav .mobile-nav-link {
+    grid-template-columns: 48px minmax(0, 1fr) auto auto !important;
+    min-height: 66px !important;
+    padding-right: 10px !important;
+    padding-left: 10px !important;
+    font-size: 1rem !important;
+  }
+
+  .mobile-nav .mobile-nav-icon {
+    width: 46px !important;
+    height: 46px !important;
+    min-width: 46px !important;
+  }
+
+  .mobile-nav-welcome {
+    grid-template-columns: 58px minmax(0, 1fr) !important;
+    min-height: 82px !important;
+    padding: 10px 12px !important;
+  }
+
+  .mobile-nav-welcome img {
+    width: 58px !important;
+    height: 58px !important;
+  }
+
+  .mobile-delivery-card {
+    grid-template-columns: minmax(0, 1fr) 30px 84px !important;
+    min-height: 86px !important;
+    padding-left: 14px !important;
+  }
+
+  .mobile-delivery-card img {
+    width: 92px !important;
+    height: 62px !important;
+  }
+
+  .mobile-nav-socials {
+    grid-template-columns: minmax(0, 1fr) repeat(4, 36px) !important;
+    gap: 10px !important;
+    padding-right: 12px !important;
+    padding-left: 12px !important;
+  }
+
+  .mobile-nav-socials a,
+  .mobile-nav-socials img {
+    width: 36px !important;
+    height: 36px !important;
+  }
+}
+
 /* Absolute final mobile header alignment pass. */
 @media (max-width: 767px) {
   body[data-page="home"] .hero-section > .site-header.navbar::before,
