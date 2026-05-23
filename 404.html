@@ -7,17 +7,23 @@
   <script>
     (function() {
       var parts = window.location.pathname.split('/').filter(Boolean);
-      var repo = parts[0] || '';
-      var base = repo ? '/' + repo + '/' : '/';
-      var page = parts[1] || 'home';
-      var param = parts[2] || '';
-      var target = base;
+      var knownPages = ['shop', 'bestsellers', 'new-arrivals', 'gift-picks', 'cart', 'contact', 'blog', 'faqs', 'privacy-policy', 'refund-return-policy', 'terms-conditions'];
+      var routeStart = 0;
+
+      if (parts[0] && parts[0] !== 'products' && parts[0] !== 'category' && knownPages.indexOf(parts[0]) === -1) {
+        routeStart = 1;
+      }
+
+      var base = '/' + parts.slice(0, routeStart).join('/') + (routeStart ? '/' : '');
+      var page = parts[routeStart] || 'home';
+      var param = parts[routeStart + 1] || '';
+      var target = base || '/';
 
       if (page === 'products' && param) {
         target += '?product=' + encodeURIComponent(decodeURIComponent(param));
       } else if (page === 'category' && param) {
         target += '?category=' + encodeURIComponent(decodeURIComponent(param));
-      } else if (page && page !== 'home') {
+      } else if (knownPages.indexOf(page) !== -1) {
         target += '?page=' + encodeURIComponent(decodeURIComponent(page));
       }
 
