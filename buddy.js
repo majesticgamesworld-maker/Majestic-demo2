@@ -1286,32 +1286,10 @@ function initMobileNav() {
   var featuredCats = featuredCatIds.map(function(id) {
     return CATEGORIES.find(function(cat) { return cat.id === id; });
   }).filter(Boolean);
-  var conciergeMessage = 'Hi Majestic Games World, help me choose a game. My budget is __, age/group is __, and occasion is __.';
-  var conciergeUrl = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(conciergeMessage);
-
-  catsEl.innerHTML =
-    '<div class="mobile-smart-search"><label for="mobile-smart-search">Smart search</label><input id="mobile-smart-search" type="search" placeholder="Search games, toys, puzzles..." autocomplete="off" oninput="updateMobileSmartSearch(this.value)" /><div id="mobile-smart-search-results" aria-live="polite"></div></div>' +
-    '<details class="mobile-smart-accordion" open><summary>Shop by Category</summary><div>' +
-      featuredCats.map(function(cat) {
-        return '<a href="#" class="mobile-nav-cat-link" onclick="navigate(\'category\',\'' + cat.id + '\');closeMobileNav()"><span style="font-size:1.25rem">' + cat.icon + '</span><span>' + cat.label + '</span></a>';
-      }).join('') +
-      '<a href="#" class="mobile-nav-cat-link mobile-nav-all-link" onclick="navigate(\'shop\');closeMobileNav()"><span style="font-size:1.25rem">+</span><span>View All Products</span></a>' +
-    '</div></details>' +
-    '<details class="mobile-smart-accordion"><summary>Shop by Mood</summary><div class="mobile-smart-chip-grid">' +
-      '<button onclick="runSmartShopAction({cat:\'family-games\'})">Family Night</button>' +
-      '<button onclick="runSmartShopAction({cat:\'couples-games\'})">Couple Night</button>' +
-      '<button onclick="runSmartShopAction({cat:\'kids-games\'})">Kids Learning</button>' +
-      '<button onclick="runSmartShopAction({cat:\'party-games\'})">Party Games</button>' +
-      '<button onclick="runSmartShopAction({cat:\'puzzles\'})">Brain Challenge</button>' +
-      '<button onclick="runSmartShopAction({page:\'gift-picks\'})">Gifts Under Budget</button>' +
-    '</div></details>' +
-    '<details class="mobile-smart-accordion"><summary>Gift Finder</summary><div class="mobile-smart-gift">' +
-      '<select id="mobile-smart-age"><option>Kids</option><option>Teens</option><option>Adults</option><option>Family</option></select>' +
-      '<select id="mobile-smart-budget"><option>Under 1000</option><option>1000-2000</option><option>2000-5000</option><option>Premium</option></select>' +
-      '<select id="mobile-smart-occasion"><option>Birthday</option><option>Family Night</option><option>School Group</option><option>Christmas</option></select>' +
-      '<button onclick="runMobileSmartGiftFinder()">Show gift ideas</button>' +
-    '</div></details>' +
-    '<details class="mobile-smart-accordion mobile-smart-whatsapp"><summary>Ask on WhatsApp</summary><div><p>Not sure what to pick? Majestic Buddy can help.</p><a href="' + conciergeUrl + '" target="_blank" rel="noopener noreferrer" class="btn-wa">Ask Majestic Buddy on WhatsApp</a></div></details>';
+  catsEl.innerHTML = featuredCats.map(function(cat) {
+    return '<a href="' + getRouteUrl('category', cat.id) + '" class="mobile-nav-cat-link" onclick="if(handleRouteClick(event,\'category\',\'' + cat.id + '\') === false){closeMobileNav();return false;} return true;"><span>' + cat.icon + '</span><span>' + escHtml(cat.label) + '</span></a>';
+  }).join('') +
+    '<a href="' + getRouteUrl('shop') + '" class="mobile-nav-cat-link mobile-nav-all-link" onclick="if(handleRouteClick(event,\'shop\') === false){closeMobileNav();return false;} return true;"><span>+</span><span>View All Products</span></a>';
 }
 
 function toggleMobileCategoryPreview(trigger) {

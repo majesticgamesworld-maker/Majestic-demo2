@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Mobile fix check</title>
+  <style>
+    html, body, iframe {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+  <iframe id="site" src="./"></iframe>
+  <script>
+    document.getElementById('site').addEventListener('load', function(event) {
+      setTimeout(function() {
+        var doc = event.target.contentDocument;
+        var overlay = doc.getElementById('mobile-overlay');
+        var nav = doc.getElementById('mobile-nav');
+        if (overlay) overlay.classList.add('open');
+        if (nav) nav.classList.add('open');
+        setTimeout(function() {
+          var cats = doc.querySelector('.mobile-nav-toggle');
+          if (cats) cats.click();
+        }, 500);
+      }, 2600);
+    });
+  </script>
+</body>
+</html>

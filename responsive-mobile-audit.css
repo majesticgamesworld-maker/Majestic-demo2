@@ -380,6 +380,380 @@
   }
 }
 
+/* Final mobile header interaction fixes: this file loads last, so keep these overrides last. */
+@media (max-width: 767px) {
+  body[data-page] > .top-banner,
+  body[data-page="home"] > .top-banner,
+  body[data-page] .top-banner {
+    display: block !important;
+    min-height: 30px !important;
+    padding: 6px 0 !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    background: linear-gradient(90deg, #470606, #77100e 52%, #360404) !important;
+    color: #ffffff !important;
+  }
+
+  body[data-page] .top-banner .marquee-track,
+  body[data-page="home"] .top-banner .marquee-track {
+    display: inline-flex !important;
+    width: max-content !important;
+    gap: 42px !important;
+    justify-content: flex-start !important;
+    animation: marquee 24s linear infinite !important;
+    transform: translateX(0) !important;
+  }
+
+  body[data-page] .top-banner .marquee-track span,
+  body[data-page="home"] .top-banner .marquee-track span,
+  body[data-page] .top-banner .marquee-track span:first-child,
+  body[data-page="home"] .top-banner .marquee-track span:first-child {
+    display: inline-flex !important;
+    align-items: center !important;
+    flex: 0 0 auto !important;
+    gap: 8px !important;
+    white-space: nowrap !important;
+  }
+
+  body[data-page] .top-banner .marquee-track span::before,
+  body[data-page="home"] .top-banner .marquee-track span::before {
+    content: "★" !important;
+    width: auto !important;
+    height: auto !important;
+    color: #ffbf22 !important;
+    background: transparent !important;
+    mask: none !important;
+    -webkit-mask: none !important;
+  }
+
+  body[data-page] .site-header,
+  body[data-page] .site-header.navbar,
+  body[data-page] .site-header.navbar.scrolled,
+  body[data-page="home"] .site-header,
+  body[data-page="home"] .site-header.navbar,
+  body[data-page="home"] .site-header.navbar.scrolled {
+    position: absolute !important;
+    top: 30px !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 76px !important;
+    min-height: 76px !important;
+    padding: 0 14px !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    z-index: 10040 !important;
+  }
+
+  body[data-page] .site-header .header-inner,
+  body[data-page] .site-header.navbar .navbar-container,
+  body[data-page] .site-header.navbar .header-inner,
+  body[data-page="home"] .site-header .header-inner,
+  body[data-page="home"] .site-header.navbar .navbar-container,
+  body[data-page="home"] .site-header.navbar .header-inner {
+    position: relative !important;
+    display: grid !important;
+    grid-template-columns: 52px minmax(0, 1fr) 104px !important;
+    align-items: center !important;
+    width: 100% !important;
+    height: 76px !important;
+    min-height: 76px !important;
+    padding: 0 !important;
+    gap: 10px !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+  }
+
+  body[data-page] .site-header .logo-link,
+  body[data-page] .site-header.navbar .logo-link,
+  body[data-page="home"] .site-header .logo-link,
+  body[data-page="home"] .site-header.navbar .logo-link {
+    grid-column: 2 !important;
+    position: static !important;
+    justify-self: center !important;
+    width: min(174px, 44vw) !important;
+    height: 64px !important;
+    min-height: 64px !important;
+    transform: none !important;
+  }
+
+  body[data-page] .site-header .logo-img,
+  body[data-page] .site-header.navbar .logo-img,
+  body[data-page="home"] .site-header .logo-img,
+  body[data-page="home"] .site-header.navbar .logo-img {
+    width: 100% !important;
+    max-width: min(174px, 44vw) !important;
+    height: 64px !important;
+    object-fit: contain !important;
+    filter: drop-shadow(0 6px 14px rgba(0,0,0,0.22)) !important;
+  }
+
+  body[data-page] .site-header .hamburger-btn,
+  body[data-page] .site-header.navbar .hamburger-btn,
+  body[data-page="home"] .site-header .hamburger-btn,
+  body[data-page="home"] .site-header.navbar .hamburger-btn {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    position: static !important;
+    justify-self: start !important;
+    display: inline-grid !important;
+    place-items: center !important;
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    min-height: 48px !important;
+    transform: none !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: rgba(255,255,255,0.12) !important;
+    color: #ffffff !important;
+    z-index: 10045 !important;
+    pointer-events: auto !important;
+  }
+
+  body[data-page] .site-header .header-actions,
+  body[data-page] .site-header .nav-icons,
+  body[data-page] .site-header.navbar .header-actions,
+  body[data-page] .site-header.navbar .nav-icons,
+  body[data-page="home"] .site-header .header-actions,
+  body[data-page="home"] .site-header .nav-icons,
+  body[data-page="home"] .site-header.navbar .header-actions,
+  body[data-page="home"] .site-header.navbar .nav-icons {
+    grid-column: 3 !important;
+    grid-row: 1 !important;
+    position: static !important;
+    inset: auto !important;
+    display: flex !important;
+    justify-self: end !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    width: 104px !important;
+    gap: 8px !important;
+    pointer-events: auto !important;
+    z-index: 10044 !important;
+  }
+
+  body[data-page] .site-header .account-btn,
+  body[data-page] .site-header.navbar .account-btn,
+  body[data-page] .site-header .header-order-link,
+  body[data-page] .site-header.navbar .header-order-link {
+    display: none !important;
+  }
+
+  body[data-page] .site-header .search-box,
+  body[data-page] .site-header.navbar .search-box,
+  body[data-page="home"] .site-header .search-box,
+  body[data-page="home"] .site-header.navbar .search-box,
+  body[data-page] .site-header .cart-btn,
+  body[data-page] .site-header.navbar .cart-btn,
+  body[data-page="home"] .site-header .cart-btn,
+  body[data-page="home"] .site-header.navbar .cart-btn {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    display: inline-grid !important;
+    place-items: center !important;
+    width: 48px !important;
+    max-width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    min-height: 48px !important;
+    padding: 0 !important;
+    transform: none !important;
+    border: 1px solid rgba(255,255,255,0.22) !important;
+    border-radius: 999px !important;
+    background: rgba(255,255,255,0.12) !important;
+    color: #ffffff !important;
+    overflow: visible !important;
+  }
+
+  body[data-page] .site-header .search-box > button,
+  body[data-page] .site-header.navbar .search-box > button,
+  body[data-page] .site-header .search-box > button svg,
+  body[data-page] .site-header.navbar .search-box > button svg,
+  body[data-page] .site-header .cart-btn svg,
+  body[data-page] .site-header.navbar .cart-btn svg,
+  body[data-page] .site-header .hamburger-btn svg,
+  body[data-page] .site-header.navbar .hamburger-btn svg {
+    color: #ffffff !important;
+    stroke: currentColor !important;
+  }
+
+  body[data-page] .site-header .search-box input,
+  body[data-page] .site-header.navbar .search-box input {
+    position: fixed !important;
+    left: 14px !important;
+    right: 14px !important;
+    top: 112px !important;
+    width: calc(100vw - 28px) !important;
+    height: 48px !important;
+    padding: 0 48px 0 16px !important;
+    border: 1px solid rgba(255,255,255,0.20) !important;
+    border-radius: 16px !important;
+    background: rgba(255,255,255,0.96) !important;
+    color: #07101f !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    box-shadow: 0 18px 42px rgba(0,0,0,0.22) !important;
+    z-index: 10060 !important;
+  }
+
+  body[data-page] .site-header .search-box.search-active input,
+  body[data-page] .site-header.navbar .search-box.search-active input {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+
+  body[data-page] .site-header .search-panel,
+  body[data-page] .site-header.navbar .search-panel {
+    position: fixed !important;
+    left: 14px !important;
+    right: 14px !important;
+    top: 166px !important;
+    width: calc(100vw - 28px) !important;
+    max-width: calc(100vw - 28px) !important;
+    max-height: min(62vh, 480px) !important;
+    overflow-y: auto !important;
+    border-radius: 18px !important;
+    z-index: 10059 !important;
+  }
+
+  body[data-page] .mobile-overlay,
+  body[data-page] .mobile-overlay.open {
+    z-index: 10070 !important;
+  }
+
+  body[data-page] .mobile-nav,
+  body[data-page] .mobile-nav.open {
+    z-index: 10080 !important;
+  }
+
+  body[data-page] .mobile-nav-cats.open {
+    display: grid !important;
+    gap: 6px !important;
+    pointer-events: auto !important;
+  }
+
+  body[data-page] .mobile-nav-cat-link {
+    pointer-events: auto !important;
+    cursor: pointer !important;
+  }
+}
+
+/* Absolute final mobile header alignment pass. */
+@media (max-width: 767px) {
+  body[data-page="home"] .hero-section > .site-header.navbar::before,
+  body[data-page="home"] .hero-section > .site-header.navbar::after,
+  body[data-page="home"] .site-header.navbar::before,
+  body[data-page="home"] .site-header.navbar::after,
+  body[data-page="home"] .site-header.navbar .navbar-container::before,
+  body[data-page="home"] .site-header.navbar .navbar-container::after {
+    display: none !important;
+    content: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  body[data-page="home"] .hero-section > .site-header.navbar,
+  body[data-page="home"] .site-header.navbar,
+  body[data-page="home"] .site-header.navbar.scrolled {
+    position: absolute !important;
+    top: 30px !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+  }
+
+  body[data-page="home"] .site-header.navbar .navbar-container,
+  body[data-page="home"] .site-header.navbar .header-inner {
+    position: relative !important;
+    display: block !important;
+    height: 76px !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  body[data-page="home"] .site-header.navbar .logo-link {
+    position: absolute !important;
+    left: 50% !important;
+    top: 6px !important;
+    transform: translateX(-50%) !important;
+    z-index: 2 !important;
+  }
+
+  body[data-page="home"] .site-header.navbar .header-actions,
+  body[data-page="home"] .site-header.navbar .nav-icons {
+    position: absolute !important;
+    inset: 0 !important;
+    display: block !important;
+    width: 100% !important;
+    pointer-events: none !important;
+    z-index: 3 !important;
+  }
+
+  body[data-page="home"] .site-header.navbar .hamburger-btn,
+  body[data-page="home"] .site-header.navbar .search-box,
+  body[data-page="home"] .site-header.navbar .cart-btn {
+    position: absolute !important;
+    top: 14px !important;
+    display: inline-grid !important;
+    place-items: center !important;
+    width: 46px !important;
+    max-width: 46px !important;
+    height: 46px !important;
+    min-width: 46px !important;
+    min-height: 46px !important;
+    pointer-events: auto !important;
+    color: #ffffff !important;
+    background: rgba(8, 11, 24, 0.22) !important;
+    border: 1px solid rgba(255,255,255,0.24) !important;
+    border-radius: 999px !important;
+    box-shadow: none !important;
+  }
+
+  body[data-page="home"] .site-header.navbar .hamburger-btn {
+    left: 0 !important;
+    border-radius: 0 !important;
+    border-color: transparent !important;
+    background: transparent !important;
+  }
+
+  body[data-page="home"] .site-header.navbar .search-box {
+    right: 54px !important;
+  }
+
+  body[data-page="home"] .site-header.navbar .cart-btn {
+    right: 0 !important;
+  }
+
+  body[data-page="home"] .site-header.navbar .account-btn,
+  body[data-page="home"] .site-header.navbar .header-order-link {
+    display: none !important;
+  }
+
+  body[data-page="home"] .site-header.navbar .search-box.search-active {
+    right: 54px !important;
+    width: 46px !important;
+    max-width: 46px !important;
+  }
+
+  body[data-page="home"] .site-header.navbar .search-box input {
+    position: fixed !important;
+    top: 112px !important;
+    left: 14px !important;
+    right: 14px !important;
+    width: calc(100vw - 28px) !important;
+    max-width: calc(100vw - 28px) !important;
+  }
+}
+
 /* Mobile homepage revamp matching the compact storefront reference. */
 @media (max-width: 979px) {
   :root {
@@ -3689,5 +4063,274 @@ body[data-page]:not([data-page="home"]) .site-header .logo-link {
   body[data-page="home"] .game-finder-section .buddy-benefit-rail span {
     min-width: 0 !important;
     white-space: normal !important;
+  }
+}
+
+/* Final mobile navigation fixups. This file loads last, so these must stay last. */
+@media (max-width: 767px) {
+  body[data-page] > .top-banner,
+  body[data-page="home"] > .top-banner,
+  body[data-page] .top-banner {
+    display: block !important;
+    min-height: 30px !important;
+    padding: 6px 0 !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    background: linear-gradient(90deg, #470606, #77100e 52%, #360404) !important;
+    color: #ffffff !important;
+  }
+
+  body[data-page] .top-banner .marquee-track,
+  body[data-page="home"] .top-banner .marquee-track {
+    display: inline-flex !important;
+    width: max-content !important;
+    gap: 42px !important;
+    justify-content: flex-start !important;
+    animation: marquee 24s linear infinite !important;
+    transform: translateX(0) !important;
+  }
+
+  body[data-page] .top-banner .marquee-track span,
+  body[data-page="home"] .top-banner .marquee-track span,
+  body[data-page] .top-banner .marquee-track span:first-child,
+  body[data-page="home"] .top-banner .marquee-track span:first-child {
+    display: inline-flex !important;
+    align-items: center !important;
+    flex: 0 0 auto !important;
+    gap: 8px !important;
+    white-space: nowrap !important;
+  }
+
+  body[data-page] .top-banner .marquee-track span::before,
+  body[data-page="home"] .top-banner .marquee-track span::before {
+    content: "*" !important;
+    width: auto !important;
+    height: auto !important;
+    color: #ffbf22 !important;
+    background: transparent !important;
+    mask: none !important;
+    -webkit-mask: none !important;
+  }
+
+  body[data-page] .site-header,
+  body[data-page] .site-header.navbar,
+  body[data-page] .site-header.navbar.scrolled,
+  body[data-page="home"] .site-header,
+  body[data-page="home"] .site-header.navbar,
+  body[data-page="home"] .site-header.navbar.scrolled {
+    position: absolute !important;
+    top: 30px !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 76px !important;
+    min-height: 76px !important;
+    padding: 0 14px !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    z-index: 10040 !important;
+  }
+
+  body[data-page] .site-header .header-inner,
+  body[data-page] .site-header.navbar .navbar-container,
+  body[data-page] .site-header.navbar .header-inner,
+  body[data-page="home"] .site-header .header-inner,
+  body[data-page="home"] .site-header.navbar .navbar-container,
+  body[data-page="home"] .site-header.navbar .header-inner {
+    position: relative !important;
+    display: grid !important;
+    grid-template-columns: 52px minmax(0, 1fr) 104px !important;
+    align-items: center !important;
+    width: 100% !important;
+    height: 76px !important;
+    min-height: 76px !important;
+    padding: 0 !important;
+    gap: 10px !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+  }
+
+  body[data-page] .site-header .logo-link,
+  body[data-page] .site-header.navbar .logo-link,
+  body[data-page="home"] .site-header .logo-link,
+  body[data-page="home"] .site-header.navbar .logo-link {
+    grid-column: 2 !important;
+    position: static !important;
+    justify-self: center !important;
+    width: min(174px, 44vw) !important;
+    height: 64px !important;
+    min-height: 64px !important;
+    transform: none !important;
+  }
+
+  body[data-page] .site-header .logo-img,
+  body[data-page] .site-header.navbar .logo-img,
+  body[data-page="home"] .site-header .logo-img,
+  body[data-page="home"] .site-header.navbar .logo-img {
+    width: 100% !important;
+    max-width: min(174px, 44vw) !important;
+    height: 64px !important;
+    object-fit: contain !important;
+    filter: drop-shadow(0 6px 14px rgba(0,0,0,0.22)) !important;
+  }
+
+  body[data-page] .site-header .hamburger-btn,
+  body[data-page] .site-header.navbar .hamburger-btn,
+  body[data-page="home"] .site-header .hamburger-btn,
+  body[data-page="home"] .site-header.navbar .hamburger-btn {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    position: static !important;
+    justify-self: start !important;
+    display: inline-grid !important;
+    place-items: center !important;
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    min-height: 48px !important;
+    transform: none !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: rgba(255,255,255,0.12) !important;
+    color: #ffffff !important;
+    z-index: 10045 !important;
+    pointer-events: auto !important;
+  }
+
+  body[data-page] .site-header .header-actions,
+  body[data-page] .site-header .nav-icons,
+  body[data-page] .site-header.navbar .header-actions,
+  body[data-page] .site-header.navbar .nav-icons,
+  body[data-page="home"] .site-header .header-actions,
+  body[data-page="home"] .site-header .nav-icons,
+  body[data-page="home"] .site-header.navbar .header-actions,
+  body[data-page="home"] .site-header.navbar .nav-icons {
+    grid-column: 3 !important;
+    grid-row: 1 !important;
+    position: static !important;
+    inset: auto !important;
+    display: flex !important;
+    justify-self: end !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    width: 104px !important;
+    gap: 8px !important;
+    pointer-events: auto !important;
+    z-index: 10044 !important;
+  }
+
+  body[data-page] .site-header .account-btn,
+  body[data-page] .site-header.navbar .account-btn,
+  body[data-page] .site-header .header-order-link,
+  body[data-page] .site-header.navbar .header-order-link {
+    display: none !important;
+  }
+
+  body[data-page] .site-header .search-box,
+  body[data-page] .site-header.navbar .search-box,
+  body[data-page="home"] .site-header .search-box,
+  body[data-page="home"] .site-header.navbar .search-box,
+  body[data-page] .site-header .search-box.search-active,
+  body[data-page] .site-header.navbar .search-box.search-active,
+  body[data-page] .site-header .cart-btn,
+  body[data-page] .site-header.navbar .cart-btn,
+  body[data-page="home"] .site-header .cart-btn,
+  body[data-page="home"] .site-header.navbar .cart-btn {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    display: inline-grid !important;
+    place-items: center !important;
+    width: 48px !important;
+    max-width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    min-height: 48px !important;
+    padding: 0 !important;
+    transform: none !important;
+    border: 1px solid rgba(255,255,255,0.22) !important;
+    border-radius: 999px !important;
+    background: rgba(255,255,255,0.12) !important;
+    color: #ffffff !important;
+    overflow: visible !important;
+  }
+
+  body[data-page] .site-header .search-box > button,
+  body[data-page] .site-header.navbar .search-box > button,
+  body[data-page] .site-header .search-box > button svg,
+  body[data-page] .site-header.navbar .search-box > button svg,
+  body[data-page] .site-header .cart-btn svg,
+  body[data-page] .site-header.navbar .cart-btn svg,
+  body[data-page] .site-header .hamburger-btn svg,
+  body[data-page] .site-header.navbar .hamburger-btn svg {
+    color: #ffffff !important;
+    stroke: currentColor !important;
+  }
+
+  body[data-page] .site-header .search-box input,
+  body[data-page] .site-header.navbar .search-box input {
+    position: fixed !important;
+    left: 14px !important;
+    right: 14px !important;
+    top: 112px !important;
+    width: calc(100vw - 28px) !important;
+    height: 48px !important;
+    padding: 0 48px 0 16px !important;
+    border: 1px solid rgba(255,255,255,0.20) !important;
+    border-radius: 16px !important;
+    background: rgba(255,255,255,0.96) !important;
+    color: #07101f !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    box-shadow: 0 18px 42px rgba(0,0,0,0.22) !important;
+    z-index: 10060 !important;
+  }
+
+  body[data-page] .site-header .search-box.search-active input,
+  body[data-page] .site-header.navbar .search-box.search-active input {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+
+  body[data-page] .site-header .search-panel,
+  body[data-page] .site-header.navbar .search-panel {
+    position: fixed !important;
+    left: 14px !important;
+    right: 14px !important;
+    top: 166px !important;
+    width: calc(100vw - 28px) !important;
+    max-width: calc(100vw - 28px) !important;
+    max-height: min(62vh, 480px) !important;
+    overflow-y: auto !important;
+    border-radius: 18px !important;
+    z-index: 10059 !important;
+  }
+
+  body[data-page] .mobile-overlay,
+  body[data-page] .mobile-overlay.open {
+    z-index: 10070 !important;
+  }
+
+  body[data-page] .mobile-nav,
+  body[data-page] .mobile-nav.open {
+    z-index: 10080 !important;
+  }
+
+  body[data-page] .mobile-nav-cats.open {
+    display: grid !important;
+    gap: 6px !important;
+    pointer-events: auto !important;
+  }
+
+  body[data-page] .mobile-nav-cat-link {
+    pointer-events: auto !important;
+    cursor: pointer !important;
   }
 }
