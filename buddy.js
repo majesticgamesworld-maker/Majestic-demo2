@@ -559,7 +559,8 @@ function renderFinderStep() {
               '<label>Occasion<select><option>Select occasion</option><option>Game night</option><option>Birthday</option><option>Gift</option><option>Date night</option></select></label>' +
               '<label>Budget<select><option>Select budget</option><option>Under KES 1,000</option><option>KES 1,000 - 2,000</option><option>KES 2,000+</option></select></label>' +
               '<label>Game type<select><option>Any type</option><option>Board games</option><option>Card games</option><option>Puzzles</option><option>STEM toys</option></select></label>' +
-              '<button type="button" class="buddy-find-btn" data-finder-answer="family">Find My Game</button>' +
+              '<label>Playtime<select><option>Any duration</option><option>Under 20 minutes</option><option>20 - 45 minutes</option><option>45+ minutes</option></select></label>' +
+              '<button type="button" class="buddy-find-btn" data-finder-answer="family"><span class="buddy-find-spark" aria-hidden="true"></span>Find My Perfect Game<span class="buddy-find-arrow" aria-hidden="true"></span></button>' +
             '</div>' +
           '</div>' +
         '</div>' +

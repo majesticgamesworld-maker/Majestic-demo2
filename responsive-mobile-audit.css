@@ -6415,6 +6415,69 @@ body[data-page]:not([data-page="home"]) .site-header .logo-link {
   html body[data-page="home"] #hero-section > #site-header.site-header.navbar .nav-icons .search-box > button {
     display: none !important;
   }
+
+  html body[data-page] #site-header.site-header.navbar .header-actions .cart-btn,
+  html body[data-page] #site-header.site-header.navbar .nav-icons .cart-btn,
+  html body[data-page] #site-header.site-header.navbar .header-actions .hamburger-btn,
+  html body[data-page] #site-header.site-header.navbar .nav-icons .hamburger-btn {
+    display: none !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .header-actions .search-box,
+  html body[data-page] #site-header.site-header.navbar .nav-icons .search-box {
+    width: 0 !important;
+    min-width: 0 !important;
+    max-width: 0 !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    pointer-events: none !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .header-actions .search-box > button,
+  html body[data-page] #site-header.site-header.navbar .nav-icons .search-box > button {
+    display: none !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .header-actions .search-box.search-active input,
+  html body[data-page] #site-header.site-header.navbar .nav-icons .search-box.search-active input {
+    pointer-events: auto !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .mobile-header-control {
+    position: fixed !important;
+    top: 48px !important;
+    width: 42px !important;
+    min-width: 42px !important;
+    max-width: 42px !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    transform: none !important;
+    z-index: 10220 !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .mobile-header-menu {
+    left: 14px !important;
+    right: auto !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .mobile-header-search {
+    display: none !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .mobile-header-cart {
+    display: none !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar button:not(.mobile-header-menu) {
+    display: none !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .mobile-header-menu {
+    display: inline-grid !important;
+  }
 }
 
 @media (min-width: 768px) {
