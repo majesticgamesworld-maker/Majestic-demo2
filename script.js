@@ -176,7 +176,7 @@ var HOME_CATEGORY_MENU = [
   { id: 'kids-games', type: 'category', art: 'images/category-art/generated/home-kids-games.png', countLabel: '25+ Games', iconKey: 'bear' },
   {
     id: 'toys',
-    label: 'STEM Toys',
+    label: 'TOYS',
     icon: 'Toys',
     iconKey: 'robot',
     type: 'group',

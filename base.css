@@ -717,7 +717,7 @@ html, body {
   font-family: 'Fredoka', 'Plus Jakarta Sans', system-ui, sans-serif;
   font-size: 1.25rem;
   font-weight: 700;
-  color: white;
+  color: var(--coral);
 }
 
 .featured-banner-sub {
@@ -1060,7 +1060,8 @@ html, body {
   transition: all 0.15s ease;
 }
 
-.qty-stepper-btn:hover { border-color: var(--coral); }
+.qty-stepper-btn:hover { border-  color: white;
+}
 
 .qty-stepper-btn svg { width: 14px; height: 14px; }
 

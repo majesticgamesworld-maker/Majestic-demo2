@@ -56,7 +56,7 @@ var heroSlides = [
     },
     ctas: [
       { label: 'Kids Games', color: '#16a34a', page: 'category', param: 'kids-games' },
-      { label: 'STEM Toys', color: 'rgba(255,255,255,0.14)', page: 'category', param: 'stem-toys' }
+      { label: 'TOYS', color: 'rgba(255,255,255,0.14)', page: 'category', param: 'stem-toys' }
     ]
   },
   {
@@ -507,6 +507,71 @@ function getFinderAudienceIconHtml(value) {
   return icons[value] || '<span>' + escHtml((typeof value === 'string' && value.length) ? value.charAt(0).toUpperCase() : '?') + '</span>';
 }
 
+function syncDesktopBuddyReferenceLayout() {
+  if (!document.body || document.body.getAttribute('data-page') !== 'home') return;
+  if (!window.matchMedia || !window.matchMedia('(min-width: 1024px)').matches) return;
+  var section = document.querySelector('.game-finder-section');
+  var card = section && section.querySelector('.container');
+  var hero = section && section.querySelector('.buddy-reference-hero');
+  var intro = section && section.querySelector('.buddy-reference-intro');
+  var mascot = section && section.querySelector('.buddy-reference-mascot');
+  var title = section && section.querySelector('.buddy-reference-title');
+  var titleText = section && section.querySelector('.buddy-reference-title .finder-title');
+  var finder = document.getElementById('finder-container');
+  if (!card || !finder) return;
+
+  function set(el, prop, value) {
+    if (el) el.style.setProperty(prop, value, 'important');
+  }
+
+  set(card, 'position', 'relative');
+  set(card, 'display', 'block');
+  set(card, 'min-height', '236px');
+  set(card, 'max-height', '236px');
+  set(card, 'padding', '18px 18px 18px 22px');
+  set(card, 'overflow', 'hidden');
+  set(hero, 'position', 'static');
+  set(hero, 'display', 'block');
+  set(hero, 'min-height', '0');
+  set(hero, 'margin', '0');
+  set(intro, 'position', 'absolute');
+  set(intro, 'left', '20px');
+  set(intro, 'bottom', '0');
+  set(intro, 'width', '222px');
+  set(intro, 'display', 'block');
+  set(mascot, 'display', 'block');
+  set(mascot, 'width', '220px');
+  set(mascot, 'height', '220px');
+  set(mascot, 'object-fit', 'contain');
+  set(mascot, 'object-position', 'bottom left');
+  set(title, 'position', 'absolute');
+  set(title, 'left', '246px');
+  set(title, 'top', '30px');
+  set(title, 'width', '292px');
+  set(title, 'max-width', '292px');
+  set(title, 'margin', '0');
+  set(title, 'text-align', 'left');
+  set(titleText, 'font-size', '23px');
+  set(titleText, 'line-height', '1.08');
+  set(titleText, 'max-width', '292px');
+  set(finder, 'position', 'absolute');
+  set(finder, 'right', '20px');
+  set(finder, 'top', '45px');
+  set(finder, 'width', '610px');
+  set(finder, 'max-width', '610px');
+  set(finder, 'margin', '0');
+  set(finder, 'z-index', '4');
+}
+
+if (!window.desktopBuddyReferenceSyncBound) {
+  window.desktopBuddyReferenceSyncBound = true;
+  window.addEventListener('resize', syncDesktopBuddyReferenceLayout);
+  window.addEventListener('DOMContentLoaded', function() {
+    window.setTimeout(syncDesktopBuddyReferenceLayout, 100);
+    window.setTimeout(syncDesktopBuddyReferenceLayout, 500);
+  });
+}
+
 function renderFinderStep() {
   var container = document.getElementById('finder-container');
   if (!container) return;
@@ -559,8 +624,7 @@ function renderFinderStep() {
               '<label>Occasion<select><option>Select occasion</option><option>Game night</option><option>Birthday</option><option>Gift</option><option>Date night</option></select></label>' +
               '<label>Budget<select><option>Select budget</option><option>Under KES 1,000</option><option>KES 1,000 - 2,000</option><option>KES 2,000+</option></select></label>' +
               '<label>Game type<select><option>Any type</option><option>Board games</option><option>Card games</option><option>Puzzles</option><option>STEM toys</option></select></label>' +
-              '<label>Playtime<select><option>Any duration</option><option>Under 20 minutes</option><option>20 - 45 minutes</option><option>45+ minutes</option></select></label>' +
-              '<button type="button" class="buddy-find-btn" data-finder-answer="family"><span class="buddy-find-spark" aria-hidden="true"></span>Find My Perfect Game<span class="buddy-find-arrow" aria-hidden="true"></span></button>' +
+              '<button type="button" class="buddy-find-btn" data-finder-answer="family"><span class="buddy-find-spark" aria-hidden="true"></span>Find My Game<span class="buddy-find-arrow" aria-hidden="true"></span></button>' +
             '</div>' +
           '</div>' +
         '</div>' +
@@ -573,6 +637,7 @@ function renderFinderStep() {
         '</aside>' +
       '</div>' +
       '<div class="buddy-benefit-rail"><span>Same-day delivery in Nairobi</span><span>Budget-friendly picks</span><span>Perfect for gifts & parties</span><span>Trusted by 1000+ game nights</span></div>';
+    syncDesktopBuddyReferenceLayout();
     return;
   }
 
@@ -895,7 +960,7 @@ function renderAttachedShopDropdown(menu, dropdown, btn) {
     { id: 'board-games', icon: 'board-games.webp', label: 'Board Games', count: '72+ games' },
     { id: 'family-games', icon: 'card-games.webp', label: 'Card Games', count: '38+ games' },
     { id: 'kids-games', icon: 'kids-games.webp', label: 'Kids Games', count: '25+ games' },
-    { id: 'stem-toys', icon: 'stem-toys.webp', label: 'STEM Toys', count: '30+ toys' },
+    { id: 'stem-toys', icon: 'stem-toys.webp', label: 'TOYS', count: '30+ toys' },
     { id: 'puzzles', icon: 'puzzles.webp', label: 'Puzzles', count: '11+ puzzles' },
     { id: 'party-games', icon: 'party-games.webp', label: 'Party Games', count: '27+ games' },
     { id: 'drinking-games', icon: 'drinking-games.webp', label: 'Drinking Games', count: '29+ games' },

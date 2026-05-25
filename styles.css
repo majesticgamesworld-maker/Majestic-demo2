@@ -2037,7 +2037,7 @@ html[data-initial-page]:not([data-initial-page="home"]) #page-home.page.active {
   font-family: 'Instrument Serif', Georgia, serif;
   font-size: 1.25rem;
   font-weight: 700;
-  color: white;
+  color: var(--gold);
 }
 
 .featured-banner-sub {
@@ -3761,7 +3761,7 @@ footer, .site-footer {
 .blog-hero-panel strong {
   display: block;
   margin-bottom: 12px;
-  color: var(--gold);
+  color: white;
 }
 
 .blog-topic-list {
@@ -4187,7 +4187,7 @@ footer, .site-footer {
 }
 
 #page-product .breadcrumb a {
-  color: var(--navy);
+  color: var(--coral);
 }
 
 #page-product .breadcrumb span {
