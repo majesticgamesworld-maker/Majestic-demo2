@@ -148,7 +148,7 @@ function initMobileTopBannerScroll(tracks) {
   var activeTracks = Array.prototype.slice.call(tracks);
   var rafId = 0;
   var lastTime = 0;
-  var offset = 0;
+  var offsets = activeTracks.map(function() { return 0; });
   var speed = 34;
 
   function resetTrack(track) {
@@ -163,7 +163,7 @@ function initMobileTopBannerScroll(tracks) {
       rafId = 0;
     }
     lastTime = 0;
-    offset = 0;
+    offsets = activeTracks.map(function() { return 0; });
     activeTracks.forEach(resetTrack);
   }
 
@@ -171,14 +171,14 @@ function initMobileTopBannerScroll(tracks) {
     if (!lastTime) lastTime = time;
     var delta = Math.min(time - lastTime, 64) / 1000;
     lastTime = time;
-    offset += speed * delta;
 
-    activeTracks.forEach(function(track) {
+    activeTracks.forEach(function(track, i) {
+      offsets[i] += speed * delta;
       var loopWidth = track.scrollWidth / 2;
-      if (loopWidth > 0 && offset >= loopWidth) offset -= loopWidth;
+      if (loopWidth > 0 && offsets[i] >= loopWidth) offsets[i] -= loopWidth;
       track.style.setProperty('animation', 'none', 'important');
       track.style.setProperty('will-change', 'transform', 'important');
-      track.style.setProperty('transform', 'translate3d(-' + offset.toFixed(2) + 'px, 0, 0)', 'important');
+      track.style.setProperty('transform', 'translate3d(-' + offsets[i].toFixed(2) + 'px, 0, 0)', 'important');
     });
 
     rafId = window.requestAnimationFrame(tick);

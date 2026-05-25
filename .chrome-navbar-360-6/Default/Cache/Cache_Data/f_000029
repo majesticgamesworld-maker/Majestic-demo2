@@ -1,0 +1,1297 @@
+﻿
+/* Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+   PRODUCT DETAIL PAGE
+Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+var productDetailQty = 1;
+
+function getProductCommerceProfile(product, facts, cat) {
+  var meta = inferProductMeta ? inferProductMeta(product) : { vibe: 'game night', players: facts.players, age: facts.ageRange };
+  var text = getProductSearchText ? getProductSearchText(product).toLowerCase() : [product.name, product.cat, (product.tags || []).join(' ')].join(' ').toLowerCase();
+  var strategy = /chess|catan|azul|qwirkle|scrabble|monopoly|sequence|rummikub|risk|strategy|backgammon|domino/.test(text);
+  var party = /party|taboo|articulate|seconds|bingo|drinking|cards|group|friends/.test(text);
+  var kids = product.ageGroup === 'kids' || /kid|child|learning|stem|toy|school/.test(text);
+  var couples = /couple|date|romantic|love|intimate/.test(text);
+  var gift = product.badge === 'GIFT PICKS' || /gift|birthday|present/.test(text);
+  var vibe = couples ? 'Couple night' : party ? 'Party energy' : kids ? 'Kids learning' : strategy ? 'Strategy night' : gift ? 'Gift-ready pick' : 'Family game night';
+  var subtitle = strategy
+    ? 'A smart table pick for focused play, friendly rivalry and satisfying wins.'
+    : party
+      ? 'Built for laughter, quick rounds and the kind of nights people remember.'
+      : kids
+        ? 'Screen-free fun with learning, movement and easy gifting built in.'
+        : couples
+          ? 'A compact way to make date night warmer, playful and easier to plan.'
+          : 'A ready-to-enjoy choice for gifting, hosting and relaxed family play.';
+  var benefits = [];
+  benefits.push(strategy ? ['Easy to start', 'Clear rules and a satisfying learning curve.'] : ['Easy to enjoy', 'Simple enough to get the table moving quickly.']);
+  benefits.push(party ? ['Group energy', 'Keeps conversation and laughter moving.'] : ['Replayable', 'Works well beyond the first game night.']);
+  benefits.push(gift || kids ? ['Great gift choice', 'A thoughtful pick for birthdays and surprises.'] : ['Confidence pick', 'A strong option when you want something reliable.']);
+  benefits.push(strategy ? ['Brain challenge', 'Adds planning, pattern spotting and clever decisions.'] : ['Flexible occasion', 'Fits casual evenings, visits and family time.']);
+  benefits.push(['WhatsApp guided', 'Confirm stock, edition and delivery before paying.']);
+  var bestFor = ['Family Night', 'Birthday Gift'];
+  if (couples) bestFor.unshift('Couple Night');
+  if (party) bestFor.unshift('Party Games');
+  if (kids) bestFor.push('School/Church Group');
+  if (strategy) bestFor.push('Brain Challenge');
+  bestFor = bestFor.filter(function(item, index, arr) { return arr.indexOf(item) === index; }).slice(0, 6);
+  return {
+    vibe: vibe,
+    subtitle: subtitle,
+    benefits: benefits,
+    bestFor: bestFor,
+    difficulty: product.difficulty || (strategy ? 'Easy-Medium' : 'Easy'),
+    occasion: facts.occasion,
+    matchUse: strategy ? 'Competitive strategy night' : party ? 'High-energy group hangout' : kids ? 'Kids learning or birthday gift' : couples ? 'Couple night or anniversary gift' : 'Family game night or gift shopper',
+    why: 'Great for ' + facts.bestFor.slice(0, 2).join(', ') + ', especially when you want WhatsApp help confirming the best age, group size and delivery option before ordering.',
+    meta: meta,
+    category: cat ? cat.label : facts.categoryLabel
+  };
+}
+
+function buildProductFitWhatsAppMessage(product, facts, focus) {
+  var focusLine = focus ? 'Main thing I want checked: ' + focus + '.' : 'Main thing I want checked: overall fit.';
+  return [
+    'Hi Majestic Games World, I\'m interested in ' + product.name + ' priced at KES ' + product.price.toLocaleString() + '.',
+    'Is it a good fit for ' + facts.ageRange + ', ' + facts.players + ', and this occasion: ' + facts.occasion + '?',
+    focusLine,
+    'Please confirm stock, delivery options, edition details, and whether you recommend it for my group.'
+  ].join('\n');
+}
+
+function buildProductBundleWhatsAppMessage(product, budget, players, occasion) {
+  return [
+    'Hi Majestic Games World, I\'d like help building a game night bundle around ' + product.name + '.',
+    'My budget is ' + (budget || 'not decided yet') + ', players are ' + (players || 'not decided yet') + ', and occasion is ' + (occasion || 'game night') + '.',
+    'Please suggest the best bundle, confirm stock, delivery options, and total cost.'
+  ].join('\n');
+}
+
+function getProductHowToPlaySteps(product, facts, profile) {
+  var name = (product.name || '').toLowerCase();
+  var cat = product.cat || '';
+  var text = [name, cat, product.slug || '', product.shortDescription || '', product.description || ''].join(' ').toLowerCase();
+  var match = function(pattern) { return pattern.test(text); };
+  var steps = [
+    { test: /azul/, play: ['Set out the factory displays and fill them with tiles from the bag.', 'On your turn, draft all tiles of one color from a display or the center.', 'Place drafted tiles into pattern rows, sending extras to the floor line.', 'Move completed rows to your wall and score connected tiles and completed sets.'] },
+    { test: /catan/, play: ['Build the island, place settlements and collect starting resources.', 'Roll dice to produce brick, lumber, wool, grain or ore from matching terrain.', 'Trade with players or ports, then build roads, settlements, cities and development cards.', 'Reach 10 victory points first through building, longest road, largest army and cards.'] },
+    { test: /monopoly deal/, play: ['Deal each player a hand of cards and keep the draw pile nearby.', 'On your turn, draw cards and play up to three actions, money or property cards.', 'Charge rent, steal properties or protect sets with action cards.', 'Win by completing three full property sets before the other players.'] },
+    { test: /monopoly|cash flow|cashflow/, play: ['Choose tokens, give each player starting money and place tokens on GO.', 'Roll dice, move around the board and buy available properties you land on.', 'Collect rent, trade properties and build houses or hotels when you own color sets.', 'Win by managing cash well and bankrupting the other players.'] },
+    { test: /scrabble|quiddler|boogle|boggle|hangman/, play: ['Give players letter tiles or cards according to the edition rules.', 'Build words by connecting letters to the board or forming valid word sets.', 'Score using letter values, premium spaces or word bonuses where included.', 'Refresh letters after each turn and win with the highest final score.'] },
+    { test: /poker|playing cards|plastic cards/, play: ['Shuffle and deal cards for the poker or card game your group chooses.', 'Players bet, draw or reveal cards according to that game variant.', 'Compare hands using the agreed ranking, from pairs up to stronger combinations.', 'Win the pot or round with the best hand, smart bluff or last player remaining.'] },
+    { test: /codenames/, play: ['Lay out the word grid and split players into two teams.', 'Spymasters use the key card to know which words belong to each team.', 'Give one-word clues with a number so teammates can guess related words.', 'Reveal agents carefully and avoid the assassin while racing to find your team.'] },
+    { test: /dixit/, play: ['Deal illustrated cards and choose one player as storyteller each round.', 'The storyteller secretly picks a card and gives a clue inspired by the image.', 'Other players submit cards that could match the clue, then all cards are shuffled.', 'Vote for the storyteller card and score when the clue is balanced, not too obvious.'] },
+    { test: /taboo/, play: ['Split into teams and choose a clue-giver for the round.', 'The clue-giver describes the guess word without saying any forbidden words.', 'Teammates guess as many cards as possible before the timer runs out.', 'Lose points for taboo words and score for correct guesses.'] },
+    { test: /articulate|30 seconds|5 seconds|scattergories|tapple/, play: ['Split into players or teams and set up the timer or category cards.', 'Draw a prompt, category or card for the active player or team.', 'Race to describe, name or answer as many valid items as the rules allow.', 'Score successful answers and rotate turns until a winner or target score is reached.'] },
+    { test: /cluedo|clue|suspect/, play: ['Set up the mystery cards, board and character pieces for the chosen edition.', 'Move through rooms or reveal clues to gather information.', 'Ask questions and use deduction to eliminate suspects, weapons and locations.', 'Make a final accusation when you know the solution.'] },
+    { test: /uno|skip bo/, play: ['Deal cards and place a starter card or discard pile in the center.', 'On your turn, play a card that matches the current color, number or symbol.', 'Use action cards to skip, reverse, draw cards or change the current color.', 'Be first to empty your hand, remembering to call UNO when one card remains.'] },
+    { test: /exploding kittens/, play: ['Deal cards, insert Exploding Kitten cards and create the draw pile.', 'Play action cards to skip, attack, peek, shuffle or force other moves.', 'End your turn by drawing from the deck unless a card says otherwise.', 'Defuse an Exploding Kitten if you can; the last player standing wins.'] },
+    { test: /coup/, play: ['Deal influence cards face down and give each player starting coins.', 'Take actions by claiming character powers, bluffing if you dare.', 'Challenge suspicious claims or block actions with the right influence.', 'Lose influence when caught or targeted; the last player with influence wins.'] },
+    { test: /sequence/, play: ['Deal cards and place chips near the game board.', 'Play a card from your hand and place a chip on the matching board space.', 'Use Jacks according to the edition rules to add or remove chips.', 'Win by forming the required connected sequence of chips.'] },
+    { test: /rummikub/, play: ['Draw starting tiles and arrange them into runs and groups.', 'Make an initial meld that meets the edition point requirement.', 'On each turn, place valid sets or rearrange table tiles legally.', 'Be first to empty your rack to win the round.'] },
+    { test: /qwirkle/, play: ['Draw tiles and create lines that share either color or shape.', 'Add tiles to existing lines without repeating a color-shape combination.', 'Score points for every tile in each line you extend.', 'Make a six-tile Qwirkle for a bonus and win with the highest score.'] },
+    { test: /chess|battle chess|triangular chess/, play: ['Set up the pieces according to the board or edition layout.', 'Players alternate moves, using each piece according to its movement rule.', 'Plan attacks, defend important pieces and control key spaces.', 'Win by checkmating the opponent or meeting the edition victory condition.'] },
+    { test: /draught|checkers/, play: ['Set pieces on the dark squares and move diagonally forward.', 'Jump over opposing pieces to capture them when possible.', 'Reach the far side to crown a piece as a king.', 'Win by capturing or blocking all opponent pieces.'] },
+    { test: /backgammon/, play: ['Set up checkers on the points and roll dice to move them around the board.', 'Move according to the dice while blocking, hitting and re-entering checkers.', 'Bring all your checkers into your home board.', 'Bear off every checker first to win.'] },
+    { test: /ludo|snakes|ladders/, play: ['Choose colors or tokens and place pieces at the start.', 'Roll the die and move according to the number shown.', 'Use ladders, snakes, safe spaces or captures according to the board edition.', 'Get all your pieces home or reach the finish first to win.'] },
+    { test: /bingo/, play: ['Give each player a bingo card and set up the number caller.', 'Call numbers one at a time while players mark matching spaces.', 'Complete the required pattern such as a line, corners or full house.', 'Call bingo and verify the card to win the round.'] },
+    { test: /domino/, play: ['Shuffle tiles face down and draw a starting hand.', 'Match tile ends with the same number of pips on the table.', 'Draw or pass when you cannot make a legal play.', 'Empty your hand first or score lowest when play is blocked.'] },
+    { test: /jenga|tower|shut the box/, play: ['Set up the tower, box or dice tray on a stable surface.', 'Take turns carefully removing, rolling or choosing pieces according to the game.', 'Place pieces or close numbers without breaking the rules.', 'Avoid toppling the tower or aim for the lowest remaining score.'] },
+    { test: /dart|foosball|connect 4|spin 4|line up/, play: ['Set up the target, board or tabletop arena on a safe flat surface.', 'Players take turns aiming, dropping discs or moving pieces.', 'Score by hitting target zones, connecting pieces or scoring goals.', 'Play to the agreed point target or round limit.'] },
+    { test: /reversi|othello/, play: ['Place the starting discs in the center of the board.', 'Take turns placing discs that trap opponent discs in a line.', 'Flip every trapped disc to your color after each legal move.', 'Win by having the most discs when no legal moves remain.'] },
+    { test: /mancala|ajua/, play: ['Place seeds or stones evenly in the pits.', 'Choose a pit and sow its contents one by one around the board.', 'Capture or collect seeds according to the local rule set being used.', 'Win by collecting the most seeds when the game ends.'] },
+    { test: /pictionary|charades|hedbanz|guess in 10|what am i/, play: ['Split into players or teams and draw a prompt card.', 'Give clues by drawing, acting, asking questions or wearing the clue card.', 'Guess before the timer or question limit runs out.', 'Score correct guesses and rotate turns.'] },
+    { test: /spot it|dobble|memory match/, play: ['Shuffle the cards or tiles and set up the chosen mini-game.', 'Look carefully for matching symbols, images or pairs.', 'Call out the match or collect the pair before other players do.', 'Win the most cards, matches or points.'] },
+    { test: /twister/, play: ['Lay the mat flat and choose a spinner or caller.', 'Spin to choose a hand or foot and a color.', 'Place that limb on an open matching circle without falling.', 'Stay balanced the longest to win.'] },
+    { test: /tangram|tetris|ubongo|puzzle|jigsaw/, play: ['Choose a puzzle, challenge card or reference image.', 'Sort pieces by color, edge, shape or pattern.', 'Fit pieces together until the image or target shape is complete.', 'For timed editions, finish before the timer or score fastest completion.'] },
+    { test: /beer pong|drinko|spin the bottle|truth or drink|you laugh you drink|you lie you drink|these cards will get you drunk|buzzed|sotally|do or drink|let's get drunk|risk it or drink|drunken|drunk|drinking|drink/, play: ['Confirm all players are adults and agree on house limits before starting.', 'Set up cups, cards, spinner or prompts according to the edition.', 'Take turns drawing prompts, aiming, answering or completing challenges.', 'Apply the drink, point or penalty rule, and keep play responsible.'] },
+    { test: /cards against|what do you meme|incohearent|bad people|bad choices|disturbed friends|never have i ever|for the girls|that'?s what she said|truth or dare|do you know me|top of mind|brilliant or bs|i should have known|things they don't teach|lyrically correct|trivia trolls|f\*ck marry kill|fill in the blank|fill in the blanks/, play: ['Shuffle the prompt and answer decks or set up the question cards.', 'One player reads the prompt, question or challenge for the round.', 'Other players answer, submit cards, vote or guess according to the edition.', 'Award the round to the funniest, most accurate or correct response.'] },
+    { test: /couple|date|intimacy|love language|talk flirt dare|bedroom|naughty|sexmate|loopy|dirty minds|servd|his & hers|risky|bondage|positions|poker sex/, play: ['Confirm the game is suitable for adults and that both players are comfortable.', 'Shuffle the cards or prompts and choose the mode suggested by the edition.', 'Take turns answering questions, completing dares or choosing playful challenges.', 'Skip any prompt you do not want and use the game to create conversation.'] },
+    { test: /talking point|our moments|conversation|ice breaker|let'?s get talking|little talk|mindful talk|talking hearts|christian culture|get churched|bible|do you really know your|we'?re not really strangers/, play: ['Shuffle the conversation or prompt cards.', 'Take turns drawing a card and reading it aloud.', 'Answer honestly, discuss as a group and invite follow-up questions.', 'Continue for a set time or until everyone has shared.'] },
+    { test: /lego|construction set|speed champions|ferrari|pagani|koenigsegg|red bull|mercedes|williams|iron man|wolverine|bulldozer/, play: ['Open the numbered bags and sort key pieces if needed.', 'Follow the build booklet step by step.', 'Attach stickers or small details carefully as the model develops.', 'Display the finished model or use it for imaginative play.'] },
+    { test: /4m|science kit|robot|rocket|wind chime|bracelet|weather|electric plane|turboair|rock painting|stem/, play: ['Read the included instructions and prepare a safe workspace.', 'Lay out the materials and complete each experiment or build step in order.', 'Test, observe and adjust the model or craft as instructed.', 'Use adult supervision for small parts, batteries, paint or launch activities.'] },
+    { test: /barbie|doll|camper|doctor|fashionistas|beauty compact|pibi/, play: ['Unpack the doll and accessories carefully.', 'Set up the scene, outfit or playset pieces.', 'Use role-play to create stories, jobs, visits or adventures.', 'Pack small accessories together after play to avoid losing pieces.'] },
+    { test: /microphone|keyboard|piano|saxophone|musical/, play: ['Add batteries or connect power if required.', 'Choose a sound mode, rhythm or instrument setting.', 'Sing, play notes or copy simple melodies.', 'Use volume safely and store accessories after play.'] },
+    { test: /rattle|baby|infant|soft ball|peacock/, play: ['Give the toy to the child during supervised play.', 'Encourage grasping, rolling, shaking or gentle sensory exploration.', 'Use colors, sounds and movement to support early interaction.', 'Clean and store the toy after use according to care guidance.'] }
+  ];
+  var found = steps.find(function(rule) {
+    return rule.test && typeof rule.test.test === 'function' && rule.test.test(text);
+  });
+  if (found) return found.play;
+  if (cat === 'puzzles') return ['Sort edge pieces, colors and obvious patterns first.', 'Build the border or main shapes before filling smaller details.', 'Work section by section until the image comes together.', 'Use the finished puzzle for display, replay or relaxed family time.'];
+  if (cat === 'stem-toys') return ['Read the kit instructions before opening all parts.', 'Build or prepare the experiment one step at a time.', 'Test the result, observe what happens and adjust if needed.', 'Use adult supervision where tools, batteries or small parts are included.'];
+  if (cat === 'kids-games') return ['Set up the pieces and explain the goal in simple terms.', 'Take turns so younger players can learn the pattern of play.', 'Use the cards, board or prompts to practice matching, memory or quick thinking.', 'Celebrate completion, correct answers or the agreed winning condition.'];
+  if (cat === 'party-games') return ['Choose teams or a round leader.', 'Draw a prompt, question or challenge card.', 'Players answer, guess, vote or complete the challenge.', 'Score the round and keep rotating so everyone participates.'];
+  if (cat === 'trivia-games') return ['Shuffle the question cards and choose a reader or teams.', 'Read each question aloud and let players answer before the reveal.', 'Award points for correct answers or for spotting the bluff, depending on the edition.', 'Keep rotating readers until someone reaches the target score.'];
+  if (cat === 'drinking-games') return ['Confirm everyone is an adult and agrees on sensible limits before starting.', 'Set up the cards, cups, spinner or challenge pieces for the edition.', 'Take turns drawing prompts, answering questions or completing challenges.', 'Apply the drink, point or penalty rule while keeping the game responsible.'];
+  if (cat === 'couples-games') return ['Choose a comfortable mode or deck for the mood you want.', 'Take turns drawing cards, asking questions or choosing playful challenges.', 'Answer honestly, complete agreed dares or skip anything that does not feel right.', 'Use the game to spark conversation, laughter and connection.'];
+  if (cat === 'christian-games') return ['Set up the cards or board and choose a reader or teams.', 'Take turns answering faith, culture or Bible-themed prompts.', 'Discuss answers respectfully and use any special action cards as directed.', 'Score correct answers, completed sequences or won rounds according to the edition.'];
+  if (cat === 'card-games' || cat === 'family-games') return ['Shuffle and deal the cards according to the edition.', 'Take turns playing cards, answering prompts or completing the round objective.', 'Use action cards or special rules when they appear.', 'Win by emptying your hand, scoring most points or winning the most rounds.'];
+  if (cat === 'board-games') return ['Set up the board, pieces, cards and player tokens for the edition.', 'Take turns moving, placing pieces, drawing cards or resolving spaces as directed.', 'Use the game rules to score, block, trade, capture or complete objectives.', 'Win by reaching the listed score, finishing first or meeting the victory condition.'];
+  return ['Open the box and confirm the included pieces match the edition.', 'Read the quick rules or first card before starting.', 'Take turns using the pieces, cards or prompts as directed.', 'Play to the listed win condition, timer or agreed family rule.'];
+}
+
+function updateMajesticBuddyInsight(mode) {
+  var product = getProductById(currentProduct);
+  if (!product) return;
+
+  var cat = CATEGORIES.find(function(c) { return c.id === product.cat; });
+  var facts = inferProductFacts(product, cat);
+  var profile = getProductCommerceProfile(product, facts, cat);
+  var modes = {
+    overall: {
+      title: 'Strong fit for this table.',
+      text: profile.why,
+      focus: 'overall fit for my group'
+    },
+    age: {
+      title: 'Check age fit before ordering.',
+      text: 'Our WhatsApp team will confirm whether ' + product.name + ' is right for ' + facts.ageRange + ', including safety, maturity level and who should supervise play.',
+      focus: 'age suitability and safety'
+    },
+    players: {
+      title: 'Check if the group size works.',
+      text: 'Best listed player fit is ' + facts.players + '. Ask us to confirm whether it will still feel good for your exact group size and table setup.',
+      focus: 'player count and table setup'
+    },
+    delivery: {
+      title: 'Check stock and delivery timing.',
+      text: 'We can confirm live stock, edition details, Nairobi delivery timing, Kenya-wide courier options and the final delivery fee before you pay.',
+      focus: 'stock, edition and delivery timing'
+    },
+    gift: {
+      title: 'Check if it is gift-ready.',
+      text: 'Our team will confirm whether this is a good gift for ' + facts.bestFor.slice(0, 2).join(' or ') + ', and suggest a better option if the recipient needs something different.',
+      focus: 'gift suitability and better alternatives if needed'
+    }
+  };
+  var selected = modes[mode] || modes.overall;
+  var titleEl = document.getElementById('pdp-buddy-insight-title');
+  var verdictEl = document.getElementById('pdp-buddy-verdict');
+  var ctaEl = document.getElementById('pdp-insight-wa');
+  if (titleEl) titleEl.textContent = selected.title;
+  if (verdictEl) verdictEl.textContent = selected.text;
+  if (ctaEl) {
+    ctaEl.href = buildWhatsAppURL(buildProductFitWhatsAppMessage(product, facts, selected.focus));
+    ctaEl.textContent = mode === 'overall' ? 'Confirm fit on WhatsApp' : 'Ask us to check this';
+  }
+  document.querySelectorAll('.pdp-buddy-check-btn').forEach(function(btn) {
+    var isActive = btn.getAttribute('data-buddy-check') === (mode || 'overall');
+    btn.classList.toggle('active', isActive);
+    btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+  });
+}
+
+function getPdpIcon(name) {
+  var savedIcons = ['search', 'cart', 'whatsapp', 'heart', 'truck', 'shield', 'lock', 'document', 'gamepad', 'question', 'chevron', 'box', 'sliders'];
+  if (savedIcons.indexOf(name) !== -1) {
+    return '<span class="pdp-saved-icon pdp-saved-icon-' + name + '" aria-hidden="true"></span>';
+  }
+  var icons = {
+    search: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/></svg>',
+    cart: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.6 13.4a2 2 0 0 0 2 1.6h9.8a2 2 0 0 0 2-1.6L23 6H6"/></svg>',
+    whatsapp: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.8a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.4-4.9A8.4 8.4 0 1 1 20.5 11.8Z"/><path d="M8.8 8.4c.2-.4.4-.4.7-.4h.5c.2 0 .4 0 .5.4l.8 1.8c.1.2.1.4 0 .5l-.4.6c-.1.2-.2.3-.1.5.4.8 1.2 1.7 2.2 2.2.2.1.4.1.5-.1l.7-.8c.2-.2.4-.2.6-.1l1.8.8c.3.1.4.3.3.6-.1.7-.7 1.4-1.4 1.5-1.2.2-3-.4-4.5-1.7-1.6-1.4-2.8-3.3-2.9-4.6 0-.4.1-.7.2-.8Z"/></svg>',
+    heart: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.9a5.5 5.5 0 0 0-7.8 0L12 6l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.3 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg>',
+    users: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/><path d="M16 3.1a4 4 0 0 1 0 7.8"/></svg>',
+    age: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>',
+    clock: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
+    sliders: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21v-6M4 11V3M12 21v-9M12 8V3M20 21v-4M20 13V3"/><path d="M2 15h4M10 8h4M18 17h4"/></svg>',
+    box: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 8-9-5-9 5 9 5 9-5Z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg>',
+    star: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 6.2 6.8 1-4.9 4.8 1.2 6.8-6.1-3.2-6.1 3.2 1.2-6.8-4.9-4.8 6.8-1L12 2Z"/></svg>',
+    truck: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 17H5V5h10v12h-1"/><path d="M15 8h3l3 4v5h-3"/><circle cx="7" cy="17" r="2"/><circle cx="18" cy="17" r="2"/></svg>',
+    shield: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-5"/></svg>',
+    lock: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>',
+    spark: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2Z"/><path d="m19 15 .8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15Z"/></svg>',
+    document: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h6"/></svg>',
+    gamepad: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10h10a5 5 0 0 1 4.7 6.7l-.4 1.2a2.5 2.5 0 0 1-4.3.7L15.5 17h-7L7 18.6a2.5 2.5 0 0 1-4.3-.7l-.4-1.2A5 5 0 0 1 7 10Z"/><path d="M8 13v3M6.5 14.5h3"/><path d="M16.5 14h.01M19 15h.01"/></svg>',
+    question: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.8 9a2.4 2.4 0 0 1 4.5 1.2c0 1.7-2.3 2.1-2.3 3.8"/><path d="M12 17h.01"/></svg>',
+    chevron: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>'
+  };
+  return icons[name] || icons.star;
+}
+
+function getPdpRatingStars() {
+  return '<span class="pdp-star-icons" aria-hidden="true">' +
+    getPdpIcon('star') +
+    getPdpIcon('star') +
+    getPdpIcon('star') +
+    getPdpIcon('star') +
+    getPdpIcon('star') +
+  '</span>';
+}
+
+function getPdpLoveImage(product, cat) {
+  var categoryId = (product && product.cat) || (cat && cat.id) || '';
+  var imageMap = {
+    'board-games': 'background images/pdp-family-table-illustration.webp',
+    'card-games': 'background images/card games.webp',
+    'christian-games': 'background images/christian games.webp',
+    'couples-games': 'background images/couples games.webp',
+    'dolls': 'background images/dolls.webp',
+    'drinking-games': 'background images/drinking games.webp',
+    'family-games': 'background images/family games.webp',
+    'infant-toys': 'background images/infant toys.webp',
+    'kids-games': 'background images/kids games.webp',
+    'lego-collectible': 'background images/LEGO collectibles.webp',
+    'musical-toys': 'background images/musical toys.webp',
+    'party-games': 'background images/party games.webp',
+    'puzzles': 'background images/puzzles.webp',
+    'stem-toys': 'background images/stem toys.webp',
+    'trivia-games': 'background images/trivia games.webp'
+  };
+  var path = imageMap[categoryId] || 'background images/pdp-family-table-illustration.webp';
+  return new URL(path, CDN_BASE).href;
+}
+
+function renderPdpSnapshotItem(icon, label, value) {
+  return '<div class="pdp-ref-snapshot-item">' +
+    '<span class="pdp-ref-icon">' + getPdpIcon(icon) + '</span>' +
+    '<small>' + escHtml(label) + '</small>' +
+    '<strong>' + escHtml(value) + '</strong>' +
+  '</div>';
+}
+
+function switchPdpInfoTab(tabName) {
+  document.querySelectorAll('.pdp-info-tab').forEach(function(tab) {
+    tab.classList.toggle('active', tab.getAttribute('data-pdp-tab') === tabName);
+  });
+  document.querySelectorAll('.pdp-info-panel').forEach(function(panel) {
+    panel.classList.toggle('active', panel.getAttribute('data-pdp-panel') === tabName);
+  });
+}
+
+function syncProductMobileHeader() {
+  var isProductMobile = document.body && document.body.getAttribute('data-page') === 'product' && window.matchMedia('(max-width: 700px)').matches;
+  var header = document.getElementById('site-header');
+  if (!header) return;
+  var logo = header.querySelector('.logo-link');
+  var logoImg = header.querySelector('.logo-img');
+  var controls = header.querySelector('.mobile-header-controls');
+  var menu = header.querySelector('.mobile-header-menu');
+  var search = header.querySelector('.mobile-header-search');
+  var cart = header.querySelector('.mobile-header-cart');
+
+  if (!isProductMobile) {
+    [header, logo, logoImg, controls, menu, search, cart].forEach(function(el) {
+      if (el) el.removeAttribute('style');
+    });
+    return;
+  }
+
+  function set(el, prop, value) {
+    if (el) el.style.setProperty(prop, value, 'important');
+  }
+
+  set(header, 'height', '58px');
+  set(header, 'min-height', '58px');
+  set(header, 'background', '#ffffff');
+  set(header, 'border-bottom', '1px solid #eef1f4');
+
+  set(logo, 'position', 'absolute');
+  set(logo, 'left', 'calc(50% - 124px)');
+  set(logo, 'right', 'auto');
+  set(logo, 'top', '12px');
+  set(logo, 'width', '128px');
+  set(logo, 'height', '34px');
+  set(logo, 'min-width', '128px');
+  set(logo, 'max-width', '128px');
+  set(logo, 'transform', 'none');
+  set(logo, 'border-radius', '9px');
+  set(logo, 'background', '#030712 url("images/branding/LOGOF2.png") center / 138% auto no-repeat');
+  set(logo, 'overflow', 'hidden');
+  set(logo, 'z-index', '2');
+
+  set(logoImg, 'opacity', '0');
+  set(logoImg, 'width', '128px');
+  set(logoImg, 'height', '34px');
+
+  set(controls, 'display', 'block');
+  set(controls, 'position', 'absolute');
+  set(controls, 'inset', '0');
+  set(controls, 'visibility', 'visible');
+  set(controls, 'opacity', '1');
+  set(controls, 'z-index', '5');
+
+  [
+    [menu, '4px', 'auto'],
+    [search, 'auto', '45px'],
+    [cart, 'auto', '4px']
+  ].forEach(function(item) {
+    set(item[0], 'display', 'inline-grid');
+    set(item[0], 'position', 'absolute');
+    set(item[0], 'top', '50%');
+    set(item[0], 'left', item[1]);
+    set(item[0], 'right', item[2]);
+    set(item[0], 'width', '38px');
+    set(item[0], 'height', '38px');
+    set(item[0], 'transform', 'translateY(-50%)');
+    set(item[0], 'visibility', 'visible');
+    set(item[0], 'opacity', '1');
+    set(item[0], 'z-index', '6');
+  });
+}
+
+if (!window.productMobileHeaderSyncBound) {
+  window.productMobileHeaderSyncBound = true;
+  window.addEventListener('resize', syncProductMobileHeader);
+  window.addEventListener('orientationchange', syncProductMobileHeader);
+}
+
+function getPdpRecommendationReason(item, source, profile) {
+  if (!item || !source) return 'Another strong pick from the Majestic shelf.';
+  if (item.cat === source.cat) return 'Same table mood with a fresh way to play.';
+  if (sharedProductTagCount(item, source) > 0) return 'Matches the group, pace, and occasion you are browsing for.';
+  if (profile && profile.bestFor && profile.bestFor.length) return 'A good next choice for ' + profile.bestFor[0].toLowerCase() + '.';
+  if (item.price <= source.price) return 'A smart add-on that keeps the basket budget friendly.';
+  return 'Pairs well when you want to build a fuller game night.';
+}
+
+function renderPdpLikeCard(item, source, profile, index) {
+  var cat = CATEGORIES.find(function(c) { return c.id === item.cat; });
+  var reason = getPdpRecommendationReason(item, source, profile);
+  var imgSrc = getProductImg(item);
+  var thumbSrc = getProductThumbSrc(imgSrc);
+  var badgeOptions = [
+    { icon: '&#9734;', label: 'Family Favourite' },
+    { icon: '&#128101;', label: 'Great for Groups' },
+    { icon: '&#128293;', label: 'Trending Now' },
+    { icon: '&#9825;', label: 'Classic Pick' }
+  ];
+  var badge = badgeOptions[index % badgeOptions.length];
+  return '<article class="pdp-like-card' + (index === 2 ? ' pdp-like-featured' : '') + '">' +
+    '<a href="' + getRouteUrl('product', item.id) + '" onclick="return handleRouteClick(event,\'product\',\'' + item.id + '\')" aria-label="View ' + escHtml(item.name) + '">' +
+      '<span class="pdp-like-match"><i>' + badge.icon + '</i>' + escHtml(badge.label) + '</span>' +
+      '<span class="pdp-like-image"><img src="' + thumbSrc + '" data-full-src="' + imgSrc + '" alt="' + escHtml(item.name) + '" loading="lazy" decoding="async" /></span>' +
+      '<span class="pdp-like-copy">' +
+        '<small>' + escHtml(cat ? cat.label : 'Recommended') + '</small>' +
+        '<b>' + escHtml(item.name) + '</b>' +
+        '<em>' + escHtml(reason) + '</em>' +
+      '</span>' +
+      '<strong>KES ' + item.price.toLocaleString() + '</strong>' +
+    '</a>' +
+    '<button type="button" onclick="handleAddToCart(\'' + item.id + '\', this)" aria-label="Add ' + escHtml(item.name) + ' to cart">' + getPdpIcon('cart') + '</button>' +
+  '</article>';
+}
+
+function getProductLearningValue(product, facts) {
+  var text = getProductSearchText(product).toLowerCase();
+  if (product.adult || /adult|drinking|intimate|bondage|naughty/.test(text)) {
+    return 'The value is social: it can open conversation, shared laughter and playful connection for adults who choose the right setting.';
+  }
+  if (/stem|science|robot|rocket|construction|lego|learning|educational/.test(text)) {
+    return 'It supports hands-on curiosity, following steps, patience and problem solving while play stays active.';
+  }
+  if (/puzzle|jigsaw|tangram|memory|spot it|dobble/.test(text)) {
+    return 'It encourages observation, patience, pattern spotting and the satisfying focus of finishing a challenge.';
+  }
+  if (/chess|strategy|catan|azul|scrabble|rummikub|qwirkle|sequence/.test(text)) {
+    return 'It invites planning, turn taking, pattern spotting and decision making that sharpen with repeat plays.';
+  }
+  if (product.ageGroup === 'kids' || /kid|child|junior|school/.test(text)) {
+    return 'It helps younger players practise turns, confidence, listening and screen-free time with others.';
+  }
+  return 'It builds social play through turns, attention, friendly decisions and shared time away from screens.';
+}
+
+function getProductFunValue(product, facts, profile) {
+  var bestFor = facts.bestFor.slice(0, 2).join(' and ');
+  return profile.subtitle + ' That makes ' + product.name + ' a strong fit for ' + bestFor + ' when the group wants ' + profile.vibe.toLowerCase() + '.';
+}
+
+function renderProductFaqs(product, facts, profile, metadataStatus) {
+  var faqs = [
+    ['Who is ' + product.name + ' suited to?', 'Start with ' + facts.ageRange + ', ' + facts.players + ' and ' + facts.bestFor.slice(0, 3).join(', ') + '. Check the exact edition if age guidance on the box matters for your order.'],
+    ['How does ' + product.name + ' play?', 'Expect a ' + facts.playtime + ' session with a ' + profile.difficulty.toLowerCase() + ' entry point. Use the How to Play tab above for the step-by-step overview.'],
+    ['What occasion does it fit?', facts.occasion + '. It is also worth comparing related games below if you want a different pace or group size.'],
+    ['Can I confirm box contents and delivery before buying?', metadataStatus.exact
+      ? 'Yes. This title has researched catalogue details, and WhatsApp can still confirm the current edition, stock and delivery fee.'
+      : 'Yes. This page uses catalogue guidance, so WhatsApp is the best place to confirm the current edition, box contents, stock and delivery fee before paying.']
+  ];
+  return '<div class="pdp-faq-list">' + faqs.map(function(item) {
+    return '<details><summary>' + escHtml(item[0]) + '</summary><p>' + escHtml(item[1]) + '</p></details>';
+  }).join('') + '</div>';
+}
+
+function renderProductSeoLinks(product, cat) {
+  var categoryLabel = cat ? cat.label : 'similar games';
+  var categoryLinks = [
+    ['category', product.cat, 'Browse ' + categoryLabel],
+    ['category', 'family-games', 'Family games hub'],
+    ['category', 'party-games', 'Party games hub'],
+    ['category', 'kids-games', 'Kids games hub'],
+    ['category', 'couples-games', 'Couples games hub'],
+    ['gift-picks', '', 'Gift picks']
+  ].filter(function(item, index, items) {
+    return items.findIndex(function(candidate) { return candidate[0] + ':' + candidate[1] === item[0] + ':' + item[1]; }) === index;
+  }).map(function(item) {
+    var page = item[0];
+    var id = item[1];
+    var click = id
+      ? 'return handleRouteClick(event,\'' + page + '\',\'' + id + '\')'
+      : 'return handleRouteClick(event,\'' + page + '\')';
+    return '<a href="' + getRouteUrl(page, id) + '" onclick="' + click + '">' + escHtml(item[2]) + '</a>';
+  }).join('');
+  var guideLinks = [
+    ['/blog/family-friendly-party-games-everyone-can-play/', 'Family-friendly party guide'],
+    ['/blog/card-games-perfect-for-parties-and-family-nights/', 'Party and family card guide'],
+    ['/blog/adult-party-games-vs-family-party-games/', 'Adult vs family party guide'],
+    ['/blog/', 'Game guides and ideas']
+  ].map(function(item) {
+    return '<a href="' + item[0] + '">' + escHtml(item[1]) + '</a>';
+  }).join('');
+  return '<div class="pdp-seo-links"><div><h3>Related game hubs</h3><nav aria-label="Related game categories">' + categoryLinks + '</nav></div><div><h3>Guides for choosing well</h3><nav aria-label="Related game guides">' + guideLinks + '</nav></div></div>';
+}
+
+function updateProductMatchEngine() {
+  var product = getProductById(currentProduct);
+  if (!product) return;
+  var playersEl = document.getElementById('pdp-match-players');
+  var ageEl = document.getElementById('pdp-match-age');
+  var budgetEl = document.getElementById('pdp-match-budget');
+  var occasionEl = document.getElementById('pdp-match-occasion');
+  var vibeEl = document.getElementById('pdp-match-vibe');
+  var scoreEl = document.getElementById('pdp-match-score');
+  var useEl = document.getElementById('pdp-match-use');
+  var bundleEl = document.getElementById('pdp-match-bundle');
+  var ctaEl = document.getElementById('pdp-match-wa');
+  if (!scoreEl || !useEl || !bundleEl || !ctaEl) return;
+
+  var cat = CATEGORIES.find(function(c) { return c.id === product.cat; });
+  var facts = inferProductFacts(product, cat);
+  var profile = getProductCommerceProfile(product, facts, cat);
+  var players = playersEl ? playersEl.value : facts.players;
+  var age = ageEl ? ageEl.value : facts.ageRange;
+  var budget = budgetEl ? budgetEl.value : 'Open budget';
+  var occasion = occasionEl ? occasionEl.value : facts.occasion;
+  var vibe = vibeEl ? vibeEl.value : profile.vibe;
+  var score = 76;
+  var search = getProductSearchText(product).toLowerCase();
+  if (players && facts.players.toLowerCase().indexOf(players.toLowerCase().split(' ')[0]) !== -1) score += 8;
+  if (age && facts.ageRange.toLowerCase().indexOf(age.toLowerCase().replace(' years', '')) !== -1) score += 6;
+  if (vibe && search.indexOf(vibe.toLowerCase().split(' ')[0]) !== -1) score += 6;
+  if (product.price <= 3000 && /under|budget|1500|3000/i.test(budget)) score += 5;
+  if (/gift|birthday/i.test(occasion + ' ' + search)) score += 5;
+  score = Math.max(62, Math.min(98, score));
+  var pairings = getRelatedProducts(product, 3).map(function(p) { return p.name; });
+  if (!pairings.length) pairings = getAlsoBoughtProducts(product, 3).map(function(p) { return p.name; });
+  scoreEl.textContent = score + '% match';
+  useEl.textContent = 'Perfect for: ' + players + ' - ' + vibe + ' - ' + occasion;
+  bundleEl.textContent = 'Tonight\'s Match: ' + [product.name].concat(pairings.slice(0, 2)).join(' + ');
+  ctaEl.href = buildWhatsAppURL(buildProductBundleWhatsAppMessage(product, budget, players, occasion));
+  var result = document.querySelector('.pdp-match-result');
+  if (result) {
+    result.classList.remove('is-updating');
+    void result.offsetWidth;
+    result.classList.add('is-updating');
+  }
+}
+
+function getPdpComplementaryCategories(product) {
+  var map = {
+    'couples-games': ['party-games', 'family-games', 'drinking-games'],
+    'drinking-games': ['party-games', 'family-games', 'couples-games'],
+    'party-games': ['family-games', 'drinking-games', 'board-games'],
+    'card-games': ['party-games', 'family-games', 'board-games'],
+    'board-games': ['family-games', 'puzzles', 'party-games'],
+    'family-games': ['board-games', 'kids-games', 'party-games'],
+    'kids-games': ['family-games', 'puzzles', 'stem-toys'],
+    'puzzles': ['board-games', 'family-games', 'stem-toys'],
+    'stem-toys': ['puzzles', 'kids-games', 'lego-collectible'],
+    'lego-collectible': ['stem-toys', 'puzzles', 'kids-games'],
+    'dolls': ['infant-toys', 'musical-toys', 'kids-games'],
+    'infant-toys': ['dolls', 'musical-toys', 'kids-games'],
+    'musical-toys': ['infant-toys', 'dolls', 'kids-games']
+  };
+  return map[product.cat] || ['family-games', 'party-games', 'board-games'];
+}
+
+function productAudienceAllowed(candidate, source) {
+  var sourceIsAdult = source.adult || source.safety === 'adult-only';
+  var candidateIsAdult = candidate.adult || candidate.safety === 'adult-only';
+  return sourceIsAdult || !candidateIsAdult;
+}
+
+function sharedProductTagCount(a, b) {
+  var tagsA = a.tags || [];
+  var tagsB = b.tags || [];
+  return tagsA.filter(function(tag) { return tagsB.indexOf(tag) !== -1; }).length;
+}
+
+function getProductFamilyKey(product) {
+  var text = (product.slug || product.name || '').toLowerCase();
+  return text
+    .replace(/&/g, ' and ')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .replace(/\b(board|card|cards|game|games|toy|toys|set|sets|classic|original|large|small|deluxe|premium|nairobi|kenya|adult|couples?|family|kids?)\b/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function isNearDuplicateProduct(candidate, source) {
+  if (!candidate || !source) return false;
+  if (candidate.id === source.id || candidate.slug === source.slug) return true;
+  var a = getProductFamilyKey(candidate);
+  var b = getProductFamilyKey(source);
+  if (!a || !b) return false;
+  if (a === b) return true;
+  if (Math.min(a.length, b.length) >= 10 && (a.indexOf(b) !== -1 || b.indexOf(a) !== -1)) return true;
+  return false;
+}
+
+function uniquePdpRecommendations(items, source, limit) {
+  var seen = {};
+  var unique = [];
+  items.forEach(function(item) {
+    var key = getProductFamilyKey(item) || item.id;
+    if (!key || seen[key] || isNearDuplicateProduct(item, source)) return;
+    seen[key] = true;
+    unique.push(item);
+  });
+  return unique.slice(0, limit || 4);
+}
+
+function getPdpPairingProducts(product, limit) {
+  limit = limit || 4;
+  var complementary = getPdpComplementaryCategories(product);
+  var sourceText = getProductSearchText(product).toLowerCase();
+  var occasionHints = /date|couple|adult|party|drink|family|gift|kids|strategy|puzzle/i;
+
+  var candidates = PRODUCTS
+    .filter(function(candidate) {
+      return candidate.id !== product.id &&
+        candidate.cat !== product.cat &&
+        !isNearDuplicateProduct(candidate, product) &&
+        productAudienceAllowed(candidate, product) &&
+        complementary.indexOf(candidate.cat) !== -1;
+    })
+    .sort(function(a, b) {
+      var scoreA = complementary.indexOf(a.cat) * -8 + sharedProductTagCount(a, product) * 3;
+      var scoreB = complementary.indexOf(b.cat) * -8 + sharedProductTagCount(b, product) * 3;
+      if (occasionHints.test(sourceText) && occasionHints.test(getProductSearchText(a))) scoreA += 2;
+      if (occasionHints.test(sourceText) && occasionHints.test(getProductSearchText(b))) scoreB += 2;
+      return scoreB - scoreA || a.price - b.price;
+    });
+
+  return uniquePdpRecommendations(candidates, product, limit);
+}
+
+function getPdpAlternativeProducts(product, excludedIds, limit) {
+  limit = limit || 4;
+  excludedIds = excludedIds || {};
+
+  var alternatives = PRODUCTS
+    .filter(function(candidate) {
+      return candidate.id !== product.id &&
+        !excludedIds[candidate.id] &&
+        !isNearDuplicateProduct(candidate, product) &&
+        productAudienceAllowed(candidate, product) &&
+        candidate.cat === product.cat;
+    })
+    .sort(function(a, b) {
+      return sharedProductTagCount(b, product) - sharedProductTagCount(a, product) ||
+        Math.abs(product.price - a.price) - Math.abs(product.price - b.price);
+    });
+
+  if (alternatives.length < limit) {
+    alternatives = alternatives.concat(PRODUCTS.filter(function(candidate) {
+      return candidate.id !== product.id &&
+        !excludedIds[candidate.id] &&
+        alternatives.indexOf(candidate) === -1 &&
+        !isNearDuplicateProduct(candidate, product) &&
+        productAudienceAllowed(candidate, product) &&
+        candidate.cat !== product.cat &&
+        sharedProductTagCount(candidate, product) > 0;
+    }));
+  }
+
+  return uniquePdpRecommendations(alternatives, product, limit);
+}
+
+function renderProductPage(productId) {
+  var product = getProductById(productId);
+  if (!product) { navigate('404'); return; }
+
+  setHeaderLogoForPage('product');
+
+  productDetailQty = 1;
+
+  var cat = CATEGORIES.find(function(c) { return c.id === product.cat; });
+  var facts = inferProductFacts(product, cat);
+  var profile = getProductCommerceProfile(product, facts, cat);
+  var metadataStatus = getProductMetadataStatus(product);
+  var images = getProductImgAll(product);
+  var mainImg = images[0];
+  var mainThumb = getProductThumbSrc(mainImg);
+  var preloadImg = document.getElementById('product-image-preload');
+  if (!preloadImg) {
+    preloadImg = document.createElement('link');
+    preloadImg.id = 'product-image-preload';
+    preloadImg.rel = 'preload';
+    preloadImg.as = 'image';
+    document.head.appendChild(preloadImg);
+  }
+  preloadImg.href = mainThumb;
+  var pairs = getPdpPairingProducts(product, 4);
+  if (pairs.length < 3) pairs = getAlsoBoughtProducts(product, 8).filter(function(p) {
+    return p.cat !== product.cat && productAudienceAllowed(p, product) && !isNearDuplicateProduct(p, product);
+  });
+  pairs = uniquePdpRecommendations(pairs, product, 4);
+  var pairIds = pairs.reduce(function(ids, item) {
+    ids[item.id] = true;
+    return ids;
+  }, {});
+  var vibes = getPdpAlternativeProducts(product, pairIds, 4);
+  if (vibes.length < 3) vibes = getRelatedProducts(product, 8).filter(function(p) {
+    return !pairIds[p.id] && productAudienceAllowed(p, product) && !isNearDuplicateProduct(p, product);
+  });
+  vibes = uniquePdpRecommendations(vibes, product, 4);
+  var bundleProducts = [product].concat(pairs.slice(0, 3));
+  var stockText = product.stock !== undefined
+    ? product.stock + ' units available'
+    : (product.availability === 'Out of Stock' ? 'Out of stock' : 'Stock confirmation available');
+  var productWaUrl = buildWhatsAppURL(buildProductWhatsAppMessage(product, productDetailQty || 1, 'premium product page'));
+  var fitWaUrl = buildWhatsAppURL(buildProductFitWhatsAppMessage(product, facts));
+  var bundleWaUrl = buildWhatsAppURL(buildProductBundleWhatsAppMessage(product, 'open budget', facts.players, facts.occasion));
+
+  var catLink = document.getElementById('product-cat-breadcrumb-link');
+  if (catLink) {
+    catLink.textContent = cat ? cat.label : 'Shop';
+    catLink.onclick = function() { navigate('category', product.cat); };
+  }
+  var nameEl = document.getElementById('product-breadcrumb-name');
+  if (nameEl) nameEl.textContent = product.name;
+
+  var thumbnails = images.map(function(src, i) {
+    var thumbSrc = getProductThumbSrc(src);
+    return '<button type="button" class="product-thumb' + (i === 0 ? ' active' : '') + '" onclick="switchProductImg(this,\'' + src + '\')" aria-label="Show ' + escHtml(product.name) + ' image ' + (i + 1) + '">' +
+      '<img src="' + thumbSrc + '" data-full-src="' + src + '" alt="' + escHtml(product.name) + ' view ' + (i + 1) + '" loading="' + (i === 0 ? 'eager' : 'lazy') + '" decoding="async" />' +
+    '</button>';
+  }).join('');
+
+  var refThumbs = images.slice(0, 4).map(function(src, i) {
+    var thumbSrc = getProductThumbSrc(src);
+    return '<button type="button" class="product-thumb' + (i === 0 ? ' active' : '') + '" onclick="switchProductImg(this,\'' + src + '\')" aria-label="Show ' + escHtml(product.name) + ' image ' + (i + 1) + '">' +
+      '<img src="' + thumbSrc + '" data-full-src="' + src + '" alt="' + escHtml(product.name) + ' view ' + (i + 1) + '" loading="' + (i === 0 ? 'eager' : 'lazy') + '" decoding="async" />' +
+    '</button>';
+  }).join('') + (images.length > 4 ? '<button type="button" class="product-thumb pdp-ref-more-thumb" onclick="openImageZoomFromMain()"><strong>+' + (images.length - 4) + '</strong><span>More</span></button>' : '');
+
+  var benefitCards = profile.benefits.map(function(item) {
+    return '<article class="pdp-benefit-card"><span aria-hidden="true"></span><h3>' + escHtml(item[0]) + '</h3><p>' + escHtml(item[1]) + '</p></article>';
+  }).join('');
+
+  var bestForCards = profile.bestFor.map(function(item) {
+    return '<span class="pdp-bestfor-chip">' + escHtml(item) + '</span>';
+  }).join('');
+
+  var playAttrs = [
+    ['Players', facts.players],
+    ['Age range', facts.ageRange],
+    ['Play time', facts.playtime],
+    ['Difficulty', profile.difficulty],
+    ['Occasion', facts.occasion],
+    ['Category', profile.category]
+  ].map(function(item) {
+    return '<div class="pdp-attribute"><span>' + escHtml(item[0]) + '</span><strong>' + escHtml(item[1]) + '</strong></div>';
+  }).join('');
+
+  var trustChips = ['Same-day Nairobi delivery', 'WhatsApp help', 'Kenya delivery', 'Stock confirmation available'].map(function(item) {
+    return '<span class="pdp-trust-chip">' + escHtml(item) + '</span>';
+  }).join('');
+
+  var snapshotItems = [
+    ['users', 'Players', facts.players],
+    ['age', 'Age', facts.ageRange],
+    ['clock', 'Play time', facts.playtime],
+    ['sliders', 'Difficulty', profile.difficulty],
+    ['box', 'Category', profile.category],
+    ['star', 'Occasion', facts.occasion]
+  ].map(function(item) {
+    return renderPdpSnapshotItem(item[0], item[1], item[2]);
+  }).join('');
+
+  var loveCards = [
+    ['shield', profile.benefits[0] ? profile.benefits[0][0] : 'Easy to learn', profile.benefits[0] ? profile.benefits[0][1] : 'Simple rules everyone can pick up in minutes.'],
+    ['spark', profile.benefits[1] ? profile.benefits[1][0] : 'Strategic & engaging', profile.benefits[1] ? profile.benefits[1][1] : 'Think ahead, plan smart, and enjoy the table tension.'],
+    ['users', profile.benefits[2] ? profile.benefits[2][0] : 'Perfect for any group', profile.benefits[2] ? profile.benefits[2][1] : 'Fun, competitive, and ideal for family or friends.']
+  ].map(function(item) {
+    return '<article class="pdp-ref-love-card"><span class="pdp-ref-love-icon">' + getPdpIcon(item[0]) + '</span><h3>' + escHtml(item[1]) + '</h3><p>' + escHtml(item[2]) + '</p></article>';
+  }).join('');
+
+  var matchCards = bundleProducts.slice(0, 3).map(function(item) {
+    var imgSrc = getProductImg(item);
+    return '<article class="pdp-ref-match-card">' +
+      '<img src="' + getProductThumbSrc(imgSrc) + '" data-full-src="' + imgSrc + '" alt="' + escHtml(item.name) + '" loading="lazy" decoding="async" />' +
+      '<span>' + escHtml(item.name) + '</span>' +
+    '</article>';
+  }).join('<b class="pdp-ref-plus">+</b>');
+
+  var howItPlaysImg = images[3] || images[2] || images[1] || mainImg;
+
+  var relatedList = uniquePdpRecommendations(pairs.concat(vibes).concat(getRelatedProducts(product, 8)).concat(getAlsoBoughtProducts(product, 8)), product, 12);
+  var relatedCards = relatedList.map(function(item, index) {
+    return renderPdpLikeCard(item, product, profile, index);
+  }).join('');
+
+  var howItPlays = getProductHowToPlaySteps(product, facts, profile).map(function(step, index) {
+    return '<li><span>' + (index + 1) + '</span>' + escHtml(step) + '</li>';
+  }).join('');
+  var howItPlaysPlain = getProductHowToPlaySteps(product, facts, profile);
+  var aboutGameText = product.shortDescription || profile.subtitle || facts.benefitDescription || product.desc || product.description;
+  var whyLoveEmojis = ['&#128578;', '&#128101;', '&#127873;'];
+  var whyLoveItems = profile.benefits.slice(0, 3).map(function(item, index) {
+    return '<li><span class="pdp-love-emoji">' + whyLoveEmojis[index] + '</span><div><strong>' + escHtml(item[0]) + '</strong><span>' + escHtml(item[1]) + '</span></div></li>';
+  }).join('');
+  var detailsItems = [
+    ['users', 'Players', facts.players],
+    ['age', 'Age', facts.ageRange],
+    ['clock', 'Play time', facts.playtime],
+    ['sliders', 'Difficulty', profile.difficulty],
+    ['box', 'Category', profile.category],
+    ['star', 'Occasion', facts.occasion],
+    ['heart', 'Best for', profile.bestFor.join(', ')]
+  ].map(function(item) {
+    return '<li>' +
+      '<span class="pdp-detail-icon">' + getPdpIcon(item[0]) + '</span>' +
+      '<strong>' + escHtml(item[1]) + '</strong>' +
+      '<span>' + escHtml(item[2]) + '</span>' +
+    '</li>';
+  }).join('');
+  var howTabItems = howItPlaysPlain.map(function(step, index) {
+    return '<li><span>' + (index + 1) + '</span>' + escHtml(step) + '</li>';
+  }).join('');
+  var gameplaySummary = howItPlaysPlain.slice(0, 2).join(' ');
+  var learningValue = getProductLearningValue(product, facts);
+  var funValue = getProductFunValue(product, facts, profile);
+  var productFaqs = renderProductFaqs(product, facts, profile, metadataStatus);
+  var seoLinks = renderProductSeoLinks(product, cat);
+  var loveImage = getPdpLoveImage(product, cat);
+  var loveCardMarkup = '<div class="pdp-love-illustrated"><i class="pdp-love-spark s1">&#10024;</i><i class="pdp-love-spark s2">&#10024;</i><i class="pdp-love-spark s3">&#10022;</i><div><h2>Why you\'ll love it</h2><ul>' + whyLoveItems + '</ul></div><img src="' + loveImage + '" alt="' + escHtml(profile.category) + ' play scene" loading="lazy" /></div>';
+
+  var content = document.getElementById('product-page-content');
+  if (content) {
+    content.innerHTML =
+      '<section class="pdp-ref-hero pdp-full-span">' +
+        '<div class="pdp-ref-gallery" aria-label="Product images">' +
+          '<div class="pdp-ref-image-card product-main-img-wrap product-main-img-zoomable" data-gallery-swipe="true">' +
+            '<button type="button" class="pdp-image-button" onclick="openImageZoomFromMain()" aria-label="Open larger image of ' + escHtml(product.name) + '">' +
+              '<img id="product-main-img" class="product-main-img" src="' + mainThumb + '" data-full-src="' + mainImg + '" alt="' + escHtml(product.name) + ' product image" loading="eager" decoding="async" fetchpriority="high" />' +
+              '<span class="pdp-ref-zoom">' + getPdpIcon('search') + '</span>' +
+            '</button>' +
+          '</div>' +
+          '<div class="product-thumbnails pdp-ref-thumbs" role="list" aria-label="Product image thumbnails">' + refThumbs + '</div>' +
+        '</div>' +
+        '<aside class="pdp-ref-buy product-detail-panel" aria-label="Product purchase options">' +
+          '<div class="pdp-ref-badges"><span class="product-detail-cat">' + escHtml(cat ? cat.label : product.cat) + '</span><span class="stock-count">In Stock</span></div>' +
+          '<h1 class="product-detail-title">' + escHtml(product.name) + '</h1>' +
+          '<div class="pdp-ref-rating" aria-label="4.8 out of 5 stars">' + getPdpRatingStars() + '<b>4.8 (128 reviews)</b></div>' +
+          '<p class="pdp-subtitle">' + escHtml(profile.subtitle) + '</p>' +
+          '<div class="product-detail-price">KES ' + product.price.toLocaleString() + '</div>' +
+          '<div class="pdp-ref-actions product-purchase-block">' +
+            '<div class="qty-stepper">' +
+              '<button class="qty-stepper-btn" onclick="changeDetailQty(-1)" aria-label="Decrease quantity">-</button>' +
+              '<span class="qty-stepper-val" id="detail-qty-val">1</span>' +
+              '<button class="qty-stepper-btn" onclick="changeDetailQty(1)" aria-label="Increase quantity">+</button>' +
+            '</div>' +
+            '<button class="btn-coral product-primary-cta" onclick="addDetailToCart(\'' + product.id + '\')">' + getPdpIcon('cart') + 'Add to Cart</button>' +
+          '</div>' +
+          '<div class="pdp-ref-wa-row"><a id="product-wa-order-btn" href="' + productWaUrl + '" target="_blank" rel="noopener noreferrer" class="btn-wa product-secondary-cta">' + getPdpIcon('whatsapp') + 'Order on WhatsApp</a><button type="button" class="pdp-ref-wishlist' + (isWishlisted(product.id) ? ' active' : '') + '" data-wishlist-id="' + escHtml(product.id) + '" onclick="toggleWishlist(\'' + product.id + '\', this)" aria-pressed="' + (isWishlisted(product.id) ? 'true' : 'false') + '" aria-label="' + (isWishlisted(product.id) ? 'Remove from wishlist' : 'Save product') + '">' + getPdpIcon('heart') + '</button></div>' +
+          '<div class="pdp-ref-service-row">' +
+            '<span class="pdp-service-tile pdp-service-delivery"><img class="pdp-service-img" src="images/pdp-mobile-icons/service-truck.svg" alt="" aria-hidden="true" loading="lazy" /><b>Same-day</b><small>Nairobi delivery</small></span>' +
+            '<span class="pdp-service-tile pdp-service-whatsapp"><img class="pdp-service-img" src="images/pdp-mobile-icons/service-whatsapp.svg" alt="" aria-hidden="true" loading="lazy" /><b>WhatsApp</b><small>support</small></span>' +
+            '<span class="pdp-service-tile pdp-service-secure"><img class="pdp-service-img" src="images/pdp-mobile-icons/service-lock.svg" alt="" aria-hidden="true" loading="lazy" /><b>Secure</b><small>payments</small></span>' +
+            '<span class="pdp-service-tile pdp-service-returns"><img class="pdp-service-img" src="images/pdp-mobile-icons/service-shield.svg" alt="" aria-hidden="true" loading="lazy" /><b>Easy returns</b><small>policy</small></span>' +
+          '</div>' +
+        '</aside>' +
+      '</section>' +
+      '<section class="pdp-info-layout pdp-info-layout-wide pdp-full-span">' +
+        '<div class="pdp-info-card">' +
+          '<div class="pdp-info-tabs" role="tablist" aria-label="Product information tabs">' +
+            '<button type="button" class="pdp-info-tab active" data-pdp-tab="description" onclick="switchPdpInfoTab(\'description\')"><span class="pdp-info-tab-icon">' + getPdpIcon('document') + '</span><span>Description</span><span class="pdp-info-tab-arrow">' + getPdpIcon('chevron') + '</span></button>' +
+            '<button type="button" class="pdp-info-tab" data-pdp-tab="how" onclick="switchPdpInfoTab(\'how\')"><span class="pdp-info-tab-icon">' + getPdpIcon('gamepad') + '</span><span>How to Play</span><span class="pdp-info-tab-arrow">' + getPdpIcon('chevron') + '</span></button>' +
+            '<button type="button" class="pdp-info-tab" data-pdp-tab="box" onclick="switchPdpInfoTab(\'box\')"><span class="pdp-info-tab-icon">' + getPdpIcon('box') + '</span><span>What\'s in the Box</span><span class="pdp-info-tab-arrow">' + getPdpIcon('chevron') + '</span></button>' +
+            '<button type="button" class="pdp-info-tab" data-pdp-tab="details" onclick="switchPdpInfoTab(\'details\')"><span class="pdp-info-tab-icon">' + getPdpIcon('sliders') + '</span><span>Details</span><span class="pdp-info-tab-arrow">' + getPdpIcon('chevron') + '</span></button>' +
+            '<button type="button" class="pdp-info-tab" data-pdp-tab="delivery" onclick="switchPdpInfoTab(\'delivery\')"><span class="pdp-info-tab-icon">' + getPdpIcon('truck') + '</span><span>Delivery & Returns</span><span class="pdp-info-tab-arrow">' + getPdpIcon('chevron') + '</span></button>' +
+            '<button type="button" class="pdp-info-tab" data-pdp-tab="faqs" onclick="switchPdpInfoTab(\'faqs\')"><span class="pdp-info-tab-icon">' + getPdpIcon('question') + '</span><span>FAQs</span><span class="pdp-info-tab-arrow">' + getPdpIcon('chevron') + '</span></button>' +
+          '</div>' +
+          '<div class="pdp-info-panel active" data-pdp-panel="description">' +
+            '<div class="pdp-about-copy"><h2>About the Game</h2><p>' + escHtml(aboutGameText) + '</p><p>Gather around the table and enjoy a quick, memorable session built for shared laughs and easy gifting.</p><aside><b>&#10024;</b><span>Perfect for ' + escHtml(profile.category.toLowerCase()) + ', built for connection.</span></aside></div>' +
+            loveCardMarkup +
+          '</div>' +
+          '<div class="pdp-info-panel" data-pdp-panel="how"><div class="pdp-tab-how"><h2>How It Plays</h2><ol>' + howTabItems + '</ol><img src="' + getProductThumbSrc(howItPlaysImg) + '" data-full-src="' + howItPlaysImg + '" alt="" loading="lazy" decoding="async" /></div></div>' +
+          '<div class="pdp-info-panel" data-pdp-panel="box"><h2>What\'s in the Box</h2><p>Package contents may vary by edition. Confirm exact contents on WhatsApp before ordering.</p></div>' +
+          '<div class="pdp-info-panel" data-pdp-panel="details"><div class="pdp-detail-head"><span>Quick facts</span><h2>Details that help you pick the right table</h2></div><ul class="pdp-detail-list">' + detailsItems + '</ul></div>' +
+          '<div class="pdp-info-panel" data-pdp-panel="delivery"><h2>Delivery & Returns</h2><ul><li>Same-day Nairobi delivery can be arranged after stock confirmation.</li><li>Kenya-wide delivery is available where courier coverage allows.</li><li>Confirm delivery fee, payment steps and exact edition on WhatsApp.</li></ul></div>' +
+          '<div class="pdp-info-panel" data-pdp-panel="faqs"><h2>FAQs</h2>' + productFaqs + '</div>' +
+        '</div>' +
+      '</section>' +
+      '<section class="pdp-mobile-love-section pdp-full-span">' + loveCardMarkup + '</section>' +
+      '<section class="pdp-seo-depth pdp-full-span" aria-labelledby="pdp-seo-depth-title">' +
+        '<div class="pdp-seo-depth-intro"><span>Product guide</span><h2 id="pdp-seo-depth-title">Is ' + escHtml(product.name) + ' right for your table?</h2><p>' + escHtml(aboutGameText) + '</p></div>' +
+        '<div class="pdp-seo-depth-grid">' +
+          '<article><h3>Gameplay</h3><p>' + escHtml(gameplaySummary) + '</p></article>' +
+          '<article><h3>Age suitability</h3><p>Recommended starting point: ' + escHtml(facts.ageRange) + '. Match the box guidance to the players before ordering when safety or difficulty matters.</p></article>' +
+          '<article><h3>Occasion fit</h3><p>' + escHtml(facts.occasion) + '. It suits ' + escHtml(facts.bestFor.slice(0, 3).join(', ')) + '.</p></article>' +
+          '<article><h3>Educational value</h3><p>' + escHtml(learningValue) + '</p></article>' +
+          '<article><h3>Why it is fun</h3><p>' + escHtml(funValue) + '</p></article>' +
+          '<article><h3>Compare before you choose</h3><p>Use related games, category hubs and guides below to compare pace, group fit and gifting options in Kenya.</p></article>' +
+        '</div>' +
+        seoLinks +
+      '</section>' +
+      '<section class="pdp-ref-likes pdp-full-span" aria-labelledby="pdp-likes-title"><div class="pdp-ref-likes-head"><h2 id="pdp-likes-title">Related games <span>*</span></h2><a href="' + getRouteUrl('shop') + '" onclick="return handleRouteClick(event,\'shop\')">View all</a></div><div class="pdp-like-grid">' + relatedCards + '</div></section>' +
+      '<section class="pdp-mobile-helper pdp-full-span"><div class="pdp-helper-avatar"><img src="images/generated/pdp-game-expert-helper.png" alt="" loading="lazy" /></div><div class="pdp-helper-copy"><h2>Not sure which game to pick?</h2><p>Chat with our game expert for quick recommendations!</p><div><span>' + getPdpIcon('shield') + 'Personalised picks</span><span>' + getPdpIcon('whatsapp') + 'Quick responses</span><span>' + getPdpIcon('spark') + 'No pressure, just help</span></div></div><a href="' + fitWaUrl + '" target="_blank" rel="noopener noreferrer">' + getPdpIcon('whatsapp') + 'Chat on WhatsApp ' + getPdpIcon('chevron') + '</a></section>' +
+      '<section class="pdp-ref-bottom-trust pdp-full-span"><span>' + getPdpIcon('star') + '<b>Curated quality<br>games & toys</b></span><span>' + getPdpIcon('users') + '<b>Loved by families<br>across Kenya</b></span><span>' + getPdpIcon('lock') + '<b>Trusted & secure<br>shopping</b></span><span>' + getPdpIcon('heart') + '<b>Play more.<br>Connect more.</b></span></section>' +
+      '<div class="pdp-mobile-action" role="region" aria-label="Mobile product actions"><span>KES ' + product.price.toLocaleString() + '</span><button onclick="addDetailToCart(\'' + product.id + '\')">Add</button><a href="' + productWaUrl + '" target="_blank" rel="noopener noreferrer">WhatsApp Order</a></div>';
+    initProductGallerySwipe(images);
+    updateWishlistButtons();
+    updateProductMatchEngine();
+    updateMajesticBuddyInsight('overall');
+    syncProductMobileHeader();
+  }
+
+  var relSection = document.getElementById('related-products-section');
+  if (relSection) relSection.style.display = 'none';
+  var alsoBoughtSection = document.getElementById('also-bought-section');
+  if (alsoBoughtSection) alsoBoughtSection.style.display = 'none';
+  setupMobileStickyCtaFooterGuard();
+}
+function setupMobileStickyCtaFooterGuard() {
+  var footer = document.querySelector('.site-footer');
+  if (!footer || !('IntersectionObserver' in window)) return;
+  if (window.mobileStickyFooterObserver) window.mobileStickyFooterObserver.disconnect();
+
+  window.mobileStickyFooterObserver = new IntersectionObserver(function(entries) {
+    document.body.classList.toggle('product-footer-visible', entries[0].isIntersecting);
+  }, { threshold: 0.02 });
+
+  window.mobileStickyFooterObserver.observe(footer);
+}
+
+function switchProductImg(thumb, src) {
+  document.querySelectorAll('.product-thumb').forEach(function(t) { t.classList.remove('active'); });
+  if (thumb) thumb.classList.add('active');
+  var mainImg = document.getElementById('product-main-img');
+  if (mainImg) {
+    mainImg.src = getProductThumbSrc(src);
+    mainImg.dataset.fullSrc = src;
+  }
+}
+
+function initProductGallerySwipe(images) {
+  var stage = document.querySelector('[data-gallery-swipe="true"]');
+  if (!stage || !images || images.length < 2) return;
+  var startX = 0;
+  var startY = 0;
+  stage.ontouchstart = function(e) {
+    if (!e.touches || !e.touches.length) return;
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+  };
+  stage.ontouchend = function(e) {
+    if (!e.changedTouches || !e.changedTouches.length) return;
+    var dx = e.changedTouches[0].clientX - startX;
+    var dy = e.changedTouches[0].clientY - startY;
+    if (Math.abs(dx) < 42 || Math.abs(dx) < Math.abs(dy)) return;
+    var mainImg = document.getElementById('product-main-img');
+    var currentSrc = mainImg ? (mainImg.dataset.fullSrc || mainImg.getAttribute('src')) : images[0];
+    var currentIndex = Math.max(0, images.indexOf(currentSrc));
+    var nextIndex = dx < 0 ? currentIndex + 1 : currentIndex - 1;
+    if (nextIndex < 0) nextIndex = images.length - 1;
+    if (nextIndex >= images.length) nextIndex = 0;
+    var thumbs = document.querySelectorAll('.product-thumb');
+    switchProductImg(thumbs[nextIndex], images[nextIndex]);
+  };
+}
+
+function applyImageZoomScale() {
+  var img = document.getElementById('image-zoom-img');
+  var stage = document.querySelector('.image-zoom-stage');
+  if (!img) return;
+  var zoomed = imageZoomScale > 1;
+  img.style.transform = 'scale(' + imageZoomScale + ')';
+  if (stage) stage.classList.toggle('is-zoomed', zoomed);
+  img.classList.toggle('is-zoomed', imageZoomScale > 1);
+}
+
+function getComparableImageSrc(src) {
+  return String(src || '').split('?')[0].split('#')[0].replace(/^.*\/images\//, 'images/').replace(/^.*\/product-images\//, 'product-images/');
+}
+
+function findImageZoomIndex(src, gallery) {
+  var target = getComparableImageSrc(src);
+  var list = gallery || imageZoomGallery;
+  for (var i = 0; i < list.length; i++) {
+    if (getComparableImageSrc(list[i]) === target || String(src || '').indexOf(list[i]) !== -1) return i;
+  }
+  return 0;
+}
+
+function renderImageZoomThumbs() {
+  var thumbs = document.getElementById('image-zoom-thumbs');
+  var prev = document.getElementById('image-zoom-prev');
+  var next = document.getElementById('image-zoom-next');
+  var hasGallery = imageZoomGallery.length > 1;
+  if (prev) prev.style.display = hasGallery ? 'grid' : 'none';
+  if (next) next.style.display = hasGallery ? 'grid' : 'none';
+  if (!thumbs) return;
+  thumbs.style.display = hasGallery ? 'flex' : 'none';
+  if (!hasGallery) {
+    thumbs.innerHTML = '';
+    return;
+  }
+  thumbs.innerHTML = imageZoomGallery.map(function(src, index) {
+    return '<button type="button" class="image-zoom-thumb' + (index === imageZoomIndex ? ' active' : '') + '" onclick="setImageZoomImage(' + index + ')" aria-label="View product image ' + (index + 1) + '">' +
+      '<img src="' + escHtml(getProductThumbSrc(src)) + '" data-full-src="' + escHtml(src) + '" alt="" loading="lazy" decoding="async" />' +
+    '</button>';
+  }).join('');
+}
+
+function setImageZoomImage(index) {
+  if (!imageZoomGallery.length) return;
+  if (index < 0) index = imageZoomGallery.length - 1;
+  if (index >= imageZoomGallery.length) index = 0;
+  imageZoomIndex = index;
+  imageZoomScale = 1;
+  var img = document.getElementById('image-zoom-img');
+  var title = document.getElementById('image-zoom-title');
+  var product = getProductById(currentProduct);
+  var baseAlt = product ? product.name + ' product image' : (img && img.alt) || 'Product image';
+  if (img) {
+    img.src = imageZoomGallery[index];
+    img.alt = baseAlt + ' ' + (index + 1) + ' of ' + imageZoomGallery.length;
+  }
+  if (title) title.textContent = baseAlt + ' ' + (index + 1) + ' of ' + imageZoomGallery.length;
+  renderImageZoomThumbs();
+  applyImageZoomScale();
+}
+
+function changeImageZoomImage(delta) {
+  if (imageZoomGallery.length < 2) return;
+  setImageZoomImage(imageZoomIndex + delta);
+}
+
+function openImageZoom(src, alt, gallery, startIndex) {
+  var modal = document.getElementById('image-zoom-modal');
+  var img = document.getElementById('image-zoom-img');
+  var title = document.getElementById('image-zoom-title');
+  if (!modal || !img) return;
+
+  imageZoomGallery = (gallery && gallery.length ? gallery.slice() : [src]).filter(Boolean);
+  imageZoomIndex = typeof startIndex === 'number' ? startIndex : findImageZoomIndex(src, imageZoomGallery);
+  imageZoomScale = 1;
+  img.src = imageZoomGallery[imageZoomIndex] || src || '';
+  img.alt = alt || 'Product image';
+  if (title) title.textContent = (alt || 'Product image') + (imageZoomGallery.length > 1 ? ' ' + (imageZoomIndex + 1) + ' of ' + imageZoomGallery.length : '');
+  renderImageZoomThumbs();
+  applyImageZoomScale();
+  modal.classList.add('open');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+  if (imageZoomFocusTrap) imageZoomFocusTrap(false);
+  imageZoomFocusTrap = focusTrap(modal.querySelector('.image-zoom-shell'));
+}
+
+function openImageZoomFromMain() {
+  var img = document.getElementById('product-main-img');
+  if (!img) return;
+  var product = getProductById(currentProduct);
+  var gallery = product ? getProductImgAll(product) : [img.currentSrc || img.src];
+  var fullSrc = img.dataset.fullSrc || img.currentSrc || img.src;
+  openImageZoom(fullSrc, img.alt, gallery, findImageZoomIndex(fullSrc, gallery));
+}
+
+function closeImageZoom(event) {
+  var modal = document.getElementById('image-zoom-modal');
+  if (!modal) return;
+  if (event && event.target !== modal) return;
+  modal.classList.remove('open');
+  modal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+  if (imageZoomFocusTrap) imageZoomFocusTrap();
+  imageZoomFocusTrap = null;
+  imageZoomScale = 1;
+  imageZoomGallery = [];
+  imageZoomIndex = 0;
+}
+
+function changeImageZoom(delta) {
+  imageZoomScale = Math.max(1, Math.min(3, imageZoomScale + delta));
+  applyImageZoomScale();
+}
+
+function resetImageZoom() {
+  imageZoomScale = 1;
+  applyImageZoomScale();
+}
+
+function toggleImageZoomLevel() {
+  imageZoomScale = imageZoomScale > 1 ? 1 : 2;
+  applyImageZoomScale();
+}
+
+function changeDetailQty(delta) {
+  productDetailQty = Math.max(1, productDetailQty + delta);
+  var el = document.getElementById('detail-qty-val');
+  if (el) el.textContent = productDetailQty;
+  var product = getProductById(currentProduct);
+  var waBtn = document.getElementById('product-wa-order-btn');
+  if (product && waBtn) {
+    waBtn.href = buildWhatsAppURL(buildProductWhatsAppMessage(product, productDetailQty, 'product page'));
+  }
+}
+
+function addDetailToCart(productId) {
+  var product = getProductById(productId);
+  if (!product) return;
+  for (var i = 0; i < productDetailQty; i++) addToCart(product);
+  openCart();
+}
+
+/* Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+   CART PAGE
+Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+function renderCartPage() {
+  var content = document.getElementById('cart-page-content');
+  if (!content) return;
+
+  if (cart.length === 0) {
+    content.innerHTML = '<div class="empty-state"><div class="empty-state-icon">Cart</div><h3 class="empty-state-title">Your cart is empty</h3><p class="empty-state-sub">Add some games to get started!</p><button class="btn-coral" onclick="navigate(\'shop\')">Browse Games</button></div>';
+    return;
+  }
+
+  var itemsHtml = cart.map(function(item) {
+    return '<div class="cart-item" style="background:white;border:2px solid #f3f4f6">' +
+      '<div class="cart-item-img-wrap" style="width:80px;height:80px">' +
+        '<img class="cart-item-img" src="' + item.img + '" alt="' + escHtml(item.name) + '" loading="lazy" />' +
+      '</div>' +
+      '<div class="cart-item-info">' +
+        '<div class="cart-item-name" style="font-size:1rem">' + escHtml(item.name) + '</div>' +
+        '<div class="cart-item-price">KES ' + item.price.toLocaleString() + ' each</div>' +
+        '<div class="cart-item-controls">' +
+          '<button class="qty-btn" onclick="updateQty(\'' + item.id + '\',-1);renderCartPage()">' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/></svg>' +
+          '</button>' +
+          '<span class="qty-display">' + item.qty + '</span>' +
+          '<button class="qty-btn" onclick="updateQty(\'' + item.id + '\',1);renderCartPage()">' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>' +
+          '</button>' +
+          '<span style="margin-left:auto;font-weight:700;color:#111827">KES ' + (item.price * item.qty).toLocaleString() + '</span>' +
+          '<button class="remove-item-btn" onclick="removeFromCart(\'' + item.id + '\');renderCartPage()">' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a1 1 0 011-1h4a1 1 0 011 1v2"/></svg>' +
+          '</button>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+
+  var total = getCartTotal();
+  var waUrl = buildCartWhatsAppURL();
+
+  content.innerHTML =
+    '<div style="display:grid;grid-template-columns:1fr;gap:24px;max-width:800px;margin:0 auto">' +
+      '<div>' +
+        '<h2 style="font-family:\'Fredoka\',sans-serif;font-size:1.5rem;font-weight:700;margin-bottom:16px">Cart Items (' + cart.length + ')</h2>' +
+        itemsHtml +
+        '<button onclick="clearCart();renderCartPage()" style="background:none;border:none;color:#9ca3af;font-size:0.875rem;cursor:pointer;text-decoration:underline;margin-top:8px">Clear cart</button>' +
+      '</div>' +
+      '<div style="background:white;border-radius:16px;padding:24px;border:2px solid #f3f4f6;height:fit-content">' +
+        '<h3 style="font-family:\'Fredoka\',sans-serif;font-size:1.25rem;font-weight:700;margin-bottom:16px">Order Summary</h3>' +
+        '<div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:0.9rem;color:#6b7280">' +
+          '<span>Subtotal (' + getCartCount() + ' items)</span>' +
+          '<span style="font-weight:700;color:#111827">KES ' + total.toLocaleString() + '</span>' +
+        '</div>' +
+        '<div style="display:flex;justify-content:space-between;margin-bottom:16px;font-size:0.9rem;color:#6b7280">' +
+          '<span>Delivery</span>' +
+          '<span style="color:#16a34a;font-weight:700">' + (total >= FREE_DELIVERY_THRESHOLD ? 'FREE' : 'KES 200-700') + '</span>' +
+        '</div>' +
+        '<div style="border-top:2px solid #f3f4f6;padding-top:16px;display:flex;justify-content:space-between;margin-bottom:20px">' +
+          '<span style="font-weight:700;font-size:1rem">Total</span>' +
+          '<span style="font-family:\'Fredoka\',sans-serif;font-size:1.5rem;font-weight:700;color:#e8521a">KES ' + total.toLocaleString() + '</span>' +
+        '</div>' +
+        '<a href="' + waUrl + '" target="_blank" rel="noopener noreferrer" class="btn-wa" onclick="openCheckoutDetailsModal(event)">' +
+          '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>' +
+          'Order via WhatsApp' +
+        '</a>' +
+        '<p style="font-size:0.75rem;color:#9ca3af;text-align:center;margin-top:12px">Delivery fee calculated on WhatsApp based on your location</p>' +
+      '</div>' +
+    '</div>';
+}
+
+/* Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+   QUICK VIEW MODAL
+Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+var quickViewProduct = null;
+
+function getMetaIconSvg(type) {
+  var icons = {
+    category: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg>',
+    players: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-8 0v2"/><circle cx="12" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M2 21v-2a4 4 0 0 1 3-3.87"/></svg>',
+    age: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 17h10v-6H7v6z"/><path d="M9 11V7"/><path d="M15 11V7"/><path d="M9 7c1-1 1-2 0-3"/><path d="M15 7c1-1 1-2 0-3"/></svg>'
+  };
+  return icons[type] || icons.category;
+}
+
+function openQuickView(productId) {
+  var product = getProductById(productId);
+  if (!product) return;
+  quickViewProduct = product;
+
+  var cat = CATEGORIES.find(function(c) { return c.id === product.cat; });
+
+  document.getElementById('qv-title').textContent = product.name;
+  document.getElementById('qv-img').src = getProductThumbSrc(getProductImg(product));
+  document.getElementById('qv-img').alt = product.name;
+  document.getElementById('qv-price').textContent = 'KES ' + product.price.toLocaleString();
+  document.getElementById('qv-desc').textContent = product.shortDescription || 'A great game for everyone!';
+
+  var badges = getProductBadgeMarkup(product, 'font-size:0.75rem;padding:4px 12px');
+  document.getElementById('qv-badges').innerHTML = badges;
+
+  var meta = '';
+  if (cat) meta += '<span class="modal-meta-item">' + getMetaIconSvg('category') + escHtml(cat.label) + '</span>';
+  if (product.players) meta += '<span class="modal-meta-item">' + getMetaIconSvg('players') + escHtml(product.players) + '</span>';
+  if (product.age) meta += '<span class="modal-meta-item">' + getMetaIconSvg('age') + escHtml(product.age) + '</span>';
+  document.getElementById('qv-meta').innerHTML = meta;
+
+  var waMsg = buildProductWhatsAppMessage(product, 1, 'quick view');
+  document.getElementById('qv-wa-btn').href = buildWhatsAppURL(waMsg);
+
+  var detailBtn = document.getElementById('qv-detail-btn');
+  if (detailBtn) {
+    detailBtn.href = getRouteUrl('product', productId);
+    detailBtn.onclick = function() { closeQuickView(); navigate('product', productId); };
+  }
+
+  var modalBackdrop = document.getElementById('quick-view-modal');
+  var modalContent = document.getElementById('quick-view-content');
+  modalBackdrop.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  if (quickViewFocusTrap) quickViewFocusTrap(false);
+  quickViewFocusTrap = focusTrap(modalContent);
+}
+
+function closeQuickView(event) {
+  if (event && event.target !== document.getElementById('quick-view-modal')) return;
+  var modalBackdrop = document.getElementById('quick-view-modal');
+  if (modalBackdrop) modalBackdrop.classList.remove('open');
+  document.body.style.overflow = '';
+  quickViewProduct = null;
+  if (quickViewFocusTrap) quickViewFocusTrap();
+  quickViewFocusTrap = null;
+}
+
+document.addEventListener('keydown', function(event) {
+  var zoomModal = document.getElementById('image-zoom-modal');
+  if (zoomModal && zoomModal.classList.contains('open')) {
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      closeImageZoom();
+      return;
+    }
+    if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      changeImageZoomImage(-1);
+      return;
+    }
+    if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      changeImageZoomImage(1);
+      return;
+    }
+  }
+
+  var modalBackdrop = document.getElementById('quick-view-modal');
+  if (!modalBackdrop || !modalBackdrop.classList.contains('open')) return;
+
+  if (event.key === 'Escape') {
+    event.preventDefault();
+    closeQuickView();
+  }
+});
+
+document.addEventListener('keydown', function(event) {
+  var checkoutModal = document.getElementById('checkout-details-modal');
+  if (checkoutModal && checkoutModal.classList.contains('open')) {
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      closeCheckoutDetailsModal();
+      return;
+    }
+    if (event.key === 'Tab') trapFocusIn(checkoutModal, event);
+    return;
+  }
+
+  var cartDrawer = document.getElementById('cart-drawer');
+  if (cartDrawer && cartDrawer.classList.contains('open')) {
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      closeCart();
+      return;
+    }
+    return;
+  }
+
+  var mobileNav = document.getElementById('mobile-nav');
+  if (mobileNav && mobileNav.classList.contains('open')) {
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      closeMobileNav(true);
+      return;
+    }
+    if (event.key === 'Tab') trapFocusIn(mobileNav, event);
+  }
+});
+
+function getFocusableIn(container) {
+  if (!container) return [];
+  return Array.prototype.slice.call(container.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'))
+    .filter(function(el) { return el.offsetParent !== null || el === document.activeElement; });
+}
+
+function focusTrap(container) {
+  if (!container) return function() {};
+  var returnTo = document.activeElement;
+
+  function onKeydown(event) {
+    if (event.key === 'Tab') trapFocusIn(container, event);
+  }
+
+  container.addEventListener('keydown', onKeydown);
+  setTimeout(function() {
+    var focusable = getFocusableIn(container);
+    (focusable[0] || container).focus();
+  }, 0);
+
+  return function(restoreFocus) {
+    container.removeEventListener('keydown', onKeydown);
+    if (restoreFocus === false) return;
+    if (returnTo && typeof returnTo.focus === 'function' && document.contains(returnTo)) returnTo.focus();
+  };
+}
+
+function trapFocusIn(container, event) {
+  var focusable = getFocusableIn(container);
+  if (!focusable.length) {
+    event.preventDefault();
+    container.focus();
+    return;
+  }
+  var first = focusable[0];
+  var last = focusable[focusable.length - 1];
+  if (document.activeElement === container) {
+    event.preventDefault();
+    (event.shiftKey ? last : first).focus();
+  } else if (event.shiftKey && document.activeElement === first) {
+    event.preventDefault();
+    last.focus();
+  } else if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault();
+    first.focus();
+  }
+}
+
+function quickViewAddToCart() {
+  if (!quickViewProduct) return;
+  addToCart(quickViewProduct);
+  closeQuickView();
+  openCart();
+}
+

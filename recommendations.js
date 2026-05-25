@@ -182,6 +182,10 @@ function updateMajesticBuddyInsight(mode) {
 }
 
 function getPdpIcon(name) {
+  var savedIcons = ['search', 'cart', 'whatsapp', 'heart', 'truck', 'shield', 'lock', 'document', 'gamepad', 'question', 'chevron', 'box', 'sliders'];
+  if (savedIcons.indexOf(name) !== -1) {
+    return '<span class="pdp-saved-icon pdp-saved-icon-' + name + '" aria-hidden="true"></span>';
+  }
   var icons = {
     search: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/></svg>',
     cart: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.6 13.4a2 2 0 0 0 2 1.6h9.8a2 2 0 0 0 2-1.6L23 6H6"/></svg>',
@@ -196,7 +200,11 @@ function getPdpIcon(name) {
     truck: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 17H5V5h10v12h-1"/><path d="M15 8h3l3 4v5h-3"/><circle cx="7" cy="17" r="2"/><circle cx="18" cy="17" r="2"/></svg>',
     shield: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-5"/></svg>',
     lock: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>',
-    spark: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2Z"/><path d="m19 15 .8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15Z"/></svg>'
+    spark: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2Z"/><path d="m19 15 .8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15Z"/></svg>',
+    document: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h6"/></svg>',
+    gamepad: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10h10a5 5 0 0 1 4.7 6.7l-.4 1.2a2.5 2.5 0 0 1-4.3.7L15.5 17h-7L7 18.6a2.5 2.5 0 0 1-4.3-.7l-.4-1.2A5 5 0 0 1 7 10Z"/><path d="M8 13v3M6.5 14.5h3"/><path d="M16.5 14h.01M19 15h.01"/></svg>',
+    question: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.8 9a2.4 2.4 0 0 1 4.5 1.2c0 1.7-2.3 2.1-2.3 3.8"/><path d="M12 17h.01"/></svg>',
+    chevron: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>'
   };
   return icons[name] || icons.star;
 }
@@ -209,6 +217,29 @@ function getPdpRatingStars() {
     getPdpIcon('star') +
     getPdpIcon('star') +
   '</span>';
+}
+
+function getPdpLoveImage(product, cat) {
+  var categoryId = (product && product.cat) || (cat && cat.id) || '';
+  var imageMap = {
+    'board-games': 'background images/pdp-family-table-illustration.webp',
+    'card-games': 'background images/card games.webp',
+    'christian-games': 'background images/christian games.webp',
+    'couples-games': 'background images/couples games.webp',
+    'dolls': 'background images/dolls.webp',
+    'drinking-games': 'background images/drinking games.webp',
+    'family-games': 'background images/family games.webp',
+    'infant-toys': 'background images/infant toys.webp',
+    'kids-games': 'background images/kids games.webp',
+    'lego-collectible': 'background images/LEGO collectibles.webp',
+    'musical-toys': 'background images/musical toys.webp',
+    'party-games': 'background images/party games.webp',
+    'puzzles': 'background images/puzzles.webp',
+    'stem-toys': 'background images/stem toys.webp',
+    'trivia-games': 'background images/trivia games.webp'
+  };
+  var path = imageMap[categoryId] || 'background images/pdp-family-table-illustration.webp';
+  return new URL(path, CDN_BASE).href;
 }
 
 function renderPdpSnapshotItem(icon, label, value) {
@@ -226,6 +257,127 @@ function switchPdpInfoTab(tabName) {
   document.querySelectorAll('.pdp-info-panel').forEach(function(panel) {
     panel.classList.toggle('active', panel.getAttribute('data-pdp-panel') === tabName);
   });
+}
+
+function syncProductMobileHeader() {
+  var isProductMobile = document.body && document.body.getAttribute('data-page') === 'product' && window.matchMedia('(max-width: 700px)').matches;
+  var header = document.getElementById('site-header');
+  if (!header) return;
+  var logo = header.querySelector('.logo-link');
+  var logoImg = header.querySelector('.logo-img');
+  var inner = header.querySelector('.header-inner, .navbar-container');
+  var controls = header.querySelector('.mobile-header-controls');
+  var menu = header.querySelector('.mobile-header-menu');
+  var search = header.querySelector('.mobile-header-search');
+  var cart = header.querySelector('.mobile-header-cart');
+
+  if (!isProductMobile) {
+    [header, inner, logo, logoImg, controls, menu, search, cart].forEach(function(el) {
+      if (el) el.removeAttribute('style');
+    });
+    return;
+  }
+
+  function set(el, prop, value) {
+    if (el) el.style.setProperty(prop, value, 'important');
+  }
+
+  set(header, 'height', '58px');
+  set(header, 'min-height', '58px');
+  set(header, 'background', '#ffffff');
+  set(header, 'border-bottom', '1px solid #eef1f4');
+  set(header, 'width', '100vw');
+  set(header, 'max-width', '100vw');
+  set(header, 'overflow', 'visible');
+
+  set(inner, 'position', 'relative');
+  set(inner, 'width', '100vw');
+  set(inner, 'max-width', '100vw');
+  set(inner, 'height', '58px');
+  set(inner, 'min-height', '58px');
+  set(inner, 'margin', '0');
+  set(inner, 'padding', '0 10px');
+  set(inner, 'overflow', 'visible');
+
+  set(logo, 'position', 'absolute');
+  set(logo, 'left', 'calc(50% - 124px)');
+  set(logo, 'right', 'auto');
+  set(logo, 'top', '12px');
+  set(logo, 'width', '128px');
+  set(logo, 'height', '34px');
+  set(logo, 'min-width', '128px');
+  set(logo, 'max-width', '128px');
+  set(logo, 'transform', 'none');
+  set(logo, 'border-radius', '9px');
+  set(logo, 'background', '#030712 url("images/branding/LOGOF2.png") center / 138% auto no-repeat');
+  set(logo, 'overflow', 'hidden');
+  set(logo, 'z-index', '2');
+
+  set(logoImg, 'opacity', '0');
+  set(logoImg, 'width', '128px');
+  set(logoImg, 'height', '34px');
+
+  set(controls, 'display', 'block');
+  set(controls, 'position', 'absolute');
+  set(controls, 'inset', '0');
+  set(controls, 'width', '100vw');
+  set(controls, 'max-width', '100vw');
+  set(controls, 'overflow', 'visible');
+  set(controls, 'visibility', 'visible');
+  set(controls, 'opacity', '1');
+  set(controls, 'z-index', '5');
+
+  [
+    [menu, '4px', 'auto'],
+    [search, 'auto', '45px'],
+    [cart, 'auto', '4px']
+  ].forEach(function(item) {
+    set(item[0], 'display', 'inline-grid');
+    set(item[0], 'position', 'absolute');
+    set(item[0], 'top', '50%');
+    set(item[0], 'left', item[1]);
+    set(item[0], 'right', item[2]);
+    set(item[0], 'width', '38px');
+    set(item[0], 'height', '38px');
+    set(item[0], 'transform', 'translateY(-50%)');
+    set(item[0], 'visibility', 'visible');
+    set(item[0], 'opacity', '1');
+    set(item[0], 'z-index', '6');
+    set(item[0], 'background-color', 'transparent');
+    set(item[0], 'background-repeat', 'no-repeat');
+    set(item[0], 'background-position', 'center');
+    set(item[0], 'background-size', '24px 24px');
+  });
+  set(search, 'background-image', 'url("images/pdp-mobile-icons/search.svg")');
+  set(cart, 'background-image', 'url("images/pdp-mobile-icons/cart.svg")');
+  if (search && !search.querySelector('.pdp-mobile-header-img')) {
+    search.innerHTML = '<img class="pdp-mobile-header-img" src="images/pdp-mobile-icons/search.svg" alt="" aria-hidden="true" />';
+  }
+  if (cart && !cart.querySelector('.pdp-mobile-header-img')) {
+    var count = cart.querySelector('.cart-count');
+    cart.innerHTML = '<img class="pdp-mobile-header-img" src="images/pdp-mobile-icons/cart.svg" alt="" aria-hidden="true" />' + (count ? count.outerHTML : '<span class="cart-count" id="cart-count">0</span>');
+  }
+  [search, cart].forEach(function(button) {
+    var icon = button && button.querySelector('.pdp-mobile-header-img');
+    set(icon, 'display', 'block');
+    set(icon, 'width', '24px');
+    set(icon, 'height', '24px');
+    set(icon, 'object-fit', 'contain');
+  });
+}
+
+if (!window.productMobileHeaderSyncBound) {
+  window.productMobileHeaderSyncBound = true;
+  window.addEventListener('resize', syncProductMobileHeader);
+  window.addEventListener('orientationchange', syncProductMobileHeader);
+  window.addEventListener('DOMContentLoaded', function() {
+    syncProductMobileHeader();
+    window.setTimeout(syncProductMobileHeader, 150);
+    window.setTimeout(syncProductMobileHeader, 600);
+  });
+  window.setTimeout(syncProductMobileHeader, 150);
+  window.setTimeout(syncProductMobileHeader, 600);
+  window.setTimeout(syncProductMobileHeader, 1200);
 }
 
 function getPdpRecommendationReason(item, source, profile) {
@@ -655,6 +807,8 @@ function renderProductPage(productId) {
   var funValue = getProductFunValue(product, facts, profile);
   var productFaqs = renderProductFaqs(product, facts, profile, metadataStatus);
   var seoLinks = renderProductSeoLinks(product, cat);
+  var loveImage = getPdpLoveImage(product, cat);
+  var loveCardMarkup = '<div class="pdp-love-illustrated"><i class="pdp-love-spark s1">&#10024;</i><i class="pdp-love-spark s2">&#10024;</i><i class="pdp-love-spark s3">&#10022;</i><div><h2>Why you\'ll love it</h2><ul>' + whyLoveItems + '</ul></div><img src="' + loveImage + '" alt="' + escHtml(profile.category) + ' play scene" loading="lazy" /></div>';
 
   var content = document.getElementById('product-page-content');
   if (content) {
@@ -685,26 +839,26 @@ function renderProductPage(productId) {
           '</div>' +
           '<div class="pdp-ref-wa-row"><a id="product-wa-order-btn" href="' + productWaUrl + '" target="_blank" rel="noopener noreferrer" class="btn-wa product-secondary-cta">' + getPdpIcon('whatsapp') + 'Order on WhatsApp</a><button type="button" class="pdp-ref-wishlist' + (isWishlisted(product.id) ? ' active' : '') + '" data-wishlist-id="' + escHtml(product.id) + '" onclick="toggleWishlist(\'' + product.id + '\', this)" aria-pressed="' + (isWishlisted(product.id) ? 'true' : 'false') + '" aria-label="' + (isWishlisted(product.id) ? 'Remove from wishlist' : 'Save product') + '">' + getPdpIcon('heart') + '</button></div>' +
           '<div class="pdp-ref-service-row">' +
-            '<span>' + getPdpIcon('truck') + '<b>Same-day</b><small>Nairobi delivery</small></span>' +
-            '<span>' + getPdpIcon('whatsapp') + '<b>WhatsApp</b><small>support</small></span>' +
-            '<span>' + getPdpIcon('lock') + '<b>Secure</b><small>payments</small></span>' +
-            '<span>' + getPdpIcon('shield') + '<b>Easy returns</b><small>policy</small></span>' +
+            '<span class="pdp-service-tile pdp-service-delivery"><img class="pdp-service-img" src="images/pdp-mobile-icons/service-truck.svg" alt="" aria-hidden="true" loading="lazy" /><b>Same-day</b><small>Nairobi delivery</small></span>' +
+            '<span class="pdp-service-tile pdp-service-whatsapp"><img class="pdp-service-img" src="images/pdp-mobile-icons/service-whatsapp.svg" alt="" aria-hidden="true" loading="lazy" /><b>WhatsApp</b><small>support</small></span>' +
+            '<span class="pdp-service-tile pdp-service-secure"><img class="pdp-service-img" src="images/pdp-mobile-icons/service-lock.svg" alt="" aria-hidden="true" loading="lazy" /><b>Secure</b><small>payments</small></span>' +
+            '<span class="pdp-service-tile pdp-service-returns"><img class="pdp-service-img" src="images/pdp-mobile-icons/service-shield.svg" alt="" aria-hidden="true" loading="lazy" /><b>Easy returns</b><small>policy</small></span>' +
           '</div>' +
         '</aside>' +
       '</section>' +
       '<section class="pdp-info-layout pdp-info-layout-wide pdp-full-span">' +
         '<div class="pdp-info-card">' +
           '<div class="pdp-info-tabs" role="tablist" aria-label="Product information tabs">' +
-            '<button type="button" class="pdp-info-tab active" data-pdp-tab="description" onclick="switchPdpInfoTab(\'description\')">Description</button>' +
-            '<button type="button" class="pdp-info-tab" data-pdp-tab="how" onclick="switchPdpInfoTab(\'how\')">How to Play</button>' +
-            '<button type="button" class="pdp-info-tab" data-pdp-tab="box" onclick="switchPdpInfoTab(\'box\')">What\'s in the Box</button>' +
-            '<button type="button" class="pdp-info-tab" data-pdp-tab="details" onclick="switchPdpInfoTab(\'details\')">Details</button>' +
-            '<button type="button" class="pdp-info-tab" data-pdp-tab="delivery" onclick="switchPdpInfoTab(\'delivery\')">Delivery & Returns</button>' +
-            '<button type="button" class="pdp-info-tab" data-pdp-tab="faqs" onclick="switchPdpInfoTab(\'faqs\')">FAQs</button>' +
+            '<button type="button" class="pdp-info-tab active" data-pdp-tab="description" onclick="switchPdpInfoTab(\'description\')"><span class="pdp-info-tab-icon">' + getPdpIcon('document') + '</span><span>Description</span><span class="pdp-info-tab-arrow">' + getPdpIcon('chevron') + '</span></button>' +
+            '<button type="button" class="pdp-info-tab" data-pdp-tab="how" onclick="switchPdpInfoTab(\'how\')"><span class="pdp-info-tab-icon">' + getPdpIcon('gamepad') + '</span><span>How to Play</span><span class="pdp-info-tab-arrow">' + getPdpIcon('chevron') + '</span></button>' +
+            '<button type="button" class="pdp-info-tab" data-pdp-tab="box" onclick="switchPdpInfoTab(\'box\')"><span class="pdp-info-tab-icon">' + getPdpIcon('box') + '</span><span>What\'s in the Box</span><span class="pdp-info-tab-arrow">' + getPdpIcon('chevron') + '</span></button>' +
+            '<button type="button" class="pdp-info-tab" data-pdp-tab="details" onclick="switchPdpInfoTab(\'details\')"><span class="pdp-info-tab-icon">' + getPdpIcon('sliders') + '</span><span>Details</span><span class="pdp-info-tab-arrow">' + getPdpIcon('chevron') + '</span></button>' +
+            '<button type="button" class="pdp-info-tab" data-pdp-tab="delivery" onclick="switchPdpInfoTab(\'delivery\')"><span class="pdp-info-tab-icon">' + getPdpIcon('truck') + '</span><span>Delivery & Returns</span><span class="pdp-info-tab-arrow">' + getPdpIcon('chevron') + '</span></button>' +
+            '<button type="button" class="pdp-info-tab" data-pdp-tab="faqs" onclick="switchPdpInfoTab(\'faqs\')"><span class="pdp-info-tab-icon">' + getPdpIcon('question') + '</span><span>FAQs</span><span class="pdp-info-tab-arrow">' + getPdpIcon('chevron') + '</span></button>' +
           '</div>' +
           '<div class="pdp-info-panel active" data-pdp-panel="description">' +
             '<div class="pdp-about-copy"><h2>About the Game</h2><p>' + escHtml(aboutGameText) + '</p><p>Gather around the table and enjoy a quick, memorable session built for shared laughs and easy gifting.</p><aside><b>&#10024;</b><span>Perfect for ' + escHtml(profile.category.toLowerCase()) + ', built for connection.</span></aside></div>' +
-            '<div class="pdp-love-illustrated"><i class="pdp-love-spark s1">&#10024;</i><i class="pdp-love-spark s2">&#10024;</i><i class="pdp-love-spark s3">&#10022;</i><div><h2>Why you\'ll love it</h2><ul>' + whyLoveItems + '</ul></div><img src="' + new URL('background images/pdp-family-table-illustration.webp', CDN_BASE).href + '" alt="Friends playing games together" loading="lazy" /></div>' +
+            loveCardMarkup +
           '</div>' +
           '<div class="pdp-info-panel" data-pdp-panel="how"><div class="pdp-tab-how"><h2>How It Plays</h2><ol>' + howTabItems + '</ol><img src="' + getProductThumbSrc(howItPlaysImg) + '" data-full-src="' + howItPlaysImg + '" alt="" loading="lazy" decoding="async" /></div></div>' +
           '<div class="pdp-info-panel" data-pdp-panel="box"><h2>What\'s in the Box</h2><p>Package contents may vary by edition. Confirm exact contents on WhatsApp before ordering.</p></div>' +
@@ -713,6 +867,7 @@ function renderProductPage(productId) {
           '<div class="pdp-info-panel" data-pdp-panel="faqs"><h2>FAQs</h2>' + productFaqs + '</div>' +
         '</div>' +
       '</section>' +
+      '<section class="pdp-mobile-love-section pdp-full-span">' + loveCardMarkup + '</section>' +
       '<section class="pdp-seo-depth pdp-full-span" aria-labelledby="pdp-seo-depth-title">' +
         '<div class="pdp-seo-depth-intro"><span>Product guide</span><h2 id="pdp-seo-depth-title">Is ' + escHtml(product.name) + ' right for your table?</h2><p>' + escHtml(aboutGameText) + '</p></div>' +
         '<div class="pdp-seo-depth-grid">' +
@@ -726,12 +881,14 @@ function renderProductPage(productId) {
         seoLinks +
       '</section>' +
       '<section class="pdp-ref-likes pdp-full-span" aria-labelledby="pdp-likes-title"><div class="pdp-ref-likes-head"><h2 id="pdp-likes-title">Related games <span>*</span></h2><a href="' + getRouteUrl('shop') + '" onclick="return handleRouteClick(event,\'shop\')">View all</a></div><div class="pdp-like-grid">' + relatedCards + '</div></section>' +
+      '<section class="pdp-mobile-helper pdp-full-span"><div class="pdp-helper-avatar"><img src="images/generated/pdp-game-expert-helper.png" alt="" loading="lazy" /></div><div class="pdp-helper-copy"><h2>Not sure which game to pick?</h2><p>Chat with our game expert for quick recommendations!</p><div><span>' + getPdpIcon('shield') + 'Personalised picks</span><span>' + getPdpIcon('whatsapp') + 'Quick responses</span><span>' + getPdpIcon('spark') + 'No pressure, just help</span></div></div><a href="' + fitWaUrl + '" target="_blank" rel="noopener noreferrer">' + getPdpIcon('whatsapp') + 'Chat on WhatsApp ' + getPdpIcon('chevron') + '</a></section>' +
       '<section class="pdp-ref-bottom-trust pdp-full-span"><span>' + getPdpIcon('star') + '<b>Curated quality<br>games & toys</b></span><span>' + getPdpIcon('users') + '<b>Loved by families<br>across Kenya</b></span><span>' + getPdpIcon('lock') + '<b>Trusted & secure<br>shopping</b></span><span>' + getPdpIcon('heart') + '<b>Play more.<br>Connect more.</b></span></section>' +
       '<div class="pdp-mobile-action" role="region" aria-label="Mobile product actions"><span>KES ' + product.price.toLocaleString() + '</span><button onclick="addDetailToCart(\'' + product.id + '\')">Add</button><a href="' + productWaUrl + '" target="_blank" rel="noopener noreferrer">WhatsApp Order</a></div>';
     initProductGallerySwipe(images);
     updateWishlistButtons();
     updateProductMatchEngine();
     updateMajesticBuddyInsight('overall');
+    syncProductMobileHeader();
   }
 
   var relSection = document.getElementById('related-products-section');
