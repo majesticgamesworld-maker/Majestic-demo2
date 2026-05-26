@@ -282,87 +282,106 @@ function syncProductMobileHeader() {
     if (el) el.style.setProperty(prop, value, 'important');
   }
 
-  set(header, 'height', '58px');
-  set(header, 'min-height', '58px');
-  set(header, 'background', '#ffffff');
-  set(header, 'border-bottom', '1px solid #eef1f4');
+  set(header, 'height', '68px');
+  set(header, 'min-height', '68px');
+  set(header, 'background', 'rgba(255,255,255,0.96)');
+  set(header, 'border-bottom', '1px solid rgba(15,23,42,0.08)');
+  set(header, 'box-shadow', '0 10px 26px rgba(15,23,42,0.08)');
   set(header, 'width', '100vw');
   set(header, 'max-width', '100vw');
-  set(header, 'overflow', 'visible');
+  set(header, 'overflow', 'hidden');
 
   set(inner, 'position', 'relative');
+  set(inner, 'display', 'grid');
+  set(inner, 'grid-template-columns', '52px minmax(0,1fr) 52px');
+  set(inner, 'align-items', 'center');
+  set(inner, 'justify-items', 'center');
   set(inner, 'width', '100vw');
   set(inner, 'max-width', '100vw');
-  set(inner, 'height', '58px');
-  set(inner, 'min-height', '58px');
+  set(inner, 'height', '68px');
+  set(inner, 'min-height', '68px');
   set(inner, 'margin', '0');
-  set(inner, 'padding', '0 10px');
-  set(inner, 'overflow', 'visible');
+  set(inner, 'padding', '0 12px');
+  set(inner, 'overflow', 'hidden');
 
-  set(logo, 'position', 'absolute');
-  set(logo, 'left', 'calc(50% - 124px)');
-  set(logo, 'right', 'auto');
-  set(logo, 'top', '12px');
-  set(logo, 'width', '128px');
-  set(logo, 'height', '34px');
-  set(logo, 'min-width', '128px');
-  set(logo, 'max-width', '128px');
+  set(logo, 'position', 'static');
+  set(logo, 'display', 'flex');
+  set(logo, 'grid-column', '2');
+  set(logo, 'justify-self', 'center');
+  set(logo, 'align-items', 'center');
+  set(logo, 'justify-content', 'center');
+  set(logo, 'width', '170px');
+  set(logo, 'height', '46px');
+  set(logo, 'min-width', '170px');
+  set(logo, 'max-width', '170px');
   set(logo, 'transform', 'none');
-  set(logo, 'border-radius', '9px');
-  set(logo, 'background', '#030712 url("images/branding/LOGOF2.png") center / 138% auto no-repeat');
+  set(logo, 'border-radius', '0');
+  set(logo, 'background', '#ffffff url("images/branding/logo-product.png") center / cover no-repeat');
   set(logo, 'overflow', 'hidden');
+  set(logo, 'clip-path', 'inset(0)');
+  set(logo, 'contain', 'paint');
   set(logo, 'z-index', '2');
 
+  set(logoImg, 'display', 'none');
   set(logoImg, 'opacity', '0');
-  set(logoImg, 'width', '128px');
-  set(logoImg, 'height', '34px');
+  set(logoImg, 'width', '170px');
+  set(logoImg, 'max-width', '170px');
+  set(logoImg, 'min-width', '170px');
+  set(logoImg, 'height', '46px');
+  set(logoImg, 'max-height', '46px');
+  set(logoImg, 'position', 'static');
+  set(logoImg, 'transform', 'none');
+  set(logoImg, 'object-fit', 'cover');
+  set(logoImg, 'object-position', 'center');
+  set(logoImg, 'padding', '0');
+  set(logoImg, 'clip-path', 'inset(0)');
+  set(logoImg, 'contain', 'paint');
+  set(logoImg, 'z-index', '7');
 
-  set(controls, 'display', 'block');
+  set(controls, 'display', 'grid');
   set(controls, 'position', 'absolute');
   set(controls, 'inset', '0');
+  set(controls, 'grid-template-columns', '52px minmax(0,1fr) 52px');
+  set(controls, 'align-items', 'center');
   set(controls, 'width', '100vw');
   set(controls, 'max-width', '100vw');
-  set(controls, 'overflow', 'visible');
+  set(controls, 'height', '68px');
+  set(controls, 'padding', '0 12px');
+  set(controls, 'overflow', 'hidden');
   set(controls, 'visibility', 'visible');
   set(controls, 'opacity', '1');
   set(controls, 'z-index', '5');
 
-  [
-    [menu, '4px', 'auto'],
-    [search, 'auto', '45px'],
-    [cart, 'auto', '4px']
-  ].forEach(function(item) {
-    set(item[0], 'display', 'inline-grid');
-    set(item[0], 'position', 'absolute');
-    set(item[0], 'top', '50%');
-    set(item[0], 'left', item[1]);
-    set(item[0], 'right', item[2]);
-    set(item[0], 'width', '38px');
-    set(item[0], 'height', '38px');
-    set(item[0], 'transform', 'translateY(-50%)');
-    set(item[0], 'visibility', 'visible');
-    set(item[0], 'opacity', '1');
-    set(item[0], 'z-index', '6');
-    set(item[0], 'background-color', 'transparent');
-    set(item[0], 'background-repeat', 'no-repeat');
-    set(item[0], 'background-position', 'center');
-    set(item[0], 'background-size', '24px 24px');
-  });
-  set(search, 'background-image', 'url("images/pdp-mobile-icons/search.svg")');
-  set(cart, 'background-image', 'url("images/pdp-mobile-icons/cart.svg")');
-  if (search && !search.querySelector('.pdp-mobile-header-img')) {
-    search.innerHTML = '<img class="pdp-mobile-header-img" src="images/pdp-mobile-icons/search.svg" alt="" aria-hidden="true" />';
-  }
-  if (cart && !cart.querySelector('.pdp-mobile-header-img')) {
-    var count = cart.querySelector('.cart-count');
-    cart.innerHTML = '<img class="pdp-mobile-header-img" src="images/pdp-mobile-icons/cart.svg" alt="" aria-hidden="true" />' + (count ? count.outerHTML : '<span class="cart-count" id="cart-count">0</span>');
-  }
+  set(menu, 'grid-column', '1');
+  set(menu, 'justify-self', 'start');
+  set(menu, 'display', 'inline-grid');
+  set(menu, 'position', 'static');
+  set(menu, 'place-items', 'center');
+  set(menu, 'width', '42px');
+  set(menu, 'height', '42px');
+  set(menu, 'min-width', '42px');
+  set(menu, 'min-height', '42px');
+  set(menu, 'padding', '0');
+  set(menu, 'border', '1px solid rgba(15,23,42,0.08)');
+  set(menu, 'border-radius', '14px');
+  set(menu, 'background', 'rgba(255,255,255,0.78)');
+  set(menu, 'color', '#0f172a');
+  set(menu, 'box-shadow', '0 8px 20px rgba(15,23,42,0.08)');
+  set(menu, 'transform', 'none');
+  set(menu, 'visibility', 'visible');
+  set(menu, 'opacity', '1');
+  set(menu, 'z-index', '6');
+
   [search, cart].forEach(function(button) {
-    var icon = button && button.querySelector('.pdp-mobile-header-img');
-    set(icon, 'display', 'block');
-    set(icon, 'width', '24px');
-    set(icon, 'height', '24px');
-    set(icon, 'object-fit', 'contain');
+    set(button, 'display', 'none');
+    set(button, 'visibility', 'hidden');
+    set(button, 'opacity', '0');
+    set(button, 'pointer-events', 'none');
+    set(button, 'background', 'none');
+    if (button) {
+      button.innerHTML = '';
+      button.remove();
+    }
   });
 }
 

@@ -1248,7 +1248,7 @@
     top: 45px !important;
     width: 610px !important;
     max-width: 610px !important;
-    background: transparent !important;
+    background: #ffffff url("images/branding/logo-product.png") center / cover no-repeat !important;
     box-shadow: none !important;
   }
 
@@ -1436,4 +1436,186 @@ html body .finder-title {
 
 html body .featured-banner-title {
   font-size: 1.25rem !important;
+}
+
+/* Final-loaded mobile navbar revamp. This file loads after the mobile audit CSS. */
+@media (max-width: 767px) {
+  html body[data-page] #site-header.site-header.navbar::before,
+  html body[data-page] #site-header.site-header.navbar::after,
+  html body[data-page="product"]::before,
+  html body[data-page="product"]::after,
+  html body[data-page] #site-header.site-header.navbar .mobile-header-control::before,
+  html body[data-page] #site-header.site-header.navbar .mobile-header-control::after,
+  html body[data-page] #site-header.site-header.navbar .logo-link::before,
+  html body[data-page] #site-header.site-header.navbar .logo-link::after {
+    content: none !important;
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    background: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar,
+  html body[data-page] #site-header.site-header.navbar.scrolled {
+    height: 68px !important;
+    min-height: 68px !important;
+    padding: 0 !important;
+    background: rgba(255, 255, 255, 0.96) !important;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08) !important;
+    box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08) !important;
+    backdrop-filter: blur(12px) !important;
+    overflow: hidden !important;
+  }
+
+  html body[data-page="home"] #site-header.site-header.navbar,
+  html body[data-page="home"] #site-header.site-header.navbar.scrolled {
+    top: 18px !important;
+    background: transparent !important;
+    border-bottom: 0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .navbar-container,
+  html body[data-page] #site-header.site-header.navbar .header-inner {
+    box-sizing: border-box !important;
+    display: grid !important;
+    grid-template-columns: 52px minmax(0, 1fr) 52px !important;
+    align-items: center !important;
+    justify-items: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 68px !important;
+    min-height: 68px !important;
+    padding: 0 12px !important;
+    gap: 8px !important;
+    overflow: hidden !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .desktop-nav,
+  html body[data-page] #site-header.site-header.navbar .nav-menu,
+  html body[data-page] #site-header.site-header.navbar #hamburger-btn,
+  html body[data-page] #site-header.site-header.navbar .header-actions .cart-btn,
+  html body[data-page] #site-header.site-header.navbar .header-actions .account-btn,
+  html body[data-page] #site-header.site-header.navbar .header-actions .header-order-link,
+  html body[data-page] #site-header.site-header.navbar .header-actions .search-box:not(.search-active),
+  html body[data-page] #site-header.site-header.navbar .mobile-header-search,
+  html body[data-page] #site-header.site-header.navbar .mobile-header-cart {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .logo-link {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    position: static !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    justify-self: center !important;
+    align-self: center !important;
+    width: 170px !important;
+    min-width: 170px !important;
+    max-width: 170px !important;
+    height: 46px !important;
+    min-height: 46px !important;
+    max-height: 46px !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    transform: none !important;
+    overflow: hidden !important;
+    clip-path: inset(0) !important;
+    contain: paint !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .logo-img {
+    display: none !important;
+    width: 170px !important;
+    max-width: 170px !important;
+    min-width: 170px !important;
+    height: 46px !important;
+    max-height: 46px !important;
+    position: static !important;
+    transform: none !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    padding: 0 !important;
+    clip-path: inset(0) !important;
+    contain: paint !important;
+    z-index: 7 !important;
+    opacity: 0 !important;
+    filter: none !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .logo-link::before {
+    content: none !important;
+    display: none !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .mobile-header-controls {
+    box-sizing: border-box !important;
+    position: absolute !important;
+    inset: 0 !important;
+    display: grid !important;
+    grid-template-columns: 52px minmax(0, 1fr) 52px !important;
+    align-items: center !important;
+    width: 100% !important;
+    height: 68px !important;
+    padding: 0 12px !important;
+    pointer-events: none !important;
+    z-index: 5 !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .mobile-header-controls::after {
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    display: block !important;
+    width: 76px !important;
+    height: 68px !important;
+    background: #ffffff !important;
+    z-index: 20 !important;
+    pointer-events: none !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .mobile-header-menu {
+    grid-column: 1 !important;
+    justify-self: start !important;
+    position: static !important;
+    display: inline-grid !important;
+    place-items: center !important;
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+    min-height: 42px !important;
+    padding: 0 !important;
+    border: 1px solid rgba(15, 23, 42, 0.08) !important;
+    border-radius: 14px !important;
+    background: rgba(255, 255, 255, 0.78) !important;
+    background-image: none !important;
+    color: #0f172a !important;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08) !important;
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .mobile-header-menu svg {
+    width: 23px !important;
+    height: 23px !important;
+    stroke: currentColor !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .cart-badge,
+  html body[data-page] #site-header.site-header.navbar #header-cart-badge {
+    display: none !important;
+  }
+
 }

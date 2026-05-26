@@ -10378,3 +10378,412 @@ body[data-page="product"] .pdp-mobile-helper {
     display: none !important;
   }
 }
+
+/* Remove sticky add-to-cart bar on mobile product page. */
+@media (max-width: 767px) {
+  body[data-page="product"] .mobile-sticky-add {
+    display: none !important;
+  }
+}
+
+/* Single mobile navbar source of truth. Keep this last. */
+@media (max-width: 767px) {
+  html body[data-page] #site-header.site-header.navbar,
+  html body[data-page] #site-header.site-header.navbar.scrolled {
+    position: sticky !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: 64px !important;
+    min-height: 64px !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08) !important;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08) !important;
+    overflow: visible !important;
+    z-index: 1000 !important;
+  }
+
+  html body[data-page="home"] #site-header.site-header.navbar,
+  html body[data-page="home"] #site-header.site-header.navbar.scrolled {
+    position: absolute !important;
+    top: 18px !important;
+    background: transparent !important;
+    border-bottom: 0 !important;
+    box-shadow: none !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar::before,
+  html body[data-page] #site-header.site-header.navbar::after,
+  html body[data-page="product"]::before,
+  html body[data-page="product"]::after {
+    content: none !important;
+    display: none !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .navbar-container,
+  html body[data-page] #site-header.site-header.navbar .header-inner {
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 64px !important;
+    min-height: 64px !important;
+    padding: 0 12px !important;
+    overflow: visible !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .desktop-nav,
+  html body[data-page] #site-header.site-header.navbar .nav-menu,
+  html body[data-page] #site-header.site-header.navbar #hamburger-btn,
+  html body[data-page] #site-header.site-header.navbar .header-actions > .cart-btn,
+  html body[data-page] #site-header.site-header.navbar .header-actions > .account-btn,
+  html body[data-page] #site-header.site-header.navbar .header-actions > .header-order-link,
+  html body[data-page] #site-header.site-header.navbar .header-actions > .search-box:not(.search-active) {
+    display: none !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .logo-link {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    flex: 0 0 auto !important;
+    width: min(160px, 42vw) !important;
+    min-width: 0 !important;
+    max-width: min(160px, 42vw) !important;
+    height: 46px !important;
+    min-height: 46px !important;
+    max-height: 46px !important;
+    transform: none !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    overflow: visible !important;
+    z-index: 2 !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .logo-link::before {
+    content: none !important;
+    display: none !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .logo-img {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 46px !important;
+    max-height: 46px !important;
+    object-fit: contain !important;
+    opacity: 1 !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .mobile-header-controls {
+    position: absolute !important;
+    inset: 0 !important;
+    display: block !important;
+    width: 100% !important;
+    height: 64px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: none !important;
+    z-index: 3 !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .mobile-header-control {
+    position: absolute !important;
+    top: 50% !important;
+    display: inline-grid !important;
+    place-items: center !important;
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+    min-height: 42px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 999px !important;
+    background: transparent !important;
+    color: #0f172a !important;
+    transform: translateY(-50%) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    z-index: 4 !important;
+  }
+
+  html body[data-page="home"] #site-header.site-header.navbar .mobile-header-control {
+    color: #ffffff !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .mobile-header-menu {
+    left: 10px !important;
+    right: auto !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .mobile-header-search {
+    right: 54px !important;
+    left: auto !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .mobile-header-cart {
+    right: 10px !important;
+    left: auto !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .mobile-header-control svg {
+    display: block !important;
+    width: 24px !important;
+    height: 24px !important;
+    stroke: currentColor !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .header-actions,
+  html body[data-page] #site-header.site-header.navbar .nav-icons {
+    position: static !important;
+    display: block !important;
+    width: 0 !important;
+    height: 0 !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    pointer-events: none !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .search-box.search-active {
+    position: fixed !important;
+    left: 12px !important;
+    right: 12px !important;
+    top: 72px !important;
+    display: block !important;
+    width: auto !important;
+    height: auto !important;
+    max-width: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    z-index: 12000 !important;
+  }
+}
+
+/* Mobile navbar revamp: one clean control row, no duplicate icon layers. */
+@media (max-width: 767px) {
+  html body[data-page] #site-header.site-header.navbar::before,
+  html body[data-page] #site-header.site-header.navbar::after,
+  html body[data-page="product"]::before,
+  html body[data-page="product"]::after,
+  html body[data-page] #site-header.site-header.navbar .mobile-header-control::before,
+  html body[data-page] #site-header.site-header.navbar .mobile-header-control::after,
+  html body[data-page] #site-header.site-header.navbar .logo-link::before,
+  html body[data-page] #site-header.site-header.navbar .logo-link::after {
+    content: none !important;
+    display: none !important;
+    background: none !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar,
+  html body[data-page] #site-header.site-header.navbar.scrolled {
+    height: 68px !important;
+    min-height: 68px !important;
+    padding: 0 !important;
+    background: rgba(255, 255, 255, 0.96) !important;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08) !important;
+    box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08) !important;
+    backdrop-filter: blur(12px) !important;
+    overflow: hidden !important;
+  }
+
+  html body[data-page="home"] #site-header.site-header.navbar,
+  html body[data-page="home"] #site-header.site-header.navbar.scrolled {
+    height: 68px !important;
+    min-height: 68px !important;
+    top: 18px !important;
+    background: transparent !important;
+    border-bottom: 0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    overflow: visible !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .navbar-container,
+  html body[data-page] #site-header.site-header.navbar .header-inner {
+    box-sizing: border-box !important;
+    display: grid !important;
+    grid-template-columns: 52px minmax(0, 1fr) 52px !important;
+    align-items: center !important;
+    justify-items: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 68px !important;
+    min-height: 68px !important;
+    padding: 0 12px !important;
+    gap: 8px !important;
+    overflow: hidden !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .desktop-nav,
+  html body[data-page] #site-header.site-header.navbar .nav-menu,
+  html body[data-page] #site-header.site-header.navbar #hamburger-btn,
+  html body[data-page] #site-header.site-header.navbar .header-actions .cart-btn,
+  html body[data-page] #site-header.site-header.navbar .header-actions .account-btn,
+  html body[data-page] #site-header.site-header.navbar .header-actions .header-order-link,
+  html body[data-page] #site-header.site-header.navbar .header-actions .search-box:not(.search-active) {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .logo-link {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    position: static !important;
+    justify-self: center !important;
+    align-self: center !important;
+    width: min(170px, 45vw) !important;
+    max-width: min(170px, 45vw) !important;
+    height: 46px !important;
+    min-height: 46px !important;
+    max-height: 46px !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    transform: none !important;
+    overflow: visible !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .logo-img {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 46px !important;
+    max-height: 46px !important;
+    object-fit: contain !important;
+    opacity: 1 !important;
+    filter: none !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .mobile-header-controls {
+    box-sizing: border-box !important;
+    position: absolute !important;
+    inset: 0 !important;
+    display: grid !important;
+    grid-template-columns: 52px minmax(0, 1fr) 52px !important;
+    align-items: center !important;
+    width: 100% !important;
+    height: 68px !important;
+    padding: 0 12px !important;
+    pointer-events: none !important;
+    z-index: 5 !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .mobile-header-control {
+    position: static !important;
+    display: inline-grid !important;
+    place-items: center !important;
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+    min-height: 42px !important;
+    padding: 0 !important;
+    border: 1px solid rgba(15, 23, 42, 0.08) !important;
+    border-radius: 14px !important;
+    background: rgba(255, 255, 255, 0.78) !important;
+    background-image: none !important;
+    color: #0f172a !important;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08) !important;
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+
+  html body[data-page="home"] #site-header.site-header.navbar .mobile-header-control {
+    border-color: rgba(255, 255, 255, 0.18) !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+    color: #ffffff !important;
+    box-shadow: none !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .mobile-header-menu {
+    grid-column: 1 !important;
+    justify-self: start !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .mobile-header-search {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .mobile-header-cart {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .mobile-header-control svg {
+    display: block !important;
+    width: 23px !important;
+    height: 23px !important;
+    color: currentColor !important;
+    stroke: currentColor !important;
+    fill: none !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .header-actions,
+  html body[data-page] #site-header.site-header.navbar .nav-icons {
+    position: static !important;
+    display: block !important;
+    grid-column: 1 / -1 !important;
+    width: 0 !important;
+    height: 0 !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    pointer-events: none !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .cart-badge,
+  html body[data-page] #site-header.site-header.navbar #header-cart-badge {
+    display: none !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .search-box.search-active {
+    position: fixed !important;
+    left: 12px !important;
+    right: 12px !important;
+    top: 78px !important;
+    display: block !important;
+    visibility: visible !important;
+    width: auto !important;
+    height: auto !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    z-index: 12000 !important;
+  }
+
+  html body[data-page] #site-header.site-header.navbar .search-box.search-active input {
+    display: block !important;
+    visibility: visible !important;
+    width: 100% !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+
+  html body[data-page="product"]::after {
+    content: "" !important;
+    position: fixed !important;
+    top: 24px !important;
+    right: 0 !important;
+    display: block !important;
+    width: 74px !important;
+    height: 72px !important;
+    background: #ffffff !important;
+    z-index: 2147483647 !important;
+    pointer-events: none !important;
+  }
+}
