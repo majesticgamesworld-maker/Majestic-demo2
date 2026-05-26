@@ -1,0 +1,36 @@
+{
+   "action": {
+      "default_icon": "logo.png",
+      "default_title": "__MSG_appName__"
+   },
+   "background": {
+      "service_worker": "background.js"
+   },
+   "content_scripts": [ {
+      "js": [ "contentScript.js" ],
+      "matches": [ "https://web.whatsapp.com/" ],
+      "run_at": "document_end"
+   } ],
+   "default_locale": "en",
+   "description": "__MSG_appDescription__",
+   "host_permissions": [ "https://api.dootbuddy.com/", "https://www.dootbuddy.com/", "https://www.googleapis.com/", "https://accounts.zoho.com/*", "https://www.zohoapis.com/*", "https://api.hubapi.com/*", "https://login.salesforce.com/*", "*://*.salesforce.com/*" ],
+   "icons": {
+      "128": "logo.png",
+      "16": "logo.png",
+      "48": "logo.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoX2cs2dfnp67scpbjFkSwVh9j09ImTu3vUItHHKQ4oO7ESxd1UV5QNDSLRvuA/a5XM9q3IoU44xodhYyv1Rn9l1P1zgoa2UfBtnJP6inhNh5FPulasUeL660YjBzMcFrVdqhynyVVYHdtiWPPfb27ptYqyWZpnCDZQG7uNDzGgAohTcarBwY6dPop6kdDV7KTbeYYRn5DLE+0zooHptKukTjGpNbN50uzFL8mVpa6E2okFZUqGfkwGw3Qr1pQf/2bBXcVli2td6dJXdhF2xFsrljidlmcu+oRy3Uub2BuSie1ImLIWnFRuitK0cwyxhksvNPO5VBrv4EWs2NxWMp0QIDAQAB",
+   "manifest_version": 3,
+   "name": "__MSG_appName__",
+   "oauth2": {
+      "client_id": "863246647975-as2t6mq5gitu91so2ev7canvqofjc1kh.apps.googleusercontent.com",
+      "scopes": [ "https://www.googleapis.com/auth/spreadsheets.readonly" ]
+   },
+   "permissions": [ "storage", "identity", "identity.email", "unlimitedStorage", "clipboardWrite", "alarms", "tabs" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "4.3.3",
+   "web_accessible_resources": [ {
+      "matches": [ "https://web.whatsapp.com/*", "https://api.whatsapp.com/*" ],
+      "resources": [ "dootbuddy.js", "fonts/*", "images/*", "grey_circle.png", "white.png", "logo_small.png", "logo_large.png", "thoughts.png", "he_sitting_with_notebook.png", "cross.png", "tick.png", "alert.png", "red_cross.png", "emoji/*", "sample_format.xlsx", "downloadicon.png" ]
+   } ]
+}

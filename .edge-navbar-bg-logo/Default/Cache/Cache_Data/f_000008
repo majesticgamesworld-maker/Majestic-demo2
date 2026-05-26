@@ -1,0 +1,651 @@
+﻿/* Revamped PDP recommendation section */
+body[data-page="product"] .pdp-ref-likes {
+  position: relative;
+  display: grid !important;
+  grid-template-columns: minmax(240px, 0.34fr) minmax(0, 1fr);
+  gap: clamp(18px, 3vw, 34px) !important;
+  margin-top: 8px;
+  padding: clamp(18px, 3vw, 34px);
+  border: 1px solid #dbe4ee;
+  border-radius: 18px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 252, 0.98)),
+    radial-gradient(circle at 14% 20%, rgba(244, 182, 63, 0.16), transparent 240px);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+}
+
+body[data-page="product"] .pdp-ref-likes::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 7px;
+  background: linear-gradient(180deg, #2ebfb0, #f4b63f 48%, #e8521a);
+}
+
+body[data-page="product"] .pdp-ref-likes-head {
+  position: relative;
+  z-index: 1;
+  display: grid !important;
+  align-content: center;
+  justify-items: start;
+  gap: 14px !important;
+  align-self: stretch;
+}
+
+body[data-page="product"] .pdp-ref-likes-head::before {
+  content: "Curated next picks";
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  padding: 7px 11px;
+  border: 1px solid rgba(46, 191, 176, 0.28);
+  border-radius: 999px;
+  background: #ecfeff;
+  color: #0f766e;
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+body[data-page="product"] .pdp-ref-likes-head h2 {
+  max-width: 320px;
+  color: #101827 !important;
+  font-family: "Fredoka", "Plus Jakarta Sans", system-ui, sans-serif !important;
+  font-size: clamp(2.35rem, 4.2vw, 4rem) !important;
+  line-height: 0.92 !important;
+  letter-spacing: 0 !important;
+}
+
+body[data-page="product"] .pdp-ref-likes-head h2 span {
+  display: none;
+}
+
+body[data-page="product"] .pdp-ref-likes-head::after {
+  content: "Handpicked alternatives and add-ons based on this game's category, play style, audience, and gift fit.";
+  display: block;
+  max-width: 300px;
+  color: #475569;
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+body[data-page="product"] .pdp-ref-likes-head > a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 11px 16px !important;
+  border: 0 !important;
+  border-radius: 10px !important;
+  background: #101827;
+  color: #ffffff !important;
+  font-size: 0.86rem;
+  font-weight: 900;
+  text-decoration: none;
+  box-shadow: 0 12px 22px rgba(16, 24, 39, 0.18);
+}
+
+body[data-page="product"] .pdp-like-grid {
+  position: relative;
+  z-index: 1;
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 14px !important;
+}
+
+body[data-page="product"] .pdp-like-card {
+  display: block !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 14px !important;
+  background: #ffffff !important;
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.07);
+  overflow: hidden;
+}
+
+body[data-page="product"] .pdp-like-card::before {
+  display: none !important;
+}
+
+body[data-page="product"] .pdp-like-card:hover,
+body[data-page="product"] .pdp-like-card:focus-within {
+  transform: translateY(-4px) !important;
+  border-color: rgba(46, 191, 176, 0.58) !important;
+  box-shadow: 0 20px 44px rgba(15, 23, 42, 0.12), 0 0 0 3px rgba(46, 191, 176, 0.14) !important;
+}
+
+body[data-page="product"] .pdp-like-card a {
+  display: grid !important;
+  grid-template-columns: 116px minmax(0, 1fr) auto !important;
+  grid-template-rows: auto 1fr auto !important;
+  gap: 8px 14px !important;
+  min-height: 178px;
+  padding: 14px 62px 14px 14px;
+}
+
+body[data-page="product"] .pdp-like-match {
+  grid-column: 1 / 2;
+  grid-row: 1;
+  z-index: 2;
+  width: fit-content;
+  padding: 5px 8px !important;
+  border-radius: 999px;
+  background: #fff7ed;
+  color: #9a3412 !important;
+  font-size: 0.68rem !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+}
+
+body[data-page="product"] .pdp-like-image {
+  grid-column: 1;
+  grid-row: 2 / 4;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 116px !important;
+  height: 116px !important;
+  padding: 8px !important;
+  border-radius: 10px;
+  background: #f8fafc;
+}
+
+body[data-page="product"] .pdp-like-card img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+}
+
+body[data-page="product"] .pdp-like-copy {
+  grid-column: 2 / 4;
+  grid-row: 1 / 3;
+  display: grid !important;
+  gap: 6px;
+  align-content: start;
+  padding: 4px 0 0 !important;
+}
+
+body[data-page="product"] .pdp-like-copy small {
+  color: #0f766e;
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+body[data-page="product"] .pdp-like-copy b {
+  color: #111827;
+  font-size: 1rem;
+  font-weight: 950;
+  line-height: 1.2;
+}
+
+body[data-page="product"] .pdp-like-copy em {
+  color: #64748b;
+  font-size: 0.82rem;
+  font-style: normal;
+  line-height: 1.45;
+}
+
+body[data-page="product"] .pdp-like-card strong {
+  grid-column: 2 / 4;
+  grid-row: 3;
+  align-self: end;
+  color: #078837 !important;
+  font-size: 0.94rem !important;
+  font-weight: 950;
+}
+
+body[data-page="product"] .pdp-like-card button {
+  top: auto !important;
+  right: 14px !important;
+  bottom: 14px !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px !important;
+  height: 40px !important;
+  border: 0 !important;
+  border-radius: 10px !important;
+  background: #e8521a !important;
+  color: #ffffff !important;
+  cursor: pointer;
+  box-shadow: 0 12px 20px rgba(232, 82, 26, 0.24);
+}
+
+body[data-page="product"] .pdp-like-card button svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+
+@media (max-width: 980px) {
+  body[data-page="product"] .pdp-ref-likes {
+    grid-template-columns: 1fr !important;
+  }
+
+  body[data-page="product"] .pdp-ref-likes-head {
+    align-content: start;
+  }
+
+  body[data-page="product"] .pdp-ref-likes-head h2,
+  body[data-page="product"] .pdp-ref-likes-head::after {
+    max-width: 680px;
+  }
+}
+
+@media (max-width: 640px) {
+  body[data-page="product"] .pdp-ref-likes {
+    padding: 18px 14px;
+    border-radius: 14px;
+  }
+
+  body[data-page="product"] .pdp-like-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  body[data-page="product"] .pdp-like-card a {
+    grid-template-columns: 96px minmax(0, 1fr) !important;
+    min-height: 158px;
+    padding: 12px 58px 12px 12px;
+  }
+
+  body[data-page="product"] .pdp-like-match {
+    grid-column: 1;
+  }
+
+  body[data-page="product"] .pdp-like-image {
+    width: 96px !important;
+    height: 96px !important;
+  }
+
+  body[data-page="product"] .pdp-like-copy,
+  body[data-page="product"] .pdp-like-card strong {
+    grid-column: 2;
+  }
+}
+
+/* Reference-style You may also like panel */
+body[data-page="product"] .pdp-ref-likes {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  gap: 34px !important;
+  padding: clamp(28px, 4vw, 48px) clamp(18px, 4.5vw, 54px) !important;
+  border: 0 !important;
+  border-radius: 22px !important;
+  background:
+    radial-gradient(circle at 80% 34%, rgba(244, 182, 63, 0.1), transparent 260px),
+    linear-gradient(180deg, #fffdf9 0%, #fffaf2 100%) !important;
+  box-shadow: 0 22px 70px rgba(15, 23, 42, 0.08) !important;
+}
+
+body[data-page="product"] .pdp-ref-likes::before {
+  display: none !important;
+}
+
+body[data-page="product"] .pdp-ref-likes-head {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: auto auto;
+  align-items: center;
+  gap: 10px 24px !important;
+}
+
+body[data-page="product"] .pdp-ref-likes-head::before {
+  display: none !important;
+}
+
+body[data-page="product"] .pdp-ref-likes-head h2 {
+  grid-column: 1;
+  grid-row: 1;
+  max-width: none !important;
+  margin: 0 !important;
+  color: #07111f !important;
+  font-size: clamp(2.3rem, 3.4vw, 3.4rem) !important;
+  line-height: 1 !important;
+}
+
+body[data-page="product"] .pdp-ref-likes-head h2::after {
+  content: " \2726";
+  color: #d99010;
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+body[data-page="product"] .pdp-ref-likes-head h2 span {
+  display: none !important;
+}
+
+body[data-page="product"] .pdp-ref-likes-head::after {
+  grid-column: 1;
+  grid-row: 2;
+  content: "More fun picks for family game nights" !important;
+  max-width: none !important;
+  color: #667085 !important;
+  font-size: clamp(1rem, 1.4vw, 1.18rem) !important;
+  font-weight: 600;
+  line-height: 1.4 !important;
+}
+
+body[data-page="product"] .pdp-ref-likes-head > a {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  align-self: center;
+  min-height: 52px !important;
+  padding: 0 24px !important;
+  border: 1px solid rgba(217, 144, 16, 0.35) !important;
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, 0.72) !important;
+  color: #07111f !important;
+  font-size: 1rem !important;
+  box-shadow: none !important;
+}
+
+body[data-page="product"] .pdp-ref-likes-head > a::after {
+  content: "\2192";
+  margin-left: 12px;
+  font-size: 1.2rem;
+}
+
+body[data-page="product"] .pdp-like-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: clamp(16px, 2vw, 28px) !important;
+}
+
+body[data-page="product"] .pdp-like-card {
+  min-height: 386px !important;
+  border: 1px solid #e5eaf0 !important;
+  border-radius: 14px !important;
+  background: rgba(255, 255, 255, 0.88) !important;
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.06) !important;
+}
+
+body[data-page="product"] .pdp-like-card.pdp-like-featured {
+  border-color: #e6a11a !important;
+  background:
+    radial-gradient(circle at 70% 55%, rgba(244, 182, 63, 0.14), transparent 150px),
+    #fffaf2 !important;
+}
+
+body[data-page="product"] .pdp-like-card a {
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  grid-template-rows: auto minmax(168px, 1fr) auto auto !important;
+  min-height: 386px !important;
+  gap: 12px !important;
+  padding: 18px 18px 22px 18px !important;
+}
+
+body[data-page="product"] .pdp-like-match {
+  grid-column: 1 / 3 !important;
+  grid-row: 1 !important;
+  display: inline-flex !important;
+  align-items: center;
+  gap: 10px;
+  min-height: 46px;
+  width: fit-content;
+  padding: 0 16px !important;
+  border: 1px solid #e7edf4;
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, 0.86) !important;
+  color: #3d4656 !important;
+  font-size: 0.9rem !important;
+  font-weight: 750 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+
+body[data-page="product"] .pdp-like-featured .pdp-like-match {
+  border-color: rgba(217, 144, 16, 0.22);
+  color: #c66a08 !important;
+}
+
+body[data-page="product"] .pdp-like-match i {
+  color: #d99010;
+  font-style: normal;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+body[data-page="product"] .pdp-like-image {
+  grid-column: 1 / 3 !important;
+  grid-row: 2 !important;
+  width: 100% !important;
+  height: 188px !important;
+  padding: 8px !important;
+  border-radius: 18px !important;
+  background:
+    radial-gradient(circle at 58% 48%, #fff2d9 0 36%, transparent 37%),
+    transparent !important;
+}
+
+body[data-page="product"] .pdp-like-card img {
+  max-width: 86% !important;
+  max-height: 172px !important;
+  object-fit: contain !important;
+  filter: drop-shadow(0 18px 18px rgba(15, 23, 42, 0.12));
+}
+
+body[data-page="product"] .pdp-like-copy {
+  grid-column: 1 / 3 !important;
+  grid-row: 3 !important;
+  display: block !important;
+  padding: 0 8px !important;
+}
+
+body[data-page="product"] .pdp-like-copy small,
+body[data-page="product"] .pdp-like-copy em {
+  display: none !important;
+}
+
+body[data-page="product"] .pdp-like-copy b {
+  display: block;
+  max-width: 210px;
+  color: #07111f !important;
+  font-size: clamp(1rem, 1.2vw, 1.18rem) !important;
+  font-weight: 950 !important;
+  line-height: 1.28 !important;
+}
+
+body[data-page="product"] .pdp-like-card strong {
+  grid-column: 1 !important;
+  grid-row: 4 !important;
+  align-self: end !important;
+  padding-left: 8px;
+  color: #07923f !important;
+  font-size: 1.02rem !important;
+}
+
+body[data-page="product"] .pdp-like-card button {
+  right: 20px !important;
+  bottom: 20px !important;
+  width: 52px !important;
+  height: 52px !important;
+  border: 1px solid #dbe3ed !important;
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, 0.88) !important;
+  color: #07111f !important;
+  box-shadow: none !important;
+}
+
+body[data-page="product"] .pdp-like-card button:hover {
+  border-color: #e8521a !important;
+  background: #e8521a !important;
+  color: #ffffff !important;
+}
+
+body[data-page="product"] .pdp-ref-bottom-trust {
+  margin-top: 2px !important;
+  border-radius: 16px !important;
+  background: linear-gradient(135deg, #06111b, #02080e) !important;
+}
+
+@media (max-width: 1100px) {
+  body[data-page="product"] .pdp-like-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  body[data-page="product"] .pdp-ref-likes {
+    padding: 24px 14px !important;
+  }
+
+  body[data-page="product"] .pdp-ref-likes-head {
+    grid-template-columns: 1fr;
+  }
+
+  body[data-page="product"] .pdp-ref-likes-head > a {
+    grid-column: 1;
+    grid-row: 3;
+    width: fit-content;
+    min-height: 46px !important;
+  }
+
+  body[data-page="product"] .pdp-like-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  body[data-page="product"] .pdp-like-card,
+  body[data-page="product"] .pdp-like-card a {
+    min-height: 354px !important;
+  }
+
+  body[data-page="product"] .pdp-like-image {
+    height: 160px !important;
+  }
+}
+
+/* Compact horizontal recommendation rail */
+body[data-page="product"] .pdp-ref-likes {
+  gap: 18px !important;
+  padding: clamp(20px, 2.8vw, 30px) clamp(14px, 3vw, 34px) !important;
+  border-radius: 16px !important;
+}
+
+body[data-page="product"] .pdp-ref-likes-head {
+  gap: 6px 18px !important;
+}
+
+body[data-page="product"] .pdp-ref-likes-head h2 {
+  font-size: clamp(1.85rem, 2.8vw, 2.7rem) !important;
+}
+
+body[data-page="product"] .pdp-ref-likes-head::after {
+  font-size: 0.96rem !important;
+}
+
+body[data-page="product"] .pdp-ref-likes-head > a {
+  min-height: 42px !important;
+  padding: 0 18px !important;
+  font-size: 0.9rem !important;
+}
+
+body[data-page="product"] .pdp-like-grid {
+  display: grid !important;
+  grid-auto-flow: column !important;
+  grid-auto-columns: clamp(190px, 21vw, 244px) !important;
+  grid-template-columns: none !important;
+  gap: 14px !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  padding: 2px 4px 14px !important;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}
+
+body[data-page="product"] .pdp-like-grid::-webkit-scrollbar {
+  height: 8px;
+}
+
+body[data-page="product"] .pdp-like-grid::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.06);
+  border-radius: 999px;
+}
+
+body[data-page="product"] .pdp-like-grid::-webkit-scrollbar-thumb {
+  background: rgba(217, 144, 16, 0.42);
+  border-radius: 999px;
+}
+
+body[data-page="product"] .pdp-like-card {
+  min-height: 278px !important;
+  scroll-snap-align: start;
+}
+
+body[data-page="product"] .pdp-like-card a {
+  grid-template-rows: auto 122px auto auto !important;
+  min-height: 278px !important;
+  gap: 8px !important;
+  padding: 12px 12px 14px !important;
+}
+
+body[data-page="product"] .pdp-like-match {
+  min-height: 34px !important;
+  padding: 0 11px !important;
+  gap: 7px !important;
+  font-size: 0.76rem !important;
+}
+
+body[data-page="product"] .pdp-like-match i {
+  font-size: 1rem !important;
+}
+
+body[data-page="product"] .pdp-like-image {
+  height: 122px !important;
+  border-radius: 14px !important;
+}
+
+body[data-page="product"] .pdp-like-card img {
+  max-height: 116px !important;
+}
+
+body[data-page="product"] .pdp-like-copy {
+  padding: 0 4px !important;
+}
+
+body[data-page="product"] .pdp-like-copy b {
+  max-width: 170px !important;
+  font-size: 0.92rem !important;
+  line-height: 1.22 !important;
+}
+
+body[data-page="product"] .pdp-like-card strong {
+  padding-left: 4px !important;
+  font-size: 0.9rem !important;
+}
+
+body[data-page="product"] .pdp-like-card button {
+  right: 12px !important;
+  bottom: 12px !important;
+  width: 38px !important;
+  height: 38px !important;
+}
+
+body[data-page="product"] .pdp-like-card button svg {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+@media (max-width: 640px) {
+  body[data-page="product"] .pdp-ref-likes {
+    padding: 18px 12px !important;
+  }
+
+  body[data-page="product"] .pdp-like-grid {
+    grid-auto-columns: 76vw !important;
+  }
+
+  body[data-page="product"] .pdp-like-card,
+  body[data-page="product"] .pdp-like-card a {
+    min-height: 276px !important;
+  }
+}
+

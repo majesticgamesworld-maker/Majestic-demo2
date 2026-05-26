@@ -1,0 +1,910 @@
+{
+   "BuyDootBuddyPremiumBtn": {
+      "description": "",
+      "message": "Adquirir DootBuddy Premium"
+   },
+   "CRMCommingSoon": {
+      "description": "CRM Public Opinion Polling popup heading part 1",
+      "message": "¡WAM se integrará con tu CRM favorito pronto!"
+   },
+   "CRMIntegrationMenu": {
+      "description": "",
+      "message": "Integración CRM"
+   },
+   "CRMSelectionLabel": {
+      "description": "CRM Public Opinion Polling popup heading part 2",
+      "message": "Vote por su CRM abajo:"
+   },
+   "CRMSuggestionErrorWhileSaving": {
+      "description": "",
+      "message": "Hay un problema para guardar sus sugerencias."
+   },
+   "CRMSuggestionSaved": {
+      "description": "",
+      "message": "Tus sugerencias se guardan."
+   },
+   "ContactViaWhatsApp": {
+      "description": "Start chat with support on WhatsApp",
+      "message": "Contáctenos por WhatsApp"
+   },
+   "FAQLabel": {
+      "description": "FAQs link",
+      "message": "Preguntas frecuentes"
+   },
+   "InvalidArgument": {
+      "description": "",
+      "message": "Argumento no válido."
+   },
+   "InvalidGoogleSheetURL": {
+      "description": "",
+      "message": "URL de Googlesheet no válido"
+   },
+   "UserHaveNoWAAcount": {
+      "description": "",
+      "message": "El usuario no tiene cuenta de WA"
+   },
+   "WANumberIsNotValid": {
+      "description": "",
+      "message": "Número inválido"
+   },
+   "WANumberIsValid": {
+      "description": "",
+      "message": "Número de WhatsApp válido"
+   },
+   "addAttachmentButton": {
+      "description": "Add attachment button",
+      "message": "Añadir archivo adjunto"
+   },
+   "addBtn": {
+      "description": "",
+      "message": "Guardar"
+   },
+   "addCaption": {
+      "description": "Add attachment caption",
+      "message": "Añadir Subtítulo"
+   },
+   "addTextLabel": {
+      "description": "Add text label in template form",
+      "message": "Añadir texto"
+   },
+   "addTextToSendMsg": {
+      "description": "",
+      "message": "Añadir texto para enviar mensaje"
+   },
+   "addUnsubscribeInMessage": {
+      "description": "add unsubscribe option in messages checkbox label",
+      "message": "Añadir opción para anular suscripción"
+   },
+   "afterEachBatch": {
+      "description": "",
+      "message": "después de cada lote."
+   },
+   "allContacts": {
+      "description": "Label for select all contacts in WhatsApp import popup",
+      "message": "Todos los contactos"
+   },
+   "alreadyExistTitle": {
+      "description": "",
+      "message": "Ya existe una plantilla con este título"
+   },
+   "andWaitFor": {
+      "description": "",
+      "message": "mensajes y espera "
+   },
+   "appDescription": {
+      "description": "The description of the application",
+      "message": "Conéctese con sus clientes en WhatsApp."
+   },
+   "appName": {
+      "description": "The name of the application",
+      "message": "DootBuddy - Software de envío de mensajes de WA masivo"
+   },
+   "applyCode": {
+      "description": "",
+      "message": "Aplicar código"
+   },
+   "attachmentTypeDocument": {
+      "description": "Document attachment selector",
+      "message": "Documento"
+   },
+   "attachmentTypeImages": {
+      "description": "Image attachment selector",
+      "message": "Imagen"
+   },
+   "attachmentTypeVideo": {
+      "description": "Video attachment selector",
+      "message": "Video"
+   },
+   "availableMessages": {
+      "description": "Title of Message counter for free user in send message popup",
+      "message": "Mensajes disponibles {X}/{Y}"
+   },
+   "availableSegments": {
+      "description": "Title of 'Available segments' label in send message popup when clicked on 'saved segments'",
+      "message": "Segmentos disponibles"
+   },
+   "avoidBlocking500msgDay": {
+      "description": "",
+      "message": "no enviar más de 500 msj por día"
+   },
+   "avoidBlockingContactPeople": {
+      "description": "",
+      "message": "contactar a personas que quieren escuchar de usted"
+   },
+   "avoidBlockingLabel": {
+      "description": "",
+      "message": "Para evitar ser bloqueado recomendamos:"
+   },
+   "avoidBlockingUseBatchAndTimeGap": {
+      "description": "",
+      "message": "usar nuestras opciones de intervalo de tiempo y agrupar"
+   },
+   "badClientID": {
+      "description": "",
+      "message": "bad client id: APP_ID_OR_ORIGIN_NOT_MATCH"
+   },
+   "batching": {
+      "description": "send multiple messages in batch having some seconds delay",
+      "message": "Agrupar"
+   },
+   "becomePremiumMenu": {
+      "description": "Left side menu labled as 'Become Premium'",
+      "message": "Adquirir Premium"
+   },
+   "blockedLabel": {
+      "description": "",
+      "message": "Obstruido"
+   },
+   "buyPremium": {
+      "description": "Title of Buy Premium hyperlink in send message popup",
+      "message": "Adquirir Premium"
+   },
+   "buyPremiumForSegments": {
+      "description": "",
+      "message": "Compre premium para agregar más Segmentos."
+   },
+   "buyPremiumLabel": {
+      "description": "",
+      "message": "Adquirir Premium"
+   },
+   "buyPremiumLabelForAttachment": {
+      "description": "",
+      "message": "Adquiera Premium para añadir múltiples archivos adjuntos"
+   },
+   "buyPremiumNow": {
+      "description": "buy premium button",
+      "message": "Adquirir Premium ahora"
+   },
+   "cancelBtn": {
+      "description": "",
+      "message": "Cancelar"
+   },
+   "changePhoneNumberForPremiumCode": {
+      "description": "",
+      "message": "Si deseas cambiar tu número, por favor \u003Ca target=\"_blank\" href=\"{X}\">haz clic aquí\u003C/a>. Si necesita ayuda, comuníquese con nosotros por correo electrónico a \u003Ca href=\"mailto:{SUPPORT_EMAIL}\" target=\"_blank\">{SUPPORT_EMAIL}\u003C/a>"
+   },
+   "checkAndTryAgain": {
+      "description": "",
+      "message": "Por favor, revíselo e intente de nuevo."
+   },
+   "checkGoogleSheetURL": {
+      "description": "",
+      "message": "Verifique su URL de sheet"
+   },
+   "chooseContacts": {
+      "description": "Title of Choose contact accordion in send message popup",
+      "message": "Elegir destinatarios"
+   },
+   "clearAll": {
+      "description": "clear the selected contacts",
+      "message": "Eliminar todo"
+   },
+   "clearData": {
+      "description": "clear the message textarea",
+      "message": "Eliminar datos"
+   },
+   "codeChangeAlertNote": {
+      "description": "",
+      "message": "Si ingresa un nuevo código, se borrarán los \"Segmentos\" del contacto creados para el número {XXXX}. Te recomendamos usar diferentes perfiles de Chrome para diferentes números de WhatsApp."
+   },
+   "codeLinkedToOtherPhone": {
+      "description": "",
+      "message": "Su código está enlacado a otro número telefónico"
+   },
+   "codeRegisteredWithXPhoneNumber": {
+      "description": "",
+      "message": "El código ya está registrado con el número de teléfono {X}."
+   },
+   "codeRenewalPaymentFailed": {
+      "description": "",
+      "message": "¡Oops! Parece que tu pago de renovación ha fallado.."
+   },
+   "comingSoon": {
+      "description": "Title of Comming soon component",
+      "message": "Próximamente..."
+   },
+   "continueWithFree": {
+      "description": "",
+      "message": "Continuar con la versión gratuita"
+   },
+   "createNewSegmentButton": {
+      "description": "Create segment button",
+      "message": "Crear nuevos segmentos"
+   },
+   "createNewTemplateButton": {
+      "description": "Create template button",
+      "message": "Crear plantilla nueva"
+   },
+   "createTitleForSegment": {
+      "description": "",
+      "message": "Crear título para segmento"
+   },
+   "customizeYourMSG": {
+      "description": "",
+      "message": "Personaliza tu mensaje con:"
+   },
+   "delete": {
+      "description": "",
+      "message": "Eliminar"
+   },
+   "deleteConfirmationMessage": {
+      "description": "",
+      "message": "¿Está seguro de eliminar todo?"
+   },
+   "displayGroupButton": {
+      "description": "Display Group names",
+      "message": "Mostrar Grupo"
+   },
+   "doColumnContainNumber": {
+      "description": "",
+      "message": "Asegúrate de que la columna contenga números de teléfono."
+   },
+   "doneBtn": {
+      "description": "",
+      "message": "Hecho"
+   },
+   "downloadMessageSendingReport": {
+      "description": "",
+      "message": "Descargar informe"
+   },
+   "editTheTitle": {
+      "description": "Edit template popup title label",
+      "message": "Editar título"
+   },
+   "editTitle": {
+      "description": "Edit template popup title",
+      "message": "Editar"
+   },
+   "emptyContacts": {
+      "description": "",
+      "message": "sin contactos"
+   },
+   "enterCode": {
+      "description": "",
+      "message": "Ingresar código"
+   },
+   "enterCodeForNew": {
+      "description": "",
+      "message": "Ingrese su código para {XXXX}"
+   },
+   "enterToAddContacts": {
+      "description": "",
+      "message": "Presione ENTER una vez que haya terminado de agregar sus contactos"
+   },
+   "enteredContacts": {
+      "description": "",
+      "message": "{X} contactos elegidos"
+   },
+   "errorWhileReadingData": {
+      "description": "",
+      "message": "Hay un problema al leer los datos."
+   },
+   "fileFormatIssue": {
+      "description": "",
+      "message": "Parece que hay problemas en el formateo de archivos. Consultar detalles y cambiar."
+   },
+   "fileSizeExceeded": {
+      "description": "",
+      "message": "Por favor, cargue un archivo de menos de 5 MB"
+   },
+   "finishYourRenewalPayment": {
+      "description": "",
+      "message": "Para volver a su suscripción premium lo antes posible, finalice el procesamiento de su pago de renovación. Si es un cliente indio, ha recibido un correo electrónico para finalizar el pago a través de la autenticación 3D Secure. De lo contrario, contáctenos por correo electrónico o WhatsApp y lo ayudaremos."
+   },
+   "firstTimePopupHeading": {
+      "description": "",
+      "message": "¡Hola!👋"
+   },
+   "firstTimePopupHeading1Label": {
+      "description": "",
+      "message": "Envíe mensajes a personas que realmente quieran saber de usted."
+   },
+   "firstTimePopupHeading1Message": {
+      "description": "",
+      "message": "Si muchas personas no están interesadas en lo que ofrece, lo marcarán como spam en Whatsapp, por lo que lo bloquearán."
+   },
+   "firstTimePopupHeading2Label": {
+      "description": "",
+      "message": "Envíe un máximo de 500 mensajes por día por número telefónico. "
+   },
+   "firstTimePopupHeading2Message": {
+      "description": "",
+      "message": "Si necesita enviar más de 500 mensajes, debería adquirir múltiples códigos y utilizarlos con múltiples números telefónicos. Si su número es nuevo, debe comenzar con solo 50 mensajes, y avanzar lentamente a 500 mensajes en pocas semanas. "
+   },
+   "firstTimePopupHeading3Label": {
+      "description": "",
+      "message": "Use nuestras funciones \"Intervalo de tiempo\" y \"Agrupación\"."
+   },
+   "firstTimePopupHeading3Message": {
+      "description": "",
+      "message": "De esta manera el algoritmo de Whatsapp no lo marcará y bloqueará. Aprenda a utilizarlos en este video."
+   },
+   "firstTimePopupSubHeading": {
+      "description": "",
+      "message": "Antes de comenzar preste atención a estos pasos para evitar que su número sea bloqueado:"
+   },
+   "forPremiumUser": {
+      "description": "",
+      "message": "Para Usuario Premium..."
+   },
+   "freeSegmentsLimitExceeded": {
+      "description": "",
+      "message": "Te has quedado sin límite de segmentos gratuitos"
+   },
+   "getPremiumBeforeBtnLabel1": {
+      "description": "",
+      "message": "Conviértase en Premium"
+   },
+   "getPremiumBeforeBtnLabel2": {
+      "description": "",
+      "message": "para tener acceso a las mejores funciones"
+   },
+   "getPremiumBtn": {
+      "description": "",
+      "message": "Obtener Premium"
+   },
+   "goToPayment": {
+      "description": "'Go to payment' button in send message",
+      "message": "Ir al pago"
+   },
+   "googleSheet": {
+      "description": "Title of 'Google Sheet' button in send message popup",
+      "message": "Google Sheet"
+   },
+   "googleSheetImportButton": {
+      "description": "Title of 'Google Sheet import' (Use) button in send message popup",
+      "message": "Utilizar"
+   },
+   "googleSheetPhoneNoColumnLabel": {
+      "description": "",
+      "message": "Columna con números de teléfono"
+   },
+   "imageCaptionPlaceholder": {
+      "description": "",
+      "message": "Ingresar Subtítulo"
+   },
+   "importContacts": {
+      "description": "Label for importing selected contacts from WhatsApp import popup to segment",
+      "message": "Importar contactos"
+   },
+   "importFromCRM": {
+      "description": "Title of 'Import from CRM' button in send message popup",
+      "message": "Importar de CRM"
+   },
+   "inValidCode": {
+      "description": "",
+      "message": "Su código es inválido"
+   },
+   "inactiveCode": {
+      "description": "",
+      "message": "Su código está inactivo"
+   },
+   "invalidContactRemovalConfirmation": {
+      "description": "",
+      "message": "¿Le gustaría eliminar los números inválidos ({X})? "
+   },
+   "invalidDetails": {
+      "description": "",
+      "message": "Detalles no válidos"
+   },
+   "invalidGoogleSheetURL": {
+      "description": "",
+      "message": "Se proporciona un google sheet id no válido"
+   },
+   "kindlyProvideContacts": {
+      "description": "",
+      "message": "Por favor proporcione algunos contactos"
+   },
+   "landingPageMenu": {
+      "description": "Left side menu labled as 'Landing Page'",
+      "message": "Página de destino"
+   },
+   "learnAboutPremium": {
+      "description": "",
+      "message": "Conocer más acerca de Premium"
+   },
+   "leaveUnChangedButton": {
+      "description": "",
+      "message": "No hacer cambios"
+   },
+   "likingOurExtension": {
+      "description": "",
+      "message": "Califique su experiencia"
+   },
+   "locale": {
+      "description": "",
+      "message": "es"
+   },
+   "manageYourTemplatesLabel": {
+      "description": "Templates Popup sub-heading",
+      "message": "Administra tus plantillas"
+   },
+   "manualTyping": {
+      "description": "Title of 'Manual Typing' button in send message popup",
+      "message": "Ingresar manualmente"
+   },
+   "messagePreviewLabel": {
+      "description": "",
+      "message": "Vista previa del mensaje"
+   },
+   "messageSendingStatusNumberInvalid": {
+      "description": "",
+      "message": "Inválido"
+   },
+   "messageSendingStatusPause": {
+      "description": "",
+      "message": "Pausar"
+   },
+   "messageSendingStatusPending": {
+      "description": "",
+      "message": "Pendiente..."
+   },
+   "messageSendingStatusSent": {
+      "description": "",
+      "message": "Enviado"
+   },
+   "messageSendingStatusStopping": {
+      "description": "",
+      "message": "Parada..."
+   },
+   "messageSendingStatusUserUnsubscribed": {
+      "description": "",
+      "message": "no suscrito"
+   },
+   "messageSendingTitle": {
+      "description": "Title of Message Sending Box",
+      "message": "Enviar mensajes"
+   },
+   "messageSentLabel": {
+      "description": "",
+      "message": "Mensajes enviados"
+   },
+   "messageSentToXContactsInYMin": {
+      "description": "",
+      "message": "El mensaje se enviará a {X} contactos. Tomará {Y} min aprox."
+   },
+   "messageToXContacts": {
+      "description": "Subtitle of 'Choose contact' accordion in send message popup",
+      "message": "Enviará mensajes a {X} contactos"
+   },
+   "moreContacts": {
+      "description": "",
+      "message": "{X} contactos"
+   },
+   "msgOnWhatsApp": {
+      "description": "",
+      "message": "Envíanos un mensaje por WhatsApp"
+   },
+   "msgPendingToXContacts": {
+      "description": "",
+      "message": "Pendiente: {x} contactos"
+   },
+   "msgSentErrorToXContacts": {
+      "description": "",
+      "message": "Error en envío: {X} contactos"
+   },
+   "msgSentSuccessToXContacts": {
+      "description": "",
+      "message": "Mensajes enviados con éxito a {X} contactos"
+   },
+   "msgSentToXContacts": {
+      "description": "",
+      "message": "Envío exitoso:: {X} contactos"
+   },
+   "msgUnSubscribeToXContacts": {
+      "description": "",
+      "message": "Suscripción cancelada: {X} contactos"
+   },
+   "noDataAvailable": {
+      "description": "",
+      "message": "No hay datos disponibles"
+   },
+   "noSheetInGoogleSheet": {
+      "description": "",
+      "message": "No hay hoja presente en google sheet"
+   },
+   "noTemplates": {
+      "description": "zero template message",
+      "message": "Sin Plantillas"
+   },
+   "notPaidForPremium": {
+      "description": "",
+      "message": "Parece que no pagó por Premium,"
+   },
+   "noteLabel": {
+      "description": "",
+      "message": "Nota: "
+   },
+   "okButton": {
+      "description": "ok button in alert popup",
+      "message": "OK"
+   },
+   "or": {
+      "description": "",
+      "message": " o "
+   },
+   "othersPlaceholderLabel": {
+      "description": "CRM Others option",
+      "message": "Otros"
+   },
+   "paidAccountSentMessages": {
+      "description": "",
+      "message": "Mensajes enviados: {X}"
+   },
+   "pasteGoogleSheetURL": {
+      "description": "Title of 'Paste Google Sheet URL' input field placeholder in send message popup",
+      "message": "Pegar URL de Google Sheet"
+   },
+   "phoneNumberWithCountryCode": {
+      "description": "",
+      "message": "número de teléfono con códigos de país."
+   },
+   "phoneNumberWithNoCountryCode": {
+      "description": "",
+      "message": "Hay {X} número de teléfono sin códigos de país."
+   },
+   "phoneNumbersHeading": {
+      "description": "",
+      "message": "Números telefónicos"
+   },
+   "pleaseEnterValueInTextbox": {
+      "description": "",
+      "message": "Por favor ingrese algún valor en el cuadro de texto."
+   },
+   "pleaseSelectAnyCRMOption": {
+      "description": "",
+      "message": "Seleccione cualquier opción."
+   },
+   "premiumCode": {
+      "description": "Title of Premium Code",
+      "message": "Código Premium"
+   },
+   "premiumFeature1": {
+      "description": "",
+      "message": "Envíe mensajes de WhatsApp ilimitados sus clientes."
+   },
+   "premiumFeature10": {
+      "description": "",
+      "message": "Soporte de clase mundial a través de video, correo electrónico y Zoom."
+   },
+   "premiumFeature2": {
+      "description": "",
+      "message": "Elimine la marca de DootBuddy."
+   },
+   "premiumFeature3": {
+      "description": "",
+      "message": "Envíe mensajes personalizados a sus clientes cargando un archivo de Excel y seleccionando personalización en DootBuddy."
+   },
+   "premiumFeature4": {
+      "description": "",
+      "message": "Envíe imágenes, video, audio y archivos adjuntos."
+   },
+   "premiumFeature5": {
+      "description": "",
+      "message": "Establezca un intervalo de tiempo entre cada mensaje para disminuir las probablidades de lo bloqueen."
+   },
+   "premiumFeature6": {
+      "description": "",
+      "message": "Función para agrupar números y enviar mensajes de WhatsApp en diferentes momentos del día con solo un clic.  "
+   },
+   "premiumFeature7": {
+      "description": "",
+      "message": "Proporcione a sus clientes la opción de anular suscripción, para evitar que lo reporten como spam y evitar que su número sea bloqueado por WhatsApp."
+   },
+   "premiumFeature8": {
+      "description": "",
+      "message": "Descargue contactos de grupos de WhatsApp ilimitados en un archivo Excel."
+   },
+   "premiumFeature9": {
+      "description": "",
+      "message": "Descargue informes de entrega para un mejor análisis de sus campañas de Whatsapp."
+   },
+   "premiumFeaturesLabel": {
+      "description": "",
+      "message": "Funciones Premium"
+   },
+   "premiumPurchasedEnterCode": {
+      "description": "Already bought Premium? Enter your code below",
+      "message": "¿Ya adquiró Premium? Ingrese su código a continuación"
+   },
+   "premiumTitle": {
+      "description": "Title of Premium Box",
+      "message": "Prima"
+   },
+   "problemReading": {
+      "description": "",
+      "message": "Hay un problema en la lectura."
+   },
+   "purchaseOneOfPremiumMembership": {
+      "description": "",
+      "message": "Para continuar usando DootBuddy por favor \u003Ca target=\"_blank\" href=\"{X}\">haga clic aquí\u003C/a>. para suscribirse a una de nuestras membresías premium."
+   },
+   "random": {
+      "description": "random time delay in sending message (time gap option)",
+      "message": "aleatorio"
+   },
+   "removeButton": {
+      "description": "",
+      "message": "Eliminar"
+   },
+   "resumeLabel": {
+      "description": "",
+      "message": "Reanudar"
+   },
+   "reviewUs": {
+      "description": "",
+      "message": "Enviar valoración"
+   },
+   "saveAsSegment": {
+      "description": "",
+      "message": "Guardar como segmento "
+   },
+   "saveButton": {
+      "description": "save button",
+      "message": "Guardar"
+   },
+   "saveTheTitle": {
+      "description": "new template popup title label",
+      "message": "Título de plantilla"
+   },
+   "saveTitle": {
+      "description": "New template popup title",
+      "message": "Añadir nueva Plantilla"
+   },
+   "savedSegments": {
+      "description": "Title of 'Saved Segments' button in send message popup",
+      "message": "Segmentos guardados"
+   },
+   "segmentCreationEmptyTitleErrorMessage": {
+      "description": "Segment creation popup empty title input error",
+      "message": "Por favor, introduzca el valor en el título del segmento."
+   },
+   "segmentCreationNumberInputLabel": {
+      "description": "Segment creation popup number input label",
+      "message": "Añadir números"
+   },
+   "segmentCreationPopupHeading": {
+      "description": "Segment creation popup heading",
+      "message": "Creación de segmento"
+   },
+   "segmentCreationTitleInputErrorMessage": {
+      "description": "Segment creation popup title input error",
+      "message": "Por favor, crear título"
+   },
+   "segmentCreationTitleInputLabel": {
+      "description": "Segment creation popup title input label",
+      "message": "Creación de un título"
+   },
+   "segmentDeleteConfirmationMessage": {
+      "description": "Segment confirmation message on delete operation",
+      "message": "¿Está seguro de eliminar este segmento?"
+   },
+   "segmentsLabel": {
+      "description": "Menu name segment and popup heading for segment list",
+      "message": "Segmentos"
+   },
+   "selectAll": {
+      "description": "Label for select all contacts in WhatsApp import popup",
+      "message": "Seleccionar todo"
+   },
+   "sendBtn": {
+      "description": "",
+      "message": "Enviar"
+   },
+   "sendEveryMsgWithTimeDelay": {
+      "description": "",
+      "message": "Envía cada mensaje con un intervalo de tiempo de"
+   },
+   "sendInBatchOf": {
+      "description": "",
+      "message": "Envía un lote de "
+   },
+   "sendUsEmailLabel": {
+      "description": "Contact us using Email",
+      "message": "Envíenos un correo electrónico"
+   },
+   "sheetColumnLabel": {
+      "description": "",
+      "message": "Sheet Columna"
+   },
+   "sheetColumnTitleLabel": {
+      "description": "",
+      "message": "Título de la Columna"
+   },
+   "sheetHasColumnName": {
+      "description": "",
+      "message": "Archivo tiene un nombre de columna."
+   },
+   "sheetHasNoColumnName": {
+      "description": "",
+      "message": "El archivo no tiene un nombre de columna."
+   },
+   "sheetHaveDuplicateNumbers": {
+      "description": "",
+      "message": "Se encontraron números duplicados."
+   },
+   "sheetHaveEmptyLines": {
+      "description": "",
+      "message": "Hay {X} líneas vacías entre números."
+   },
+   "sheetHaveNoDuplicateNumbers": {
+      "description": "",
+      "message": "No se encontraron números duplicados."
+   },
+   "sheetHaveNoEmptyLines": {
+      "description": "",
+      "message": "Sin líneas vacías entre números."
+   },
+   "sheetNotVerified": {
+      "description": "",
+      "message": "Sheet no verificada"
+   },
+   "sheetTabLabel": {
+      "description": "",
+      "message": "Sheet Pestaña"
+   },
+   "sheetTitleLabel": {
+      "description": "",
+      "message": "Sheet título: "
+   },
+   "sheetTotalContacts": {
+      "description": "",
+      "message": "Luce bien. {X} contactos seleccionados."
+   },
+   "skipBtn": {
+      "description": "",
+      "message": "Saltar"
+   },
+   "startMessagingButton": {
+      "description": "start messages to selected number with enter message and time gap in batch",
+      "message": "Iniciar mensajería"
+   },
+   "startTypingOrPasteNumbers": {
+      "description": "Title of 'Start typing or paste numbers' input field placeholder in send message popup",
+      "message": "Empezar a escribir o pegar números"
+   },
+   "stopSendingBtn": {
+      "description": "",
+      "message": "Anular envío"
+   },
+   "supportMenu": {
+      "description": "Left side menu labled as 'Support'",
+      "message": "Soporte"
+   },
+   "supportMenuPopupHeading": {
+      "description": "Supprt menu popup heading",
+      "message": "¿Tiene preguntas? Elija un método para contactarnos👇"
+   },
+   "tableHeadingMessage": {
+      "description": "",
+      "message": "Mensaje"
+   },
+   "tableHeadingPhone": {
+      "description": "",
+      "message": "Teléfono"
+   },
+   "tableHeadingStatus": {
+      "description": "",
+      "message": "Estatus"
+   },
+   "templateDeleteConfirmationMessage": {
+      "description": "Template confirmation message on delete operation",
+      "message": "¿Está seguro de eliminar este plantilla?"
+   },
+   "templateSavingError": {
+      "description": "",
+      "message": "Hay un error al guardar las plantillas."
+   },
+   "templateTextEmpty": {
+      "description": "",
+      "message": "Añadir texto al texto de plantilla"
+   },
+   "templateTitleEmpty": {
+      "description": "",
+      "message": "Añadir texto al título de la plantilla"
+   },
+   "templatesLabel": {
+      "description": "Menu name Templates and popup heading for Templates list",
+      "message": "Plantillas"
+   },
+   "textMessage": {
+      "description": "Label for second accordion in send message popup",
+      "message": "Mensaje de texto"
+   },
+   "timeGap": {
+      "description": "add time gap in seconds between 2 messages",
+      "message": "Intervalo de tiempo"
+   },
+   "timeInSeconds": {
+      "description": "",
+      "message": "segundos"
+   },
+   "timeLeftForSendingMessageToComplete": {
+      "description": "",
+      "message": "{X} min restantes"
+   },
+   "titleLabel": {
+      "description": "",
+      "message": "título: "
+   },
+   "to": {
+      "description": "",
+      "message": " a "
+   },
+   "trailEndMsg": {
+      "description": "",
+      "message": "Su prueba gratuita ha finalizado."
+   },
+   "typeTextPlaceholder": {
+      "description": "",
+      "message": "Ingresar texto..."
+   },
+   "unSelectAll": {
+      "description": "Label for select all contacts in WhatsApp import popup",
+      "message": "Deseleccionar todo"
+   },
+   "unsubscribeMessage": {
+      "description": "",
+      "message": "Puede darse de baja de futuros mensajes respondiendo UNSUBSCRIBE aquí."
+   },
+   "uploadExcel": {
+      "description": "Title of 'Upload Excel' button in send message popup",
+      "message": "Cargar Excel"
+   },
+   "uploadOneTypeOfAttachment": {
+      "description": "",
+      "message": "tipo de archivo adjunto"
+   },
+   "uploadOneTypeOfDocs": {
+      "description": "",
+      "message": "Solo puede cargar un"
+   },
+   "verifySheet": {
+      "description": "",
+      "message": "Verificar"
+   },
+   "watchDemoMenu": {
+      "description": "Left side menu labled as 'Watch demo'",
+      "message": "Ver demo"
+   },
+   "whatsAppImport": {
+      "description": "Title of 'WhatsApp Import' button in send message popup",
+      "message": "importar desde WhatsApp"
+   },
+   "xContactsFoundInWhatsAppContacts": {
+      "description": "Sub Title of 'WhatsApp import' popup",
+      "message": "{X} Contactos encontrados en sus contactos de WhatsApp"
+   },
+   "xMessagesLeftBecomePremiumMember": {
+      "description": "",
+      "message": "Quedan {X} mensajes. ¡Conviértase en Premium para aumentar el número de mensajes y desbloquear nuevas funciones!"
+   },
+   "xMore": {
+      "description": "",
+      "message": "+{X} más"
+   },
+   "zeroDemoVideo": {
+      "description": "",
+      "message": "No se encontró ningún video de demostración"
+   }
+}

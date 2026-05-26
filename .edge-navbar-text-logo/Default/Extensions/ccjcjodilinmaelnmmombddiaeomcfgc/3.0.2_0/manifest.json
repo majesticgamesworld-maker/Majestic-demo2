@@ -1,0 +1,63 @@
+{
+   "action": {
+      "default_icon": {
+         "19": "images/19.png",
+         "38": "images/38.png"
+      },
+      "default_popup": "popup.html",
+      "default_title": "__MSG_name__"
+   },
+   "background": {
+      "service_worker": "scripts/background/background.js",
+      "type": "module"
+   },
+   "commands": {
+      "next": {
+         "description": "__MSG_next__",
+         "global": true,
+         "suggested_key": {
+            "default": "Ctrl+Shift+0",
+            "mac": "Command+Shift+0"
+         }
+      },
+      "playpause": {
+         "description": "__MSG_playpause__",
+         "global": true,
+         "suggested_key": {
+            "default": "Ctrl+Shift+8",
+            "mac": "Command+Shift+8"
+         }
+      },
+      "prev": {
+         "description": "__MSG_prev__",
+         "global": true,
+         "suggested_key": {
+            "default": "Ctrl+Shift+9",
+            "mac": "Command+Shift+9"
+         }
+      },
+      "volumedown": {
+         "description": "__MSG_volumedown__"
+      },
+      "volumeup": {
+         "description": "__MSG_volumeup__"
+      }
+   },
+   "default_locale": "en",
+   "description": "__MSG_description__",
+   "host_permissions": [ "\u003Call_urls>" ],
+   "icons": {
+      "128": "images/icon.png",
+      "16": "images/16.png",
+      "19": "images/19.png",
+      "38": "images/48.png",
+      "48": "images/48.png"
+   },
+   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCKr+eZqxn08dPdi7hxCYB13oHjwzYck0Sn0JG83R087jIX09a43t6DuQ5dBoSkAH5RwWDW6nZPidCap6GKpx9hhPx33gRPlzSGPaCpJIUfp1jw2HRyXrWaJ9CUy9vZFoYj4JPqPN45pSQk8X/r0Bn0Co+mTDBmbkCn/5SvMs9YbQIDAQAB",
+   "manifest_version": 3,
+   "name": "__MSG_name__",
+   "options_page": "options.html",
+   "permissions": [ "tabs", "offscreen", "storage", "declarativeNetRequest" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "3.0.2"
+}

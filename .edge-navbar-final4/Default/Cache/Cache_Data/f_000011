@@ -1,0 +1,1439 @@
+/* Final desktop-only Majestic Buddy revamp. Loaded last on purpose. */
+@media (min-width: 1024px) {
+  html body[data-page="home"] .game-finder-section {
+    padding: 48px 0 54px !important;
+    background:
+      radial-gradient(circle at 14% 8%, rgba(255,255,255,0.88), transparent 28%),
+      linear-gradient(180deg, #fffdf8 0%, #f1e7d8 100%) !important;
+  }
+
+  html body[data-page="home"] .game-finder-section > .container {
+    position: relative !important;
+    display: block !important;
+    width: min(calc(100% - 64px), 1320px) !important;
+    max-width: 1320px !important;
+    min-height: 1020px !important;
+    margin-inline: auto !important;
+    padding: 58px 58px 150px !important;
+    border: 2px solid rgba(221,159,37,0.9) !important;
+    border-radius: 30px !important;
+    background:
+      radial-gradient(circle at 16% 28%, rgba(231,171,44,0.18), transparent 25%),
+      radial-gradient(circle at 74% 0%, rgba(255,255,255,0.07), transparent 28%),
+      linear-gradient(135deg, #111414 0%, #050707 60%, #111414 100%) !important;
+    box-shadow: 0 30px 64px rgba(26,16,5,0.3), inset 0 1px 0 rgba(255,255,255,0.08) !important;
+    color: #fff !important;
+    overflow: hidden !important;
+  }
+
+  html body[data-page="home"] .game-finder-section > .container::before {
+    content: "" !important;
+    position: absolute !important;
+    left: -80px !important;
+    top: 70px !important;
+    width: 500px !important;
+    height: 500px !important;
+    border-radius: 50% !important;
+    background: radial-gradient(circle, rgba(231,171,44,0.24), rgba(231,171,44,0.08) 42%, transparent 70%) !important;
+    filter: blur(6px) !important;
+    pointer-events: none !important;
+  }
+
+  html body[data-page="home"] .buddy-reference-hero {
+    position: relative !important;
+    z-index: 2 !important;
+    display: block !important;
+    min-height: 318px !important;
+    margin: 0 !important;
+    text-align: center !important;
+  }
+
+  html body[data-page="home"] .buddy-reference-intro {
+    position: absolute !important;
+    left: 22px !important;
+    top: 38px !important;
+    z-index: 4 !important;
+    display: block !important;
+    width: min(342px, 28vw) !important;
+    pointer-events: none !important;
+  }
+
+  html body[data-page="home"] .buddy-reference-mascot {
+    width: 100% !important;
+    max-height: 430px !important;
+    object-fit: contain !important;
+    transform: none !important;
+    filter: drop-shadow(0 28px 34px rgba(0,0,0,0.48)) !important;
+  }
+
+  html body[data-page="home"] .buddy-reference-bubble,
+  html body[data-page="home"] .buddy-reference-ai-card,
+  html body[data-page="home"] .buddy-reference-stepper,
+  html body[data-page="home"] .buddy-reference-side,
+  html body[data-page="home"] .buddy-picks-panel,
+  html body[data-page="home"] .buddy-panel-heading,
+  html body[data-page="home"] .finder-audience-options,
+  html body[data-page="home"] .finder-audience-stage .buddy-choice-panel > .finder-question {
+    display: none !important;
+  }
+
+  html body[data-page="home"] .buddy-reference-title {
+    position: relative !important;
+    z-index: 5 !important;
+    display: grid !important;
+    justify-items: center !important;
+    width: min(760px, calc(100% - 420px)) !important;
+    max-width: 760px !important;
+    margin: 0 0 0 auto !important;
+    padding: 0 !important;
+    text-align: center !important;
+  }
+
+  html body[data-page="home"] .buddy-reference-title .finder-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 420px !important;
+    min-height: 76px !important;
+    margin: 0 0 34px !important;
+    padding: 0 38px !important;
+    border: 2px solid rgba(221,159,37,0.8) !important;
+    border-radius: 999px !important;
+    background: linear-gradient(180deg, #fffaf1, #eadcc2) !important;
+    color: #dfa321 !important;
+    font-family: "Fredoka", "Plus Jakarta Sans", system-ui, sans-serif !important;
+    font-size: 1.78rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.03em !important;
+    text-transform: uppercase !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.92), 0 14px 28px rgba(0,0,0,0.22) !important;
+  }
+
+  html body[data-page="home"] .buddy-reference-title .finder-badge::before,
+  html body[data-page="home"] .buddy-reference-title .finder-title em,
+  html body[data-page="home"] .buddy-reference-title .finder-subtitle::before,
+  html body[data-page="home"] .buddy-reference-title .finder-subtitle::after,
+  html body[data-page="home"] .buddy-reference-title small {
+    display: none !important;
+  }
+
+  html body[data-page="home"] .buddy-reference-title .finder-title {
+    width: 100% !important;
+    max-width: 760px !important;
+    margin: 0 !important;
+    color: #fff !important;
+    font-family: "Fredoka", "Plus Jakarta Sans", system-ui, sans-serif !important;
+    font-size: clamp(3.25rem, 4.4vw, 4.85rem) !important;
+    font-weight: 800 !important;
+    line-height: 1.02 !important;
+    letter-spacing: 0 !important;
+    white-space: normal !important;
+    text-align: center !important;
+    text-shadow: 0 5px 18px rgba(0,0,0,0.5) !important;
+  }
+
+  html body[data-page="home"] .buddy-reference-title .finder-title span {
+    color: #efb329 !important;
+  }
+
+  html body[data-page="home"] .buddy-reference-title .finder-subtitle {
+    display: block !important;
+    max-width: 720px !important;
+    margin: 32px auto 0 !important;
+    color: rgba(255,255,255,0.92) !important;
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif !important;
+    font-size: clamp(1.34rem, 1.72vw, 1.72rem) !important;
+    font-weight: 600 !important;
+    line-height: 1.5 !important;
+  }
+
+  html body[data-page="home"] .buddy-reference-grid,
+  html body[data-page="home"] .finder-audience-stage.buddy-start-shell,
+  html body[data-page="home"] .buddy-start-shell,
+  html body[data-page="home"] .buddy-choice-panel {
+    position: relative !important;
+    z-index: 6 !important;
+    display: block !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  html body[data-page="home"] .buddy-filter-row {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 26px 30px !important;
+    width: min(100%, 1120px) !important;
+    max-width: 1120px !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    border: 0 !important;
+  }
+
+  html body[data-page="home"] .buddy-filter-row label {
+    position: relative !important;
+    display: grid !important;
+    grid-template-columns: 74px minmax(0, 1fr) 30px !important;
+    grid-template-rows: auto auto !important;
+    column-gap: 18px !important;
+    align-items: center !important;
+    min-height: 126px !important;
+    padding: 22px 26px !important;
+    border: 1.5px solid rgba(226,165,39,0.72) !important;
+    border-radius: 17px !important;
+    background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015)) !important;
+    color: #fff !important;
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif !important;
+    font-size: 1.55rem !important;
+    font-weight: 800 !important;
+    line-height: 1.08 !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.06) !important;
+    overflow: hidden !important;
+  }
+
+  html body[data-page="home"] .buddy-filter-row label::before {
+    content: "" !important;
+    grid-row: 1 / 3 !important;
+    display: block !important;
+    width: 52px !important;
+    height: 52px !important;
+    align-self: center !important;
+    background-color: #e6a824 !important;
+    mask-repeat: no-repeat !important;
+    mask-position: center !important;
+    mask-size: contain !important;
+    -webkit-mask-repeat: no-repeat !important;
+    -webkit-mask-position: center !important;
+    -webkit-mask-size: contain !important;
+  }
+
+  html body[data-page="home"] .buddy-filter-row label:nth-child(1)::before { mask-image: url("images/buddy-icons/players.svg") !important; -webkit-mask-image: url("images/buddy-icons/players.svg") !important; }
+  html body[data-page="home"] .buddy-filter-row label:nth-child(2)::before { mask-image: url("images/buddy-icons/age.svg") !important; -webkit-mask-image: url("images/buddy-icons/age.svg") !important; }
+  html body[data-page="home"] .buddy-filter-row label:nth-child(3)::before { mask-image: url("images/buddy-icons/occasion.svg") !important; -webkit-mask-image: url("images/buddy-icons/occasion.svg") !important; }
+  html body[data-page="home"] .buddy-filter-row label:nth-child(4)::before { mask-image: url("images/buddy-icons/budget.svg") !important; -webkit-mask-image: url("images/buddy-icons/budget.svg") !important; }
+  html body[data-page="home"] .buddy-filter-row label:nth-child(5)::before { mask-image: url("images/buddy-icons/game-type.svg") !important; -webkit-mask-image: url("images/buddy-icons/game-type.svg") !important; }
+  html body[data-page="home"] .buddy-filter-row label:nth-child(6)::before { mask-image: url("images/buddy-icons/playtime.svg") !important; -webkit-mask-image: url("images/buddy-icons/playtime.svg") !important; }
+
+  html body[data-page="home"] .buddy-filter-row label::after {
+    content: "" !important;
+    grid-column: 3 !important;
+    grid-row: 1 / 3 !important;
+    width: 18px !important;
+    height: 18px !important;
+    align-self: center !important;
+    justify-self: end !important;
+    border-right: 4px solid #fff !important;
+    border-bottom: 4px solid #fff !important;
+    transform: rotate(45deg) translateY(-3px) !important;
+  }
+
+  html body[data-page="home"] .buddy-filter-row select {
+    grid-column: 2 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 34px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    color: rgba(255,255,255,0.76) !important;
+    font: inherit !important;
+    font-size: 1.22rem !important;
+    font-weight: 500 !important;
+    line-height: 1.2 !important;
+    appearance: none !important;
+    outline: none !important;
+    cursor: pointer !important;
+    color-scheme: dark !important;
+  }
+
+  html body[data-page="home"] .buddy-filter-row select option {
+    background: #111414 !important;
+    color: #fff !important;
+  }
+
+  html body[data-page="home"] .buddy-find-btn {
+    grid-column: 1 / -1 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 28px !important;
+    width: 100% !important;
+    min-height: 96px !important;
+    margin: 6px 0 0 !important;
+    padding: 0 38px !important;
+    border: 0 !important;
+    border-radius: 18px !important;
+    background: linear-gradient(90deg, #d99b1e 0%, #f6c54f 48%, #d99b1e 100%) !important;
+    color: #fff !important;
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif !important;
+    font-size: clamp(1.45rem, 1.85vw, 1.85rem) !important;
+    font-weight: 900 !important;
+    letter-spacing: 0.02em !important;
+    text-transform: uppercase !important;
+    box-shadow: 0 18px 30px rgba(215,154,30,0.28), inset 0 1px 0 rgba(255,255,255,0.36) !important;
+    cursor: pointer !important;
+  }
+
+  html body[data-page="home"] .buddy-find-spark,
+  html body[data-page="home"] .buddy-find-arrow {
+    display: inline-block !important;
+    flex: 0 0 auto !important;
+    width: 34px !important;
+    height: 34px !important;
+    background: #fff !important;
+    mask-repeat: no-repeat !important;
+    mask-position: center !important;
+    mask-size: contain !important;
+    -webkit-mask-repeat: no-repeat !important;
+    -webkit-mask-position: center !important;
+    -webkit-mask-size: contain !important;
+  }
+
+  html body[data-page="home"] .buddy-find-spark {
+    mask-image: url("images/buddy-icons/star.svg") !important;
+    -webkit-mask-image: url("images/buddy-icons/star.svg") !important;
+  }
+
+  html body[data-page="home"] .buddy-find-arrow {
+    mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M38.5 13.7 57 32 38.5 50.3l-4.2-4.2L45.5 35H8v-6h37.5L34.3 17.9l4.2-4.2Z'/%3E%3C/svg%3E") !important;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M38.5 13.7 57 32 38.5 50.3l-4.2-4.2L45.5 35H8v-6h37.5L34.3 17.9l4.2-4.2Z'/%3E%3C/svg%3E") !important;
+  }
+
+  html body[data-page="home"] .buddy-benefit-rail {
+    position: relative !important;
+    z-index: 7 !important;
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 0 !important;
+    width: 100% !important;
+    max-width: 1120px !important;
+    margin: 34px auto 0 !important;
+    padding: 30px 0 0 !important;
+    border: 0 !important;
+    border-top: 1px solid rgba(255,255,255,0.28) !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    color: rgba(255,255,255,0.82) !important;
+    font-size: 1.2rem !important;
+    font-weight: 800 !important;
+    line-height: 1.25 !important;
+  }
+
+  html body[data-page="home"] .buddy-benefit-rail span {
+    display: grid !important;
+    justify-items: center !important;
+    gap: 16px !important;
+    min-height: 126px !important;
+    padding: 0 32px !important;
+    text-align: center !important;
+  }
+
+  html body[data-page="home"] .buddy-benefit-rail span + span {
+    border-left: 1px solid rgba(255,255,255,0.18) !important;
+  }
+
+  html body[data-page="home"] .buddy-benefit-rail span::before {
+    content: "" !important;
+    display: block !important;
+    width: 48px !important;
+    height: 48px !important;
+    margin: 0 !important;
+    background-color: #e6a824 !important;
+    mask-repeat: no-repeat !important;
+    mask-position: center !important;
+    mask-size: contain !important;
+    -webkit-mask-repeat: no-repeat !important;
+    -webkit-mask-position: center !important;
+    -webkit-mask-size: contain !important;
+  }
+
+  html body[data-page="home"] .buddy-benefit-rail span:nth-child(1)::before { mask-image: url("images/buddy-icons/rocket.svg") !important; -webkit-mask-image: url("images/buddy-icons/rocket.svg") !important; }
+  html body[data-page="home"] .buddy-benefit-rail span:nth-child(2)::before { mask-image: url("images/buddy-icons/shield.svg") !important; -webkit-mask-image: url("images/buddy-icons/shield.svg") !important; }
+  html body[data-page="home"] .buddy-benefit-rail span:nth-child(3)::before { mask-image: url("images/buddy-icons/gift.svg") !important; -webkit-mask-image: url("images/buddy-icons/gift.svg") !important; }
+  html body[data-page="home"] .buddy-benefit-rail span:nth-child(4)::before { mask-image: url("images/buddy-icons/star.svg") !important; -webkit-mask-image: url("images/buddy-icons/star.svg") !important; }
+}
+
+@media (min-width: 1024px) and (max-width: 1220px) {
+  html body[data-page="home"] .game-finder-section > .container {
+    padding-inline: 34px !important;
+  }
+
+  html body[data-page="home"] .buddy-reference-intro {
+    width: 250px !important;
+  }
+
+  html body[data-page="home"] .buddy-reference-title {
+    width: min(720px, calc(100% - 300px)) !important;
+  }
+
+  html body[data-page="home"] .buddy-filter-row label {
+    grid-template-columns: 58px minmax(0, 1fr) 22px !important;
+    min-height: 110px !important;
+    padding: 18px 20px !important;
+    font-size: 1.22rem !important;
+  }
+
+  html body[data-page="home"] .buddy-filter-row label::before {
+    width: 42px !important;
+    height: 42px !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  html body[data-page="home"] .game-finder-section #finder-container .buddy-reference-grid .finder-audience-stage .buddy-choice-panel > .buddy-filter-row {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 26px 30px !important;
+    width: min(100%, 1120px) !important;
+    max-width: 1120px !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    border: 0 !important;
+  }
+
+  html body[data-page="home"] .game-finder-section #finder-container,
+  html body[data-page="home"] .game-finder-section #finder-container .buddy-reference-grid,
+  html body[data-page="home"] .game-finder-section #finder-container .finder-audience-stage.buddy-start-shell,
+  html body[data-page="home"] .game-finder-section #finder-container .buddy-choice-panel {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+  }
+
+  html body[data-page="home"] .game-finder-section > .container > .buddy-reference-hero {
+    position: relative !important;
+    display: block !important;
+    min-height: 326px !important;
+    margin: 0 0 18px !important;
+    padding: 0 !important;
+  }
+
+  html body[data-page="home"] .game-finder-section > .container > #finder-container {
+    position: relative !important;
+    z-index: 8 !important;
+    margin-top: 0 !important;
+    clear: both !important;
+  }
+
+  html body[data-page="home"] .game-finder-section #finder-container .buddy-reference-grid .finder-audience-stage .buddy-choice-panel > .buddy-filter-row label {
+    position: relative !important;
+    display: grid !important;
+    grid-template-columns: 74px minmax(0, 1fr) 30px !important;
+    grid-template-rows: auto auto !important;
+    column-gap: 18px !important;
+    align-items: center !important;
+    min-height: 126px !important;
+    padding: 22px 26px !important;
+    border: 1.5px solid rgba(226,165,39,0.72) !important;
+    border-radius: 17px !important;
+    background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015)) !important;
+    color: #fff !important;
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif !important;
+    font-size: 1.55rem !important;
+    font-weight: 800 !important;
+    line-height: 1.08 !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.06) !important;
+  }
+
+  html body[data-page="home"] .game-finder-section #finder-container .buddy-reference-grid .finder-audience-stage .buddy-choice-panel > .buddy-filter-row label::before {
+    width: 52px !important;
+    height: 52px !important;
+  }
+
+  html body[data-page="home"] .game-finder-section #finder-container .buddy-reference-grid .finder-audience-stage .buddy-choice-panel > .buddy-filter-row select {
+    min-height: 34px !important;
+    padding: 0 !important;
+    background: transparent !important;
+    color: rgba(255,255,255,0.76) !important;
+    font-size: 1.22rem !important;
+    font-weight: 500 !important;
+    appearance: none !important;
+  }
+
+  html body[data-page="home"] .game-finder-section #finder-container .buddy-reference-grid .finder-audience-stage .buddy-choice-panel > .buddy-filter-row .buddy-find-btn {
+    grid-column: 1 / -1 !important;
+    position: relative !important;
+    z-index: 3 !important;
+    min-height: 96px !important;
+    margin-top: 6px !important;
+    font-size: clamp(1.45rem, 1.85vw, 1.85rem) !important;
+  }
+
+  html body[data-page="home"] .game-finder-section #finder-container > .buddy-benefit-rail {
+    position: relative !important;
+    inset: auto !important;
+    z-index: 2 !important;
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    width: min(100%, 1120px) !important;
+    max-width: 1120px !important;
+    margin: 42px auto 0 !important;
+    padding: 30px 0 0 !important;
+    border-top: 1px solid rgba(255,255,255,0.28) !important;
+    background: transparent !important;
+    transform: translateY(64px) !important;
+    font-size: 1.12rem !important;
+  }
+
+  html body[data-page="home"] .game-finder-section #finder-container > .buddy-benefit-rail span {
+    min-width: 0 !important;
+    padding: 0 28px !important;
+    color: rgba(255,255,255,0.82) !important;
+    line-height: 1.28 !important;
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+    text-wrap: balance !important;
+  }
+
+  html body[data-page="home"] .game-finder-section #finder-container > .buddy-benefit-rail span::before {
+    width: 54px !important;
+    height: 54px !important;
+  }
+}
+
+/* Final compact desktop Buddy override. Loaded after every desktop Buddy lock above. */
+@media (min-width: 1024px) {
+  html body[data-page="home"] .game-finder-section {
+    padding: 32px 0 38px !important;
+  }
+
+  html body[data-page="home"] .game-finder-section > .container {
+    width: min(calc(100% - 72px), 1180px) !important;
+    max-width: 1180px !important;
+    min-height: 0 !important;
+    padding: 34px 38px 44px !important;
+    border-radius: 24px !important;
+  }
+
+  html body[data-page="home"] .game-finder-section > .container::before {
+    left: -54px !important;
+    top: 24px !important;
+    width: 310px !important;
+    height: 310px !important;
+  }
+
+  html body[data-page="home"] .game-finder-section > .container > .buddy-reference-hero,
+  html body[data-page="home"] .buddy-reference-hero {
+    min-height: 190px !important;
+    margin: 0 0 16px !important;
+  }
+
+  html body[data-page="home"] .buddy-reference-intro {
+    left: 12px !important;
+    top: 18px !important;
+    width: min(214px, 20vw) !important;
+  }
+
+  html body[data-page="home"] .buddy-reference-mascot {
+    max-height: 250px !important;
+    filter: drop-shadow(0 18px 24px rgba(0,0,0,0.42)) !important;
+  }
+
+  html body[data-page="home"] .buddy-reference-title {
+    width: min(690px, calc(100% - 280px)) !important;
+    max-width: 690px !important;
+  }
+
+  html body[data-page="home"] .buddy-reference-title .finder-badge {
+    min-width: 0 !important;
+    min-height: 42px !important;
+    margin: 0 0 16px !important;
+    padding: 0 22px !important;
+    font-size: 1rem !important;
+  }
+
+  html body[data-page="home"] .buddy-reference-title .finder-title {
+    max-width: 640px !important;
+    font-size: clamp(2.05rem, 3vw, 3.2rem) !important;
+    line-height: 1.02 !important;
+  }
+
+  html body[data-page="home"] .buddy-reference-title .finder-subtitle {
+    max-width: 560px !important;
+    margin-top: 14px !important;
+    font-size: clamp(0.92rem, 1.05vw, 1.08rem) !important;
+    line-height: 1.42 !important;
+  }
+
+  html body[data-page="home"] .game-finder-section #finder-container .buddy-reference-grid .finder-audience-stage .buddy-choice-panel > .buddy-filter-row,
+  html body[data-page="home"] .buddy-filter-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 14px !important;
+    width: min(100%, 1040px) !important;
+    max-width: 1040px !important;
+  }
+
+  html body[data-page="home"] .game-finder-section #finder-container .buddy-reference-grid .finder-audience-stage .buddy-choice-panel > .buddy-filter-row label,
+  html body[data-page="home"] .buddy-filter-row label {
+    grid-template-columns: 42px minmax(0, 1fr) 18px !important;
+    column-gap: 12px !important;
+    min-height: 78px !important;
+    padding: 14px 16px !important;
+    border-radius: 14px !important;
+    font-size: 1.02rem !important;
+  }
+
+  html body[data-page="home"] .game-finder-section #finder-container .buddy-reference-grid .finder-audience-stage .buddy-choice-panel > .buddy-filter-row label::before,
+  html body[data-page="home"] .buddy-filter-row label::before {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  html body[data-page="home"] .buddy-filter-row label::after {
+    width: 12px !important;
+    height: 12px !important;
+    border-right-width: 3px !important;
+    border-bottom-width: 3px !important;
+  }
+
+  html body[data-page="home"] .game-finder-section #finder-container .buddy-reference-grid .finder-audience-stage .buddy-choice-panel > .buddy-filter-row select,
+  html body[data-page="home"] .buddy-filter-row select {
+    min-height: 26px !important;
+    font-size: 0.86rem !important;
+  }
+
+  html body[data-page="home"] .game-finder-section #finder-container .buddy-reference-grid .finder-audience-stage .buddy-choice-panel > .buddy-filter-row .buddy-find-btn,
+  html body[data-page="home"] .buddy-find-btn {
+    min-height: 58px !important;
+    margin-top: 2px !important;
+    border-radius: 16px !important;
+    font-size: clamp(1rem, 1.25vw, 1.18rem) !important;
+  }
+
+  html body[data-page="home"] .game-finder-section #finder-container > .buddy-benefit-rail,
+  html body[data-page="home"] .buddy-benefit-rail {
+    width: min(100%, 1040px) !important;
+    max-width: 1040px !important;
+    margin: 24px auto 0 !important;
+    padding-top: 18px !important;
+    transform: none !important;
+    font-size: 0.82rem !important;
+  }
+
+  html body[data-page="home"] .game-finder-section #finder-container > .buddy-benefit-rail span,
+  html body[data-page="home"] .buddy-benefit-rail span {
+    min-height: 72px !important;
+    gap: 8px !important;
+    padding: 0 18px !important;
+  }
+
+  html body[data-page="home"] .game-finder-section #finder-container > .buddy-benefit-rail span::before,
+  html body[data-page="home"] .buddy-benefit-rail span::before {
+    width: 30px !important;
+    height: 30px !important;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1220px) {
+  html body[data-page="home"] .buddy-reference-intro {
+    width: 170px !important;
+  }
+
+  html body[data-page="home"] .buddy-reference-title {
+    width: min(650px, calc(100% - 210px)) !important;
+  }
+}
+
+/* Homepage reference pass: compact trust strip, tight sections, and attached-style Buddy card. */
+@media (min-width: 1024px) {
+  html body[data-page="home"] .hero-section {
+    margin-bottom: 0 !important;
+  }
+
+  html body[data-page="home"] .trust-strip {
+    margin: 0 !important;
+    padding: 10px 0 8px !important;
+    background: #fbfbfa !important;
+  }
+
+  html body[data-page="home"] .trust-strip .container,
+  html body[data-page="home"] .categories-section .container,
+  html body[data-page="home"] .game-finder-section > .container,
+  html body[data-page="home"] .home-products-band .container,
+  html body[data-page="home"] .featured-banners-section .container {
+    width: min(calc(100% - 96px), 1280px) !important;
+  }
+
+  html body[data-page="home"] .trust-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 0 !important;
+    min-height: 72px !important;
+    padding: 10px 18px !important;
+    border: 1px solid #ece8df !important;
+    border-radius: 14px !important;
+    background: #ffffff !important;
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06) !important;
+  }
+
+  html body[data-page="home"] .trust-item {
+    display: grid !important;
+    grid-template-columns: 48px minmax(0, 1fr) !important;
+    align-items: center !important;
+    gap: 11px !important;
+    min-height: 52px !important;
+    padding: 0 20px !important;
+    border-right: 1px solid #e4dfd2 !important;
+  }
+
+  html body[data-page="home"] .trust-item:first-child {
+    padding-left: 4px !important;
+  }
+
+  html body[data-page="home"] .trust-item:last-child {
+    border-right: 0 !important;
+    padding-right: 4px !important;
+  }
+
+  html body[data-page="home"] .trust-icon {
+    width: 42px !important;
+    height: 42px !important;
+    border-radius: 0 !important;
+    background-color: transparent !important;
+    background-position: center !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    box-shadow: none !important;
+  }
+
+  html body[data-page="home"] .trust-icon-delivery {
+    background-image: url("images/mega-menu-icons/delivery-truck.webp") !important;
+  }
+
+  html body[data-page="home"] .trust-icon-authentic {
+    background-image: url("images/mega-menu-icons/authentic-shield.webp") !important;
+  }
+
+  html body[data-page="home"] .trust-icon-whatsapp {
+    background-image: url("images/branding/whatsapp.png") !important;
+  }
+
+  html body[data-page="home"] .trust-icon-gift {
+    background-image: url("images/mega-menu-icons/gift-ready.webp") !important;
+  }
+
+  html body[data-page="home"] .trust-title {
+    margin: 0 0 2px !important;
+    color: #111827 !important;
+    font-size: 0.84rem !important;
+    line-height: 1.15 !important;
+    font-weight: 900 !important;
+  }
+
+  html body[data-page="home"] .trust-sub {
+    max-width: 168px !important;
+    color: #4b5563 !important;
+    font-size: 0.7rem !important;
+    line-height: 1.22 !important;
+    font-weight: 500 !important;
+  }
+
+  html body[data-page="home"] .categories-section {
+    padding: 12px 0 14px !important;
+    background: #fbfbfa !important;
+  }
+
+  html body[data-page="home"] .categories-section .section-header {
+    min-height: 28px !important;
+    margin-bottom: 12px !important;
+  }
+
+  html body[data-page="home"] .categories-grid {
+    gap: 14px !important;
+  }
+
+  html body[data-page="home"] .cat-card-group {
+    min-height: 154px !important;
+    padding: 18px 10px 14px !important;
+    border-radius: 14px !important;
+  }
+
+  html body[data-page="home"] .cat-card-group .cat-icon,
+  html body[data-page="home"] .category-card-icon,
+  html body[data-page="home"] .cat-icon {
+    width: 72px !important;
+    height: 72px !important;
+    margin-bottom: 8px !important;
+  }
+
+  html body[data-page="home"] .game-finder-section {
+    margin: 0 !important;
+    padding: 0 0 14px !important;
+    background: #fbfbfa !important;
+  }
+
+  html body[data-page="home"] .game-finder-section > .container {
+    position: relative !important;
+    display: block !important;
+    min-height: 218px !important;
+    max-height: 230px !important;
+    margin-inline: auto !important;
+    padding: 20px 20px 20px 24px !important;
+    border: 1px solid rgba(230, 168, 36, 0.55) !important;
+    border-radius: 14px !important;
+    background:
+      radial-gradient(circle at 16% 50%, rgba(230, 168, 36, 0.18), transparent 30%),
+      linear-gradient(135deg, #141515 0%, #080909 72%, #111214 100%) !important;
+    box-shadow: 0 18px 42px rgba(15, 23, 42, 0.18) !important;
+    color: #ffffff !important;
+    overflow: hidden !important;
+  }
+
+  html body[data-page="home"] .game-finder-section > .container::before,
+  html body[data-page="home"] .game-finder-section > .container::after {
+    display: none !important;
+  }
+
+  html body[data-page="home"] .game-finder-section > .container > .buddy-reference-hero,
+  html body[data-page="home"] .buddy-reference-hero {
+    display: block !important;
+    position: static !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  html body[data-page="home"] .buddy-reference-intro {
+    position: absolute !important;
+    left: 26px !important;
+    bottom: 0 !important;
+    z-index: 2 !important;
+    display: block !important;
+    width: 210px !important;
+    pointer-events: none !important;
+  }
+
+  html body[data-page="home"] .buddy-reference-intro::before,
+  html body[data-page="home"] .buddy-reference-intro::after,
+  html body[data-page="home"] .buddy-reference-bubble,
+  html body[data-page="home"] .buddy-reference-ai-card,
+  html body[data-page="home"] .buddy-reference-stepper,
+  html body[data-page="home"] .buddy-reference-side,
+  html body[data-page="home"] .buddy-picks-panel,
+  html body[data-page="home"] .buddy-panel-heading,
+  html body[data-page="home"] .finder-audience-options,
+  html body[data-page="home"] .finder-audience-stage .buddy-choice-panel > .finder-question,
+  html body[data-page="home"] .game-finder-section #finder-container > .buddy-benefit-rail {
+    display: none !important;
+  }
+
+  html body[data-page="home"] .buddy-reference-mascot {
+    display: block !important;
+    width: 208px !important;
+    height: 204px !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    object-position: bottom left !important;
+    filter: drop-shadow(0 18px 22px rgba(0, 0, 0, 0.42)) !important;
+  }
+
+  html body[data-page="home"] .buddy-reference-title {
+    position: absolute !important;
+    left: 246px !important;
+    top: 38px !important;
+    z-index: 3 !important;
+    display: grid !important;
+    align-content: center !important;
+    justify-items: start !important;
+    width: 300px !important;
+    max-width: 300px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: #ffffff !important;
+    text-align: left !important;
+  }
+
+  html body[data-page="home"] .buddy-reference-title .finder-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    margin: 0 0 8px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    color: #ffc229 !important;
+    box-shadow: none !important;
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif !important;
+    font-size: 0.72rem !important;
+    font-weight: 900 !important;
+    letter-spacing: 0.04em !important;
+    text-transform: uppercase !important;
+  }
+
+  html body[data-page="home"] .buddy-reference-title .finder-badge::after {
+    content: "+" !important;
+    margin-left: 7px !important;
+    color: #ffc229 !important;
+    font-size: 1rem !important;
+  }
+
+  html body[data-page="home"] .buddy-reference-title .finder-title {
+    width: auto !important;
+    max-width: 300px !important;
+    margin: 0 !important;
+    color: #ffffff !important;
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif !important;
+    font-size: clamp(1.18rem, 1.42vw, 1.48rem) !important;
+    font-weight: 900 !important;
+    line-height: 1.16 !important;
+    letter-spacing: 0 !important;
+    text-align: left !important;
+    text-shadow: none !important;
+  }
+
+  html body[data-page="home"] .buddy-reference-title .finder-title span,
+  html body[data-page="home"] .buddy-reference-title .finder-title em {
+    display: none !important;
+  }
+
+  html body[data-page="home"] .buddy-reference-title .finder-subtitle,
+  html body[data-page="home"] .buddy-reference-title small {
+    display: block !important;
+    margin: 10px 0 0 !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: 0.76rem !important;
+    line-height: 1.45 !important;
+    font-weight: 700 !important;
+  }
+
+  html body[data-page="home"] .buddy-reference-title .finder-subtitle::before,
+  html body[data-page="home"] .buddy-reference-title small::before {
+    content: "+" !important;
+    display: inline-grid !important;
+    place-items: center !important;
+    width: 14px !important;
+    height: 14px !important;
+    margin-right: 8px !important;
+    color: #ffc229 !important;
+  }
+
+  html body[data-page="home"] .buddy-reference-title small {
+    white-space: pre-line !important;
+    font-size: 0 !important;
+  }
+
+  html body[data-page="home"] .buddy-reference-title small::after {
+    content: "Saves you time\a+  200+ games to choose from" !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: 0.76rem !important;
+    line-height: 1.55 !important;
+  }
+
+  html body[data-page="home"] #finder-container {
+    position: absolute !important;
+    right: 20px !important;
+    top: 36px !important;
+    z-index: 4 !important;
+    display: block !important;
+    width: 620px !important;
+    max-width: 620px !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+  }
+
+  html body[data-page="home"] #finder-container .buddy-reference-grid,
+  html body[data-page="home"] #finder-container .finder-audience-stage.buddy-start-shell,
+  html body[data-page="home"] #finder-container .buddy-choice-panel {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  html body[data-page="home"] #finder-container .buddy-filter-row,
+  html body[data-page="home"] .game-finder-section #finder-container .buddy-reference-grid .finder-audience-stage .buddy-choice-panel > .buddy-filter-row {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 12px 12px !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  html body[data-page="home"] #finder-container .buddy-filter-row label,
+  html body[data-page="home"] .game-finder-section #finder-container .buddy-reference-grid .finder-audience-stage .buddy-choice-panel > .buddy-filter-row label {
+    position: relative !important;
+    display: grid !important;
+    grid-template-columns: 28px minmax(0, 1fr) 12px !important;
+    grid-template-rows: auto auto !important;
+    column-gap: 10px !important;
+    align-items: center !important;
+    min-height: 60px !important;
+    padding: 10px 12px !important;
+    border: 1px solid rgba(255, 194, 41, 0.54) !important;
+    border-radius: 8px !important;
+    background: rgba(255, 255, 255, 0.025) !important;
+    color: #ffffff !important;
+    box-shadow: none !important;
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif !important;
+    font-size: 0.72rem !important;
+    font-weight: 850 !important;
+    line-height: 1.1 !important;
+  }
+
+  html body[data-page="home"] #finder-container .buddy-filter-row label::before {
+    grid-row: 1 / 3 !important;
+    width: 19px !important;
+    height: 19px !important;
+    background-color: #ffc229 !important;
+  }
+
+  html body[data-page="home"] #finder-container .buddy-filter-row label::after {
+    width: 8px !important;
+    height: 8px !important;
+    border-right: 2px solid #ffc229 !important;
+    border-bottom: 2px solid #ffc229 !important;
+  }
+
+  html body[data-page="home"] #finder-container .buddy-filter-row select {
+    grid-column: 2 !important;
+    min-height: 18px !important;
+    color: rgba(255, 255, 255, 0.68) !important;
+    background: transparent !important;
+    font-size: 0.68rem !important;
+    font-weight: 600 !important;
+    line-height: 1.15 !important;
+  }
+
+  html body[data-page="home"] #finder-container .buddy-find-btn,
+  html body[data-page="home"] .game-finder-section #finder-container .buddy-reference-grid .finder-audience-stage .buddy-choice-panel > .buddy-filter-row .buddy-find-btn {
+    grid-column: auto !important;
+    min-height: 60px !important;
+    margin: 0 !important;
+    padding: 0 18px !important;
+    border: 0 !important;
+    border-radius: 8px !important;
+    background: #ffc229 !important;
+    color: #080909 !important;
+    box-shadow: none !important;
+    font-size: 0.86rem !important;
+    font-weight: 950 !important;
+    letter-spacing: 0 !important;
+  }
+
+  html body[data-page="home"] .buddy-find-spark,
+  html body[data-page="home"] .buddy-find-arrow {
+    width: 15px !important;
+    height: 15px !important;
+    background-color: currentColor !important;
+  }
+
+  html body[data-page="home"] .home-products-band {
+    padding-top: 12px !important;
+  }
+
+  html body[data-page="home"] .featured-banners-section {
+    padding: 12px 0 !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* Final reference pass: hero proof row, Buddy band, and category cards. */
+  html body[data-page="home"] .hero-proof-row {
+    display: grid !important;
+    grid-template-columns: repeat(4, max-content) !important;
+    align-items: center !important;
+    gap: 22px !important;
+    margin: 24px 0 26px !important;
+    max-width: none !important;
+  }
+
+  html body[data-page="home"] .hero-proof-row span {
+    display: grid !important;
+    grid-template-columns: 40px max-content !important;
+    grid-template-rows: auto auto !important;
+    column-gap: 12px !important;
+    align-items: center !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  html body[data-page="home"] .hero-proof-row span::before {
+    display: none !important;
+    content: none !important;
+  }
+
+  html body[data-page="home"] .hero-proof-row span i {
+    grid-row: 1 / 3 !important;
+    display: grid !important;
+    place-items: center !important;
+    width: 40px !important;
+    height: 40px !important;
+    border: 1.5px solid rgba(255, 194, 41, 0.88) !important;
+    border-radius: 11px !important;
+    background-color: rgba(8, 9, 9, 0.45) !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: 24px 24px !important;
+    box-shadow: 0 0 18px rgba(255, 194, 41, 0.14) !important;
+  }
+
+  html body[data-page="home"] .hero-proof-row .hero-proof-games i {
+    background-image: url("images/home-hero-icons/games.svg") !important;
+  }
+
+  html body[data-page="home"] .hero-proof-row .hero-proof-delivery i {
+    background-image: url("images/home-hero-icons/delivery.svg") !important;
+  }
+
+  html body[data-page="home"] .hero-proof-row .hero-proof-families i {
+    background-image: url("images/home-hero-icons/families.svg") !important;
+  }
+
+  html body[data-page="home"] .hero-proof-row .hero-proof-secure i {
+    background-image: url("images/home-hero-icons/secure.svg") !important;
+  }
+
+  html body[data-page="home"] .hero-proof-row span b {
+    display: block !important;
+    color: #ffffff !important;
+    font-size: 0.88rem !important;
+    font-weight: 900 !important;
+    line-height: 1.15 !important;
+    letter-spacing: 0 !important;
+  }
+
+  html body[data-page="home"] .hero-proof-row span small {
+    display: block !important;
+    color: rgba(255, 255, 255, 0.88) !important;
+    font-size: 0.78rem !important;
+    font-weight: 600 !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+  }
+
+  html body[data-page="home"] .categories-section .container {
+    padding-top: 0 !important;
+  }
+
+  html body[data-page="home"] .categories-grid {
+    gap: 14px !important;
+  }
+
+  html body[data-page="home"] .cat-card-link,
+  html body[data-page="home"] .cat-card-group,
+  html body[data-page="home"] .home-category-card {
+    position: relative !important;
+    min-height: 150px !important;
+    border: 1px solid rgba(219, 225, 235, 0.96) !important;
+    border-radius: 14px !important;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(250, 252, 255, 0.95)) !important;
+    box-shadow:
+      0 10px 28px rgba(15, 23, 42, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
+    transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, background 180ms ease !important;
+    overflow: hidden !important;
+  }
+
+  html body[data-page="home"] .cat-card-link::after,
+  html body[data-page="home"] .home-category-card::after {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    pointer-events: none !important;
+    border-radius: inherit !important;
+    opacity: 0 !important;
+    box-shadow: inset 0 0 0 1px rgba(255, 194, 41, 0.58) !important;
+    transition: opacity 180ms ease !important;
+  }
+
+  html body[data-page="home"] .cat-card-link:hover,
+  html body[data-page="home"] .cat-card-link:focus-visible,
+  html body[data-page="home"] .home-category-card:hover,
+  html body[data-page="home"] .home-category-card:focus-visible {
+    transform: translateY(-4px) !important;
+    border-color: rgba(255, 194, 41, 0.72) !important;
+    background:
+      linear-gradient(180deg, #ffffff, #fffdf5) !important;
+    box-shadow:
+      0 18px 34px rgba(15, 23, 42, 0.12),
+      0 0 0 1px rgba(255, 194, 41, 0.26),
+      0 0 28px rgba(255, 194, 41, 0.28) !important;
+  }
+
+  html body[data-page="home"] .cat-card-link:hover::after,
+  html body[data-page="home"] .cat-card-link:focus-visible::after,
+  html body[data-page="home"] .home-category-card:hover::after,
+  html body[data-page="home"] .home-category-card:focus-visible::after {
+    opacity: 1 !important;
+  }
+
+  html body[data-page="home"] .game-finder-section {
+    padding: 0 0 12px !important;
+  }
+
+  html body[data-page="home"] .game-finder-section > .container {
+    min-height: 236px !important;
+    max-height: 236px !important;
+    padding: 18px 18px 18px 22px !important;
+    border: 1px solid rgba(255, 194, 41, 0.46) !important;
+    border-radius: 14px !important;
+    background:
+      radial-gradient(circle at 12% 55%, rgba(255, 194, 41, 0.16), transparent 22%),
+      linear-gradient(105deg, #161716 0%, #090a0a 45%, #0a0b0b 100%) !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+  }
+
+  html body[data-page="home"] .buddy-reference-intro {
+    left: 20px !important;
+    width: 222px !important;
+  }
+
+  html body[data-page="home"] .buddy-reference-mascot {
+    width: 220px !important;
+    height: 220px !important;
+  }
+
+  html body[data-page="home"] .buddy-reference-title {
+    left: 246px !important;
+    top: 30px !important;
+    width: 292px !important;
+    max-width: 292px !important;
+  }
+
+  html body[data-page="home"] .buddy-reference-title .finder-badge {
+    margin-bottom: 9px !important;
+    color: #ffd23d !important;
+    font-size: 0.74rem !important;
+  }
+
+  html body[data-page="home"] .buddy-reference-title .finder-badge::after {
+    content: "\2726" !important;
+    margin-left: 8px !important;
+    font-size: 0.82rem !important;
+  }
+
+  html body[data-page="home"] .buddy-reference-title .finder-title {
+    max-width: 292px !important;
+    font-size: 1.44rem !important;
+    line-height: 1.08 !important;
+  }
+
+  html body[data-page="home"] .buddy-reference-title .finder-subtitle,
+  html body[data-page="home"] .buddy-reference-title small::after {
+    font-size: 0.72rem !important;
+    line-height: 1.38 !important;
+  }
+
+  html body[data-page="home"] .buddy-reference-title .finder-subtitle {
+    margin-top: 8px !important;
+  }
+
+  html body[data-page="home"] .buddy-reference-title small {
+    margin-top: 7px !important;
+  }
+
+  html body[data-page="home"] #finder-container {
+    right: 20px !important;
+    top: 45px !important;
+    width: 610px !important;
+    max-width: 610px !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  html body[data-page="home"] #finder-container .buddy-reference-grid,
+  html body[data-page="home"] #finder-container .finder-audience-stage.buddy-start-shell,
+  html body[data-page="home"] #finder-container .buddy-choice-panel,
+  html body[data-page="home"] #finder-container .buddy-filter-row {
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    outline: 0 !important;
+  }
+
+  html body[data-page="home"] .cat-card-link .cat-label,
+  html body[data-page="home"] .home-category-card .cat-label {
+    max-width: 110px !important;
+    min-height: 2.15em !important;
+    font-size: 0.88rem !important;
+    line-height: 1.08 !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    hyphens: none !important;
+  }
+
+  html body[data-page="home"] #finder-container .buddy-filter-row,
+  html body[data-page="home"] .game-finder-section #finder-container .buddy-reference-grid .finder-audience-stage .buddy-choice-panel > .buddy-filter-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+  }
+
+  html body[data-page="home"] #finder-container .buddy-filter-row label,
+  html body[data-page="home"] .game-finder-section #finder-container .buddy-reference-grid .finder-audience-stage .buddy-choice-panel > .buddy-filter-row label,
+  html body[data-page="home"] #finder-container .buddy-find-btn,
+  html body[data-page="home"] .game-finder-section #finder-container .buddy-reference-grid .finder-audience-stage .buddy-choice-panel > .buddy-filter-row .buddy-find-btn {
+    min-height: 58px !important;
+    border-radius: 8px !important;
+    background: #ffc229 !important;
+    color: #070808 !important;
+    font-size: 0.86rem !important;
+    font-weight: 950 !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+    box-shadow: none !important;
+  }
+
+  html body[data-page="home"] #finder-container .buddy-find-btn::after {
+    content: "\2726" !important;
+    margin-left: 8px !important;
+    font-size: 0.82rem !important;
+  }
+
+  html body[data-page="home"] #finder-container .buddy-find-spark,
+  html body[data-page="home"] #finder-container .buddy-find-arrow {
+    display: none !important;
+  }
+
+  html body[data-page="home"] #finder-container::before,
+  html body[data-page="home"] #finder-container::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  html body[data-page="home"] #finder-container .buddy-filter-row::before,
+  html body[data-page="home"] #finder-container .buddy-filter-row::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  html body[data-page="home"] #finder-container .buddy-filter-row label,
+  html body[data-page="home"] #finder-container .buddy-filter-row .buddy-find-btn {
+    outline: 0 !important;
+  }
+
+  html body[data-page="home"] #finder-container .buddy-filter-row > :nth-child(1),
+  html body[data-page="home"] #finder-container .buddy-filter-row > :nth-child(4) {
+    border-left: 1px solid rgba(255, 194, 41, 0.54) !important;
+  }
+
+  html body[data-page="home"] #finder-container .buddy-filter-row > :nth-child(3),
+  html body[data-page="home"] #finder-container .buddy-filter-row > :nth-child(6) {
+    border-right: 1px solid rgba(255, 194, 41, 0.54) !important;
+  }
+
+  html body[data-page="home"] #finder-container .buddy-filter-row label,
+  html body[data-page="home"] .game-finder-section #finder-container .buddy-reference-grid .finder-audience-stage .buddy-choice-panel > .buddy-filter-row label {
+    display: grid !important;
+    grid-template-columns: 28px minmax(0, 1fr) 12px !important;
+    grid-template-rows: auto auto !important;
+    column-gap: 10px !important;
+    align-items: center !important;
+    min-height: 58px !important;
+    padding: 10px 12px !important;
+    border: 1px solid rgba(255, 194, 41, 0.54) !important;
+    border-radius: 8px !important;
+    background: rgba(255, 255, 255, 0.025) !important;
+    color: #ffffff !important;
+    box-shadow: none !important;
+    font-size: 0.68rem !important;
+    font-weight: 850 !important;
+    line-height: 1.1 !important;
+    text-align: left !important;
+  }
+
+  html body[data-page="home"] #finder-container .buddy-filter-row label::before {
+    grid-row: 1 / 3 !important;
+    width: 19px !important;
+    height: 19px !important;
+    background-color: #ffc229 !important;
+  }
+
+  html body[data-page="home"] #finder-container .buddy-filter-row label::after {
+    width: 8px !important;
+    height: 8px !important;
+    border-right: 2px solid #ffc229 !important;
+    border-bottom: 2px solid #ffc229 !important;
+  }
+
+  html body[data-page="home"] #finder-container .buddy-filter-row select {
+    grid-column: 2 !important;
+    min-height: 18px !important;
+    color: rgba(255, 255, 255, 0.68) !important;
+    background: transparent !important;
+    font-size: 0.66rem !important;
+    font-weight: 600 !important;
+    line-height: 1.15 !important;
+  }
+
+  html body[data-page="home"] .buddy-reference-title .finder-title {
+    font-size: 1.34rem !important;
+    line-height: 1.08 !important;
+  }
+
+  html body[data-page="home"] .buddy-reference-title .finder-subtitle,
+  html body[data-page="home"] .buddy-reference-title small::after {
+    font-size: 0.68rem !important;
+    line-height: 1.34 !important;
+  }
+}
+
+/* Backup typography match: Fredoka display titles, Plus Jakarta body text. */
+html body {
+  font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif !important;
+}
+
+html body h1,
+html body h2,
+html body h3,
+html body h4,
+html body h5,
+html body h6,
+html body .hero-title,
+html body .page-header-title,
+html body .section-header h2,
+html body .finder-title,
+html body .featured-banner-title,
+html body .modal-title,
+html body .cart-header-title,
+html body .cart-empty-title,
+html body .empty-state-title,
+html body .contact-info-title,
+html body .footer-heading {
+  font-family: "Fredoka", "Plus Jakarta Sans", system-ui, sans-serif !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.2 !important;
+  text-transform: none !important;
+}
+
+html body .hero-title {
+  font-size: clamp(2rem, 6vw, 3.5rem) !important;
+}
+
+html body .section-header h2 {
+  font-size: clamp(1.4rem, 3vw, 2rem) !important;
+}
+
+html body .page-header-title {
+  font-size: clamp(2rem, 5vw, 3.25rem) !important;
+}
+
+html body .finder-title {
+  font-size: 1.875rem !important;
+}
+
+html body .featured-banner-title {
+  font-size: 1.25rem !important;
+}
