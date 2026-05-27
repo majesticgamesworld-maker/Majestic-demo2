@@ -1,0 +1,38 @@
+/* Mobile Search Icon Fix - Hide duplicate search button on mobile */
+
+@media (max-width: 767px) {
+  /* Hide the desktop search box on mobile */
+  .search-box {
+    display: none !important;
+  }
+
+  /* Ensure mobile search button is visible */
+  .mobile-header-search {
+    display: inline-flex !important;
+  }
+
+  /* Hide header-actions on mobile to prevent desktop search display */
+  .header-actions {
+    display: none !important;
+  }
+
+  /* Show only mobile header controls */
+  .mobile-header-controls {
+    display: flex !important;
+  }
+}
+
+@media (min-width: 768px) {
+  /* On desktop, hide mobile controls and show search box */
+  .mobile-header-controls {
+    display: none !important;
+  }
+
+  .search-box {
+    display: flex !important;
+  }
+
+  .header-actions {
+    display: flex !important;
+  }
+}
