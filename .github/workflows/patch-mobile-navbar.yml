@@ -1,0 +1,59 @@
+name: Patch duplicate mobile navbar
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  patch-mobile-navbar:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Hide duplicate mobile header controls
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+
+          path = Path('responsive-mobile-audit.css')
+          css = path.read_text(encoding='utf-8')
+          marker = '/* Hide duplicate legacy mobile header controls */'
+          block = '''
+
+/* Hide duplicate legacy mobile header controls */
+@media (max-width: 767px) {
+  body[data-page] .site-header .mobile-header-controls,
+  body[data-page] .site-header.navbar .mobile-header-controls,
+  body[data-page="home"] .site-header .mobile-header-controls,
+  body[data-page="home"] .site-header.navbar .mobile-header-controls {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+  }
+}
+'''
+          if marker not in css:
+              path.write_text(css.rstrip() + block, encoding='utf-8')
+          PY
+
+      - name: Commit navbar fix
+        run: |
+          if git diff --quiet; then
+            echo "No navbar patch needed."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add responsive-mobile-audit.css
+          git commit -m "Hide duplicate mobile navbar control"
+          git push
