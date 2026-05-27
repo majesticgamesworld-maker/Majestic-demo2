@@ -1,0 +1,92 @@
+/* Mobile Navbar Cleanup - Hide all duplicate/redundant navbar elements on mobile */
+
+@media (max-width: 767px) {
+  /* Hide ALL desktop navigation elements */
+  .desktop-nav {
+    display: none !important;
+  }
+
+  /* Hide header actions (contains desktop search, account button, cart, order links, hamburger) */
+  .header-actions {
+    display: none !important;
+  }
+
+  /* Hide desktop nav icons */
+  .nav-icons {
+    display: none !important;
+  }
+
+  /* Hide header order link */
+  .header-order-link {
+    display: none !important;
+  }
+
+  /* Hide account button */
+  .account-btn {
+    display: none !important;
+  }
+
+  /* Hide desktop cart button */
+  .cart-btn {
+    display: none !important;
+  }
+
+  /* Hide hamburger button that's in header-actions */
+  .header-actions .hamburger-btn {
+    display: none !important;
+  }
+
+  /* Show ONLY mobile header controls */
+  .mobile-header-controls {
+    display: flex !important;
+    gap: 8px !important;
+    align-items: center !important;
+  }
+
+  /* Ensure mobile buttons are visible and properly sized */
+  .mobile-header-control {
+    display: inline-flex !important;
+    width: 46px !important;
+    height: 46px !important;
+    min-width: 46px !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* Logo should take up remaining space */
+  .logo-link {
+    flex: 1 1 auto !important;
+  }
+
+  /* Header layout for mobile */
+  .header-inner {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 8px !important;
+    padding: 8px 0 !important;
+  }
+}
+
+/* Desktop breakpoint - show desktop elements */
+@media (min-width: 768px) {
+  /* Hide mobile controls on desktop */
+  .mobile-header-controls {
+    display: none !important;
+  }
+
+  /* Show desktop navigation */
+  .desktop-nav {
+    display: flex !important;
+  }
+
+  /* Show header actions */
+  .header-actions {
+    display: flex !important;
+  }
+
+  /* Hide hamburger button that's in header-actions on desktop */
+  .header-actions .hamburger-btn {
+    display: none !important;
+  }
+}
